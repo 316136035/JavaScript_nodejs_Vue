@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>A02_父子关系的非单文件组件template</title>
+    <script src="../../../js/vue.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div>
+        <div>关于VueComponent:</div>
+        <div> 1.school组件本质是一个名为VueComponent的构造函数，且不是程序员定义的，是Vue.extend生成的。</div>
+        <div> 2.我们只需要写school 或<schoolx school>，Vue解析时会帮我们创建school组件的实例对象,即Vue帮我们执行的: new VueComponent(options)。</div>
+        <div> 3.特别注意: 每次调用Vue.extend，返回的都是一个全新的VueComponent!!!!</div><hr>
+        <div> 4.关于this指向:</div>
+        <div> (1).组件配置中:data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是[VueComponent实例对象]</div>
+        <div> (2).new Vue()比置中:data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是[Vue实例对象]</div><hr>
+        <div> 5.VueComponent的实例对象，以后简称vc (也可称之为: 组件实例对象)。</div>
+        <div> Vue的实例对象，以后简称vm。</div><hr>
+    </div>
+    <div id="root">
+        <app></app>
+    </div>
+    <script>
+        // 创建一个子类组件
+        const cat = Vue.extend({
+            //创建模板
+            template: "<div>  <div>{{this.cat.catname}}</div> </div>  ",
+            // 回调函数
+            data() { return { cat: { catname: "子类" } } },
+        })
+          // 创建一个父类组件
+        const user = Vue.extend({
+            // 创建模板和使用子类模板 <cat></cat>  
+            template: `<div> 
+                        <div>{{this.user.name}}</div> 
+                        <div>{{this.user.age}}</div> 
+                        <cat></cat>  
+                      </div> 
+                        `,
+        // 注册子类组件
+            components: {
+                cat: cat
+            },
+            // 回调函数
+            data() { return { user: { name: "父类", age: 19 } } },
+        })
+         // 创建普通组件
+        const addres = Vue.extend({
+            template: "<div>  <div>{{this.address.sheng}}</div>   <div>{{this.address.shi}}</div> </div>  ",
+            // 回调函数
+            data() { return { address: { sheng: "广东", shi: "广州" } } },
+        })
+          // 创建总处理组件 超类
+        const app = Vue.extend({
+              // 使用子类模板  <user></user><addres></addres>
+            template: `<div> 
+                        <user></user>
+                        <addres></addres>
+                          </div> 
+                        `,
+             // 注册子类组件           
+            components: {
+                user: user,
+                addres: addres,
+            }
+        })
+        const vm= new Vue({
+            el: "#root",
+            template: `<div> 
+                        <app></app>
+                          </div> 
+                        `,
+            components: {
+                app: app,
+
+            },
+
+
+        })
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

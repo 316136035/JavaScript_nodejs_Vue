@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>A03_列表过滤渲染watch</title>
+
+    <script type="text/javascript" src="../../../js/vue.js"></script>
+
+
+</head>
+
+<body>
+    <div id="root"> <br>
+        <div style="background-color:rgb(139, 90, 0)">对象有响应式的set/get方法 可以直接动态更新页面数据</div>
+        <div style="background-color:rgb(139, 90, 0)">数组没有响应式的set/get方法 (1.使用这些API:push()、pop()、shift()、unshift()、splice()、sort()、reverse()2.Vue.set() 或 vm.$set())</div>
+        <div style="background-color:rgb(139, 90, 0)">特别注意: Vue.set()  vm.$set() 不能给vm 或 vm的根数据对象 添加属性!!c</div>
+        <button @click="unshift">数组前面添加对象</button>
+        <button @click="push">数组后面添加对象</button>
+        <button @click="shift">数组前面删除对象</button>
+        <button @click="pop">数组前面删除对象</button>
+        <button @click="splice">替换对象</button>
+        <button @click="addSet">添加属性</button>
+        <table>
+            <!--表头 默认居中-->
+            <caption>人员管理</caption>
+            <tr>
+                <td>编号</td>
+                <td>名字</td>
+                <td>年龄</td>
+                <td>性别</td>
+
+            </tr>
+            <!-- v-for="(对象,索引) in 数组【】"
+				 ：key="XXXX" 调用的虚拟DOM对比算法 key的值要唯一（加了key效率高）-->
+            <tr v-for="(selected,i) in selecteds" :key="selected.id">
+                <td>{{++i}}</td>
+                <td>{{selected.id}}</td>
+                <td>{{selected.name}}</td>
+                <td>{{selected.set}}</td>
+
+        </table>
+
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#root",
+            data() {
+                return {
+
+                    selecteds: [{ id: "1", name: "中叙述" }, { id: "2", name: "周先生" }, { id: "3", name: "黄先生" }],
+
+
+                }
+            },
+
+            methods: {
+                unshift() {
+                    /* 响应式 动态更新页面数据 该方法可以在数组的最前面,添加一个或者几个元素*/
+                    this.selecteds.unshift({ id: "4", name: "添加对象" })
+
+                },
+                push() {
+                    /* 响应式 动态更新页面数据 该方法可以在数组的最后面,添加一个或者多个元素*/
+                    this.selecteds.push({ id: "5", name: "添加对象" })
+
+                },
+                shift() {
+                    /* 响应式 动态更新页面数据 该方法可以在数组的最前面,删除一个元素*/
+                    this.selecteds.shift()
+
+                },
+
+                pop() {
+                    /* 响应式 动态更新页面数据 该方法可以在数组的最后面,删除一个元素*/
+                    this.selecteds.pop()
+
+                },
+                splice() {
+                    /* 响应式 动态更新页面数据 该方法可以在数组的最后面,删除一个元素*/
+                    this.selecteds.splice(0, 1, { id: "99", name: "删除再添加" })
+
+                },
+
+
+
+
+                addSet() {
+                    /* 响应式 动态更新页面数据
+                    Vue.set（vue容器data中的实例，“参数名”，参数值 ） 只能作用于data中的实例中的参数 */
+                    // Vue.set(this.selecteds[0], 'set', "男")
+                    this.$set(this.selecteds[0], 'set', "男")
+
+
+                }
+
+
+            }
+
+
+        })
+    </script>
+
+</body>
+
+</html>

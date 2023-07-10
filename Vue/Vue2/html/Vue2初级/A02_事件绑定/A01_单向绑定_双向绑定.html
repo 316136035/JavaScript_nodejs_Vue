@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="../../../js/vue.js"></script>
+</head>
+
+<body>
+	<div id="app">
+	
+		<div>{{msg1}}</div>
+		<!-- 单向绑定 vue对象的数据只能自动更新页面数据 -->
+		<input type="text" v-bind:value="bind.name">
+		<span>{{bind.name}}</span> <br />
+		<div>{{msg2}}</div>
+		<!-- 双向绑定 (因为v-model默认收集的就是value值)自动更新页面和vue对象的数据-->
+		<input type="text" v-model:value="model.name">
+		<span>{{model.name}}</span>
+	</div>
+	
+	<script type="text/javascript">
+		// 创建vue视图模型实例
+		var vm = new Vue({
+			el: "#app", //选择器
+			// 函数式 回调函数（由Vue管理的函数，一定不要写箭头函数，一且写了箭头函数，this就不再是Vue实例了。）
+			data() {
+				return {
+					msg1: "单向绑定",
+					// 多级结构 （页面取值的时候使用schooel.xxx）
+					bind: {
+						name: "v-bind单向绑定元素输入框"
+					},
+					msg2: "双向绑定",
+					model: {
+						name: "v-bind双向绑定元素输入框"
+					}
+				}
+			}
+		})
+		//定时器
+		setTimeout(() => {
+			//挂载选择器
+			vm.$mount("#app")
+
+		}, 1000)
+		// 控制台日志（虚拟机）
+		console.log(vm)
+	</script>
+
+</body>
+
+</html>

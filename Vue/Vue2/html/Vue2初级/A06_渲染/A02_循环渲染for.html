@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>A01_条件渲染v-show_v-if_v-else-if_else</title>
+		<script type="text/javascript" src="../../../js/vue.js"></script>
+
+	</head>
+	<body>
+		<div id="root"> <br>
+		<div><button @click="click">添加</button></div>
+			<table>
+				<!--表头 默认居中-->
+				<caption>财务报表</caption>
+				<tr>
+					<td>编号</td>
+					<td>id</td>
+					<td>名字</td>
+					<td>年龄</td>
+					<td>索引</td>
+				</tr>
+				<!-- v-for="(对象,索引) in 数组【】"
+				 ：key="XXXX" 调用的虚拟DOM对比算法 key的值要唯一（加了key效率高）-->
+				<tr v-for="(preson,i) in presons" :key="preson.id">
+					<td>{{++i}}</td>
+					<td>{{preson.id}}</td>
+					<td>{{preson.name}}</td>
+					<td>{{preson.age}}</td>
+					<td>{{i}}</td>
+					<td> <input type="text"></label>
+					 <td><input type="checkbox" name="" id="man"></td>
+					</td>
+
+
+				</tr>
+			</table>
+
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el: "#root",
+				data() {
+					return {
+						presons: [{
+								id: "0",
+								name: "换先生",
+								age: "19"
+							},
+							{
+								id: "1",
+								name: "周先生",
+								age: "19"
+							},
+							{
+								id: "2",
+								name: "人先生",
+								age: "19"
+							},
+							{
+								id: "3",
+								name: "额先生",
+								age: "19"
+							},
+
+
+						]
+					}
+				},
+				methods: {
+					click() {
+						//数组前面添加一个对象
+					this.presons.unshift(	{
+								id: "4",
+								name: "人先生",
+								age: "19"
+							})
+						
+					}
+				},
+				
+
+
+
+			})
+		</script>
+
+	</body>
+</html>

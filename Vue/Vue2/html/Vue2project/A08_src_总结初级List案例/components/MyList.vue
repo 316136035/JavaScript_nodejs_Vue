@@ -1,0 +1,29 @@
+<template>
+  <ul>
+    <!--遍历data的数组  v-for="(item) in list"  :key="item.id"  
+        创建组件 定义属性/传入方法-->
+    <MyItem
+      v-for="item in list"
+      :key="item.id"
+      :item="item"
+      :mychange="mychange"
+      :deleteitem="deleteitem"
+    />
+  </ul>
+</template>
+
+<script>
+name: "MyList";
+import MyItem from "./MyItem.vue";
+export default {
+  name: "MyList",
+  components: {
+    MyItem: MyItem,
+  },
+  //声明接受父组件传来的属性/方法
+  props: ["list", "mychange","deleteitem"],
+};
+</script>
+
+<style>
+</style>

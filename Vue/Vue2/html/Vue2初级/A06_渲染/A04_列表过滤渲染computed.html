@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>A03_列表过滤渲染watch</title>
+
+	<script type="text/javascript" src="../../../js/vue.js"></script>
+
+
+</head>
+
+<body>
+	<div id="root"> <br>
+
+		<div><select @change="selectedpu($event)">
+				<option v-for="(selected,id) in selecteds" :selected="selected.id" :value=selected.id>
+					<!-- {{selected.name}} 		 -->
+					{{selected.selectednane}}
+				</option>
+			</select></div>
+
+		<div>{{selecteds}}</div>
+		<!-- v-model="textname"双向绑定 -->
+		<div><input type="text" placeholder="名字查询" v-model="textname"> </div>
+		<div>{{textname}}</div>
+		<table>
+			<!--表头 默认居中-->
+			<caption>财务报表</caption>
+			<tr>
+				<td>编号</td>
+				<td>sku</td>
+				<td>名字</td>
+				<td>价钱</td>
+				<td>企业价格</td>
+				<td>索引</td>
+			</tr>
+			<!-- v-for="(对象,索引) in 数组【】"
+				 ：key="XXXX" 调用的虚拟DOM对比算法 key的值要唯一（加了key效率高）-->
+			<tr v-for="(jd,i) in text" :key="jd.sku">
+				<td>{{++i}}</td>
+				<td>{{jd.sku}}</td>
+				<td>{{jd.name}}</td>
+				<td>{{jd.money}}</td>
+				<td>{{jd.enterprisemoney}}</td>
+			</tr>
+		</table>
+
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#root",
+			data() {
+				return {
+					textname: "",
+					textmoney: "",
+					selecteds: [{ selectednane: "升序", id: 1 }, { selectednane: "降序", id: 2 }, { selectednane: "默认", id: 0 }],
+					selected: 0,
+					jds: [{
+						sku: "100020468927",
+						name: "华为智选 优畅享50 Plus 5G全网通120Hz高刷",
+						money: 1.00,
+						enterprisemoney: 1000.00
+					},
+					{
+						sku: "100035295081",
+						name: "HUAWEI Mate 50 直屏旗舰 超光变XMAGE影像 ",
+						money: 2.00,
+						enterprisemoney: 1300.00
+					},
+					{
+						sku: "1862562",
+						name: "鲁花 食用油 低芥酸特香菜籽油 5L 物理压榨（新老包装随机发放）",
+						money: 8.00,
+						enterprisemoney: 80.00
+					},
+					{
+						sku: "100042692647",
+						name: "AppleiPhone苹果12 (A2404) 256GB黑色 全网通5G Apple",
+						money: 4.00,
+						enterprisemoney: 4000.00
+					},
+					{
+						sku: "100025493506",
+						name: "华为智慧屏 SE 75英寸 超薄全面屏 4K超高清MEMC智能液晶护眼电视机8K解码 2GB+16GB 以旧换新HD75DESA",
+						money: 5.00,
+						enterprisemoney: 3000
+					}
+
+					],
+
+				}
+			},
+
+			/*计算的方法（完整写法可以有返回值并必须要调用这个text方法）
+			（computed方法有缓存（当依赖发生改变就刷新缓存）methods没有缓存 不可以实现异步）*/
+			computed: {
+				text() {
+				
+					const arr = this.jds.filter((jd) => {
+						// 数组过滤 返回一个数据//
+						return (jd.name.indexOf(this.textname)) >= 0
+					})
+					//判断 
+					if (this.selected != 0) {
+						console.log("方法第二次运行：",typeof this.selected)
+						//  判断过滤 (前和后比较)
+							arr.sort((jd1, jd2) => {
+								console.log("selected??=", this.selected)
+								// 注意是使用==(小坑)数据定义为数字但是===比较为false 
+								return this.selected == 1 ? jd2.money - jd1.money : jd1.money - jd2.money
+							})
+/* 
+						if (this.selected == 1) {
+							console.log("selected1", this.selected)
+							arr.sort((jd1, jd2) => {
+								return jd1.money - jd2.money
+							})
+						}
+						if (this.selected == 2) {
+							console.log("selected2", this.selected)
+							arr.sort((jd1, jd2) => {
+								return jd2.money - jd1.money
+							})
+						}
+ */
+					}
+					return arr
+
+
+
+				}
+
+
+			},
+			methods: {
+				selectedpu(event) {
+					this.selected = event.target.value
+
+				}
+
+
+			}
+
+
+		})
+	</script>
+
+</body>
+
+</html>

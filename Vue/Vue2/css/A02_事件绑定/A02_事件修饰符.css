@@ -1,0 +1,54 @@
+
+.title{
+	color: red;
+	/* text-align: center;代表居中*/
+	text-align: left;
+	/*设置字体大小*/
+	  font-size: 40px;
+}
+
+.click_prevent{
+	color: red;
+	/* text-align: center;代表居中*/
+	text-align: left;
+	/*设置字体大小*/
+	font-size: 100%;
+}
+.clicktest{
+	height: 50px;
+	background-color: red;
+	
+}
+.click_stop{
+	height: 20px;
+	background-color: chartreuse;
+		
+}
+.div1{
+	padding: 5px;
+	background-color: aqua;
+	
+}
+.div2{
+	padding: 5px;
+	background-color: chartreuse; 
+	
+}
+ul{
+	width: *px;
+	height: 100px;
+	background-color: crimson;
+	/* 溢出的时候出现滚动条 */
+	overflow: auto; 
+	
+}
+li{
+	width: *px;
+	height: 20px;
+	background-color: green; 
+
+	
+	
+}
+ 
+

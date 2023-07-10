@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>A01_条件渲染v-show_v-if_v-else-if_else</title>
+		<script type="text/javascript" src="../../../js/vue.js"></script>
+
+	</head>
+	<body>
+		<div id="root">{{msg}} <br>
+			<div>id:{{id}}</div>
+
+			<button @click="click">点击+1</button>
+			<div>v-show 只能使用一个当等于false时控制器会显示（经常改变使用这个）</div>
+			<!-- 		<div v-show="ture">显示/隐藏{{id}}</div > -->
+			<!-- 	<div v-show="false">显示/隐藏{{id}}</div > -->
+			<div v-show="id===2">显示/隐藏{{id}}</div>
+			<div>if 判断（判断表达式中不能有其他元素，当等于false时控制器不会显示）
+		</div>
+		<div v-if="id===1">广东</div>
+		<div v-else-if="id===2">广西</div>
+		<div v-else-if="id===3">江西</div>
+		<div v-else>中国</div>
+
+		<div>template不会显示在wed页面中（只能和id使用不能配对show使用）</div>
+		<template v-if="id===4">
+			<!-- if 判断 -->
+			<div>广东</div>
+			<div>广西</div>
+			<div>江西</div>
+			<div>中国</div>
+		</template>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el: "#root",
+				data() {
+					return {
+						id: "0",
+						msg: "条件渲染v-show_v-if_v-else-if_else"
+					}
+				},
+				methods: {
+					click() {
+						console.log(this.id)
+						this.id = ++(this.id)
+					}
+				},
+
+
+
+
+			})
+		</script>
+
+	</body>
+</html>

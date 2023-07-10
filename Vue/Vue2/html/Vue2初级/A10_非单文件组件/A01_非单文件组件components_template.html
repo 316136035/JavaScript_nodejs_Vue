@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>A01_非单文件组件template</title>
+    <script src="../../../js/vue.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <div>
+        <div>关于VueComponent:</div>
+        <div> 1.school组件本质是一个名为VueComponent的构造函数，且不是程序员定义的，是Vue.extend生成的。</div>
+        <div> 2.我们只需要写school 或<schoolx school>，Vue解析时会帮我们创建school组件的实例对象,即Vue帮我们执行的: new VueComponent(options)。</div>
+        <div> 3.特别注意: 每次调用Vue.extend，返回的都是一个全新的VueComponent!!!!</div><hr>
+        <div> 4.关于this指向:</div>
+        <div> (1).组件配置中:data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是[VueComponent实例对象]</div>
+        <div> (2).new Vue() 比置中:data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是[Vue实例对象]</div><hr>
+        <div> 5.VueComponent的实例对象，以后简称vc (也可称之为: 组件实例对象)。</div>
+        <div> Vue的实例对象，以后简称vm。</div><hr>
+    </div>
+    <!--定义容器1-->
+    <div id="root1">
+        <div>{{msg}}</div>
+        <!-- 使用组件 -->
+        <running></running>
+        <hr>
+        <!-- 使用组件 -->
+        <uservue></uservue>
+        <hr>
+        <!-- 使用组件 -->
+        <addressvue></addressvue>
+    </div>
+    <hr>
+    <!--定义容器2-->
+    <div id="root2">
+        <div>{{msg}}</div>
+        <!-- 使用组件 -->
+        <running></running>
+    </div>
+
+    <script>
+        //  定义一个组件(全局使用的)
+        const running = Vue.extend({
+            // 定义一个模板
+            template:
+                `<div><div>{{this.name}}</div></div>`,
+            // 回调函数
+            data() {
+                return { name: "跑步" }
+            },
+            methods: { "onclick"() { alert(this.user.name) } }
+        })
+        // 定义为全局组件
+        Vue.component("running", running)
+        //  定义一个组件(局部使用的)
+        const userVue = Vue.extend({
+            // 定义一个模板
+            template:
+                `<div>
+                <div>{{user.name}}</div>
+                <div>{{user.age}}</div>
+                <button @click="onclick">点击</button>
+                </div>` ,
+            // 回调函数
+            data() { return { user: { name: "周先生", age: 19 } } },
+            // 方法
+            methods: {
+                "onclick"() { alert(this.user.name) }
+            }
+        })
+        //  定义一个组件(局部使用的)
+        const addressVue = Vue.extend({
+            template:
+                `<div>
+                <div>{{address.sheng}}</div>
+                <div>{{address.shi}}</div>
+                </div>` ,
+            // 回调函数
+            data() {
+                return { address: { sheng: "广东", shi: "广州" } }
+            }
+        })
+        // 创建vue视图模型实例1
+        new Vue({
+            el: "#root1",
+            components: {
+                uservue: userVue,  //注册组件（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写）
+                addressvue: addressVue    //注册组件（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写）
+            },
+            data() {
+                return {
+                    msg: "主页1",
+                    running: running    //注册组件（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写）
+                }
+            }
+        })
+
+        // 创建vue视图模型实例2
+        new Vue({
+            el: "#root2",
+            components: {
+            },
+            data() {
+                return {
+                    msg: "主页2",
+                    running: running   //注册组件（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写）
+                }
+            }
+
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

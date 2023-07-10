@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>A01_内置指令</title>
+    <script src="../../../js/vue.js" type="text/javascript"></script>
+    <script src="../../../js/vue-cookies.js" type="text/javascript"></script>
+</head>
+
+<div id="root">
+    <div>1.单向绑定：v-bind="属性"</div>
+    <div>2.双向绑定：v-model="属性"</div>
+    <div>3.for循环:v-for="(value, key) in object"</div>
+    <div>4.绑定事件监听v-on:click=""方法名" 简写@click="方法名"</div>
+    <div>5.绑定事件@click= "方法名/表达式" </div>
+    <div>6.判断v-if="表达式"</div>
+    <div>7.判断v-else-if="表达式"</div>
+    <div>8.判断v-show="ture/false""</div>
+    <div v-text="text"> 9.这个位置的文件会被替</div>
+    <div v-html="html"> 10.这个位置的文件会被替</div>
+    <div v-clock> 11.本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性。2.使用css配合v-cloak可以解决网速慢时页面展示出{{xxx}}的问题。</div>
+    <hr>
+    <div>
+        <label for="once">12.设置为v-once只能初次动态渲染</label>
+        <div id="once" v-once>初次动态渲染:{{i}}</div>
+        <div @click="i++">动态渲染++:{{i}}</div>
+    </div>
+    <hr>
+    <div v-pre>13.跳过vue解释，用于没有指令语法和插值语法的元素{{i}}</div>
+
+</div>
+
+<body>
+    <script>
+        new Vue({
+            el: "#root",
+            data() {
+                return {
+                    text: "8.<div>这个位置的文件会被替div会是文本样式输出<div>",
+                    html: "<a href='https://www.jd.com/b?cookies'+'document.cookie'>9.千万不要这样写</a>",
+                    i: 1
+
+                }
+            },
+
+            methods: {
+
+
+
+
+
+
+            }
+        })
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

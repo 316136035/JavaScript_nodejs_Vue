@@ -1,0 +1,39 @@
+.div1 {
+	background-color: rgb(255, 100, 50);
+	border: 1px solid hotpink;
+	width: 400px;
+	height: 100px
+}
+
+.div2 {
+	background-color: rgb(1, 20, 30);
+	;
+	border: 1px solid hotpink;
+	width: 400px;
+height: 100px
+}
+
+.div3 {
+	background-color: rgb(52, 100, 50);
+	;
+	border: 1px solid hotpink;
+	width: 400px;
+	height: 100px
+}
+
+.div4 {
+	background-color: rgb(10, 1, 50);
+	 border-radius: 25px;
+	border: 1px solid hotpink;
+	width: 400px;
+	height: 100px
+}
+
+.div5 {
+	
+	 border-radius: 80px;
+	background-color: rgb(5, 120, 0);
+	border: 1px solid hotpink;
+	width: 400px;
+	height: 100px
+}
