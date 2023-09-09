@@ -30,25 +30,22 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        .flex {
-            display: flex;
-        }
-
-        .output {
+        .palert1,
+        .alert2 {
             width: 200px;
-            height: 50px;
-            background-color: rgb(42, 165, 149);
-            border: 1px solid black;
-            font-size: 20px;
+            height: 40px;
+            background-color: crimson;
             margin: 20px;
-
-
         }
     </style>
 
 </head>
 
 <body>
+    <div class="alert1" id="alert1">小案例(对话框输入并输出到提示框中)</div>
+
+    <div class="alert2" id="alert2">案例(变量值相互变换)</div>
+
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后执行的代码
@@ -60,9 +57,32 @@
             //定义变量并赋值
             let name = "定义变量并赋值";
             //更新变量值
-            name="更新变量值"
+            name = "更新变量值"
             //打印变量
             console.log(age, name)
+
+            //小案例(对话框输入并输出到提示框中)
+            document.getElementById("alert1").addEventListener("click", function () {
+                let username = prompt("请输入姓名:xxx")
+                alert(username)
+
+            })
+
+            //小案例(变量值相互变换)
+            let = age;
+            let age1 = 10;
+            let age2 = 20;
+            document.getElementById("alert2").addEventListener("click", function () {
+             
+                alert(age1);
+                alert(age2);
+            })
+
+
+
+
+
+
         };
 
 
