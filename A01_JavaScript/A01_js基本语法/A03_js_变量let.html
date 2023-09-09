@@ -30,7 +30,7 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        .palert1,
+        .alert1,
         .alert2 {
             width: 200px;
             height: 40px;
@@ -44,7 +44,7 @@
 <body>
     <div class="alert1" id="alert1">小案例(对话框输入并输出到提示框中)</div>
 
-    <div class="alert2" id="alert2">案例(变量值相互变换)</div>
+    <div class="alert2" id="alert2">小案例(变量值相互变换)</div>
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
@@ -62,20 +62,29 @@
             console.log(age, name)
 
             //小案例(对话框输入并输出到提示框中)
+            //通过id选择器获取到元素再给元素添加一个事件监听
             document.getElementById("alert1").addEventListener("click", function () {
+                //弹出提示输入框并获取输入框值
                 let username = prompt("请输入姓名:xxx")
                 alert(username)
 
             })
 
             //小案例(变量值相互变换)
+            //定义一个变量
             let = age;
+            //定义变量并赋值
             let age1 = 10;
+            //定义变量并赋值
             let age2 = 20;
+            //通过id选择器获取到元素再给元素添加一个事件监听
             document.getElementById("alert2").addEventListener("click", function () {
-             
-                alert(age1);
-                alert(age2);
+                age = age1;
+                age1 = age2;
+                age2 = age;
+                alert("   age1:" + age1);
+                alert("   age2:" + age2);
+
             })
 
 
