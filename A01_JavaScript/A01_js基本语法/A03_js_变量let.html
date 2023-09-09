@@ -30,10 +30,11 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-       .flex{
+        .flex {
             display: flex;
         }
-       .output {
+
+        .output {
             width: 200px;
             height: 50px;
             background-color: rgb(42, 165, 149);
@@ -41,18 +42,27 @@
             font-size: 20px;
             margin: 20px;
 
-         
+
         }
     </style>
 
 </head>
 
 <body>
- <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后执行的代码
         window.onload = function () {
-           
+            //定义变量
+            let age;
+            //变量赋值
+            age = 20;
+            //定义变量并赋值
+            let name = "定义变量并赋值";
+            //更新变量值
+            name="更新变量值"
+            //打印变量
+            console.log(age, name)
         };
 
 
