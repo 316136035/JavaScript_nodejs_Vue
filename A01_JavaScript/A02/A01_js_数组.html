@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A02_js_输出_输入</title>
+    <title>A03_js_变量let</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -30,77 +30,48 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        .flex {
-            display: flex;
-        }
-
-        .output {
+        div {
             width: 200px;
             height: 50px;
-            background-color: rgb(42, 165, 149);
-            border: 1px solid black;
+            background-color: rgb(231, 10, 10);
+            color: aliceblue;
             font-size: 20px;
-            margin: 20px;
-
-
+            text-align: center;
+            line-height: 50px;
         }
     </style>
 
 </head>
 
 <body>
-
-    <!-- 输出语句 -->
-    <div class="flex">
-        <div class="output" id="document">document文档中输出</div>
-        <div class="output" id="alert">alert对话框中输出</div>
-        <div class="output" id="console">console控制台输出</div>
-    </div>
-    <!-- 输入语句 -->
-    <div class="flex">
-        <div class="output" id="prompt">prompt提示框输入</div>
-
-    </div>
-
-
+    <div class="array" id="array">打印数组</div>
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            // 获取按钮元素（document文档中输出）
-            var element = document.getElementById("document");
-            // 添加点击事件处理程序
-            element.addEventListener("click", function () {
-                //document文档中输出
-                document.write("document文档中输出")
-            });
+            //通过id选择器获取到元素再给元素添加一个事件监听
+            document.getElementById("array").addEventListener("click", function () {
+                //定义一个数组
+                let array = [9, 8, 7, 4, 6, 5, 3, 2, 1]
+                //遍历数组
+                array.forEach(element => {
+                    //打印到控制台
+                    console.log(element)
+                })
+                //定义一个数组
+                let arrayString = ['我', '是', '中', '国', '人']
+                //遍历数组
+                arrayString.forEach(element => {
+                    //打印到控制台
+                    console.log(element)
+                })
 
-            // 获取按钮元素（document文档中输出）
-            var element = document.getElementById("alert");
-            // 添加点击事件处理程序
-            element.addEventListener("click", function () {
-                //document文档中输出
-                alert
-                alert("alert对话框中输出")
-            });
 
-            // 获取按钮元素（console控制台输出）
-            var element = document.getElementById("console");
-            // 添加点击事件处理程序
-            element.addEventListener("click", function () {
-                //console控制台输出
-                console.log("console控制台输出")
             });
 
 
-            // 获取按钮元素（提示输入框）
-            var element = document.getElementById("prompt");
-            // 添加点击事件处理程序
-            element.addEventListener("click", function () {
-                //提示输入框
-                prompt("请输入xxx")
-            });
+
         };
 
 
