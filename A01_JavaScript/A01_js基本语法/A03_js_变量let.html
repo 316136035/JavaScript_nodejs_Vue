@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A02_js_输出_输入</title>
+    <title>A03_js_变量let</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -48,58 +48,11 @@
 </head>
 
 <body>
-
-    <!-- 输出语句 -->
-    <div class="flex">
-        <div class="output" id="document">document文档中输出</div>
-        <div class="output" id="alert">alert对话框中输出</div>
-        <div class="output" id="console">console控制台输出</div>
-    </div>
-        <!-- 输入语句 -->
-    <div class="flex">
-        <div class="output" id="prompt">prompt提示框输入</div>
-        
-    </div>
- 
- 
-
-    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+ <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后执行的代码
         window.onload = function () {
-            // 获取按钮元素（document文档中输出）
-            var element = document.getElementById("document");
-            // 添加点击事件处理程序
-            element.addEventListener("click", function () {
-                //document文档中输出
-                document.write("document文档中输出")
-            });
-
-            // 获取按钮元素（document文档中输出）
-            var element = document.getElementById("alert");
-            // 添加点击事件处理程序
-            element.addEventListener("click", function () {
-                //document文档中输出
-                alert
-                alert("alert对话框中输出")
-            });
-
-            // 获取按钮元素（console控制台输出）
-            var element = document.getElementById("console");
-            // 添加点击事件处理程序
-            element.addEventListener("click", function () {
-                //console控制台输出
-                console.log("console控制台输出")
-            });
-
-            
-            // 获取按钮元素（提示框输入框）
-            var element = document.getElementById("prompt");
-            // 添加点击事件处理程序
-            element.addEventListener("click", function () {
-                //提示框输入框
-                prompt("请输入xxx")
-            });
+           
         };
 
 
