@@ -30,12 +30,20 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-
+        input {
+            width: 200px;
+            height: 20px;
+            border: 1px solid black;
+        }
     </style>
 
 </head>
 
 <body>
+    <div>
+        <table for="number">请输入圆的半径</table>
+        <input type="number" class="number" id="number"><span id="span"></span>
+    </div>
 
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
@@ -44,16 +52,29 @@
         window.onload = function () {
             //字符串类型转数学类型
             console.log("字符串类型转数学类型", +'88')
-            console.log("字符串类型转数学类型",Number("8888888"))
+            console.log("字符串类型转数学类型", Number("8888888"))
 
             //数学类型转字符串类型
-            console.log("字符串类型转数学类型：", (1+1).toString())
+            console.log("字符串类型转数学类型：", (1 + 1).toString())
             //字符串+任何类型=字符串类型
             console.log(`字符串+数学类型=字符串类型:` + `11` + 11);
             //数学类型-字符串=数学类型 (减乘除一样)
             console.log(`数学类型-字符串=数学类型:`, 11 - `9`);
             //字符串-数学类型=数学类型 (减乘除一样)
             console.log(`字符串-数学类型=数学类型:`, `9` - 10);
+
+            //小案例（获取输入框计算圆的面积）
+            const PI = 3.14
+            let inputelement = document.getElementById('number');
+            let spanelement = document.getElementById('span');
+            
+            inputelement.addEventListener(`blur`, function () {
+                let num = +inputelement.value;
+                let  radius=  PI* num* num;
+                spanelement.innerHTML =`圆的面积为：${radius}`;
+            })
+
+
 
 
 
