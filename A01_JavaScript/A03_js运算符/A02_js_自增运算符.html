@@ -49,25 +49,18 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+            let number = 0;
+           
+            console.log(`前++`,++number);
+            console.log(`前--`,--number);
+            
+            console.log(`后++`,number++);
+            console.log(`后--`,number--);
 
-            /*
-            运算符	描述
-                +	加法
-                -	减法
-                *	乘法
-                /	除法
-                %	取模（余数）
-                ++	递加
-                --	递减*/
-            let number1 = 10;
-            let number2 = 10;
-          document.write(number1+number2+ '<br>')
-          //查看参数类型
-          document.write(typeof(number1))
 
-        
 
-  };
+
+        };
 
 
 
