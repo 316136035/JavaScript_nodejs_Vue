@@ -30,15 +30,6 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        div {
-            width: 200px;
-            height: 50px;
-            background-color: rgb(231, 10, 10);
-            color: aliceblue;
-            font-size: 20px;
-            text-align: center;
-            line-height: 50px;
-        }
     </style>
 
 </head>
@@ -50,12 +41,12 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
             let number = 0;
-           
-            console.log(`前++`,++number);
-            console.log(`前--`,--number);
-            
-            console.log(`后++`,number++);
-            console.log(`后--`,number--);
+            //前++
+            console.log(`前++`, ++number);
+            console.log(`前--`, --number);
+            //后++
+            console.log(`后++`, number++);
+            console.log(`后--`, number--);
 
 
 
