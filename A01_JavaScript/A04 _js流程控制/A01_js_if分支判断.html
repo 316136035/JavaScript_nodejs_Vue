@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A04_js_逻辑运算符</title>
+    <title>A01_js_if分支判断</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -30,6 +30,7 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
+
     </style>
 
 </head>
@@ -40,17 +41,25 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //逻辑运算符&& （一假则假）
-            console.log(`逻辑运算符&& （一假则假）:`, true && false);
-            //逻辑运算符||（一真则真）
-            console.log(`逻辑运算符||（一真则真）`, true || false);
-            //逻辑运算!(取反)
-            console.log(`逻辑运算!(取反):`, !(9 > 0));
+            let num = 1;
+            //单分支判断
+            if (num === 0) { console.log("单分支判断通过"); } else { console.log("单分支判断不通过"); }
+
+            //多分支判断
+            let many = 70;
+            if (many < 60) { console.log("不合格"); }
+            if (many > 60 && many < 80) { console.log("良"); }
+            if (many > 80 && many < 100) { console.log("优"); }
 
 
+            //多重分支判断
+            if (false) { console.log(`多重分支判断false`); }
+            else if (false) { console.log(`多重分支判断false`); }
+            else if (true) {
+                console.log(`多重分支判断true`);
+
+            }
         };
-
-
 
     </script>
 </body>
