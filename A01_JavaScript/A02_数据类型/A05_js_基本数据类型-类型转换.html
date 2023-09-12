@@ -53,7 +53,6 @@
             //字符串类型转数学类型
             console.log("字符串类型转数学类型", +'88')
             console.log("字符串类型转数学类型", Number("8888888"))
-
             //数学类型转字符串类型
             console.log("字符串类型转数学类型：", (1 + 1).toString())
             //字符串+任何类型=字符串类型
@@ -62,16 +61,30 @@
             console.log(`数学类型-字符串=数学类型:`, 11 - `9`);
             //字符串-数学类型=数学类型 (减乘除一样)
             console.log(`字符串-数学类型=数学类型:`, `9` - 10);
+            //解释成数学类型（只保留整数数字）
+            console.log(`解释成数学类型（只保留整数数字））:`, parseInt('12px'));
+            console.log(`解释成数学类型（只保留整数数字））:`, parseInt('12.0048651867'));
+            //解释数字允许有空格。仅返回第一个数字（只保留数字）
+            console.log(`允许有空格。仅返回第一个数字）:`, parseFloat('10.88 years'));
 
             //小案例（获取输入框计算圆的面积）
-            const PI = 3.14
+            //常量
+            const PI = 3.14;
+            //通过id选择器获取元素
             let inputelement = document.getElementById('number');
             let spanelement = document.getElementById('span');
-            
+            //元素添加监听事件
             inputelement.addEventListener(`blur`, function () {
-                let num = +inputelement.value;
-                let  radius=  PI* num* num;
-                spanelement.innerHTML =`圆的面积为：${radius}`;
+                //判断输入框的值是否为数学类
+                if (Number.isInteger(inputelement.value) === false) {
+                    //获取输入框内容并转成数学类型
+                    let num = +inputelement.value;
+                    //计算圆的面积
+                    let radius = PI * num * num;
+                    //打印到页面
+                    spanelement.innerHTML = `圆的面积为：${radius}`;
+                }
+
             })
 
 
