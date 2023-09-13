@@ -30,19 +30,37 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-
+        .text {
+            width: 400px;
+            height: 20px;
+            border: 1px solid black;
+        }
     </style>
 
 </head>
 
 <body>
-    <input type="radio" value="0" name="gender">男
-    <input type="radio" value="1" name="gender">女
+    <input type="text" id="text" class="text">
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+            let num = 0;
+            //条件？满足条件：不满足条件
+            let gender = num === 0 ? "男" : "女"
+            console.log(gender);
+
+            //小案例（使用三元运算法在数字前补0）
+
+            let textelement = document.getElementById("text")
+            textelement.addEventListener(`blur`, function () {
+                let num = +textelement.value;
+                num = num < 10 ? "0" + num : num;
+                textelement.appendChild(`<span>1111</span>`)
+      
+            });
+
 
 
 
