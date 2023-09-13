@@ -30,28 +30,80 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
+        div {
+            display: flex;
+            flex-direction: column;
+        }
 
+        button {
+            width: 200px;
+            height: 40px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
     </style>
 
 </head>
 
 <body>
+    <div>
+        <button id="array">打印数组到控制器</button>
+        <button id="Numbers">打印1~~100的数到控制器</button>
+        <button id="num">打印1~~100的偶数和</button>
+
+
+    </div>
+
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            let strArray = ['我', '是', '中', '国', '人']
-            let num = 0;
-            while (true) {
-                //后++
-                num=num++
-                //打印每一个索引的值
-                console.log(strArray[ num])
-                if (num === strArray.length){ 
-                    //跳出当前循环
-                    break ;}
-            }
+            //打印数组到控制器
+            document.getElementById('array').addEventListener('click', function () {
+                let strArray = ['我', '是', '中', '国', '人']
+                let num = 0;
+                //循环条件
+                while (true) {
+                    //打印每一个索引的值
+                    console.log('打印每一个索引的值:', strArray[num++]);
+                    if (num === strArray.length) {
+                        //跳出当前循环
+                        break;
+                    }
+                }
+
+            })
+            //打印1~~100的数到控制器
+            document.getElementById('Numbers').addEventListener('click', function () {
+                let num = 0;
+
+                //循环条件
+                while (num < 100) {
+                    num++
+                    console.log('打印1~~100的数到控制器', num)
+                }
+
+
+            })
+            //打印1~~100的偶数和
+            document.getElementById('num').addEventListener('click', function () {
+                let num = 0;
+                let even = 0;
+                //循环条件
+                while (num < 100) {
+                    num++;
+                    //取余数 
+                    if (num % 2 === 0) {
+                        //赋值
+                        even += num;
+                    }
+
+                }
+                console.log('打印1~~100的偶数和', even)
+
+            })
+
 
         };
 
