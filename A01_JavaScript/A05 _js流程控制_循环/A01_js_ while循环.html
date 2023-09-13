@@ -67,6 +67,13 @@
                 while (true) {
                     //打印每一个索引的值
                     console.log('打印每一个索引的值:', strArray[num++]);
+                    if (num === 3) {
+                     
+                        //结束本次循环，后面的循环继续执行
+                        continue;
+                        console.log(`结束本次循环这段代码不会被执行`);
+                    }
+                    console.log(`我已经加到${num}了~`);
                     if (num === strArray.length) {
                         //跳出当前循环
                         break;
