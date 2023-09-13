@@ -40,7 +40,7 @@
 </head>
 
 <body>
-    <input type="text" id="text" class="text">
+    <input type="text" id="text" class="text"><span id="span"></span>
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
@@ -52,13 +52,19 @@
             console.log(gender);
 
             //小案例（使用三元运算法在数字前补0）
-
+            //通过id选择器获取元素
             let textelement = document.getElementById("text")
+            let spanelement = document.getElementById('span');
+             //元素添加监听事件
             textelement.addEventListener(`blur`, function () {
+                //获取输入框值并转成数学类型
                 let num = +textelement.value;
+                //条件？满足条件：不满足条件
                 num = num < 10 ? "0" + num : num;
-                textelement.appendChild(`<span>1111</span>`)
-      
+                //打印到页面
+                spanelement.innerHTML = num;
+
+
             });
 
 
