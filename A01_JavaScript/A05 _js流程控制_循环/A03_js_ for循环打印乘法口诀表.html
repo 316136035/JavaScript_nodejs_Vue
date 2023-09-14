@@ -30,7 +30,7 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        .mian>div {
+        .item {
             width: 50px;
             padding: 5px;
             margin: 5px;
@@ -63,6 +63,8 @@
                     var divElement = document.createElement("div");
                     //创建创建文本节点
                     var strElement = document.createTextNode(str);
+                    //添加class属性
+                    divElement.className = "item"
                     //文本节点存放在div元素中
                     let div_strElement = divElement.appendChild(strElement);
                     //把div节点对象追加到mian元素中
