@@ -51,8 +51,9 @@
         <button id="Numbers">打印1~~100的数到控制器</button>
         <button id="num">打印1~~100的偶数和</button>
         <button id="out">跳出本次循环和终止循环</button>
+        <div>
 
-
+        </div>
     </div>
 
 
@@ -92,21 +93,23 @@
             document.getElementById('out').addEventListener('click', function () {
                 //for(变量起始值;终止条件;变化量)
                 for (let i = 0; i <= 100; i++) {
-                    if(i ===50){
+                    if (i === 50) {
                         //跳出本次循环（下面的代码不再执行）
                         continue;
-                      
+
                     }
                     console.log('跳出本次循环和终止循环', i)
-                    if (i >=80) {
+                    if (i >= 80) {
                         // 终止循环
                         break;
                     }
                 }
 
             })
+  };
 
-        };
+
+
 
     </script>
 </body>
