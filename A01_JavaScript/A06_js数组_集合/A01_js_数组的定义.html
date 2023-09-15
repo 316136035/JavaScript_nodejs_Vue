@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A03_js_ for循环打印乘法口诀表</title>
+    <title>A01_js_数组的定义</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -30,55 +30,45 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        .item {
-            width: 50px;
-            padding: 5px;
-            margin: 5px;
-            text-align: center;
-            line-height: 20px;
-            /* 设置圆角 */
-            border-radius: 5px;
-            /* 设置边框 */
-            border: 1px solid black;
-            /* 设置为内联块 */
-            display: inline-block;
 
-        }
+
+
+
     </style>
 
 </head>
 
 <body>
-    <div id="mian" class="mian"></div>
+
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            let element = document.getElementById("mian")
+            //定义数组方式一
+            let array = new Array('A', 'B', 'C', 'D');
+            //定义数组方式二
+            let array1 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
-
-            //循环套循环（乘法口诀表）
-            for (let i = 1; i <= 9; i++) {
-                for (let j = 1; j <= i; j++) {
-                    //拼接文本
-                    let str = `${i}*${j}=${i * j}`;
-                    //创建一个div节点对象
-                    var divElement = document.createElement("div");
-                    //创建创建文本节点
-                    var strElement = document.createTextNode(str);
-                    //添加class属性
-                    divElement.className = "item"
-                    //文本节点存放在div元素中
-                    let div_strElement = divElement.appendChild(strElement);
-                    //把div节点对象追加到mian元素中
-                    document.getElementById("mian").appendChild(divElement)
-                }
-                //创建一个br节点对象
-                var brElement = document.createElement("br");
-                //把br节点对象追加到mian元素中
-                document.getElementById("mian").appendChild(brElement)
+            //数组
+            //定义变量存放最大值
+            let max = array[0];
+            for (let i = 0; i < array1.length; i++) {
+                //判断前位数和后位数那个值大
+                max = max > array1[i] ? max : array1[i];
             }
+            console.log('数组的最大值:', max)
+
+            //定义变量存放最大值
+            let min = array[0];
+            for (let i = 0; i < array1.length - 1; i++) {
+                //判断前位数和后位数那个值小
+                min = min < array1[i] ? min : array1[i];
+
+            }
+            console.log('数组的最小值:', min)
         };
+
+
 
 
 
