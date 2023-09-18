@@ -128,10 +128,11 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
 
-
+            //通过id获取元素并添加点击事件
             document.getElementById('button').addEventListener("click", function () {
+                //通过id获取元素
                 let list = document.getElementsByTagName('input')
-
+                //遍历元素数组
                 for (let i = 0; i < list.length; i++) {
                     //获取输入框的值并转换成数学类
                     let num = +list[i].value
@@ -139,7 +140,7 @@
                     var divElement = document.createElement("div");
                     //添加class属性
                     divElement.className = "item"
-                    
+
                     //创建一个span节点对象
                     var spanElement1 = document.createElement("span");
                     //创建创建文本节点（输入框的值）
@@ -159,8 +160,7 @@
                     divElement.appendChild(spanElement2)
                     //添加div元素的样式
                     divElement.style.height = `${num + 'px'}`
-
-
+                    
                     //把div节点对象追加到mian元素中
                     document.getElementById("box").appendChild(divElement)
                     console.log(divElement)
