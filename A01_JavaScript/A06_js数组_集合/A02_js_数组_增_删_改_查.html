@@ -48,12 +48,40 @@
             let array = new Array('1', '2', '3', '4');
             //定义数组方式二
             let array1 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-            //在数组的开头添加新元素
-            array1.unshift("开头")
-            console.log(`在数组的开头添加新元素:`,array1)
-            //在数组的尾部添加新元素
-            array1.push("尾部")
-            console.log(`在数组的尾部添加新元素:`,array1)
+
+            //在数组中开头添加新元素(返回新数组的长度)
+            array1.unshift("开头3")
+            array1.unshift("开头1", "开头2")
+            console.log(`在数组的开头添加新元素:`, array1)
+            //在数组中尾部添加新元素(返回新数组的长度)
+            array1.push("尾部1")
+            array1.push("尾部2", "尾部3")
+            console.log(`在数组的尾部添加新元素:`, array1)
+
+
+            //在数组中删除开头数据(返回删除的数据)
+            let shift = array1.shift()
+            console.log(`在数组的删除开头数据:`, shift)
+
+            //在数组中删除尾部数据(返回删除的数据)
+            let pop = array1.pop()
+            console.log(`在数组的删除开头数据:`, pop)
+            //在数组中删除指定索引中数据
+            // 开始删除的索引处 ,要删除的长度
+            array1.splice(0, 2)
+            console.log(`全部删除后元素:`, array1)
+
+
+            //在数组中修改指定索引的数值
+            console.log("数组长度：" ,array1.length)
+            array1[1]=`修改1`;
+            array1[8]=`修改2`;
+            console.log(`修改指定索引的数值后的元素:`, array1)
+
+          
+
+
+
 
 
 
