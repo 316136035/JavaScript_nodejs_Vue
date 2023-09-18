@@ -34,7 +34,7 @@
             width: 200px;
             height: 20px;
             border: 1px solid black;
-            background-color: chartreuse;
+
         }
 
 
@@ -96,24 +96,25 @@
 <body>
     <div class="input">
 
-        <label for="username">第一季度：</label>
+        <label for="number">第一季度：</label>
         <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
-        <input type="text" name="username" id="username" value="请输入.." maxlength="18">
-        <label for="username">第二季度：</label>
+        <input type="number" name="number" id="number" value="请输入.." maxlength="18">
+
+        <label for="number">第二季度：</label>
         <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
-        <input type="text" name="username" id="username" value="请输入.." maxlength="18">
+        <input type="number" name="number" id="number" value="请输入.." maxlength="18">
 
 
-        <label for="username">第三季度：</label>
+        <label for="number">第三季度：</label>
         <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
-        <input type="text" name="username" id="username" value="请输入.." maxlength="18">
+        <input type="number" name="number" id="number" value="请输入.." maxlength="18">
 
 
-        <label for="username">第四季度：</label>
+        <label for="number">第四季度：</label>
         <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
-        <input type="text" name="username" id="username" value="请输入.." maxlength="18">
+        <input type="number" name="number" id="number" value="请输入.." maxlength="18">
 
-
+        <button id="button">提交</button>
 
 
     </div>
@@ -143,6 +144,16 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+            document.getElementById('button').addEventListener("click", function () {
+              let list=  document.getElementsByTagName('input')
+              for (let index = 0; list < array.length; index++) {
+                console.log(
+                    list[index ]
+                );
+              
+                
+              }
+            })
 
 
 
