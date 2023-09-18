@@ -30,26 +30,110 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-    .box{
-        display: flex;
-    }
+        input {
+            width: 200px;
+            height: 20px;
+            border: 1px solid black;
+            background-color: chartreuse;
+        }
 
 
 
 
+        .box {
+            height: 400px;
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+            margin: 100px;
+            /* 将改当前元素变成伸缩容器 ，
+            缩容器下面的全部子背元素会变成伸缩项目（仅对子背元素有影响）
+            1.仅伸缩容器的子元素成为了伸缩项目，孙子元素、重孙子元素等后代，不是伸缩项目。
+            2.无论原来是哪种元素(块、行内块、行内) ，一旦成为了伸缩项目，全都会“块状化”.*/
+            display: flex;
+            /* 复合写法:主轴方向-换行方式 */
+            flex-flow: row wrap;
+
+            /*  主轴水平对齐方式 ：主轴的空左→空*2 →中→空*2→右空 （主轴的方向不变）*/
+            justify-content: space-around;
+            ;
+            /* 侧轴对齐方式-多行方式 */
+            align-content: flex-end;
 
 
+        }
+
+        .item {
+            /* 将改当前元素变成伸缩容器 ，
+            缩容器下面的全部子背元素会变成伸缩项目（仅对子背元素有影响）
+            1.仅伸缩容器的子元素成为了伸缩项目，孙子元素、重孙子元素等后代，不是伸缩项目。
+            2.无论原来是哪种元素(块、行内块、行内) ，一旦成为了伸缩项目，全都会“块状化”.*/
+            display: flex;
+            /* 改变主轴方向 */
+            flex-direction: column;
+            /* 主轴水平对齐方式 ： 主轴的靠左 中 靠右 （主轴的方向不变）*/
+            justify-content: space-between;
+            height: 200px;
+            width: 100px;
+            background-color: red;
+        }
+
+        .item span {
+            /* 文字居中 */
+            text-align: center;
+        }
+
+        .item :first-child {
+            margin-top: -20px;
+        }
+
+        .item :last-child {
+            margin-bottom: -20px;
+        }
     </style>
 
 </head>
 
 <body>
+    <div class="input">
+
+        <label for="username">第一季度：</label>
+        <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
+        <input type="text" name="username" id="username" value="请输入.." maxlength="18">
+        <label for="username">第二季度：</label>
+        <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
+        <input type="text" name="username" id="username" value="请输入.." maxlength="18">
+
+
+        <label for="username">第三季度：</label>
+        <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
+        <input type="text" name="username" id="username" value="请输入.." maxlength="18">
+
+
+        <label for="username">第四季度：</label>
+        <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
+        <input type="text" name="username" id="username" value="请输入.." maxlength="18">
+
+
+
+
+    </div>
+
 
     <div class="box">
-        <div>A</div>
-        <div>B</div>
-        <div>C</div>
-        <div>D</div>
+
+        <div class="item">
+            <span>1</span>
+            <span>3</span>
+        </div>
+        <div class="item">
+            <span>1</span>
+            <span>3</span>
+        </div>
+        <div class="item">
+            <span>1</span>
+            <span>3</span>
+        </div>
+
 
 
 
@@ -59,7 +143,8 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-           
+
+
 
 
 
