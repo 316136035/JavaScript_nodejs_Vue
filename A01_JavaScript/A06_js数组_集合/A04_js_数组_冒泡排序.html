@@ -30,9 +30,9 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-     
 
-     
+
+
     </style>
 
 </head>
@@ -40,27 +40,75 @@
 <body>
     <div class="item">
         <samp></samp>
-</div>
+        <button class="button1">正序</button>
+        <button class="button2">反序</button>
+
+    </div>
 
 
- 
+
+
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
+        let array = [];
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
 
+            for (let index = 0; index < 50; index++) {
+                // 生成1到100之间的随机整数
+                var randomNum = Math.floor(Math.random() * 100) + 1;
+                array.push(randomNum)
 
-           
-          
-
-
-
-
-
-
-
+            }
+            //通过标签获取元素
+            let element = document.querySelector('samp')
+            //替换元素中的文本
+            element.innerHTML = array;
         }
+        document.querySelector(".button1").addEventListener("click", function () {
+            /**外层是循环的是轮数*/
+            for (let i = 0; i < array.length - 1; i++) {
+                /**内层是循环的每一轮比较的次数*/
+                for (let j = 0; j < array.length - 1 - i; j++) {
+                    if (array[j] > array[j + 1]) {
+                        /*定义一个变量*/
+                        let ii = array[j];
+                        //赋值
+                        array[j] = array[j + 1];
+                        //赋值
+                        array[j + 1] = ii;
+                    }
+                }
+            }
+            //通过标签获取元素
+            let element = document.querySelector('samp')
+            //替换元素中的文本
+            element.innerHTML = array;
+
+
+
+        })
+        document.querySelector(".button2").addEventListener("click", function () {
+            /**外层是循环的是轮数*/
+            for (let i = 0; i < array.length - 1; i++) {
+                /**内层是循环的每一轮比较的次数*/
+                for (let j = 0; j < array.length - 1 - i; j++) {
+                    if (array[j] < array[j + 1]) {
+                        /*定义一个变价*/
+                        let ii = array[j];
+                        //赋值
+                        array[j] = array[j + 1];
+                        //赋值
+                        array[j + 1] = ii;
+                    }
+                }
+            }
+            let element = document.querySelector('samp')
+            //替换元素中的文本
+            element.innerHTML = array;
+        })
+
 
 
 
