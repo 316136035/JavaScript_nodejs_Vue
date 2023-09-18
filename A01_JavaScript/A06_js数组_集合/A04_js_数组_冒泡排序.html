@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A03_js_数组渲染到页面</title>
+    <title>A04_js_数组_冒泡排序</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -52,12 +52,10 @@
             display: flex;
             /* 复合写法:主轴方向-换行方式 */
             flex-flow: row wrap;
-
             /*  主轴水平对齐方式 ：主轴的空左→空*2 →中→空*2→右空 （主轴的方向不变）*/
             justify-content: space-around;
-            ;
-            /* 侧轴对齐方式-多行方式 */
-            align-content: flex-end;
+            /* 侧轴对齐方式-单行方式（底部） */
+            align-items: flex-end;
 
 
         }
@@ -68,13 +66,13 @@
             1.仅伸缩容器的子元素成为了伸缩项目，孙子元素、重孙子元素等后代，不是伸缩项目。
             2.无论原来是哪种元素(块、行内块、行内) ，一旦成为了伸缩项目，全都会“块状化”.*/
             display: flex;
-            /* 改变主轴方向 */
-            flex-direction: column;
-            /* 主轴水平对齐方式 ： 主轴的靠左 中 靠右 （主轴的方向不变）*/
+            /* 改变主轴方向 默认方向上-下*/
+            flex-flow: column wrap;
+            /* 主轴的靠左 中 靠右 （主轴的方向不变）*/
             justify-content: space-between;
-            height: 200px;
-            width: 100px;
             background-color: red;
+            width: 200px;
+
         }
 
         .item span {
@@ -88,6 +86,9 @@
 
         .item :last-child {
             margin-bottom: -20px;
+
+
+
         }
     </style>
 
@@ -120,39 +121,55 @@
     </div>
 
 
-    <div class="box">
-
-        <div class="item">
-            <span>1</span>
-            <span>3</span>
-        </div>
-        <div class="item">
-            <span>1</span>
-            <span>3</span>
-        </div>
-        <div class="item">
-            <span>1</span>
-            <span>3</span>
-        </div>
-
-
-
-
-    </div>
+    <div class="box" id="box"> </div>
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+
+
             document.getElementById('button').addEventListener("click", function () {
-              let list=  document.getElementsByTagName('input')
-              for (let index = 0; list < array.length; index++) {
-                console.log(
-                    list[index ]
-                );
-              
-                
-              }
+                let list = document.getElementsByTagName('input')
+
+                for (let i = 0; i < list.length; i++) {
+                    //获取输入框的值并转换成数学类
+                    let num = +list[i].value
+                    //创建一个div节点对象
+                    var divElement = document.createElement("div");
+                    //添加class属性
+                    divElement.className = "item"
+                    
+                    //创建一个span节点对象
+                    var spanElement1 = document.createElement("span");
+                    //创建创建文本节点（输入框的值）
+                    var strElement1 = document.createTextNode(num);
+                    //文本节点存放在 span元素中
+                    spanElement1.appendChild(strElement1)
+                    //创建一个span节点对象
+
+                    var spanElement2 = document.createElement("span");
+                    //创建创建文本节点
+                    var strElement2 = document.createTextNode(`第${i}季度`);
+                    //文本节点存放在 span元素中
+                    spanElement2.appendChild(strElement2)
+
+                    //把span节点对象追加到divElement元素中
+                    divElement.appendChild(spanElement1)
+                    divElement.appendChild(spanElement2)
+                    //添加div元素的样式
+                    divElement.style.height = `${num + 'px'}`
+
+
+                    //把div节点对象追加到mian元素中
+                    document.getElementById("box").appendChild(divElement)
+                    console.log(divElement)
+
+
+
+
+                }
+
             })
 
 
