@@ -1,0 +1,100 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A03_js函数_返回数组最大值和最小值</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <samp>数组：</samp>
+        <samp id="array"></samp>
+    </div>
+
+    <div> <button id="button1">点击生成1-100的随机数</button></div>
+    <div> <button id="button2">获取数组的最大和最小值</button></div>
+    <div id="Max_Min"></div>
+
+
+
+
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            //定义空数组
+            let array = [];
+            //通过元素限制器获取元素并添加点击事件
+            document.querySelector("#button1").addEventListener('click', function () {
+                //判断数组是否是空
+                if (array.length !== 0) { array = [] }
+                //遍历数组
+                for (let index = 0; index < 50; index++) {
+                    // 生成1到100之间的随机整数
+                    var randomNum = Math.floor(Math.random() * 100) + 1;
+                    //追加到数组
+                    array.push(randomNum)
+                }
+                //通过元素限制器获取元素并替换元素文本
+                document.querySelector("#array").innerHTML = array
+
+            })
+            document.querySelector("#button2").addEventListener('click', function () {
+                //调用获取最大和最小值的函数并返回最大值和最小值
+                let Max_Min = getMax_Min(array);
+                console.log(Max_Min);
+                  //通过元素限制器获取元素并替换元素文本
+                document.querySelector("#Max_Min").innerHTML = Max_Min;
+
+            })
+
+
+            //定义函数并返回最大值和最小值
+            function getMax_Min(array = [0]) {
+                let Max = array[0];
+                let Min = array[0];
+                for (let i = 0; i < array.length; i++) {
+                    Max = Max > array[i] ? Max : array[i]
+                    Min = Min < array[i] ? Min : array[i]
+                }
+                return [Max, Min]
+
+            }
+        }
+
+  </script>
+</body>
+
+</html>
