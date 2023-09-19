@@ -1,0 +1,108 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A02_js函数_默认参数</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        .item {
+            /* 将改当前元素变成伸缩容器 */
+            display: flex;
+            /* 主轴的方向：
+             row  水平正常方向 左→右 （默认）
+             row-reverse 水平反转 右→左 
+             column 垂直正常方向 上→下 
+             column-reverse 垂直正常方向 下→上*/
+            flex-direction: column;
+            /* 侧轴对齐方式 侧轴开始位置 上 （默认主轴的方向不变*）*/
+            align-items: flex-start;
+        }
+
+        button {
+            background-color: red;
+            border: 1px solid black;
+            margin-top: 10px;
+            font-size: 24px;
+            color: aliceblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="item">
+        <div>
+            <button id="button1">函数_默认参数</button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        let array = [];
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            //通过id获取元素并添加事件
+            document.getElementById(`button1`).addEventListener('click', function () {
+                //调用无参函数
+            let num=    withParametersReturn(0,100)
+                console.log( num)
+
+
+            })
+
+        }
+        //有参函数定义并有返回值(控制台查看) 
+            //start=0, end=0 （设置默认值，当调用方传参数的时候优先使用调用方传入参数 ）
+        function withParametersReturn(start=0, end=0) {
+            //当调用方不传参数默认值为undefined（未定义）
+            console.log("start:"+start,' end'+end)
+            let num = 0;
+            for (let i = start; i <= end; i++) {
+                num += i
+
+            }
+            return num
+
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
