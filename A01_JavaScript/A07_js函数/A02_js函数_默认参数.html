@@ -59,13 +59,7 @@
         <div>
             <button id="button1">函数_默认参数</button>
         </div>
-
-
     </div>
-
-
-
-
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
@@ -75,31 +69,22 @@
             //通过id获取元素并添加事件
             document.getElementById(`button1`).addEventListener('click', function () {
                 //调用无参函数
-            let num=    withParametersReturn(0,100)
-                console.log( num)
-
-
+                let num = withParametersReturn(0, 100)
+                console.log(num)
             })
 
         }
         //有参函数定义并有返回值(控制台查看) 
-            //start=0, end=0 （设置默认值，当调用方传参数的时候优先使用调用方传入参数 ）
-        function withParametersReturn(start=0, end=0) {
+        //start=0, end=0 （设置默认值，当调用方传参数的时候优先使用调用方传入参数 ）
+        function withParametersReturn(start = 0, end = 0) {
             //当调用方不传参数默认值为undefined（未定义）
-            console.log("start:"+start,' end'+end)
+            console.log("start:" + start, ' end' + end)
             let num = 0;
             for (let i = start; i <= end; i++) {
                 num += i
-
             }
             return num
-
-
         }
-
-
-
-
 
 
     </script>

@@ -84,35 +84,25 @@
             document.getElementById(`button1`).addEventListener('click', function () {
                 //调用无参函数
                 withoutParameters();
-
-
             })
-             //通过id获取元素并添加事件
+            //通过id获取元素并添加事件
             document.getElementById(`button2`).addEventListener('click', function () {
                 //调用无参函数并带返回值
                 let pi = withoutParametersReturn();
                 console.log(`无参函数定义但有返回值调用了,返回值:`, pi)
-
-
             })
-             //通过id获取元素并添加事件
+            //通过id获取元素并添加事件
             document.getElementById(`button3`).addEventListener('click', function () {
                 //调用有参函数
                 withParameters(0, 100)
-
-
             })
-             //通过id获取元素并添加事件
+            //通过id获取元素并添加事件
             document.getElementById(`button4`).addEventListener('click', function () {
                 //调用有参函数并带返回值
                 let nun = withParametersReturn(0, 100)
                 console.log(`有参函数定义并有返回值调用了,返回值:`, nun)
 
             })
-
-
-
-
 
         }
         //无参函数定义(控制台查看)
@@ -132,8 +122,6 @@
 
             }
             console.log('有参函数定义:', num)
-
-
         }
         //有参函数定义并有返回值(控制台查看)
         function withParametersReturn(start, end) {
@@ -143,7 +131,6 @@
 
             }
             return num
-
 
         }
 
