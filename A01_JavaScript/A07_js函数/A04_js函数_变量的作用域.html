@@ -1,0 +1,68 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A04_js函数_变量的作用域</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        //全局变量
+        let num = 10;
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            //函数fun()
+            function fun() {
+                //局部变量(当局部变量不存在会在父类中查找，如果函数内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐)
+                let num = 20;
+                //函数fun1()
+                function fun1() {
+                     //局部变量(当局部变量不存在会在父类中查找，如果函数内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐)
+
+                    // let num = 30;
+                    console.log(num)
+
+                }
+                //调用函数fu1n()
+                fun1()
+            }
+            //调用函数fun()
+            fun()
+        }
+
+    </script>
+</body>
+
+</html>
