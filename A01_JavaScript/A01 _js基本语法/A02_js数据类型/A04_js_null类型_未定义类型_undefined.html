@@ -20,11 +20,11 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A03_js_基本数据类型-布尔类型_boolean</title>
+    <title>A04_js_null类型_未定义类型_undefined</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
-    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
-    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <!-- 引入外部js文件 不能和内部js一样使用-->
@@ -42,11 +42,16 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //定义布尔类型
-            let boolean1 = true;
-            let boolean2 = false;
+            //定义变量没有赋值就是未定义类型（如果检测变量是undefined就说明没有值传递过来）
+            let undefined;
             //查看参数类型
-            console.log(typeof (boolean1))
+            console.log(`未定义类型:${typeof (undefined)}`)
+
+            //定义对象为null（一般用来定义对象）
+            let obj=null;
+            //查看参数类型
+            console.log(`定义对象为null:${typeof (obj)}`)
+
         };
 
 

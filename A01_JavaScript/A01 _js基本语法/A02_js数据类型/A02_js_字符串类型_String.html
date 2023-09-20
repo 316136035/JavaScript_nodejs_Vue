@@ -20,11 +20,11 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A01_js_基本数据类型-数学类型_Number</title>
+    <title>A02_js_字符串类型_String</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
-    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
-    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <!-- 引入外部js文件 不能和内部js一样使用-->
@@ -32,12 +32,13 @@
     <style>
         div {
             width: 200px;
-            height: 50px;
-            background-color: rgb(231, 10, 10);
-            color: aliceblue;
-            font-size: 20px;
-            text-align: center;
-            line-height: 50px;
+            height: 200px;
+            border: 1px solid black;
+
+        }
+
+        div input {
+            border: 1px solid black;
         }
     </style>
 
@@ -45,29 +46,44 @@
 
 <body>
 
+    <div>
+        <input type="text" name="name" id="name" placeholder="请输入姓名">
+        <input type="number" name="age" id="age" placeholder="请输入年龄">
+        <input type="button" id="button" value="获取姓名年龄并打印到控制器">
+
+    </div>
+
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+            //定义空字符串
+            let NullString = "";
+            //定义字符串
+            let String = "中国人！！";
+            let name = "周先生";
+            //字符串拼接
+            console.log(name + String)
+            //模版字符串拼接`${}`
+            let Stringname = `我是${name}是中国人呢！！！！`
+            console.log(Stringname)
+            //查看参数类型
+            console.log(typeof(Stringname))
+            console.log(NullString)
 
-            /*
-            运算符	描述
-                +	加法
-                -	减法
-                *	乘法
-                /	除法
-                %	取模（余数）
-                ++	递加
-                --	递减*/
-            let number1 = 10;
-            let number2 = 10;
-          document.write(number1+number2+ '<br>')
-          //查看参数类型
-          document.write(typeof(number1))
 
-        
 
-  };
+            //小案例（获取姓名年龄并打印到控制器）
+            //通过id选择器获取元素添加监听事件
+            document.getElementById("button").addEventListener('click', function () {
+                //获取输入框的值
+                let name1 = document.getElementById("name").value;
+                //获取输入框的值
+                let age1 = document.getElementById("age").value;
+                //模版字符串拼接`${}`
+                console.log(`我叫：${name1}，我的年龄是${age1}`);
+            })
+        };
 
 
 

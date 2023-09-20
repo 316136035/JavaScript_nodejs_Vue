@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A02_js_三元运算判断</title>
+    <title>A01_js_对象_定义</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -30,49 +30,52 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        .text {
-            width: 400px;
-            height: 20px;
-            border: 1px solid black;
-        }
+
     </style>
 
 </head>
 
 <body>
-    <input type="text" id="text" class="text"><span id="span"></span>
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
+
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            let num = 0;
-            //条件？满足条件：不满足条件
-            let gender = num === 0 ? "男" : "女"
-            console.log(gender);
+            //定义对象 方式一
+            let student = {
+                username: "周先生",
+                age: 19,
+                gender: `男`
+            }
+            console.log(student)
 
-            //小案例（使用三元运算法在数字前补0）
-            //通过id选择器获取元素
-            let textelement = document.getElementById("text")
-            let spanelement = document.getElementById('span');
-             //元素添加监听事件
-            textelement.addEventListener(`blur`, function () {
-                //获取输入框值并转成数学类型
-                let num = +textelement.value;
-                //条件？满足条件：不满足条件
-                num = num < 10 ? "0" + num : num;
-                //打印到页面
-                spanelement.innerHTML = num;
+            //定义对象 方式二
+            let o = new Object();
+            o.username = "定义对象 方式二"
+            console.log(o)
 
+            //定义对象 方式三
+            //定义一个空的对象
+            function PS(Object) {
+                console.log(Object)
+            }
+            //创建空对象 传入一个对象
+            new PS({
+                username: "定义对象 方式三",
 
-            });
-
-
-
+            })
 
 
 
-        };
+
+
+
+
+
+
+
+        }
 
     </script>
 </body>

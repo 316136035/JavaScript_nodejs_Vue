@@ -20,11 +20,11 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A04_js_基本数据类型-null类型_未定义类型_undefined</title>
+    <title>A02_js_对象_增_删_改_查</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
-    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
-    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <!-- 引入外部js文件 不能和内部js一样使用-->
@@ -37,24 +37,46 @@
 
 <body>
 
-
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
+
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //定义变量没有赋值就是未定义类型（如果检测变量是undefined就说明没有值传递过来）
-            let undefined;
-            //查看参数类型
-            console.log(`未定义类型:${typeof (undefined)}`)
+            let student = {
+                //定义属性
+                username: "周XX",
+                age: 19,
+                gender: `男`,
+                //定义函
+                smokes: function (verb) {
+                    console.log(`边${verb}边抽烟！`);
+                }
 
-            //定义对象为null（一般用来定义对象）
-            let obj=null;
-            //查看参数类型
-            console.log(`定义对象为null:${typeof (obj)}`)
+            }
+            //在对象中添加属性
+            student.address = "广东"
+            console.log(student);
+            //在对象中添加函数
+            student.running = function (run) {
+                console.log(`边${run}边抽烟！`);
+            }
 
-        };
 
 
+            //调用对象中的方法
+            student.smokes("开车")
+            student.smokes("跑步")
+
+
+
+
+
+
+
+
+
+
+        }
 
     </script>
 </body>
