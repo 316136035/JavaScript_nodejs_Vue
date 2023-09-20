@@ -47,25 +47,51 @@
                 username: "周XX",
                 age: 19,
                 gender: `男`,
-                //定义函
+                //定义函数
                 smokes: function (verb) {
                     console.log(`边${verb}边抽烟！`);
                 }
 
             }
-            //在对象中添加属性
+            //对象中添加属性
             student.address = "广东"
-            console.log(student);
-            //在对象中添加函数
+            console.log('对象中添加属性:', student);
+            //对象中添加函数
             student.running = function (run) {
                 console.log(`边${run}边抽烟！`);
             }
 
+            //删除对象的属性(了解)
+            delete student.age;
+            console.log(`删除对象的属性:`, student);
+            //删除对象的函数
+            delete student.smokes;
+            console.log(`删除对象的函数:`, student);
+
+            //修改对象中的属性
+            student.gender = `女`;
+            console.log(`修改对象中的属性:`, student);
+
+            //修改对象中的函数
+            student.running = function (run) {
+                return `修改对象中的函：数边${run}边抽烟！`;
+            }
+            //调用对象中的函数
+            let str = student.running('跑步');
+            console.log(str);
+
+            //查看属性
+            console.log(`查看属性方式一:`, student.username);
+            console.log(`查看属性方式二:`, student['username']);
 
 
-            //调用对象中的方法
-            student.smokes("开车")
-            student.smokes("跑步")
+
+
+
+
+
+
+
 
 
 
