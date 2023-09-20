@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A03_js_变量let</title>
+    <title>A06_js_基本数据类型-布尔类型转换</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -30,49 +30,32 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        div {
-            width: 200px;
-            height: 50px;
-            background-color: rgb(231, 10, 10);
-            color: aliceblue;
-            font-size: 20px;
-            text-align: center;
-            line-height: 50px;
-        }
+     
     </style>
 
 </head>
 
 <body>
-    <div class="array" id="array">打印数组</div>
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //通过id选择器获取到元素再给元素添加一个事件监听
-            document.getElementById("array").addEventListener("click", function () {
-                //定义一个数组
-                let array = [9, 8, 7, 4, 6, 5, 3, 2, 1]
-                //遍历数组
-                array.forEach(element => {
-                    //打印到控制台
-                    console.log(element)
-                })
-                //定义一个数组
-                let arrayString = ['我', '是', '中', '国', '人']
-                //遍历数组
-                arrayString.forEach(element => {
-                    //打印到控制台
-                    console.log(element)
-                })
+      //  注意：''、undefined、null、false、NaN 转换为布尔值后都是false, 其余则为 true
+            
+      console.log(`空字符串：假`,Boolean(''));
+      console.log(`字符串：真`,Boolean('周'));
+      console.log(`数字0：假`,Boolean(0));
+      console.log(`数字不是1：真`,Boolean(1));
+      console.log(`undefined未定义：假`,Boolean(undefined));
+      console.log(`null：假`,Boolean(null));
+      console.log(`NaN：假`,Boolean(NaN));
+         
+           
 
+        
 
-            });
-
-
-
-        };
+  };
 
 
 
