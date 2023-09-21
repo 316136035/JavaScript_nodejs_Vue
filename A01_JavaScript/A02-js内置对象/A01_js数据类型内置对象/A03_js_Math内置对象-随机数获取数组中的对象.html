@@ -1,0 +1,114 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A03_js_Math内置对象-随机数获取数组中的对象</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        button {
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button id="button">随机获取数组中的对象</button><span id="span"></span>
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            //定义名称数组
+            const nameOptions = ["Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Hannah", "Isaac", "Jack", "Katie", "Liam", "Mia", "Nathan", "Olivia", "Peter", "Quinn", "Rachel", "Samuel", "Taylor"];
+
+            // 生成指定范围内的随机整数
+            function getRandomInt(min, max) {
+                //上升一位 向上取整
+                min = Math.ceil(min);
+                //下降一位 向下取整
+                max = Math.floor(max);//下降一位 向下取整
+                //随机无穷的小数*（最大值-最小值+1）+最小值 再向下取整
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            //定义的数组存放对象
+            let array = [];
+            //生成20个学生对象
+            for (let index = 1; index <= 20; index++) {
+                //随机获取名称数组的索引
+                let randomNum = getRandomInt(0, nameOptions.length-1);
+                // 获取名称数组的单个值
+                let name = nameOptions[randomNum];
+                //随机生成1-100的数
+                let age = getRandomInt(1, 100);
+                // //随机生成0-1的数 三元表达式
+                let gender = getRandomInt(0, 1) === 0 ? '男' : '女';
+                //创建对象
+                let stu = {
+                    name: name,
+                    age: age,
+                    gender: gender
+                }
+                //数组存放对象
+                array.push(stu)
+            }
+
+            //获取button元素添加事件
+            document.querySelector(`#button`).addEventListener('click', function () {
+            
+                //随机获取名称数组的索引
+                let num = getRandomInt(0, array.length-1);
+                console.log(num);
+                //获取数组中的对象
+                let stu = array[num];
+                //替换span标签中的文本
+                document.querySelector(`#span`).innerHTML = JSON.stringify(stu);
+
+            })
+
+
+
+
+
+
+
+
+
+        };
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
