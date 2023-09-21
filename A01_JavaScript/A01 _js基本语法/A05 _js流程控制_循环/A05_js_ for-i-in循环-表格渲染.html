@@ -1,0 +1,134 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A05_js_ for-i-in循环-表格渲染</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        table {
+            /* 设置标题位置 
+            top 头部
+            bottom 尾部*/
+            caption-side: top;
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(100, 0, 0);
+            /* 设置表单列宽  auto 自动的  fixed固定的*/
+            table-layout: auto;
+            /* 设置单元格之间的边框距离（前提不能使用合并单元格之间的边框） */
+            /* border-spacing: 0px; */
+            /*  合并单元格之间的边框 （设置单元格之间的边框距离就不生效了）*/
+            border-collapse: collapse;
+            /* 隐藏没有内容的单元格 （前提不能使用合并单元格之间的边框*/
+            empty-cells: hide;
+            /* 表单居中 */
+            margin: 0 auto;
+
+
+
+        }
+
+        th,
+        td {
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(0, 100, 70);
+            padding-left: 20px;
+            padding-right: 20px;
+
+        }
+
+        caption {
+            font-size: 24px;
+
+        }
+
+        th {
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <table id="table">
+        <thead> <!-- 表格头部行 -->
+            <caption>表格渲染 </caption>
+            <tr> <!-- 表格头部列 -->
+                <th>编码</td>
+                <th>性别</td>
+                <th>年龄</td>
+                <th>地址</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+
+
+
+    </table>
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            //定义数组存放对象
+            let Persons = [{ 姓名: "张三", 性别: "男", 年龄: 30, 地址: "北京" },
+            { 姓名: "李四", 性别: "女", 年龄: 25, 地址: "上海" },
+            { 姓名: "王五", 性别: "男", 年龄: 35, 地址: "广州" }]
+
+            for (let index = 0; index < Persons.length; index++) {
+                let Person = Persons[index];
+                console.log(Person);
+                //创建一个tr节点对象
+                var trElement = document.createElement("tr");
+                for (const key in Person) {
+                    //创建一个td节点对象
+                    let tdElement = document.createElement("td");
+                    //通过属性名获取属性值
+                    let value = Person[key]
+                    //创建创建文本节点
+                    var valueElement = document.createTextNode(value);
+                    //文本节点存放在td节点中
+                    tdElement.append(valueElement)
+                    //td节点存放在tr节点中
+                    trElement.appendChild(tdElement)
+
+                }
+                // 将新元素追加到tbod元素的末尾
+                document.querySelector('#tbody').appendChild(trElement)
+            }
+
+        };
+
+
+
+
+    </script>
+</body>
+
+</html>
