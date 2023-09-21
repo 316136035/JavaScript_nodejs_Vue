@@ -62,7 +62,7 @@
             //生成20个学生对象
             for (let index = 1; index <= 20; index++) {
                 //随机获取名称数组的索引
-                let randomNum = getRandomInt(0, nameOptions.length);
+                let randomNum = getRandomInt(0, nameOptions.length-1);
                 // 获取名称数组的单个值
                 let name = nameOptions[randomNum];
                 //随机生成1-100的数
@@ -79,9 +79,12 @@
                 array.push(stu)
             }
 
+            //获取button元素添加事件
             document.querySelector(`#button`).addEventListener('click', function () {
+            
                 //随机获取名称数组的索引
-                let num = getRandomInt(0, array.length);
+                let num = getRandomInt(0, array.length-1);
+                console.log(num);
                 //获取数组中的对象
                 let stu = array[num];
                 //替换span标签中的文本
