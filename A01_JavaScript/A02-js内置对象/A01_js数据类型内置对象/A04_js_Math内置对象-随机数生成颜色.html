@@ -30,30 +30,36 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        button {
+        .main {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .color {
             width: 200px;
-            height: 100px;
+            height: 200px;
+            border: 1px solid red;
+            text-align: center;
+            line-height: 200px;
+
         }
     </style>
 
 </head>
 
 <body>
-     <div>
+    <div class="main">
+        <div class="color" id="Hexadecimal">点击我动态生成十六进制颜色 </div>
 
-     </div>
-     <div>
-        
-     </div>
-    <button id="button">随机获取数组中的对象</button><span id="span"></span>
+        <div class="color" id="ternary">点击我动态生成rgb三原色</div>
 
+    </div>
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //定义名称数组
-            const nameOptions = ["Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Hannah", "Isaac", "Jack", "Katie", "Liam", "Mia", "Nathan", "Olivia", "Peter", "Quinn", "Rachel", "Samuel", "Taylor"];
-
+            //十六进制颜色范围值
+            const array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, `A`, `B`, `C`, `D`, `E`, `F`]
             // 生成指定范围内的随机整数
             function getRandomInt(min, max) {
                 //上升一位 向上取整
@@ -63,40 +69,38 @@
                 //随机无穷的小数*（最大值-最小值+1）+最小值 再向下取整
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             }
-            //定义的数组存放对象
-            let array = [];
-            //生成20个学生对象
-            for (let index = 1; index <= 20; index++) {
-                //随机获取名称数组的索引
-                let randomNum = getRandomInt(0, nameOptions.length-1);
-                // 获取名称数组的单个值
-                let name = nameOptions[randomNum];
-                //随机生成1-100的数
-                let age = getRandomInt(1, 100);
-                // //随机生成0-1的数 三元表达式
-                let gender = getRandomInt(0, 1) === 0 ? '男' : '女';
-                //创建对象
-                let stu = {
-                    name: name,
-                    age: age,
-                    gender: gender
+            //通过选择器获取Hexadecimal元素(动态生成十六进制颜色)
+            let hexadecimalElement = document.querySelector('#Hexadecimal')
+            //Hexadecimal元素添加点击事件
+            hexadecimalElement.addEventListener('click', function () {
+                //定义十六进制颜色
+                let str = '#';
+                //拼接十六进制颜色
+                for (let index = 0; index < 6; index++) {
+                    //随机获取十六进制颜色范围值的索引
+                    let num = getRandomInt(0, array.length - 1)
+                    //获取十六进制颜色范围值的值进行拼接
+                    str += array[num]
                 }
-                //数组存放对象
-                array.push(stu)
-            }
-
-            //获取button元素添加事件
-            document.querySelector(`#button`).addEventListener('click', function () {
-            
-                //随机获取名称数组的索引
-                let num = getRandomInt(0, array.length-1);
-                console.log(num);
-                //获取数组中的对象
-                let stu = array[num];
-                //替换span标签中的文本
-                document.querySelector(`#span`).innerHTML = JSON.stringify(stu);
-
+                //Hexadecimal元素添加样式
+                hexadecimalElement.style.background = str;
             })
+            //通过选择器获取ternary元素(动态生成rgb三原色)
+            let ternarylElement = document.querySelector(`#ternary`);
+            //ternary元素添加点击事件
+            ternarylElement.addEventListener('click', function () {
+                //随机获取三原色范围值
+                let num1 = getRandomInt(0, 255);
+                let num2 = getRandomInt(0, 255);
+                let num3 = getRandomInt(0, 255);
+                //字符串拼接
+                let str = `rgb(${num1},${num2},${num3})`
+                //ernarylElement元素添加样式
+                ternarylElement.style.background = str;
+            })
+
+
+
 
         };
 
