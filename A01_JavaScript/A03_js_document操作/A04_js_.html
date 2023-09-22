@@ -38,8 +38,7 @@
 
         }
 
-        .mydiv1
-                     {
+        .mydiv1 {
             width: 200px;
             height: 200px;
             border: 1px solid black;
@@ -74,13 +73,12 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
             const mydiv1Element = document.querySelector('.mydiv1');
-
             mydiv1Element.addEventListener('click', function () {
+                //样式出现多个单词使用小驼峰命名法
                 mydiv1Element.style.width = '250px'
                 mydiv1Element.style.height = '250px'
                 mydiv1Element.style.border = '2px solid blue';
                 mydiv1Element.style.background = 'red'
-                
                 mydiv1Element.style.borderRadius = '20px'
                 mydiv1Element.style.textAlign = 'center'
                 mydiv1Element.style.lineHeight = '250px'
