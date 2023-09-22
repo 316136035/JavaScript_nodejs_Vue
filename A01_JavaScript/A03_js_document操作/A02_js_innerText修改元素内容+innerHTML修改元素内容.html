@@ -1,0 +1,80 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A02_js_innerText修改元素内容+innerHTML修改元素内容</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+
+
+    </style>
+
+</head>
+
+<body>
+    <div id="innerText">innerText查询和修改（仅支持文本）</div>
+    <div id="innerHTML">innerHTML查询和修改（支持标签）</div>
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            //innerText查询和修改（仅支持文本）
+            //通过查询选择器获取元素
+            const innerTexElement = document.querySelector(`#innerText`)
+            //查询元素内容（仅支持文本）
+            let text = innerTexElement.innerText;
+            console.log('innerText查询:', innerText);
+            //修改元素内容（仅支持文本）
+            innerTexElement.innerText = "<samp>innerText修改</samp>";
+
+            //innerHTML查询和修改（支持标签）
+            //通过查询选择器获取元素
+            const innerHTMLElement = document.querySelector(`#innerHTML`)
+            //查询元素内容（支持标签）
+            let htmlText = innerTexElement.innerHTML;
+            console.log('innerHTML查询:', htmlText);
+            //修改元素内容（支持标签）
+            innerHTMLElement.innerHTML = "<samp>innerHTML修改</samp>";
+
+
+
+
+
+        };
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
