@@ -41,17 +41,25 @@
         .add,
         .remove,
         .toggle {
+            /* 宽度 */
             width: 200px;
+            /* 高度 */
             height: 200px;
+            /* 外边框 */
             margin: 10px;
+            /* 边框 */
             border: 1px solid black;
+            /* 字体水平居中 */
             text-align: center;
+            /* 字体垂直居中 */
             line-height: 200px;
+            /* 边框圆角 */
             border-radius: 20px;
 
         }
 
         .backgroundColor {
+            /* 背景颜色 */
             background-color: red;
         }
     </style>
@@ -65,26 +73,27 @@
         <div class="remove backgroundColor">remove删除样式</div>
         <div class="toggle backgroundColor">toggle切换样式</div>
     </div>
-
-
-
-
-
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+            //通过查询选择器获取元素
             const addElement = document.querySelector('.add');
+            //元素添加点击事件
             addElement.addEventListener('click', function () {
                 //追加类名参数值（class="A B C"）
                 addElement.classList.add(`backgroundColor`)
             });
+            //通过查询选择器获取元素
             const removeElement = document.querySelector('.remove');
+            //元素添加点击事件
             removeElement.addEventListener('click', function () {
                 //删除类名参数值（class="A B C"）
                 removeElement.classList.remove('backgroundColor')
             });
+            //通过查询选择器获取元素
             const toggleElement = document.querySelector(`.toggle`);
+            //元素添加点击事件
             toggleElement.addEventListener('click', function () {
                 //切换类名参数值（class="backgroundColor"） 类名存在则删除， 类名不存在则追加
                 toggleElement.classList.toggle(`backgroundColor`)
