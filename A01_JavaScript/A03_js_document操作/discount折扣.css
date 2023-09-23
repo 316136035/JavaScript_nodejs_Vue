@@ -1,0 +1,49 @@
+/* 10% 折扣 */
+.discount-10 {
+  background-color: rgb(249, 3, 3); /* 深红色 */
+}
+
+/* 20% 折扣 */
+.discount-20 {
+  background-color: rgb(244, 51, 51); /* 红色 */
+}
+
+/* 30% 折扣 */
+.discount-30 {
+  background-color: #f63104; /* 深橙色 */
+}
+
+/* 40% 折扣 */
+.discount-40 {
+  background-color: #FF5733; /* 橙色 */
+}
+
+/* 50% 折扣 */
+.discount-50 {
+  background-color: #CDDC39; /* 酸橙色 */
+}
+
+/* 60% 折扣 */
+.discount-60 {
+  background-color: #8BC34A; /* 青柠绿 */
+}
+
+/* 70% 折扣 */
+.discount-70 {
+  background-color: #4CAF50; /* 酸橙绿 */
+}
+
+/* 80% 折扣 */
+.discount-80 {
+  background-color: #009688; /* 深绿色 */
+}
+
+/* 90% 折扣 */
+.discount-90 {
+  background-color: #1976D2; /* 海军蓝 */
+}
+
+/* 全价 */
+.discount-100 {
+  background-color: #3F51B5; /* 深蓝色 */
+}

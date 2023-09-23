@@ -26,7 +26,7 @@
     <!-- 清除css默认样式 -->
     <link rel="stylesheet" href="../resources静态资源/css/reset.css">
     <!-- 调用一个外部的CSS样式文件 -->
-    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="./discount折扣.css">
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
@@ -50,6 +50,13 @@
             color: rgb(168, 173, 167);
 
         }
+        .discount{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+
     </style>
 
 </head>
@@ -59,7 +66,7 @@
     <div class="main">
 
         <div class="mydiv1">通过style修改样式</div>
-        <div class="div2">通过style修改样式</div>
+        <div class="discount">通过类名修改样式</div>
         <div class="div3">通过style修改样式</div>
 
 
@@ -74,18 +81,19 @@
         window.onload = function () {
             const mydiv1Element = document.querySelector('.mydiv1');
             mydiv1Element.addEventListener('click', function () {
-                //样式出现多个单词使用小驼峰命名法
-                mydiv1Element.style.width = '250px'
-                mydiv1Element.style.height = '250px'
+                //通过style修改样式,样式出现多个单词使用小驼峰命名法
+                mydiv1Element.style.width = '250px';
+                mydiv1Element.style.height = '250px';
                 mydiv1Element.style.border = '2px solid blue';
-                mydiv1Element.style.background = 'red'
-                mydiv1Element.style.borderRadius = '20px'
-                mydiv1Element.style.textAlign = 'center'
-                mydiv1Element.style.lineHeight = '250px'
-                mydiv1Element.style.fontSize = '22px'
-                mydiv1Element.style.color = 'rgb(167, 173, 173)'
-                mydiv1Element.style.backgroundImage = `url('../resources静态资源/img/背景1.png')`
-                mydiv1Element.stylbackgroundSize = `cover`;
+                mydiv1Element.style.background = 'red';
+                mydiv1Element.style.borderRadius = '20px';
+                mydiv1Element.style.textAlign = 'center';
+                mydiv1Element.style.lineHeight = '250px';
+                mydiv1Element.style.fontSize = '22px';
+                mydiv1Element.style.color = 'rgb(167, 173, 173)';
+                //获取body元素通过style修改样式,样式出现多个单词使用小驼峰命名法
+                document.body.style.backgroundImage = `url(../resources静态资源/img/${'背景1'}.png)`;
+                document.body.style.backgroundSize = `cover`;
             });
 
 
