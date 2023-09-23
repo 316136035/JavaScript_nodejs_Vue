@@ -1,0 +1,183 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A03_js_getAttribute获取属性+setAttribute修改属性_等</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        .enter>input {
+            width: 300px;
+            height: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .checkbox>div {
+            width: 50px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <form action="#" method="post">
+            <!--输入框 type="文本类型" 
+                    name="服务器取值用key" 
+                    id="用着js"  
+                    value="默认值" 
+                    placeholder="占位符-提示值" （作用于文本输入类的）
+                    maxlength="限制字符最大值" 
+                    disabled="disabled" 属性规定禁用不能输入
+                    placeholder="提示值"
+                    autofocus 页面加载自动获取焦点
+                    required 必填项  （作用于文本输入框 单选框 多选框 多行文本）没有填会限制提交表单
+                    autocomplete （作用于type="text"）历史记录开启on/关闭off
+                    pattern="正则表达式"  （作用于文本输入类的）手机正则表达式:"^1[3456789]\d{9}$"
+            -->
+            <div class="enter">
+                <input class="text" type="text" placeholder="请输入账户,当鼠标离开焦点就获取用户输入的值">
+                <br>
+                <input class="password" type="password" placeholder="当鼠标离开焦点时type='text' ，当鼠标离开焦点type='password'">
+            </div>
+            <hr>
+            <!-- 单选框  type="radio" name="组"    name="用于服务器取值key"-->
+            <div>
+                <label class="singleradio">点击这个获取单选框value属性值：</label>
+                <!-- 单选框  type="radio" name="组"    name="用于服务器取值key"-->
+                <input type="radio" name="gender" value="0" checked="ture">男
+                <input type="radio" name="gender" value="1">女
+
+            </div>
+            <hr>
+            <div class="checkbox">
+                <!--  多选框  type="radio" name="组" name="用于服务器取值key" checked="ture"默认选中-->
+                多选框：
+                <input type="checkbox" name="hobby" value="basketball" checked="ture">篮球
+                <input type="checkbox" name="hobby" value="smokes" checked="ture">抽烟
+                <input type="checkbox" name="hobby" value="drive">开车
+                <input type="checkbox" name="hobby" value="running">跑步
+                <input type="checkbox" name="hobby" value="game">游戏
+                <div class="allbutton">全选</div>
+                <div class="noallbutton">全不选</div>
+                <div class="counterbutton">反选</div>
+            </div>
+            <hr>
+            <div class="ischeckbox">
+                <input type="checkbox" >我同意提交
+                <!-- 设置限制提交（） -->
+                <button type="submit" id="submitButton" disabled>限制点击的按钮</button>
+            </div>
+
+
+
+        </form>
+
+    </div>
+
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+
+            //表单输入框的属性操作
+
+            const textElement = document.querySelector(`.text`)
+            textElement.addEventListener('blur', function () {
+                let str = textElement.value;
+                alert(str)
+
+            })
+            const passwordElement = document.querySelector(`.password`)
+            passwordElement.addEventListener('focus', function () {
+                passwordElement.type = 'text'
+            })
+            passwordElement.addEventListener('blur', function () {
+                passwordElement.type = 'password'
+            })
+
+
+            //表单-单选框的属性操作
+            const singleradioElement = document.querySelector(`.singleradio`)
+            singleradioElement.addEventListener('click', function () {
+                //获取单选框中选中的值
+                let str = document.querySelector('input[name="gender"]:checked').value;
+                alert(str)
+            })
+
+
+            //表单多选框的属性操作
+            //通过查询选择器获取元素（多个函数共用）
+            const inputElements = document.querySelectorAll(`.checkbox > input`)
+
+            //通过查询选择器获取元素
+            const allbuttonElement = document.querySelector(`.allbutton`);
+            //元素添加点击事件
+            allbuttonElement.addEventListener('click', function () {
+
+                inputElements.forEach(function (item) {
+                    item.checked = true
+                })
+            })
+            //通过查询选择器获取元素
+            const noallbuttonElement = document.querySelector(`.noallbutton`);
+            //元素添加点击事件
+            noallbuttonElement.addEventListener('click', function () {
+                inputElements.forEach(function (item) {
+                    item.checked = false
+                })
+            })
+            //通过查询选择器获取元素
+            const counterbutton = document.querySelector(`.counterbutton`);
+            //元素添加点击事件
+            counterbutton.addEventListener('click', function () {
+                inputElements.forEach(function (item) {
+                    item.checked = !item.checked
+                })
+            })
+
+            //通过查询选择器获取元素
+          
+
+
+        };
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
