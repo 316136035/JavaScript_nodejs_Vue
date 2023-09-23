@@ -40,36 +40,59 @@
 </head>
 
 <body>
-    <button class="button buttonstart1">开启定时器不带参数</button>
-    <button class="button buttonend1">关闭定时器不带参数</button>
+    <button class="button buttonstart1">开启定时器不带参数方式一</button>
+    <button class="button buttonend1">关闭定时器不带参方式一数</button>
     <span id="span1"></span>
     <hr>
-
-    <button class="button button3">定时器3</button>
-    <button class="button button4">定时器4</button>
-    <button class="button button5">定时器5</button>
+    <button class="button buttonstart2">开启定时器不带参数方式二</button>
+    <button class="button buttonend2">关闭定时器不带参方式二</button>
+    <span id="span2"></span>
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //开启定时器不带参数
+            //开启定时器不带参数方式一
             const button1Element = document.querySelector('.buttonstart1');
             const span1Element = document.querySelector('#span1');
+            let i = 0;
             let timer1;
+
             button1Element.addEventListener('click', function () {
-                let i = 0;
+
                 timer1 = setInterval(() => {
                     span1Element.innerText = i++
                 }, 100);
             })
-            //关闭定时器不带参数
-            const buttonElement2 = document.querySelector('.buttonend1');
-            buttonElement2.addEventListener('click', function () {
+            //关闭定时器不带参数方式一
+            const buttonend1Element2 = document.querySelector('.buttonend1');
+            buttonend1Element2.addEventListener('click', function () {
 
                 clearInterval(timer1)
 
             })
+            //开启定时器不带参数方式二
+            let timer2;
+            const button2Element = document.querySelector('.buttonstart2');
+            const span2Element = document.querySelector('#span2');
+            function myCallback() {
+                span2Element.innerHTML=i++;
+            }
+            button2Element.addEventListener(`click`, function () {
+                timer2 = setInterval(myCallback, 100);
+            })
+            //关闭定时器不带参数方式二
+            const buttonend2Element = document.querySelector('.buttonend2');
+            buttonend2Element.addEventListener('click', function () {
+                clearInterval(timer2)
+
+            })
+
+
+
+
+
+
 
 
         };
