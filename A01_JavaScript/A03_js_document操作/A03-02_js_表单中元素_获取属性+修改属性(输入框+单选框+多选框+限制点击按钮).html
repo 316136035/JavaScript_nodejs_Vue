@@ -92,7 +92,7 @@
             </div>
             <hr>
             <div class="ischeckbox">
-                <input type="checkbox" >我同意提交
+                <input type="checkbox">我同意提交
                 <!-- 设置限制提交（） -->
                 <button type="submit" id="submitButton" disabled>限制点击的按钮</button>
             </div>
@@ -166,8 +166,13 @@
             })
 
             //通过查询选择器获取元素
-          
-
+            const inputElement = document.querySelector(`.ischeckbox > input`);
+            const buttonElement = document.querySelector(`.ischeckbox > button`)
+            inputElement.addEventListener('click', function () {
+                if (inputElement.checked === true) {
+                    buttonElement.disabled = false
+                }
+            })
 
         };
 
