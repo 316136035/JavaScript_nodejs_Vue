@@ -42,10 +42,18 @@
 
 <body>
     <div>
-        <button id="button1">更换图片</button> <img src="../resources静态资源/img/频道广场1.avif" alt="图片">
         <a href="https://item.jd.com/100064068439.html" title="旺旺 大米饼 膨化休闲 零食饼干糕点 年货礼包 原味 1000g">旺旺 大米饼 膨化休闲 零食饼干糕点年货礼包味
             1000g</a>
-   </div>
+
+        <ul>
+            <li data-class="1" data-span="自定义属性">A</li>
+            <li data-class="1">B</li>
+            <li>C</li>
+            <li>D</li>
+        </ul>
+
+        <button id="button1">更换图片</button> <img src="../resources静态资源/img/频道广场1.avif" alt="图片">
+    </div>
 
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
@@ -61,20 +69,6 @@
                 //随机无穷的小数*（最大值-最小值+1）+最小值 再向下取整
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             }
-            //通过查询选择器获取元素并添加事件
-            document.querySelector(`#button1`).addEventListener('click', function () {
-                //通过查询选择器获取元素
-                const imgElement = document.querySelector(`img`);
-                //通过属性名获取属性值
-                let str = imgElement.getAttribute('src')
-                console.log("getAttribute:", str);
-                //获取随机属
-                let num = getRandomInt(1, 6);
-                //修改属性值
-                document.querySelector(`img`).setAttribute('src', `../resources静态资源/img/频道广场${num}.avif`);
-            })
-
-            //其他获取属性的方法
             //通过查询选择器获取元素
             const aElement = document.querySelector(`a`);
             //通过元素获取属性值
@@ -90,9 +84,33 @@
             //通过元素修改文本内容
             aElement.innerText = '旺旺 煎饼 饼干点心 休闲零食 原味 600g'
 
-     
+            //自定义属性(只能在标签中添加或者使用setAttribute)
+          const liElement=  document.querySelector(`ul li`);
+            //获取data自定义属性 得到的是数组
+           const array=liElement.dataset;
+           console.log(`获取data自定义属性 得到的是对象:`,array);
+           console.log(`自定义属性对象值:`,array.class);
+           console.log(`自定义属性对象值:`,array.span);
 
-   };
+
+
+
+            //通过查询选择器获取元素并添加事件
+            //（getAttribute获取setAttribute设置  ）
+            document.querySelector(`#button1`).addEventListener('click', function () {
+                //通过查询选择器获取元素
+                const imgElement = document.querySelector(`img`);
+                //通过属性名获取属性值
+                let str = imgElement.getAttribute('src')
+                console.log("getAttribute:", str);
+                //获取随机属
+                let num = getRandomInt(1, 6);
+                //修改属性值
+                document.querySelector(`img`).setAttribute('src', `../resources静态资源/img/频道广场${num}.avif`);
+            })
+
+
+        };
 
 
 
