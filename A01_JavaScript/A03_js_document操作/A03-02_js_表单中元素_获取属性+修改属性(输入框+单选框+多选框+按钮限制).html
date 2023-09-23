@@ -93,7 +93,6 @@
             <hr>
             <div class="ischeckbox">
                 <input type="checkbox">我同意提交
-                <!-- 设置限制提交（） -->
                 <button type="submit" id="submitButton" disabled>限制点击的按钮</button>
             </div>
 
@@ -109,24 +108,30 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
 
-            //表单输入框的属性操作
-
+            /*1.输入框   （表单输入框的属性操作）*/
+            //通过查询选择器获取元素（输入框）
             const textElement = document.querySelector(`.text`)
+            //元素添加离开焦点事件
             textElement.addEventListener('blur', function () {
+                //获取输入框输入的内容
                 let str = textElement.value;
                 alert(str)
-
             })
+            //通过查询选择器获取元素（密码框）
             const passwordElement = document.querySelector(`.password`)
+            //元素添加获得焦点事件
             passwordElement.addEventListener('focus', function () {
+                //元素（密码框）修改type属性 为可见
                 passwordElement.type = 'text'
             })
+            //元素添加离开焦点事件
             passwordElement.addEventListener('blur', function () {
+                //元素（密码框）修改type属性 为不可见
                 passwordElement.type = 'password'
             })
 
 
-            //表单-单选框的属性操作
+            /*2.单选框 （表单-单选框的属性操作）*/
             const singleradioElement = document.querySelector(`.singleradio`)
             singleradioElement.addEventListener('click', function () {
                 //获取单选框中选中的值
@@ -135,41 +140,48 @@
             })
 
 
-            //表单多选框的属性操作
-            //通过查询选择器获取元素（多个函数共用）
+            /*3.多选框 （表单多选框的属性操作）*/
+            //通过查询选择器获取多个元素（多个函数共用）
             const inputElements = document.querySelectorAll(`.checkbox > input`)
-
-            //通过查询选择器获取元素
+            //通过查询选择器获取元素（全选）
             const allbuttonElement = document.querySelector(`.allbutton`);
-            //元素添加点击事件
+            //元素添加点击事件（全选）
             allbuttonElement.addEventListener('click', function () {
-
+                //遍历伪数组
                 inputElements.forEach(function (item) {
+                    //设置为选中
                     item.checked = true
                 })
             })
-            //通过查询选择器获取元素
+            //通过查询选择器获取元素（全不选）
             const noallbuttonElement = document.querySelector(`.noallbutton`);
-            //元素添加点击事件
+            //元素添加点击事件（全不选）
             noallbuttonElement.addEventListener('click', function () {
                 inputElements.forEach(function (item) {
+                    //设置为不选中
                     item.checked = false
                 })
             })
-            //通过查询选择器获取元素
+            //通过查询选择器获取元素（反选）
             const counterbutton = document.querySelector(`.counterbutton`);
-            //元素添加点击事件
+            //元素添加点击事件（反选）
             counterbutton.addEventListener('click', function () {
                 inputElements.forEach(function (item) {
+                    //取反值 
                     item.checked = !item.checked
                 })
             })
 
-            //通过查询选择器获取元素
+            /*4.按钮限制 （disabled按钮限制操作）*/
+            //通过查询选择器获取元素（选择框）
             const inputElement = document.querySelector(`.ischeckbox > input`);
+            //通过查询选择器获取元素（按钮）
             const buttonElement = document.querySelector(`.ischeckbox > button`)
+            //选择框添加事件
             inputElement.addEventListener('click', function () {
+                //判断选择框是否选中
                 if (inputElement.checked === true) {
+                    //按钮设置为可提交（disabled=false可提交 disabled=ture 不可提交）
                     buttonElement.disabled = false
                 }
             })
