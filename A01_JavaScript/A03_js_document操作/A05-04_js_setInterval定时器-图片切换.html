@@ -35,12 +35,40 @@
             height: 470px;
             background-color: chartreuse;
         }
+
+        ul {
+            width: 200px;
+            height: 20px;
+            display: flex;
+            position: relative;
+            /* 相对路径上边50px */
+            top: -30px;
+
+
+        }
+
+        li {
+            width: 15px;
+            height: 15px;
+            /* 设置背景颜色 */
+            background-color: #ff000092;
+            /* 将边框半径设置为50%以创建圆形 */
+            border-radius: 50%;
+            margin: auto;
+
+        }
+        li:hover{
+            width: 20px;
+            height: 20px;
+        }
+
     </style>
 
 </head>
 
 <body>
     <div class="div">
+        <img class="img" src="../resources静态资源/img/图片切换1.avif" title="口袋主机超级趋势" alt="路径出错">
 
         <ul class="ul">
 
@@ -60,16 +88,9 @@
 
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            const divElement = document.querySelector(`div`);
-            //创建一个div节点对象
-            var img = document.createElement("img");
-            img.className = 'img'
-            img.src = `../resources静态资源/img/图片切换1.avif`
-            img.title = `口袋主机超级趋势`
-            img.alt = `路径出错`
-            divElement.appendChild(img)
             const imgElement = document.querySelector(`.img`);
             const ulElement = document.querySelector(`.ul`);
+
             let imglist = [
                 { url: `../resources静态资源/img/图片切换1.avif`, title: `口袋主机超级趋势`, alt: "路径出错" },
                 { url: `../resources静态资源/img/图片切换2.jpg`, title: `广州酒家利口福低温月饼`, alt: "路径出错" },
@@ -77,6 +98,15 @@
                 { url: `../resources静态资源/img/图片切换4.jpg`, title: `京选好货你值得拥有`, alt: "路径出错" },
                 { url: `../resources静态资源/img/图片切换5.avif`, title: `汉斯格雅花洒`, alt: "路径出错" },
                 { url: `../resources静态资源/img/图切切换6.avif`, title: `健康中秋福礼季`, alt: "路径出错" }]
+
+            document.createElement('li')
+            for (let index = 0; index < imglist.length; index++) {
+                let li = document.createElement('li')
+                
+                ulElement.appendChild(li)
+
+            }
+
 
 
             let interval;
