@@ -1,0 +1,109 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A05-01_js_setInterval定时器不传参数的两种写法</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        button,
+        input {
+            width: 200px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <button class="button buttonstart1">开启定时器带参数方式</button>
+    <button class="button buttonend1">关闭定时器带参数方式</button>
+
+
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            //通过查询选择器获取元素
+            const buttonstart1 = document.querySelector('.buttonstart1')
+            //定义定时器对象
+            let interval;
+            //定义一个函数（带参数传递）
+            function myFunction(param1, param2) {
+                console.log(param1, param2);
+            }
+            //元素添加点击事件
+            buttonstart1.addEventListener('click', function () {
+                var param1 = "Hello";
+                var param2 = "World";
+                //定义定时器
+                interval = setInterval(() => {
+                    //调用函数
+                    myFunction(param1, param2);
+                }, 1000); //执行的间距毫秒数
+
+            })
+               //通过查询选择器获取元素
+            const buttonend1 = document.querySelector('.buttonend1')
+             //元素添加点击事件
+            buttonend1.addEventListener('click', function () {
+                //关闭定时器
+                clearInterval(interval)
+
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        };
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
