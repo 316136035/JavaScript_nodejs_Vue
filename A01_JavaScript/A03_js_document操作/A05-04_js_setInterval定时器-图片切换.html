@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A05-02_js_setInterval定时器带参数传递</title>
+    <title>A05-04_js_setInterval定时器-图片切换</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -30,20 +30,33 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        button,
-        input {
-            width: 200px;
+        .button {
             border: 1px solid black;
-            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .divbutton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* 这会使容器垂直居中 */
         }
     </style>
 
 </head>
 
 <body>
+    <div class="div">
+        <img src="../resources静态资源/img/频道广场1.avif" alt="">
+      
+        
 
-    <button class="button buttonstart1">开启定时器带参数方式</button>
-    <button class="button buttonend1">关闭定时器带参数方式</button>
+    </div>
 
 
 
@@ -51,39 +64,8 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //通过查询选择器获取元素
-            const buttonstart1 = document.querySelector('.buttonstart1')
-            //定义定时器对象（用户关闭定时器）
-            let interval;
-            //定义一个函数（带参数传递）
-            function myFunction(param1, param2) {
-                console.log(param1, param2);
-            }
-            //元素添加点击事件
-            buttonstart1.addEventListener('click', function () {
-                var param1 = "Hello";
-                var param2 = "World";
-                //定义定时器
-                interval = setInterval(() => {
-                    //调用函数
-                    myFunction(param1, param2);
-                }, 1000); //执行的间距毫秒数
-
-            })
-               //通过查询选择器获取元素
-            const buttonend1 = document.querySelector('.buttonend1')
-             //元素添加点击事件
-            buttonend1.addEventListener('click', function () {
-                //关闭定时器
-                clearInterval(interval)
-
-            })
-
-
-
-
-
-
+          let  imglist=[{},{},{},{},{},{},{}]
+            
 
 
 
