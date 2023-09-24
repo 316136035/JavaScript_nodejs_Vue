@@ -1,0 +1,143 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A05-01_js_setInterval定时器不传参数的两种写法</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        .button {
+            border: 1px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .divbutton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* 这会使容器垂直居中 */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="div">
+        <div>京东用户服务协议 </div>
+        <ul>
+            <h1></h1>
+            <li> (一)
+                京东网站（指北京京东叁佰陆拾度电子商务有限公司及其关联方合法拥有并运营的相关网站及客户端应用程序，以下称“本网站”或“京东平台”或“平台”）各项电子服务的所有权和运作权归属于“京东”所有，本网站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您确认所有服务条款并完成注册程序时，本协议在您与本网站间成立并发生法律效力，同时您成为本网站正式用户。
+            </li>
+            <li> (二) 京东平台经营者是指经营京东平台的各法律主体，京东可能根据平台业务调整而发生变更或新增，您可随时查看京东平台各网站首页底部公示的证照信息以确定与您履约的京东主体。</li>
+            <li>(三) 京东平台隐私政策、平台规则、单独协议均为本协议的补充协议，与本协议不可分割且具有同等法律效力。如您使用京东平台服务，视为您同意上述补充协议。 </li>
+            <li>(四)
+                您在使用本网站某一特定服务时，该服务可能会另有单独的协议、相关业务规则等（以下统称为“单独协议”），您在使用该项服务前请阅读并同意相关的单独协议；您使用前述特定服务，即视为您已阅读并同意接受相关单独协议。
+            </li>
+            <li>(五)
+                根据国家法律法规变化及本网站运营需要，京东有权对本协议条款及相关规则不时地进行修改，修改后的内容一旦依法以任何形式公布在本网站上即生效，并取代此前相关内容，您应不时关注本网站公告、提示信息及协议、规则等相关内容的变动。您知悉并确认，如您不同意更新后的内容，应立即停止使用本网站；如您继续使用本网站，即视为知悉变动内容并同意接受
+            <li>
+            <li> (六) 除非另有明确的书面说明,京东不对本网站的运营及其包含在本网站上的信息、内容、材料、产品（包括软件）或服务作任何形式的、明示或默示的声明或担保（根据中华人民共和国法律另有规定的以外）。</li>
+
+        </ul>
+        <div class="divbutton">
+            <button class="button" id="button" disabled>已阅读用户协议（10）</button>
+        </div>
+
+    </div>
+
+
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            //通过查询选择器获取元素
+            const buttonElement = document.querySelector(`#button`);
+            //定义定时器对象（用户关闭定时器）
+            let interval;
+            //倒计时
+            let num = 10;
+            //定义函数
+            function Subtraction(num) {
+                //判断倒计时
+                console.log(num === 0)
+                if (num !== 0) {
+                    //替换元素内容
+                    buttonElement.innerHTML = `已阅读用户协议（${num}）`
+                } else {
+                    //修改按钮限制
+                    buttonElement.disabled = false;
+                    //替换元素内容
+                    buttonElement.innerHTML = `同意用户协议`
+                    //关闭定时器
+                    clearInterval(interval)
+                }
+
+            }
+            //定义定时器
+            interval = setInterval(() => {
+                //调用函数
+                Subtraction(num);
+                //倒计时减减
+                num--
+            }, 1000);//函数执行间距时间（毫秒）
+            //元素添加事件
+            buttonElement.addEventListener('click', () => {
+                alert('点击成功！')
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        };
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
