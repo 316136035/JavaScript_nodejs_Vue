@@ -30,21 +30,10 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        .button {
-            border: 1px solid black;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-        }
-
-        .divbutton {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            /* 这会使容器垂直居中 */
+        .div {
+            width: 590px;
+            height: 470px;
+            background-color: chartreuse;
         }
     </style>
 
@@ -52,9 +41,14 @@
 
 <body>
     <div class="div">
-        <img src="../resources静态资源/img/频道广场1.avif" alt="">
-      
-        
+
+        <ul class="ul">
+
+
+        </ul>
+
+
+
 
     </div>
 
@@ -62,10 +56,52 @@
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
+
+
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-          let  imglist=[{},{},{},{},{},{},{}]
-            
+            const divElement = document.querySelector(`div`);
+            //创建一个div节点对象
+            var img = document.createElement("img");
+            img.className = 'img'
+            img.src = `../resources静态资源/img/图片切换1.avif`
+            img.title = `口袋主机超级趋势`
+            img.alt = `路径出错`
+            divElement.appendChild(img)
+            const imgElement = document.querySelector(`.img`);
+            const ulElement = document.querySelector(`.ul`);
+            let imglist = [
+                { url: `../resources静态资源/img/图片切换1.avif`, title: `口袋主机超级趋势`, alt: "路径出错" },
+                { url: `../resources静态资源/img/图片切换2.jpg`, title: `广州酒家利口福低温月饼`, alt: "路径出错" },
+                { url: `../resources静态资源/img/图片切换3.jpg`, title: `开启崭新生活御茶膳房月饼`, alt: "路径出错" },
+                { url: `../resources静态资源/img/图片切换4.jpg`, title: `京选好货你值得拥有`, alt: "路径出错" },
+                { url: `../resources静态资源/img/图片切换5.avif`, title: `汉斯格雅花洒`, alt: "路径出错" },
+                { url: `../resources静态资源/img/图切切换6.avif`, title: `健康中秋福礼季`, alt: "路径出错" }]
+
+
+            let interval;
+            let i = 0;
+            function setimg() {
+                if (i >= 6) { i = 0 }
+
+                imgElement.src = imglist[i].url;
+                imgElement.title = imglist[i].title;
+                imgElement.title = imglist[i].alt;
+
+
+
+
+            }
+            interval = setInterval(() => {
+                i++;
+
+                setimg();
+
+            }, 1000);
+
+
+
+
 
 
 
