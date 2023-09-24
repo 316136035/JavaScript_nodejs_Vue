@@ -89,11 +89,12 @@
             let num = 10;
             //定义函数
             function Subtraction(num) {
+             
                 //判断倒计时
                 console.log(num === 0)
                 if (num !== 0) {
                     //替换元素内容
-                    buttonElement.innerHTML = `已阅读用户协议（${num}）`
+                    buttonElement.innerHTML = `我已阅读用户协议(${num})`
                 } else {
                     //修改按钮限制
                     buttonElement.disabled = false;
@@ -106,10 +107,12 @@
             }
             //定义定时器
             interval = setInterval(() => {
+                   //倒计时减减
+                   num--
+                   console.log( num)
                 //调用函数
                 Subtraction(num);
-                //倒计时减减
-                num--
+
             }, 1000);//函数执行间距时间（毫秒）
             //元素添加事件
             buttonElement.addEventListener('click', () => {
