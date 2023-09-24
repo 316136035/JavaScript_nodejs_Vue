@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A01_js_querySelector查询选择器(支持css写法)</title>
+    <title>A05-01_js_setInterval定时器不传参数的两种写法</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -52,41 +52,61 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //开启定时器不带参数方式一
+            //开启定时器不带参数方式一（开启定时器）
+            //通过查询选择器获取元素
             const button1Element = document.querySelector('.buttonstart1');
             const span1Element = document.querySelector('#span1');
+            //定义变量（2个不带参数的定时器共用）
             let i = 0;
+            //定义定时器对象
             let timer1;
-
+            //元素添加点击事件
             button1Element.addEventListener('click', function () {
-
+                //定义定时器（返回的对象是数字）
                 timer1 = setInterval(() => {
+                    //替换元素内容
                     span1Element.innerText = i++
                 }, 100);
             })
-            //关闭定时器不带参数方式一
+            //关闭定时器不带参数方式一（停止定时器）
+            //通过查询选择器获取元素
             const buttonend1Element2 = document.querySelector('.buttonend1');
+            //元素添加点击事件
             buttonend1Element2.addEventListener('click', function () {
-
+                //停止定时器
                 clearInterval(timer1)
 
-            })
-            //开启定时器不带参数方式二
-            let timer2;
+            });
+
+
+
+
+
+            //开启定时器不带参数方式二（开启定时器）
+            //通过查询选择器获取元素
             const button2Element = document.querySelector('.buttonstart2');
             const span2Element = document.querySelector('#span2');
+            //定义定时器对象
+            let timer2;
+            //定义一个函数（提供改定时器使用）
             function myCallback() {
-                span2Element.innerHTML=i++;
+                //替换元素内容
+                span2Element.innerHTML = i++;
             }
+            //元素添加点击事件
             button2Element.addEventListener(`click`, function () {
+                //定义定时器（返回的对象是数字）
                 timer2 = setInterval(myCallback, 100);
-            })
-            //关闭定时器不带参数方式二
+            });
+            //关闭定时器不带参数方式二（停止定时器）
+            //通过查询选择器获取元素
             const buttonend2Element = document.querySelector('.buttonend2');
+            //元素添加点击事件
             buttonend2Element.addEventListener('click', function () {
+                //停止定时器
                 clearInterval(timer2)
 
-            })
+            });
 
 
 
