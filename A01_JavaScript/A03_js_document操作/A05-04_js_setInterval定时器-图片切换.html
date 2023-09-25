@@ -31,15 +31,20 @@
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
         .div {
+            /* 宽度 */
             width: 590px;
+            /* 高度 */
             height: 470px;
+            /*背景颜色  */
             background-color: chartreuse;
         }
 
         ul {
             width: 200px;
             height: 20px;
+            /* 开启 flex布局 */
             display: flex;
+            /* 开启相对路径 */
             position: relative;
             /* 相对路径上边50px */
             top: -30px;
@@ -54,29 +59,30 @@
             background-color: #ff000092;
             /* 将边框半径设置为50%以创建圆形 */
             border-radius: 50%;
+            /* 外边框 自动 */
             margin: auto;
 
         }
-        li:hover{
+
+        /* 类选择器 */
+        [class="bigradius"] {
             width: 20px;
             height: 20px;
         }
-
     </style>
 
 </head>
 
 <body>
     <div class="div">
+        <!-- 图片位置 -->
         <img class="img" src="../resources静态资源/img/图片切换1.avif" title="口袋主机超级趋势" alt="路径出错">
 
+        <!-- 原点显示位置 -->
         <ul class="ul">
-
+            <!-- li标签 -->
 
         </ul>
-
-
-
 
     </div>
 
@@ -88,9 +94,11 @@
 
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+            //通过查询选择器获取img元素
             const imgElement = document.querySelector(`.img`);
+            //通过查询选择器获取ul元素
             const ulElement = document.querySelector(`.ul`);
-
+            //定义数组对象
             let imglist = [
                 { url: `../resources静态资源/img/图片切换1.avif`, title: `口袋主机超级趋势`, alt: "路径出错" },
                 { url: `../resources静态资源/img/图片切换2.jpg`, title: `广州酒家利口福低温月饼`, alt: "路径出错" },
@@ -99,37 +107,71 @@
                 { url: `../resources静态资源/img/图片切换5.avif`, title: `汉斯格雅花洒`, alt: "路径出错" },
                 { url: `../resources静态资源/img/图切切换6.avif`, title: `健康中秋福礼季`, alt: "路径出错" }]
 
-            document.createElement('li')
+
+            //遍历数据对象
             for (let index = 0; index < imglist.length; index++) {
+                //创建li元素
                 let li = document.createElement('li')
-                
+                //li元素添加属性
+                li.setAttribute('data-custom', index)
+                //ul元素追加li元素
                 ulElement.appendChild(li)
 
             }
 
-
-
+            //定义定时器对象（用于停止用）
             let interval;
+            //定义变量
             let i = 0;
+            //定义函数（定时器会用到）
             function setimg() {
-                if (i >= 6) { i = 0 }
+                //判断数组索引++的值（用户不停切换）
+                if (i >= imglist.length) { i = 0 }
+                //通过查询选择器获取带类名为bigradius的li元素
+                const bigradiusElement = document.querySelector('ul > .bigradius')
+                //判断li元素是否为ull
+                if (bigradiusElement !== null) {
+                    //元素中删除类名（bigradius）
+                    bigradiusElement.classList.remove('bigradius')
 
+                }
+                //
                 imgElement.src = imglist[i].url;
                 imgElement.title = imglist[i].title;
                 imgElement.title = imglist[i].alt;
+                document.querySelector(`li:nth-child(${i + 1})`).classList.add(`bigradius`)
 
 
 
 
             }
             interval = setInterval(() => {
-                i++;
-
                 setimg();
-
+                i++;
             }, 1000);
 
 
+            const allli = document.querySelectorAll('ul > li')
+            allli.forEach((element) => {
+                element.addEventListener('mouseover', () => {
+                    // 当鼠标悬停在元素上时触发的操作
+                    if (element !== null) {
+                        element.classList.remove('bigradius')
+                        
+                    }
+                    element.classList.add(`bigradius`);
+                    let num = element.dataset.custom[0]
+                    imgElement.src = imglist[num].url
+                })
+                element.addEventListener('mouseout', function () {
+                    // 当鼠标移出元素时触发的操作
+                    if (element !== null) {
+                        element.classList.remove('bigradius')
+                    }
+
+                });
+
+            })
 
 
 
