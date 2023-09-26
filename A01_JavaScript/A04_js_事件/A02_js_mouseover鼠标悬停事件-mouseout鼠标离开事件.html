@@ -24,21 +24,68 @@
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
-    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+   <link rel="stylesheet" href="../resources静态资源/css/reset.css">
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-      
+        table {
+            /* 视图宽度 */
+            width: calc(100%);
+            /* 设置标题位置 
+            top 头部
+            bottom 尾部*/
+            caption-side: top;
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 2px rgb(100, 0, 0);
+            /* 设置表单列宽  auto 自动的  fixed固定的*/
+            table-layout: auto;
+            /* 设置单元格之间的边框距离（前提不能使用合并单元格之间的边框） */
+            /* border-spacing: 0px; */
+            /*  合并单元格之间的边框 （设置单元格之间的边框距离就不生效了）*/
+            border-collapse: collapse;
+            /* 隐藏没有内容的单元格 （前提不能使用合并单元格之间的边框*/
+            empty-cells: hide;
+        }
+
+        th,
+        td {
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(0, 100, 70);
+
+
+        }
     </style>
 
 </head>
 
 <body>
 
-    
-   
+    <table>
+
+        <caption>标题</caption>
+        <!-- 标表头 -->
+        <tr>
+            <th>序号</th>
+            <th>ID</th>
+            <th>商品名称</th>
+            <th>现价</th>
+            <th>历史价格</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>100051894577</td>
+                <td>三元 简卡0添加蔗糖原味PET瓶风味酸乳 酸牛奶760g*2瓶 生鲜 低温奶</td>
+                <td>9.90</td>
+                <td>59.00</td>
+            </tr>
+      
+        </tbody>
+
+    </table>
+
 
 
 
