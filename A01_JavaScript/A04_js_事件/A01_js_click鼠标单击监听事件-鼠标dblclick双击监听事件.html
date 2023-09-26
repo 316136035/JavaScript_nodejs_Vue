@@ -20,33 +20,28 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A02_js_mouseover鼠标悬停事件-mouseout鼠标离开事件</title>
+    <title>A01_js_click鼠标单击监听事件-鼠标dblclick双击监听事件</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
     <link rel="stylesheet" href="../resources静态资源/css/reset.css">
     <!-- 调用一个外部的CSS样式文件 -->
-    <link rel="stylesheet" href="../A04_js_事件/discount折扣.css">
+    <link rel="stylesheet" href="#">
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        input {
-            width: 400px;
-            border: 1px solid black;
+        button {
+            width: 200px;
+            height: 40px;
         }
     </style>
 
 </head>
 
 <body>
-    <div> <!-- label关联焦点  for="元素id值"-->
-        <label for="username">焦点：</label>
-        <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
-        <input type="text" name="username" id="focusElement" value="请输入账户" maxlength="18">
-        <span></span>
-
-    </div>
-
+    <button id="click">单击事件</button>
+    <button id="dbclick">双击事件</button>
+  
 
 
 
@@ -55,24 +50,24 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //通过查询选择器获取元素
-            const focusElement = document.querySelector('#focusElement');
-            const spanElement = document.querySelector(` div > span:last-child`)
-            //元素添加获取焦点事件
-            focusElement.addEventListener('focus', function () {
-                // 在这里添加获取焦点事件的代码
-                //替换元素内容
-                spanElement.innerHTML = '请输入账户数字+字母，不能超18位'
+            // 获取要添加单击事件的元素（事件用id选择器）
+            const clickElement = document.querySelector(`#click`)
+            // 添加单击事件处理程序
+            clickElement.addEventListener(`click`, (event) => {
+                console.log(`单击事件触发了！`, '事件对象为：', event);
             })
-            // 元素添加离开焦点事件的监听器
-            focusElement.addEventListener('blur', function () {
-                // 在这里添加处理失去焦点事件的代码
-                //替换元素内容
-                spanElement.innerHTML = '';
+            // 获取要添加双击事件的元素（事件用id选择器）
+            const dbclickElement = document.getElementById('dbclick');
+            // 添加双击事件处理程序
+            dbclickElement.addEventListener('dblclick', function () {
+                console.log(`双击事件触发了！`, '事件对象为：', event);
             });
-
-
         };
+
+
+
+
+
 
 
     </script>

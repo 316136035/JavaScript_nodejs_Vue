@@ -20,28 +20,49 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A01_js_click鼠标单击事件-鼠标dblclick双击事件</title>
+    <title>A04_js_文本输入监听事件</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
     <link rel="stylesheet" href="../resources静态资源/css/reset.css">
     <!-- 调用一个外部的CSS样式文件 -->
-    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="../A04_js_事件/discount折扣.css">
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        button {
-            width: 200px;
-            height: 40px;
+        .main {
+            display: flex;
+        }
+
+        textarea,
+        .subtag1,
+        .subtag2 {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
         }
     </style>
 
 </head>
 
 <body>
-    <button id="click">单击事件</button>
-    <button id="dbclick">双击事件</button>
-  
+    <h5>文本输入监听：</h5>
+    <div class="main">
+
+        <div class="subtag1" id="subtag1">
+
+
+            <!--textarea多行的文本输入控件             name="用于服务器取值key            autofocus页面加载后文本区域自动获得焦点            cols="1"文本区内的宽度            rows="30" 文本区内的高度             -->
+            <textarea id="textarea" name="textarea" autofocus="" cols="50" rows="20">多行的文本输入控件</textarea>
+
+
+        </div>
+        <div class="subtag2" id="subtag2">
+    </div>
+
+
+    </div>
+
 
 
 
@@ -50,24 +71,18 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            // 获取要添加单击事件的元素（事件用id选择器）
-            const clickElement = document.querySelector(`#click`)
-            // 添加单击事件处理程序
-            clickElement.addEventListener(`click`, (event) => {
-                console.log(`单击事件触发了！`, '事件对象为：', event);
+            //通过查询选择器获取元素
+            const textareaElement = document.querySelector('#subtag1 > #textarea');
+            const subtag2Element = document.querySelector('#subtag2');
+            //元素添加文本输入监听：
+            textareaElement.addEventListener('input', () => {
+                //subtag2Element设置内容为文本输入的内容
+                subtag2Element.innerHTML = textareaElement.value
+
             })
-            // 获取要添加双击事件的元素（事件用id选择器）
-            const dbclickElement = document.getElementById('dbclick');
-            // 添加双击事件处理程序
-            dbclickElement.addEventListener('dblclick', function () {
-                console.log(`双击事件触发了！`, '事件对象为：', event);
-            });
+
+
         };
-
-
-
-
-
 
 
     </script>
