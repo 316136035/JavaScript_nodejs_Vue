@@ -39,10 +39,11 @@
 </head>
 
 <body>
-    <div id="focus"> <!-- label关联焦点  for="元素id值"-->
+    <div> <!-- label关联焦点  for="元素id值"-->
         <label for="username">焦点：</label>
         <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
-        <input  type="text" name="username" id="username" value="请求输入密码" maxlength="18"><br>
+        <input type="text" name="username" id="focusElement" value="请输入账户" maxlength="18">
+        <span></span>
 
     </div>
 
@@ -54,17 +55,21 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-          const focusElement=  document.querySelector('#username');
-          console.log(focusElement)
-          focusElement.addEventListener('focus',function(){
-            alert(``)
-          })
-          
-
-
-
-
-
+            //通过查询选择器获取元素
+            const focusElement = document.querySelector('#focusElement');
+            const spanElement = document.querySelector(` div > span:last-child`)
+            //元素添加获取焦点事件
+            focusElement.addEventListener('focus', function () {
+                // 在这里添加获取焦点事件的代码
+                //替换元素内容
+                spanElement.innerHTML = '请输入账户数字+字母，不能超18位'
+            })
+            // 元素添加离开焦点事件的监听器
+            focusElement.addEventListener('blur', function () {
+                // 在这里添加处理失去焦点事件的代码
+                //替换元素内容
+                spanElement.innerHTML = '';
+            });
 
 
         };
