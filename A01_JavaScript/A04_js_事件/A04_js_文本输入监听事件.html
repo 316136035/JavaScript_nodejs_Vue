@@ -31,7 +31,7 @@
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
         .main {
-              /* 开启 flex 布局*/
+            /* 开启 flex 布局*/
             display: flex;
         }
 
@@ -49,25 +49,13 @@
 <body>
     <h5>文本输入监听：</h5>
     <div class="main">
-
         <div class="subtag1" id="subtag1">
-
-
             <!--textarea多行的文本输入控件             name="用于服务器取值key            autofocus页面加载后文本区域自动获得焦点            cols="1"文本区内的宽度            rows="30" 文本区内的高度             -->
             <textarea id="textarea" name="textarea" autofocus="" cols="50" rows="20">多行的文本输入控件</textarea>
-
-
         </div>
         <div class="subtag2" id="subtag2">
+        </div>
     </div>
-
-
-    </div>
-
-
-
-
-
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
@@ -75,7 +63,7 @@
             //通过查询选择器获取元素
             const textareaElement = document.querySelector('#subtag1 > #textarea');
             const subtag2Element = document.querySelector('#subtag2');
-            //元素添加文本输入监听：
+            //元素添加文本输入监听：输入数据才会触发
             textareaElement.addEventListener('input', () => {
                 //subtag2Element设置内容为文本输入的内容
                 subtag2Element.innerHTML = textareaElement.value
