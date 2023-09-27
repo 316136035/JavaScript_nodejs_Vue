@@ -30,33 +30,42 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        #div {
-            width: 800px;
-            height: 800px;
+        div {
+            width: 400px;
+            height: 400px;
             background-color: brown;
+            margin: 100px;
         }
     </style>
 
 </head>
 
 <body>
+    <div>
+
+    </div>
     
   <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-        
-            // 添加按下事件监听器（event就是事件对象）
-            document.addEventListener('keydown', (event) => {
-                console.log('添加按下事件监听器:',event);
-                console.log('键:',event.key);
-               
-            });
+            document.querySelector('div').addEventListener('click',(event)=>{
+                console.log(event)
+                console.log('获取光标相对于浏览器可见窗口左上角的位置(浏览器示图位置)：',event.clientX ,event.clientY)
+                console.log('获取光标相对于当前DOM元素左上角的位置（DOM元素示图位置）：',event.offsetX ,event.offsetY)
+            })
 
-            // 添加松开事件监听器（event就是事件对象）
-            document.addEventListener('keyup', (event) => {
-                console.log('添加松开事件监听器:',event);
-            });
+            document.addEventListener('keydown',(event)=>{
+                console.log('键盘按下：',event)
+                console.log('键盘按下键值：',event.key)
+            })
+            
+            document.addEventListener('keyup',(event)=>{
+                console.log('键盘松开键值：',event.key)
+            })
+
+        
+      
 
         };
 
