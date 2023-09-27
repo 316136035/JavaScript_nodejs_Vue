@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A03_js_focus获取焦点监听事件-blur失去焦点监听事件</title>
+    <title>A03-02_js_输入框焦点事件显示和隐藏</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -34,16 +34,26 @@
             width: 400px;
             border: 1px solid black;
         }
+        .ul{
+           
+            display: none;
+        }
+        li{
+            width: 200px;
+            border: 1px solid black;
+        }
     </style>
 
 </head>
 
 <body>
     <div> <!-- label关联焦点  for="元素id值"-->
-        <label for="username">focus获取焦点事件-blur失去焦点事件：</label>
+        <label for="input">A03-02_js_输入框焦点事件显示和隐藏</label> <br>
         <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
-        <input type="text" name="username" id="focusElement" value="请输入账户" maxlength="18">
-        <span></span>
+        <input type="text" name="username" id="input" value="" maxlength="18">
+        <ul class="ul">
+          
+        </ul>
 
     </div>
 
@@ -56,23 +66,34 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
             //通过查询选择器获取元素
-            const focusElement = document.querySelector('#focusElement');
-            const spanElement = document.querySelector(` div > span:last-child`)
-            //元素添加获取焦点事件
-            focusElement.addEventListener('focus', function () {
-                // 在这里添加获取焦点事件的代码
-                //替换元素内容
-                spanElement.innerHTML = '请输入账户数字+字母，不能超18位'
+            const array = ['电视', '手机', '电脑', '空调', '平板'];
+            const ulElement = document.querySelector('.ul')
+            for (let i = 0; i < array.length; i++) {
+                let liElement = document.createElement('li')
+               
+                liElement.appendChild(document.createTextNode(array[i]))
+               
+                ulElement.appendChild(liElement)
+            }
+            const inputElement = document.querySelector('#input')
+            inputElement.addEventListener('focus',()=>{
+                ulElement.style.display='block';
             })
-            // 元素添加离开焦点事件的监听器
-            focusElement.addEventListener('blur', function () {
-                // 在这里添加处理失去焦点事件的代码
-                //替换元素内容
-                spanElement.innerHTML = '';
-            });
+            inputElement.addEventListener('blur',()=>{
+                ulElement.style.display='none';
+            })
+
+            const liElement = document.querySelectorAll('li')
+            liElement.forEach(item=>{
+                // console.log(item.textContent);
+               item.addEventListener('click',()=>{
+               alert(``)
+               })
+            })
 
 
-        };
+
+ };
 
 
     </script>
