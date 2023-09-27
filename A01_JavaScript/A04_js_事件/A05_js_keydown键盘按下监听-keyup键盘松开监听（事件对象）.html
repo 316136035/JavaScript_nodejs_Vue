@@ -46,12 +46,14 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
         
-            // 添加按下事件监听器
+            // 添加按下事件监听器（event就是事件对象）
             document.addEventListener('keydown', (event) => {
                 console.log('添加按下事件监听器:',event);
+                console.log('键:',event.key);
+               
             });
 
-            // 添加松开事件监听器
+            // 添加松开事件监听器（event就是事件对象）
             document.addEventListener('keyup', (event) => {
                 console.log('添加松开事件监听器:',event);
             });
