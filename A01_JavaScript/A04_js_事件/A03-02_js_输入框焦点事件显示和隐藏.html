@@ -34,11 +34,13 @@
             width: 400px;
             border: 1px solid black;
         }
-        .ul{
-           
+
+        .ul {
+
             display: none;
         }
-        li{
+
+        li {
             width: 200px;
             border: 1px solid black;
         }
@@ -52,48 +54,45 @@
         <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
         <input type="text" name="username" id="input" value="" maxlength="18">
         <ul class="ul">
-          
+
         </ul>
 
     </div>
 
-
-
-
-
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
+
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //通过查询选择器获取元素
+            //定义数组
             const array = ['电视', '手机', '电脑', '空调', '平板'];
+            //通过查询选择器获取元素
             const ulElement = document.querySelector('.ul')
+            //遍历数组
             for (let i = 0; i < array.length; i++) {
+                // 步骤1: 创建新元素
                 let liElement = document.createElement('li')
-               
-                liElement.appendChild(document.createTextNode(array[i]))
-               
+                // 步骤2: 创建或获取要添加到新元素中的内容
+                var textContent = document.createTextNode(array[i])
+                // 步骤3: 将内容添加到新元素中
+                liElement.appendChild(textContent)
+                // 步骤4: 将新元素插入到文档中的适当位置
                 ulElement.appendChild(liElement)
             }
+            //通过查询选择器获取元素
             const inputElement = document.querySelector('#input')
-            inputElement.addEventListener('focus',()=>{
-                ulElement.style.display='block';
+            //元素添加获取焦点监听事件
+            inputElement.addEventListener('focus', () => {
+                //元素显示
+                ulElement.style.display = 'block';
             })
-            inputElement.addEventListener('blur',()=>{
-                ulElement.style.display='none';
-            })
-
-            const liElement = document.querySelectorAll('li')
-            liElement.forEach(item=>{
-                // console.log(item.textContent);
-               item.addEventListener('click',()=>{
-               alert(``)
-               })
+            //元素添加失去焦点监听事件
+            inputElement.addEventListener('blur', () => {
+                //元素隐藏
+                ulElement.style.display = 'none';
             })
 
-
-
- };
+        };
 
 
     </script>
