@@ -104,7 +104,7 @@
             //通过查询选择器获取主选择框元素
             const maincheckboxElement = document.querySelector('.checkboxAll')
             //通过查询选择器获取多个子选择框元素
-            const  childcheckboxElements = document.querySelectorAll('.checkbox')
+            const childcheckboxElements = document.querySelectorAll('.checkbox')
             //元素添加点击事件
             maincheckboxElement.addEventListener(`click`, function () {
                 //遍历多个子选择框元素
@@ -124,13 +124,11 @@
                     //通过查询选择器获取选中状态的多个元素
                     const checkedElements = document.querySelectorAll('.checkbox:checked')
                     //判定选中状态的多个元素的长度是否等于多个子选择框元素
-                    if (checkedElements.length === childcheckboxElements.length) {
-                        //设置主选择框为选中
-                        maincheckboxElement.checked = true;
-                    }else{
-                          //设置主选择框为选中
-                          maincheckboxElement.checked = false;
-                    }
+
+                    //设置主选择框为选中
+                    maincheckboxElement.checked = checkedElements.length === childcheckboxElements.length;
+
+
                 })
 
 
