@@ -1,0 +1,169 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A07_js_tab导航栏切换页面</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="../A04_js_事件/discount折扣.css">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        .tab>ul {
+            display: flex;
+            width: 800px;
+        }
+
+        .tab>ul>li {
+            margin: 20px;
+        }
+
+        .page>ul>li {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 800px;
+            height: 800px;
+            border: 1px solid black;
+
+        }
+
+        .page>ul>li>div {
+            width: 380px;
+            height: 380px;
+            margin: 10px;
+
+        }
+
+        .page>ul>li:not(.active) {
+            /* display隐藏元素不占位  */
+            display: none;
+        }
+
+
+        .name {
+            /* 溢出：隐藏 */
+            overflow: hidden;
+            /* 强制不换行 */
+            white-space: nowrap;
+            /* 文本溢出后以省略号代替 （必须配合overflow: hidden;white-space: nowrap;使用） */
+            text-overflow: ellipsis;
+
+        }
+
+        .money {
+            text-align: center;
+
+        }
+
+        .active {
+            /* display隐藏元素不占位  */
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="tab">
+        <ul>
+            <li><a href="">办公设备</a></li>
+            <li><a href="">健康清洁</a></li>
+            <li><a href="">办公环境</a></li>
+            <li><a href="">电器设备</a></li>
+            <li><a href="">工装家具</a></li>
+        </ul>
+
+    </div>
+    <div class="page">
+        <ul>
+            <li class="active">
+                <div>
+                    <img src="../resources静态资源/img/办公设备1.jpg" alt="">
+                    <div class="name">天虹 迷你主机四核微型mini电脑主机台式小主机掌上口袋主机电脑便携式炒股家用小主机云终端主机 【C6】四核N3540/8G/128G铝合金</div>
+                    <div class="money">699.00</div>
+                </div>
+                <div>
+                    <img src="../resources静态资源/img/办公设备2.jpg" alt="">
+                    <div class="name">科密(comet)5级高保密办公商用碎纸机（单次8张 2*10mm微米级 20L 可碎卡/订书针）C-838</div>
+                    <div class="money">419</div>
+                </div>
+                <div>
+                    <img src="../resources静态资源/img/办公设备3.png" alt="">
+                    <div class="name">毕亚兹 USB分线器转网口有线网卡 免驱动 RJ45转换器扩展坞 适用苹果mac华为电脑拓展坞HUB转接头 四合一</div>
+                    <div class="money">39.9</div>
+                </div>
+                <div>
+                    <img src="../resources静态资源/img/办公设备4.jpg" alt="">
+                    <div class="name">精臣 b3s 线缆智能标签打印机 通信机房线缆电信光纤尾纤标识蓝牙手持刀型网线布线便携式不干胶热敏 B3S单机（需购买标签纸）</div>
+                    <div class="money">249</div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="../resources静态资源/img/健康清洁1.jpg" alt="">
+                    <div class="name">天虹 迷你主机四核微型mini电脑主机台式小主机掌上口袋主机电脑便携式炒股家用小主机云终端主机 【C6】四核N3540/8G/128G铝合金</div>
+                    <div class="money">699.00</div>
+                </div>
+                <div>
+                    <img src="../resources静态资源/img/健康清洁2.jpg" alt="">
+                    <div class="name">科密(comet)5级高保密办公商用碎纸机（单次8张 2*10mm微米级 20L 可碎卡/订书针）C-838</div>
+                    <div class="money">419</div>
+                </div>
+                <div>
+                    <img src="../resources静态资源/img/健康清洁3.jpg" alt="">
+                    <div class="name">毕亚兹 USB分线器转网口有线网卡 免驱动 RJ45转换器扩展坞 适用苹果mac华为电脑拓展坞HUB转接头 四合一</div>
+                    <div class="money">39.9</div>
+                </div>
+                <div>
+                    <img src="../resources静态资源/img/健康清洁4.png" alt="">
+                    <div class="name">精臣 b3s 线缆智能标签打印机 通信机房线缆电信光纤尾纤标识蓝牙手持刀型网线布线便携式不干胶热敏 B3S单机（需购买标签纸）</div>
+                    <div class="money">249</div>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            const liElement = document.querySelectorAll('.tab>ul>li')
+            if (Object.hasOwnProperty.call(object, key)) {
+                const element = object[key];
+
+            }
+
+
+        };
+
+
+    </script>
+</body>
+
+</html>
