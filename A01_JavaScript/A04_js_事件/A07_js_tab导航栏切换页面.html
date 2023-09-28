@@ -37,11 +37,15 @@
 
         .tab>ul>li {
             margin: 20px;
+
         }
 
         .page>ul>li {
+            /* 开启flex布局 */
             display: flex;
+            /* X轴方向 */
             flex-direction: row;
+            /*多行显示  */
             flex-wrap: wrap;
             width: 800px;
             height: 800px;
@@ -56,6 +60,7 @@
 
         }
 
+        /* 获li元素没有类值为active的元素 */
         .page>ul>li:not(.active) {
             /* display隐藏元素不占位  */
             display: none;
@@ -73,6 +78,7 @@
         }
 
         .money {
+            /* 字体居中 */
             text-align: center;
 
         }
@@ -80,6 +86,8 @@
         .active {
             /* display隐藏元素不占位  */
             display: block;
+
+
         }
     </style>
 
@@ -120,7 +128,7 @@
                     <div class="money">249</div>
                 </div>
             </li>
-            <li>
+            <li  >
                 <div>
                     <img src="../resources静态资源/img/健康清洁1.jpg" alt="">
                     <div class="name">天虹 迷你主机四核微型mini电脑主机台式小主机掌上口袋主机电脑便携式炒股家用小主机云终端主机 【C6】四核N3540/8G/128G铝合金</div>
@@ -153,10 +161,24 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            const liElement = document.querySelectorAll('.tab>ul>li')
-            if (Object.hasOwnProperty.call(object, key)) {
-                const element = object[key];
+            const aElement = document.querySelectorAll('.tab>ul > li > a')
+            for (let i = 0; i < aElement.length; i++) {
+                aElement[i].addEventListener('mouseover', function () {
+                    this.style.color = `brown`;
+                    document.querySelector('.active').classList.remove(`active`)
+                    
+                    let liElement = document.querySelector(`.page ul >li:nth-child(${i+1})`)
+                    liElement.classList.add(`active`)
+                  
+                })
 
+                //遍历出来的每一个元素添加鼠标离开事件
+                aElement[i].addEventListener('mouseout', function () {
+                    //设置元素的元素
+                    this.style.color = ``;
+
+
+                })
             }
 
 
