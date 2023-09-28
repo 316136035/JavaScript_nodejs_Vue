@@ -30,38 +30,55 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        body{
-            background-color: brown;
-        }
-        .father{
-            width: 600px;
-            height: 600px;
-            background-color: chartreuse;
-        }
-        .subclass{
+        .superclass {
             width: 400px;
             height: 400px;
+            background-color: brown;
+        }
+
+        .father {
+            width: 300px;
+            height: 300px;
+            background-color: chartreuse;
+        }
+
+        .subclass {
+            width: 200px;
+            height: 200px;
             background-color: rgb(93, 0, 255);
         }
-       
     </style>
 
 </head>
 
 <body>
-    <div class="father">
-        <div class="subclass"></div>
+    <div class="superclass">
+        <div class="father">
+            <div class="subclass"></div>
+        </div>
+
+
     </div>
-    
+
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-         
+            document.querySelector(`.superclass`).addEventListener(`click`, function () {
+                alert('我是超类')
+            })
+            document.querySelector(`.father`).addEventListener(`click`, function () {
+                alert('我是父类')
+            })
+            document.querySelector(`.subclass`).addEventListener(`click`, function () {
+                alert('我是子类')
+            })
 
 
-           
+
+
+
 
 
 
