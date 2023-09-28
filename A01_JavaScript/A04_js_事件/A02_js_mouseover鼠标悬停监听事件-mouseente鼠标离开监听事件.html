@@ -175,16 +175,16 @@
                 //遍历出来的每一个元素添加鼠标悬停事件
                 item.addEventListener('mouseover', function () {
                     //设置元素的元素
-                    item.style.height = '30px'
-                    item.style.background = 'rgb(242, 244, 244)'
+                    this.style.height = '30px'
+                    this.style.background = 'rgb(242, 244, 244)'
 
                 })
                 //遍历出来的每一个元素添加鼠标离开事件
                 item.addEventListener('mouseout', function () {
                     //设置元素的元素
-                    item.style.fontFamily = ''
-                    item.style.height = 'auto'
-                    item.style.background = ''
+                    this.style.fontFamily = ''
+                    this.style.height = 'auto'
+                    this.style.background = ''
 
 
                 })
