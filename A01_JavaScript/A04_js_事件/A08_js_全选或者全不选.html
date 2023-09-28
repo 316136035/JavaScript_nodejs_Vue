@@ -101,20 +101,43 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //通过查询选择器获取元素
-            const checkboxElement = document.querySelector('.checkboxAll')
-            //通过查询选择器获取多个元素
-            const checkboxElements = document.querySelectorAll('.checkbox')
+            //通过查询选择器获取主选择框元素
+            const maincheckboxElement = document.querySelector('.checkboxAll')
+            //通过查询选择器获取多个子选择框元素
+            const  childcheckboxElements = document.querySelectorAll('.checkbox')
             //元素添加点击事件
-            checkboxElement.addEventListener(`click`, function () {
-                //遍历多个元素
-                checkboxElements.forEach(function (item) {
-                    //多个选择框设置为checkboxAll选择框的选中/不选中的状态
-                    item.checked = checkboxElement.checked
+            maincheckboxElement.addEventListener(`click`, function () {
+                //遍历多个子选择框元素
+                childcheckboxElements.forEach(function (item) {
+                    //多个子选择框元素设置为主选择框的选中/不选中的状态
+                    item.checked = maincheckboxElement.checked
+
+
                 })
 
 
             })
+            //遍历多个字元素
+            childcheckboxElements.forEach(function (item) {
+                //多个子选择框元素添加点击事件
+                item.addEventListener('click', function () {
+                    //通过查询选择器获取选中状态的多个元素
+                    const checkedElements = document.querySelectorAll('.checkbox:checked')
+                    //判定选中状态的多个元素的长度是否等于多个子选择框元素
+                    if (checkedElements.length === childcheckboxElements.length) {
+                        //设置主选择框为选中
+                        maincheckboxElement.checked = true;
+                    }else{
+                          //设置主选择框为选中
+                          maincheckboxElement.checked = false;
+                    }
+                })
+
+
+            })
+
+
+
 
 
         };
