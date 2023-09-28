@@ -81,7 +81,7 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //('事件','函数'，（事件冒泡是false 子类→父类→超类），事件捕获ture超类→父类→子类)
+            //('事件','函数'，（事件冒泡是false 子类→父类→超类必须是同名事件），事件捕获ture超类→父类→子类) 
             document.querySelector(`.superclass1`).addEventListener(`click`, function () {
                 alert('我是超类')
             })
