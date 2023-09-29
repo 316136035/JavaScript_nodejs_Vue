@@ -1,0 +1,226 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A02-01_js_mouseover鼠标悬停监听事件-mouseout鼠标离开监听事件</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="../A04_js_事件/discount折扣.css">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        .div {
+            width: calc(100%);
+            height: 800px;
+            background-color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="div">
+
+    </div>
+
+
+
+
+
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            var colorNames = [
+                "AliceBlue",
+                "AntiqueWhite",
+                "Aqua",
+                "Aquamarine",
+                "Azure",
+                "Beige",
+                "Bisque",
+                "Black",
+                "BlanchedAlmond",
+                "Blue",
+                "BlueViolet",
+                "Brown",
+                "BurlyWood",
+                "CadetBlue",
+                "Chartreuse",
+                "Chocolate",
+                "Coral",
+                "CornflowerBlue",
+                "Cornsilk",
+                "Crimson",
+                "Cyan",
+                "DarkBlue",
+                "DarkCyan",
+                "DarkGoldenrod",
+                "DarkGray",
+                "DarkGreen",
+                "DarkKhaki",
+                "DarkMagenta",
+                "DarkOliveGreen",
+                "DarkOrange",
+                "DarkOrchid",
+                "DarkRed",
+                "DarkSalmon",
+                "DarkSeaGreen",
+                "DarkSlateBlue",
+                "DarkSlateGray",
+                "DarkTurquoise",
+                "DarkViolet",
+                "DeepPink",
+                "DeepSkyBlue",
+                "DimGray",
+                "DodgerBlue",
+                "FireBrick",
+                "FloralWhite",
+                "ForestGreen",
+                "Fuchsia",
+                "Gainsboro",
+                "GhostWhite",
+                "Gold",
+                "Goldenrod",
+                "Gray",
+                "Green",
+                "GreenYellow",
+                "Honeydew",
+                "HotPink",
+                "IndianRed",
+                "Indigo",
+                "Ivory",
+                "Khaki",
+                "Lavender",
+                "LavenderBlush",
+                "LawnGreen",
+                "LemonChiffon",
+                "LightBlue",
+                "LightCoral",
+                "LightCyan",
+                "LightGoldenrodYellow",
+                "LightGray",
+                "LightGreen",
+                "LightPink",
+                "LightSalmon",
+                "LightSeaGreen",
+                "LightSkyBlue",
+                "LightSlateGray",
+                "LightSteelBlue",
+                "LightYellow",
+                "Lime",
+                "LimeGreen",
+                "Linen",
+                "Magenta",
+                "Maroon",
+                "MediumAquamarine",
+                "MediumBlue",
+                "MediumOrchid",
+                "MediumPurple",
+                "MediumSeaGreen",
+                "MediumSlateBlue",
+                "MediumSpringGreen",
+                "MediumTurquoise",
+                "MediumVioletRed",
+                "MidnightBlue",
+                "MintCream",
+                "MistyRose",
+                "Moccasin",
+                "NavajoWhite",
+                "Navy",
+                "OldLace",
+                "Olive",
+                "OliveDrab",
+                "Orange",
+                "OrangeRed",
+                "Orchid",
+                "PaleGoldenrod",
+                "PaleGreen",
+                "PaleTurquoise",
+                "PaleVioletRed",
+                "PapayaWhip",
+                "PeachPuff",
+                "Peru",
+                "Pink",
+                "Plum",
+                "PowderBlue",
+                "Purple",
+                "Red",
+                "RosyBrown",
+                "RoyalBlue",
+                "SaddleBrown",
+                "Salmon",
+                "SandyBrown",
+                "SeaGreen",
+                "SeaShell",
+                "Sienna",
+                "Silver",
+                "SkyBlue",
+                "SlateBlue",
+                "SlateGray",
+                "Snow",
+                "SpringGreen",
+                "SteelBlue",
+                "Tan",
+                "Teal",
+                "Thistle",
+                "Tomato",
+                "Turquoise",
+                "Violet",
+                "Wheat",
+                "White",
+                "WhiteSmoke",
+                "Yellow",
+                "YellowGreen"
+            ];
+            // 生成指定范围内的随机整数
+            function getRandomInt(min, max) {
+                //上升一位 向上取整
+                min = Math.ceil(min);
+                //下降一位 向下取整
+                max = Math.floor(max);//下降一位 向下取整
+                //随机无穷的小数*（最大值-最小值+1）+最小值 再向下取整
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+         
+            setInterval(() => {
+                let num = getRandomInt(0, colorNames.length - 1)
+                document.querySelector(`.div`).style.backgroundColor = colorNames[num]
+                console.log('获取光标相对于浏览器可见窗口左上角的位置(浏览器示图位置)：',event.clientX ,event.clientY)
+                console.log('获取光标相对于当前DOM元素左上角的位置（DOM元素示图位置）：',event.offsetX ,event.offsetY)
+                
+            }, 2000);
+
+
+            //
+
+        };
+
+
+    </script>
+</body>
+
+</html>
