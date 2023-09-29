@@ -49,9 +49,10 @@
             empty-cells: hide;
         }
 
-        tr,
+
         th,
         td {
+
             /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
             border: solid 2px rgb(0, 100, 70);
 
@@ -76,9 +77,8 @@
             <th>现价</th>
         </tr>
         <tbody class="tbody">
-            <tr>
+            <!-- <tr></tr> -->
 
-            </tr>
 
         </tbody>
 
@@ -133,8 +133,8 @@
             //定义变量（用户id）
             let id = 1;
             //通过查询选择器获取元素
-            const tbodylement = document.querySelector('.tbody');
-            
+            const tbodyElement = document.querySelector('.tbody');
+
             arrayObject.forEach(element => {
 
                 //创建td元素
@@ -165,33 +165,43 @@
                 //类名方式操作css（更改类名）
                 trElement.className = cssarray[num]
                 //tbody元素存入trElement子元素
-                tbodylement.appendChild(trElement)
+                tbodyElement.appendChild(trElement)
 
 
 
             });
+            //定义变量（用户记录属性）
+            let str;
+            //定义函数
+            function fun(event) {
 
-            //通过查询选择器获取多个元素并遍历元素 
-            document.querySelectorAll('tr').forEach((item) => {
-                //遍历出来的每一个元素添加鼠标悬停事件（最好使用冒泡实现）
-                item.addEventListener('mouseover', function () {
-                    //设置元素的元素
-                    this.style.height = '30px'
-                    this.style.background = 'rgb(242, 244, 244)'
+                //获取当前元素的标签名
+                if (event.target.tagName === `TD`) {
+                    // 获取当前元素的父类元素
+                    let trElement = event.target.parentElement;
+                    //获取元素的属性值 赋值给变量
+                    str = trElement.className;
+                    //删除的属性值
+                    trElement.classList.remove(str)
+                    //添加属性值
+                    trElement.classList.add(`discount-0`)
+                }
+            }
+            //通过查询选择器获取元素（父类添加鼠标悬停监听事件，子类元素冒泡，事件冒泡是false 子类→父类→超类必须是同名事件）
+            tbodyElement.addEventListener(`mouseover`, fun)
+            //通过查询选择器获取元素（父类添加鼠标离开监听事件，子类元素冒泡，事件冒泡是false 子类→父类→超类必须是同名事件）
+            tbodyElement.addEventListener('mouseout', function (event) {
+                //获取当前元素的父类元素
+                let trElement = event.target.parentElement;
+                //删除的属性值
+                trElement.classList.remove(`discount-0`)
+                //添加属性值
+                trElement.classList.add(str)
 
-                })
-                //遍历出来的每一个元素添加鼠标离开事件
-                item.addEventListener('mouseout', function () {
-                    //设置元素的元素
-                    this.style.fontFamily = ''
-                    this.style.height = 'auto'
-                    this.style.background = ''
-
-
-                })
             })
 
-  };
+
+        };
 
 
     </script>

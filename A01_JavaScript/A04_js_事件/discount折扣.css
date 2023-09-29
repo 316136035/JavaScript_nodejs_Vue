@@ -47,3 +47,10 @@
 .discount-10 {
   background-color: #3F51B5; /* 深蓝色 */
 }
+
+/* 鼠标悬停时候 */
+.discount-0{
+  background-color: #e8e9ef00; /* 深蓝色 */
+  height: 30px;
+}
+
