@@ -42,7 +42,7 @@
         })
 
         //当初始的 HTML文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像等完全加载
-        window.addEventListener('DOMContentLoaded',function(){
+        document.addEventListener('DOMContentLoaded',function(){
             document.querySelector('.button').addEventListener('click', function () {
                 console.log('在页面加载完毕后才会执行的代码DOMContentLoaded ');
             })
