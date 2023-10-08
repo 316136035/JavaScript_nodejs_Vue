@@ -31,12 +31,14 @@
   <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
   <style>
     .main {
-      width:1190px;
+      width: 1190px;
       height: 3000px;
       background-color: chartreuse;
     }
-    .subclass{
-      width: 400x;height: 40px;
+
+    .subclass {
+      width: 400x;
+      height: 40px;
       background-color: red;
       overflow: scroll;
     }
@@ -47,17 +49,19 @@
     window.addEventListener('load', function () {
       // 浏览器window对象添加滚动事件
       window.addEventListener(`scroll`, function () {
-        //获取html页面并获取被卷去的头部
+        //获取html页面并获取被卷去的头部（可以获取值也可以赋值）
         let num = document.documentElement.scrollTop;
         console.log(num);
+        //获取html页面并赋值头部
+        //document.documentElement.scrollTop=0;.
+        //通过 window函数赋值
+        window.scroll(0, 0)
+        //获取html页面并获取被卷去的左边（可以获取值也可以赋值）
+        // let num = document.documentElement.scrollLeft
+
+
       })
 
-        // 浏览器window对象添加滚动事件
-      window.addEventListener(`scroll`, function () {
-        //获取html页面并获取被卷去的左边
-        let num = document.documentElement.scrollLeft
-        console.log(num);
-      })
 
     })
 
