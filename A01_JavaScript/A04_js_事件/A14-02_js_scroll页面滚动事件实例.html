@@ -23,17 +23,84 @@
   <!-- 设置网站图标调用一个外部的图片文件 -->
   <link rel="shortcut icon" href="../resources静态资源/image/网站图标.ico" type="image/x-icon" />
   <!-- 清除css默认样式 -->
-  <link rel="stylesheet" href="../resources静态资源/reset.css">
+  <link rel="stylesheet" href="../resources静态资源/css/reset.css">
   <!-- 引入css样式 -->
   <!-- <link rel="stylesheet" href=""> -->
+  <style>
+    .container {
+      height: 3000px;
+      background-color: brown;
+    }
+
+    .navigation {
+      width: 80px;
+      background-color: chartreuse;
+      /* 开启固定定位（参考的是视图位置） */
+      position: fixed;
+      /* 固定定位上边50px */
+      top: 30%;
+      /* 固定定位右边0px */
+      right: 0%;
+      /* 初始状态为隐藏 */
+      display: none;
+
+
+
+    }
+  </style>
+
+  <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+  <script type="text/javascript">
+    // 在页面加载完毕后才会执行的代码(加载外部资源(如图片、外联CSS和JavaScript等)加载完毕时触发的事件)
+    window.addEventListener('load', function () {
+      //通过查询选择器获取元素
+      const navigationElement = document.querySelector('.navigation');
+      // 浏览器window对象添加滚动事件
+      window.addEventListener(`scroll`, function () {
+        //获取html页面并获取被卷去的头部（可以获取值也可以赋值）
+        let num = document.documentElement.scrollTop;
+        if (num >= 300) {
+          //设置元素显示
+          navigationElement.style.display = 'block';
+        }
+        else {
+          //设置元素隐藏
+          navigationElement.style.display = 'none'
+        }
+      })
+      //通过查询选择器获取元素
+      const lastliElement = document.querySelector('.navigation>li:last-of-type');
+      lastliElement.addEventListener('click', function () {
+        // document.documentElement.scrollTop=0
+        //通过 window函数赋值(X轴,Y轴)
+        window.scroll(0, 0)
+
+      })
+
+
+    })
+
+
+
+
+
+
+  </script>
 
 </head>
 
 <body>
+  <div class="container">
+    <div>
+      <ul class="navigation">
+        <li>京东秒杀</li>
+        <li>频道广场</li>
+        <li>为你推荐</li>
+        <li>返回顶部</li>
+      </ul>
+    </div>
 
-
-
-  <script src=""></script>
+  </div>
 </body>
 
 </html>
