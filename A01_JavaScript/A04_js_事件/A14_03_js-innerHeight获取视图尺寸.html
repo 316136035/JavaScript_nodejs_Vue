@@ -44,7 +44,7 @@
     // 在页面加载完毕后才会执行的代码(加载外部资源(如图片、外联CSS和JavaScript等)加载完毕时触发的事件)
     window.addEventListener('load', function () {
 
-      //获取视口的宽度和高度
+      //获取视口的宽度和高度（clientWidth 包含内边框但不包含外边框 ）
       window.addEventListener('resize', function () {
         const pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
         const pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
@@ -57,7 +57,10 @@
         console.log('页面高度：', window.innerHeight);
       })
 
+
+
     })
+
 
 
 
