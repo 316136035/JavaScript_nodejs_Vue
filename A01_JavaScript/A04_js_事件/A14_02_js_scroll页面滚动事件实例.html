@@ -27,6 +27,11 @@
   <!-- 引入css样式 -->
   <!-- <link rel="stylesheet" href=""> -->
   <style>
+    .top {
+      height: 120px;
+      background-color: rgb(89, 42, 165);
+    }
+
     .container {
       height: 3000px;
       background-color: brown;
@@ -41,10 +46,10 @@
       top: 30%;
       /* 固定定位右边0px */
       right: 0%;
-      /* 初始状态为隐藏 */
-      display: none;
-
-
+      /*visibility隐藏元素占位  */
+      visibility: visible;
+      /* 过渡：可见性0s，不透明度0.5s； */
+      transition: visibility 0s, opacity 0.1s;
 
     }
   </style>
@@ -60,12 +65,12 @@
         //获取html页面并获取被卷去的头部（可以获取值也可以赋值）
         let num = document.documentElement.scrollTop;
         if (num >= 300) {
-          //设置元素显示
-          navigationElement.style.display = 'block';
+          //设置透明度（不透明）
+          navigationElement.style.opacity = 1;
         }
         else {
-          //设置元素隐藏
-          navigationElement.style.display = 'none'
+          //设置透明度（透明）
+          navigationElement.style.opacity = 0;
         }
       })
       //通过查询选择器获取元素
@@ -90,6 +95,8 @@
 </head>
 
 <body>
+  <!-- 顶部导航条 -->
+  <div class="top">顶部导航条</div>
   <div class="container">
     <div>
       <ul class="navigation">
