@@ -30,6 +30,8 @@
     .top {
       height: 120px;
       background-color: rgb(89, 42, 165);
+      text-align: center;
+      color: chartreuse;
     }
 
     .container {
@@ -62,11 +64,15 @@
     window.addEventListener('load', function () {
       //通过查询选择器获取元素
       const navigationElement = document.querySelector('.navigation');
+
+       //通过查询选择器获取元素
+       const containerElement = document.querySelector('.container');
       // 浏览器window对象添加滚动事件
       window.addEventListener(`scroll`, function () {
         //获取html页面并获取被卷去的头部（可以获取值也可以赋值）
         let num = document.documentElement.scrollTop;
-        if (num >= 300) {
+        //offsetTop获取子元素在父元素中的位置（祖先元素要有定位，不然一直查找到祖先元素，计算的是子元素边框到父元素的内边框的位置）
+        if (num >= containerElement.offsetTop) {
           //设置透明度（不透明）
           navigationElement.style.opacity = 1;
         }

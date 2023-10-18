@@ -19,7 +19,7 @@
   <meta name="description" content="网页描述文字">
   <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A15_01_js-resize监听页面尺寸-innerHeight获取视图尺寸-clientHeight页面尺寸</title>
+  <title>A17_js-offsetop-.offsetLeft获取子元素在父元素中的位置</title>
   <!-- 设置网站图标调用一个外部的图片文件 -->
   <link rel="shortcut icon" href="../resources静态资源/image/网站图标.ico" type="image/x-icon" />
   <!-- 清除css默认样式 -->
@@ -33,9 +33,18 @@
       padding: 10px;
       border: 20px solid black;
       margin: 30px;
-
       background-color: brown;
- 
+      /* 开启相对路径 relative--相对自身的位置定位 (左右/上下并不能一起使用)*/
+      position: relative;
+    }
+
+    .subcontainer {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      border: 30px solid rgb(106, 6, 214);
+      margin: 40px;
+      background-color: rgb(42, 165, 85);
 
     }
   </style>
@@ -44,21 +53,11 @@
   <script type="text/javascript">
     // 在页面加载完毕后才会执行的代码(加载外部资源(如图片、外联CSS和JavaScript等)加载完毕时触发的事件)
     window.addEventListener('load', function () {
-
-      //获取窗口视口的宽度和高度（clientWidth 包含内边框但不包含边框和外边框 ）
-      window.addEventListener('resize', function () {
-        const pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        const pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-
-        //获取视口宽度（clientWidth 包含内边框但不包含边框和外边框 ）
-        console.log('视口宽度：', document.documentElement.clientWidth);
-        console.log('视口高度：', document.documentElement.clientHeight);
-        //获取页面宽度
-        console.log('页面宽度：', window.innerWidth);
-        console.log('页面高度：', window.innerHeight);
-      })
-
-     
+      //通过查询选择器获取元素 
+      const subcontainerElement = document.querySelector('.subcontainer')
+      //获取子元素在父元素中的位置（祖先元素要有定位，不然一直查找到祖先元素，计算的是子元素边框到父元素的内边框的位置）
+      console.log('获取元素在父元素中的位置', subcontainerElement.offsetTop);
+      console.log('获取元素在父元素中的位置', subcontainerElement.offsetLeft);
 
 
     })
@@ -74,6 +73,11 @@
 </head>
 
 <body>
+  <div class="container">
+    <div class="subcontainer"></div>
+
+
+  </div>
 
 </body>
 
