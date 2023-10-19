@@ -27,16 +27,44 @@
   <!-- 引入css样式 -->
   <!-- <link rel="stylesheet" href=""> -->
   <style>
+    .move {
+      height: 100px;
+      width: 100%;
+      background-color: rgba(11, 225, 29, 0.667);
+      text-align: center;
+      color: chartreuse;
+      /* top: -120px; */
+      /* 开启相对定位（参考的是自己位置） */
+      position: fixed;
+      transition: all 1s;
+      top: -100px;
+
+
+    }
+
     .top {
       height: 120px;
+      width: 100%;
       background-color: rgb(89, 42, 165);
       text-align: center;
       color: chartreuse;
+
+
     }
 
     .container {
       height: 3000px;
       background-color: brown;
+    }
+
+    .left {
+      height: 400px;
+      width: 200px;
+      border: 1px solid green;
+      background-color: darkcyan;
+      /* 开启相对定位（参考的是自己位置） */
+      position: relative;
+      top: 100px;
     }
 
     .navigation {
@@ -52,8 +80,8 @@
       visibility: visible;
       /* 默认透明度 */
       opacity: 0;
-      /* 过渡：可见性0s，不透明度0.5s； */
-      transition: visibility 0.1s, opacity 0.1s;
+      /* 过渡：可见性1s，不透明度1s； */
+      transition: visibility 1s, opacity 1s;
 
     }
   </style>
@@ -64,32 +92,47 @@
     window.addEventListener('load', function () {
       //通过查询选择器获取元素
       const navigationElement = document.querySelector('.navigation');
-
-       //通过查询选择器获取元素
-       const containerElement = document.querySelector('.container');
-      // 浏览器window对象添加滚动事件
+      //通过查询选择器获取元素
+      const containerElement = document.querySelector('.container');
+      // 浏览器window对象添加滚动事件 
       window.addEventListener(`scroll`, function () {
         //获取html页面并获取被卷去的头部（可以获取值也可以赋值）
         let num = document.documentElement.scrollTop;
+
         //offsetTop获取子元素在父元素中的位置（祖先元素要有定位，不然一直查找到祖先元素，计算的是子元素边框到父元素的内边框的位置）
-        if (num >= containerElement.offsetTop) {
-          //设置透明度（不透明）
-          navigationElement.style.opacity = 1;
-        }
-        else {
-          //设置透明度（透明）
-          navigationElement.style.opacity = 0;
-        }
-      })
-      //通过查询选择器获取元素
-      const lastliElement = document.querySelector('.navigation>li:last-of-type');
+        let offsetTop = containerElement.offsetTop;
+        //下面代码是处理（右边处理导航条的事件）
+        // if (num >= offsetTop) {
+        //   //设置透明度（不透明）
+        //   navigationElement.style.opacity = 1;
+        // }
+        // else {
+        //   //设置透明度（透明）
+        //   navigationElement.style.opacity = 0;
+        // }
+        //三元表达式
+        navigationElement.style.opacity = num >= offsetTop ? 1 : 0;
+        //下面代码是处理（顶部导航条的事件）
+        //通过查询选择器获取元素
+        const leftElement = document.querySelector('.left');
+        const leftoffsetTop = leftElement.offsetTop;
+        const moveElement = document.querySelector('.move');
+        // if (num >= leftoffsetTop) {
+        //   moveElement.style.top = '0px';
+        // }else{
+        //   moveElement.style.top = '-100px';
+        // }
+         //三元表达式
+         moveElement.style.top= num >= offsetTop ? '0px' : '-100px';
+
+   })
+      //通过查询选择器获取元素（右边处理导航条的返回顶部事件）
+      const lastliElement = document.querySelector('.navigation ul>li:last-of-type');
       lastliElement.addEventListener('click', function () {
         // document.documentElement.scrollTop=0
         //通过 window函数赋值(X轴,Y轴)
         window.scroll(0, 0)
-
       })
-
 
     })
 
@@ -104,10 +147,12 @@
 
 <body>
   <!-- 顶部导航条 -->
+  <div class="move">顶部上下移动条</div>
   <div class="top">顶部导航条</div>
   <div class="container">
-    <div>
-      <ul class="navigation">
+    <div class="left">...............</div>
+    <div class="navigation">
+      <ul>
         <li>京东秒杀</li>
         <li>频道广场</li>
         <li>为你推荐</li>
