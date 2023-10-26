@@ -1,0 +1,118 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+  <!--规定 HTML 文档的字符编码  兼用性-->
+  <meta charset="UTF-8">
+  <!-- 针对IE浏览器的一个兼容性设置-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+  <meta name="renderer" content="webkit">
+
+  <!-- 让低版本浏览器认识H5 的义化标签 -->
+  <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+  <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+  <meta name="description" content="网页描述文字">
+  <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A19-总结</title>
+  <!-- 设置网站图标调用一个外部的图片文件 -->
+  <link rel="shortcut icon" href="../resources静态资源/image/网站图标.ico" type="image/x-icon" />
+  <!-- 清除css默认样式 -->
+  <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+  <!-- 引入css样式 -->
+  <!-- <link rel="stylesheet" href=""> -->
+  <style>
+           table {
+            /* 视图宽度 */
+            width: calc(100%);
+            /* 设置标题位置 
+            top 头部
+            bottom 尾部*/
+            caption-side: top;
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 2px rgb(100, 0, 0);
+            /* 设置表单列宽  auto 自动的  fixed固定的*/
+            table-layout: auto;
+            /* 设置单元格之间的边框距离（前提不能使用合并单元格之间的边框） */
+            /* border-spacing: 0px; */
+            /*  合并单元格之间的边框 （设置单元格之间的边框距离就不生效了）*/
+            border-collapse: collapse;
+            /* 隐藏没有内容的单元格 （前提不能使用合并单元格之间的边框*/
+            empty-cells: hide;
+
+
+
+        }
+
+        th,
+        td {
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(0, 100, 70);
+
+
+        }
+
+  </style>
+
+  <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+  <script type="text/javascript">
+    // 在页面加载完毕后才会执行的代码(加载外部资源(如图片、外联CSS和JavaScript等)加载完毕时触发的事件)
+    window.addEventListener('load', function () {
+
+
+    })
+
+
+  </script>
+
+</head>
+
+<body>
+  <table>
+
+    <caption>A19-总结</caption>
+    <!-- 标表头 -->
+    <tr>
+        <th>属性</th>
+        <th>作用</th>
+        <th>说明</th>
+      
+    </tr>
+    <tbody>
+        <tr>
+            <td>scrollLeft和scrollTop</td>
+            <td>被卷去的头部和左侧</td>
+            <td>配合页面滚动来用，可读写</td>
+          
+        </tr>
+        <tr>
+            <td>clientWidth 和 clientHeight</td>
+            <td>获得元素宽度和高度</td>
+            <td>不包含border,margin，滚动条 用于js获取元素大小，只读属性</td>
+            
+        </tr>
+        <tr>
+            <td>offsetWidth和offsetHeight</td>
+            <td>获得元素宽度和高度</td>
+            <td>包含border、padding，滚动条等，只读</td>
+           
+        </tr>
+        <tr>
+            <td>offsetLeft和offsetTop</td>
+            <td>获取元素距离自己定位父级元素的左、上距离</td>
+            <td>获取元素位置的时候使用，只读属性</td>
+            
+        </tr>
+    </tbody>
+
+</table>
+
+
+</body>
+
+</html>
