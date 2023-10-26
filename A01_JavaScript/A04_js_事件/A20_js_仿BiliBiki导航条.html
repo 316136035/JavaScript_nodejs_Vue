@@ -50,6 +50,7 @@
   <script type="text/javascript">
     // 在页面加载完毕后才会执行的代码(加载外部资源(如图片、外联CSS和JavaScript等)加载完毕时触发的事件)
     window.addEventListener('load', function () {
+      //通过查询选择器获取元素
       const topElement = document.querySelector('.top')
       const stripElement = document.querySelector('.strip')
 
@@ -57,6 +58,7 @@
         //获取目标值的标签名
         let tagname = e.target.tagName;
         if (tagname == 'A' && e.target != null) {
+          //获取子元素在父元素中的位置
           let topElementoffsetLeft = e.target.offsetLeft - 20;
           /* 2D变换_位移对行内元素没有效果 X Y轴 */
           stripElement.style.transform = `translateX(${topElementoffsetLeft}px)`
