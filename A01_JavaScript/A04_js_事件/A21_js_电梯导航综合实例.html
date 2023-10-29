@@ -19,7 +19,7 @@
   <meta name="description" content="网页描述文字">
   <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A18_js_scroll页面滚动事件综合实例</title>
+  <title>A21_js_电梯导航综合实例</title>
   <!-- 设置网站图标调用一个外部的图片文件 -->
   <link rel="shortcut icon" href="../resources静态资源/image/网站图标.ico" type="image/x-icon" />
   <!-- 清除css默认样式 -->
@@ -57,16 +57,6 @@
       background-color: brown;
     }
 
-    .left {
-      height: 400px;
-      width: 200px;
-      border: 1px solid green;
-      background-color: darkcyan;
-      /* 开启相对定位（参考的是自己位置） */
-      position: relative;
-      top: 100px;
-    }
-
     .navigation {
       width: 80px;
       background-color: chartreuse;
@@ -83,6 +73,11 @@
       /* 过渡：可见性1s，不透明度1s； */
       transition: visibility 1s, opacity 1s;
 
+    }
+
+    [data-class] {
+      height: 400px;
+      border: 1px solid black;
     }
   </style>
 
@@ -115,7 +110,7 @@
         })
       })();
 
-       //立即执行函数（顶部导航条的事件，顶部上下移动条）
+      //立即执行函数（顶部导航条的事件，顶部上下移动条）
       (function () {
         //通过查询选择器获取元素
         const navigationElement = document.querySelector('.navigation');
@@ -125,8 +120,8 @@
         window.addEventListener(`scroll`, function () {
           //下面代码是处理（顶部导航条的事件）
           //通过查询选择器获取元素
-          const leftElement = document.querySelector('.left');
-          const leftoffsetTop = leftElement.offsetTop;
+          const containerElement = document.querySelector('.container');
+          const containeroffsetTop = containerElement.offsetTop;
           const moveElement = document.querySelector('.move');
           //获取html页面并获取被卷去的头部（可以获取值也可以赋值）
           let num = document.documentElement.scrollTop;
@@ -136,7 +131,7 @@
           //   moveElement.style.top = '-100px';
           // }
           //三元表达式
-          moveElement.style.top = num >= leftoffsetTop ? '0px' : '-100px';
+          moveElement.style.top = num >= containeroffsetTop ? '0px' : '-100px';
 
         })
       })();
@@ -146,15 +141,34 @@
 
 
 
-      //通过查询选择器获取元素（右边处理导航条的返回顶部事件）
-      const lastliElement = document.querySelector('.navigation ul>li:last-of-type');
-      lastliElement.addEventListener('click', function () {
-        // document.documentElement.scrollTop=0
-        //通过 window函数赋值(X轴,Y轴)
-        window.scroll(0, 0)
-      })
+
+      (function () {
+        //通过查询选择器获取元素（右边处理导航条的返回顶部事件）
+        const lastliElement = document.querySelector('.navigation ul>li:last-of-type');
+        lastliElement.addEventListener('click', function () {
+          // document.documentElement.scrollTop=0
+          //通过 window函数赋值(X轴,Y轴)
+          window.scroll(0, 0)
+        })
+
+
+
+
+
+
+      })()
+
+
+
+
+
 
     })
+
+
+
+
+
 
 
 
@@ -171,8 +185,13 @@
   <!-- 顶部导航条 -->
   <div class="move">顶部上下移动条</div>
   <div class="top">顶部导航条</div>
+  <!-- 容器 -->
   <div class="container">
-    <div class="left">当滚动条移动到这里顶部上下移动条就会出现</div>
+    <!-- 页面 -->
+    <div data-class="subcontainer flashsale">京东秒杀</div>
+    <div data-class="subcontainer square">频道广场</div>
+    <div data-class="subcontainer recommend">为你推荐</div>
+    <!-- 右边导航区 -->
     <div class="navigation">
       <ul>
         <li>京东秒杀</li>
