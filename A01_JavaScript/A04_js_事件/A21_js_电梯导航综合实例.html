@@ -36,6 +36,7 @@
       /* top: -120px; */
       /* 开启相对定位（参考的是自己位置） */
       position: fixed;
+      /* 过渡 */
       transition: all 1s;
       top: -100px;
 
@@ -85,8 +86,8 @@
   <script type="text/javascript">
     // 在页面加载完毕后才会执行的代码(加载外部资源(如图片、外联CSS和JavaScript等)加载完毕时触发的事件)
     window.addEventListener('load', function () {
-       //立即执行函数（顶部导航条的事件，顶部上下移动条）
-       (function () {
+      //立即执行函数（顶部导航条的事件，顶部上下移动条）
+      (function () {
         //通过查询选择器获取元素
         const navigationElement = document.querySelector('.navigation');
         //通过查询选择器获取元素
@@ -136,6 +137,7 @@
         })
       })();
 
+      //立即执行函数（右边处理导航条的返回顶部事件）
       (function () {
         //通过查询选择器获取元素（右边处理导航条的返回顶部事件）
         const lastliElement = document.querySelector('.navigation ul>li:last-of-type');
@@ -144,12 +146,6 @@
           //通过 window函数赋值(X轴,Y轴)
           window.scroll(0, 0)
         })
-
-
-
-
-
-
       })()
 
 
