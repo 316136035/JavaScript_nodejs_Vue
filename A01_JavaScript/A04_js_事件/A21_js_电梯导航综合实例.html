@@ -76,7 +76,7 @@
 
     }
 
-    [data-class] {
+    [div-class] {
       height: 400px;
       border: 1px solid black;
     }
@@ -146,6 +146,18 @@
           //通过 window函数赋值(X轴,Y轴)
           window.scroll(0, 0)
         })
+      })();
+
+
+      //立即执行函数（右边处理导航条的返回顶部事件）
+      (function () {
+        //通过查询选择器获取元素（右边处理导航条的返回顶部事件）
+        const ulElement = document.querySelector('[data-class=ul]');
+        ulElement.addEventListener('click', function (e) {
+          const class1 = e.target.dataset.class;
+          console.log(class1); // 输出 "myClass"
+        })
+
       })()
 
 
@@ -154,17 +166,6 @@
 
 
     })
-
-
-
-
-
-
-
-
-
-
-
 
 
   </script>
@@ -178,15 +179,15 @@
   <!-- 容器 -->
   <div class="container">
     <!-- 页面 -->
-    <div data-class="subcontainer flashsale">京东秒杀</div>
-    <div data-class="subcontainer square">频道广场</div>
-    <div data-class="subcontainer recommend">为你推荐</div>
+    <div data-class="flashsale" div-class="div">京东秒杀</div>
+    <div data-class="square" div-class="div">频道广场</div>
+    <div data-class="recommend" div-class="div">为你推荐</div>
     <!-- 右边导航区 -->
     <div class="navigation">
-      <ul>
-        <li>京东秒杀</li>
-        <li>频道广场</li>
-        <li>为你推荐</li>
+      <ul data-class="ul">
+        <li><a href="#" data-class="flashsale">京东秒杀</a></li>
+        <li><a href="#" data-class="square">频道广场</a></li>
+        <li><a href="#" data-class="recommend">为你推荐</a></li>
         <li>返回顶部</li>
       </ul>
     </div>

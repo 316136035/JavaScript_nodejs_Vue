@@ -53,7 +53,7 @@
       //通过查询选择器获取元素
       const topElement = document.querySelector('.top')
       const stripElement = document.querySelector('.strip')
-
+      //使用事件委托的方式为topElement添加点击事件
       topElement.addEventListener('click', function (e) {
         //获取目标值的标签名
         let tagname = e.target.tagName;
