@@ -154,8 +154,9 @@
         //通过查询选择器获取元素（右边处理导航条的返回顶部事件）
         const ulElement = document.querySelector('[data-class=ul]');
         ulElement.addEventListener('click', function (e) {
-          const class1 = e.target.dataset.class;
-          console.log(class1); // 输出 "myClass"
+            // 获取被点击元素的data-class属性值
+          const DataClass = e.target.dataset.class;
+          console.log( DataClass)
         })
 
       })()
