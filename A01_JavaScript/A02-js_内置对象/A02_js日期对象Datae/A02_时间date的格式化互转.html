@@ -56,7 +56,10 @@
         this.milliSeconds = date.getMilliseconds();
          currentTime = this.year + '-' + this.month + '-' + this.date + ' ' + this.hour + ':' + this.minute + ':' + this.second + '.' + this.milliSeconds;
         document.querySelector(".date1").innerHTML = '时间戳转字符串' + currentTime;
-        document.querySelector(".date2").innerHTML = '时间字符串转时间戳' +new Date( currentTime).getTime();
+        document.querySelector(".date2").innerHTML = '时间字符串转时间戳' +new Date(currentTime).getTime();
+        document.querySelector(".date3").innerHTML = '时间戳' +(+new Date());
+        document.querySelector(".date4").innerHTML = '时间戳' +Date.now();
+
       }
       // 定时器
       setInterval(() => {
@@ -79,6 +82,8 @@
   </script>
   <div class="date1"></div>
   <div class="date2"></div>
+  <div class="date3"></div>
+  <div class="date4"></div>
 </body>
 
 </html>
