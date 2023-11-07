@@ -20,7 +20,7 @@
   <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- 头标题 -->
-  <title>A03_倒计时实例</title>
+  <title>A04_定时执行任务.html</title>
   <!-- 设置网站图标调用一个外部的图片文件 -->
   <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
   <!-- 清除css默认样式 -->
@@ -65,56 +65,43 @@
         milliSeconds: date.getMilliseconds()      // 获取当前日期的毫秒数
 
       }
-
+      //获取当前日期的字符串格式
       datestring = datetime.year + "-" + datetime.month + "-" + datetime.day;
+      //将日期字符串赋值给日期选择框
       document.querySelector('#date-selector').value = datestring;
-      console.log(datestring);
 
+      //获取当前时间的字符串格式
       timestring = datetime.hour + ":" + datetime.minute + ":" + datetime.second + "." + datetime.milliSeconds;
+      //将时间字符串赋值给时间选择框
       document.querySelector('#time-selector').value = timestring;
-
-
 
       //定义定时器对象（用户关闭定时器）
       let interval;
       //定义一个函数（带参数传递）
       function myFunction(param1) {
-     console.log( Date.now());
+        console.log(Date.now());
         if (param1 <= Date.now()) {
           alert('执行....')
-            //关闭定时器
-            clearInterval(interval)
+          //关闭定时器
+          clearInterval(interval)
         }
       }
 
-
+      //点击按钮执行定时器
       document.querySelector('.button').addEventListener('click', function () {
-
+        //获取用户输入的日期和时间
         let date = document.querySelector('#date-selector').value
         let time = document.querySelector('#time-selector').value
+        //将日期和时间拼接成一个字符串
         let datetime = date + ' ' + time;
-      
-
         //定义定时器
         interval = setInterval(() => {
           //调用函数
           myFunction(new Date(datetime).getTime());
         }, 1); //执行的间距毫秒数
-
-
-
-
       })
 
-
-
-
     };
-
-
-
-
-
 
 
   </script>
