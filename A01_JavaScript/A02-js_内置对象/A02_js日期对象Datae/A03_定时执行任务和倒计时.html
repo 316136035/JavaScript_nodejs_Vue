@@ -20,7 +20,7 @@
   <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- 头标题 -->
-  <title>A04_定时执行任务.html</title>
+  <title>A03_定时执行任务和倒计时</title>
   <!-- 设置网站图标调用一个外部的图片文件 -->
   <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
   <!-- 清除css默认样式 -->
@@ -35,6 +35,7 @@
       border: 1px solid red;
 
     }
+
 
     button {
       height: 30px;
@@ -65,21 +66,51 @@
         milliSeconds: date.getMilliseconds()      // 获取当前日期的毫秒数
 
       }
-      //获取当前日期的字符串格式
-      datestring = datetime.year + "-" + datetime.month + "-" + datetime.day;
-      //将日期字符串赋值给日期选择框
-      document.querySelector('#date-selector').value = datestring;
+      //定义一个变量 用于存储毫秒数  用于计算剩余时间
+      let = millisecondsAll = 0;
+      (function () {
+        //获取当前日期的字符串格式
+        datestring = datetime.year + "-" + datetime.month + "-" + datetime.day;
+        //将日期字符串赋值给日期选择框
+        document.querySelector('#date-selector').value = datestring;
 
-      //获取当前时间的字符串格式
-      timestring = datetime.hour + ":" + datetime.minute + ":" + datetime.second + "." + datetime.milliSeconds;
-      //将时间字符串赋值给时间选择框
-      document.querySelector('#time-selector').value = timestring;
+        //获取当前时间的字符串格式
+        timestring = datetime.hour + ":" + datetime.minute + ":" + datetime.second + "." + datetime.milliSeconds;
 
+        //将时间字符串赋值给时间选择框
+        document.querySelector('#time-selector').value = timestring;
+
+
+
+      })()
+
+      //定义一个常量lefttimeElement，表示通过querySelector方法获取到的class为'left-time'的元素
+      const lefttimeElement = document.querySelector('.left-time');
       //定义定时器对象（用户关闭定时器）
       let interval;
+
       //定义一个函数（带参数传递）
       function myFunction(param1) {
-        console.log(Date.now());
+        //选择框的毫秒数-当前日期的毫秒数=剩余时间的毫秒数
+        let lefttime = (millisecondsAll - Date.now());
+        if (lefttime < 0) {
+          lefttime = 0;
+        }
+        if (lefttime >= 0) {
+          // 计算剩余时间的天数
+          let date = Math.floor(lefttime / 1000 / 60 / 60 / 24)
+          //计算剩余时间的小时数
+          let hour = Math.floor(lefttime / 1000 / 60 / 60 % 24)
+          //计算剩余时间的分钟数
+          let minute = Math.floor(lefttime / 1000 / 60 % 60)
+          //计算剩余时间的秒数
+          let econd = Math.floor(lefttime / 1000 % 60)
+          //计算剩余时间的毫秒数
+          let millisecond = Math.floor(lefttime % 1000)
+          //将剩余时间显示在页面上
+          lefttimeElement.innerHTML = '距离执行任务还剩时间为：' + date + "天" + hour + "小时" + minute + "分钟" + econd + "秒" + millisecond + "毫秒";
+        }
+        //判断是否到了执行时间
         if (param1 <= Date.now()) {
           alert('执行....')
           //关闭定时器
@@ -88,32 +119,57 @@
       }
 
       //点击按钮执行定时器
-      document.querySelector('.button').addEventListener('click', function () {
+      document.querySelector('.button1').addEventListener('click', function () {
         //获取用户输入的日期和时间
         let date = document.querySelector('#date-selector').value
         let time = document.querySelector('#time-selector').value
         //将日期和时间拼接成一个字符串
         let datetime = date + ' ' + time;
+        millisecondsAll = new Date(datetime).getTime();
         //定义定时器
         interval = setInterval(() => {
           //调用函数
-          myFunction(new Date(datetime).getTime());
+          myFunction(millisecondsAll);
         }, 1); //执行的间距毫秒数
       })
 
+      document.querySelector('.button2').addEventListener('click', function () {
+        //关闭定时器
+        clearInterval(interval)
+      })
+
+      const currenttime = document.querySelector('.current-time')
+      //获取当前时间
+      setInterval(() => {
+        //调用函数
+        currenttime.innerHTML = '当前时间' + new Date().toLocaleString();
+      }, 1); //执行的间距毫秒数
+
+
+
     };
+
 
 
   </script>
   <div class="countdown">
     <label for="date-selector"> 请选择日期</label>
     <input type="date" id="date-selector" value="2017-06-01" />
-
-
-
     <label for="time-selector">选择时间：</label>
     <input type="time" id="time-selector" value="12:34:56.79">
-    <button class="button">开始定时执行</button>
+    <div>
+      <button class="button1">开始定时执行</button> <button class="button2">停止定时执行</button>
+
+    </div>
+
+
+    <div>
+      <div class="current-time">显示当前时间</div>
+      <div class="left-time">显示距离执行任务还剩时间</div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
 
 
