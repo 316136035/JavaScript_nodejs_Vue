@@ -42,37 +42,37 @@
     // 在页面加载完毕后才会执行的代码
     window.onload = function () {
 
-      let currentTime = 0;
+      let currentTime=0;
       //格式化时间
       function show() {
         var date = new Date();
 
-
+    
         //获取当前日期的年份
         this.year = date.getFullYear();
 
         //获取当前日期的月份（注意，月份是从0开始计数的，因此需要加1）
         this.month = date.getMonth() + 1;
 
-        // 获取当前日期的日份
+       // 获取当前日期的日份
         this.date = date.getDate();
 
         // 获取当前时间的小时数（如果小时数小于10，则在前面添加0）
         this.hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
 
-        // 获取当前时间的分钟数（如果分钟数小于10，则在前面添加0）
+      // 获取当前时间的分钟数（如果分钟数小于10，则在前面添加0）
         this.minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
 
-        // 获取当前时间的秒数（如果秒数小于10，则在前面添加0）
+      //获取当前时间的秒数（如果秒数小于10，则在前面添加0）
         this.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
 
-        // 获取当前日期的毫秒数
+       // 获取当前日期的毫秒数
         this.milliSeconds = date.getMilliseconds();
-        currentTime = this.year + '-' + this.month + '-' + this.date + ' ' + this.hour + ':' + this.minute + ':' + this.second + '.' + this.milliSeconds;
+         currentTime = this.year + '-' + this.month + '-' + this.date + ' ' + this.hour + ':' + this.minute + ':' + this.second + '.' + this.milliSeconds;
         document.querySelector(".date1").innerHTML = '时间戳转字符串' + currentTime;
-        document.querySelector(".date2").innerHTML = '时间字符串转时间戳' + new Date(currentTime).getTime();
-        document.querySelector(".date3").innerHTML = '时间戳' + (+new Date());
-        document.querySelector(".date4").innerHTML = '时间戳' + Date.now();
+        document.querySelector(".date2").innerHTML = '时间字符串转时间戳' +new Date(currentTime).getTime();
+        document.querySelector(".date3").innerHTML = '时间戳' +(+new Date());
+        document.querySelector(".date4").innerHTML = '时间戳' +Date.now();
 
       }
       // 定时器

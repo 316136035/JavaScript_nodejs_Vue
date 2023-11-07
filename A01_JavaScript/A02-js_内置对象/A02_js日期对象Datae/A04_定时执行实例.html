@@ -1,0 +1,139 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+  <!--规定 HTML 文档的字符编码  兼用性-->
+  <meta charset="UTF-8">
+  <!-- 针对IE浏览器的一个兼容性设置-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+  <meta name="renderer" content="webkit">
+
+  <!-- 让低版本浏览器认识H5 的语义化标签 -->
+  <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+  <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+  <meta name="description" content="网页描述文字">
+  <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 头标题 -->
+  <title>A03_倒计时实例</title>
+  <!-- 设置网站图标调用一个外部的图片文件 -->
+  <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
+  <!-- 清除css默认样式 -->
+  <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+  <!-- 调用一个外部的CSS样式文件 -->
+  <link rel="stylesheet" href="#">
+  <!-- 引入外部js文件 不能和内部js一样使用-->
+  <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+  <style>
+    input {
+      width: 200px;
+      border: 1px solid red;
+
+    }
+
+    button {
+      height: 30px;
+      width: 100px;
+
+      background: black;
+      color: white;
+      border-radius: 2px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+  <script type="text/javascript">
+    // 在页面加载完毕后才会执行的代码
+    window.onload = function () {
+      let date = new Date();
+      let datetime = {
+        year: date.getFullYear(), //获取当前日期的年份
+        month: (date.getMonth() + 1) < 10 ? "0" + date.getMonth() + 1 : date.getMonth() + 1, //获取当前日期的月份（注意，月份是从0开始计数的，因此需要加1）
+        day: date.getDate() < 10 ? "0" + date.getDate() : date.getDate(),  // 获取当前日期的日份
+        hour: date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),// 获取当前时间的小时数（如果小时数小于10，则在前面添加0）
+        minute: date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),  // 获取当前时间的分钟数（如果分钟数小于10，则在前面添加0）
+        second: date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds(),//获取当前时间的秒数（如果秒数小于10，则在前面添加0）
+        milliSeconds: date.getMilliseconds()      // 获取当前日期的毫秒数
+
+      }
+
+      datestring = datetime.year + "-" + datetime.month + "-" + datetime.day;
+      document.querySelector('#date-selector').value = datestring;
+      console.log(datestring);
+
+      timestring = datetime.hour + ":" + datetime.minute + ":" + datetime.second + "." + datetime.milliSeconds;
+      document.querySelector('#time-selector').value = timestring;
+
+
+
+      //定义定时器对象（用户关闭定时器）
+      let interval;
+      //定义一个函数（带参数传递）
+      function myFunction(param1) {
+     console.log( Date.now());
+        if (param1 <= Date.now()) {
+          alert('执行....')
+            //关闭定时器
+            clearInterval(interval)
+        }
+      }
+
+
+      document.querySelector('.button').addEventListener('click', function () {
+
+        let date = document.querySelector('#date-selector').value
+        let time = document.querySelector('#time-selector').value
+        let datetime = date + ' ' + time;
+      
+
+        //定义定时器
+        interval = setInterval(() => {
+          //调用函数
+          myFunction(new Date(datetime).getTime());
+        }, 1); //执行的间距毫秒数
+
+
+
+
+      })
+
+
+
+
+    };
+
+
+
+
+
+
+
+  </script>
+  <div class="countdown">
+    <label for="date-selector"> 请选择日期</label>
+    <input type="date" id="date-selector" value="2017-06-01" />
+
+
+
+    <label for="time-selector">选择时间：</label>
+    <input type="time" id="time-selector" value="12:34:56.79">
+    <button class="button">开始定时执行</button>
+
+
+
+
+
+  </div>
+
+</body>
+
+</html>
