@@ -30,7 +30,7 @@
     .move {
       height: 100px;
       width: 100%;
-      background-color: rgba(11, 225, 29, 0.667);
+      background-color: rgba(135, 177, 139, 0.239);
       text-align: center;
       color: chartreuse;
       /* top: -120px; */
@@ -80,14 +80,15 @@
     .container>div {
       height: 400px;
       border: 1px solid black;
+      font-size: 40px;
     }
 
     .active {
       color: red;
     }
-   
-    html{
-    /* 页面滑动（让滚动条添加滑动效果） */
+
+    html {
+      /* 页面滑动（让滚动条添加滑动效果） */
       scroll-behavior: smooth;
     }
   </style>
@@ -153,13 +154,13 @@
       (function () {
         //通过查询选择器获取元素（右边处理导航条事件）
         const ulElement = document.querySelector('[data-class=ul]');
+        //获取所有div元素 
+        const divElements = document.querySelectorAll('.container > div');
         //使用事件委托（但是事件委托，只需要在父元素添加一次事件，然后在子元素添加事件，就不需要在子元素添加事件，）
         ulElement.addEventListener('click', function (e) {
           // 样式处理
           style(e);
 
-          //获取所有div元素 
-          const divElements = document.querySelectorAll('.container > div');
           // 获取被点击元素的data-class属性值
           const dataClassname = e.target.dataset.class;
           //遍历所有div元素
@@ -196,8 +197,51 @@
 
 
 
+
+
+
         })
 
+
+
+
+        const divflashsaleoffsetTop = divElements[0].offsetTop;
+        const divsquareoffsetTop = divElements[1].offsetTop;
+        const divrecommendoffsetTop = divElements[2].offsetTop;
+        const divvalueformoneyoffsetTop = divElements[3].offsetTop;
+        // 浏览器window对象添加滚动事件
+        window.addEventListener(`scroll`, function () {
+
+          //获取html页面并获取被卷去的头部（可以获取值也可以赋值）
+          let docscrollTop = document.documentElement.scrollTop;
+          console.log(docscrollTop);
+          //判断是否在divflashsale区域内
+          if (divflashsaleoffsetTop - 100 <= docscrollTop && docscrollTop < divsquareoffsetTop) {
+            style();
+            document.querySelector('[data-class="flashsale"]').classList.add('active')
+
+          };
+          ///判断是否在divflashsale区域内
+          if (divsquareoffsetTop - 100 <= docscrollTop && docscrollTop < divrecommendoffsetTop) {
+            style();
+            document.querySelector('[data-class="square"]').classList.add('active')
+
+          };
+          ///判断是否在recommend区域内
+          if (divrecommendoffsetTop - 100 <= docscrollTop && docscrollTop < divvalueformoneyoffsetTop) {
+            style();
+            document.querySelector('[data-class="recommend"]').classList.add('active')
+
+          };
+          ///判断是否在valueformoney区域内
+          if (divvalueformoneyoffsetTop - 100 <= docscrollTop) {
+            style();
+            document.querySelector('[data-class="valueformoney"]').classList.add('active')
+
+          };
+
+        }
+        )
         // 样式处理（右边处理导航条样式）
         function style(e) {
           //通过查询选择器获取元素
@@ -209,6 +253,17 @@
           }
           //添加active类
           e.target.classList.add('active')
+        }
+        // 样式处理（右边处理导航条样式）
+        function style() {
+          //通过查询选择器获取元素
+          const active = document.querySelector('.active')
+          //判断是否有active类
+          if (active) {
+            //移除active类
+            active.classList.remove('active')
+          }
+
         }
 
 
@@ -240,6 +295,7 @@
     <div data-class="divflashsale">京东秒杀</div>
     <div data-class="divsquare">频道广场</div>
     <div data-class="divrecommend">为你推荐</div>
+    <div data-class="divvalueformoney">性价比专区</div>
 
 
   </div>
@@ -249,6 +305,7 @@
       <li data-class="flashsale">京东秒杀</li>
       <li data-class="square">频道广场</li>
       <li data-class="recommend">为你推荐</li>
+      <li data-class="valueformoney">性价比专区</li>
       <li data-class="backtotop">返回顶部</li>
     </ul>
   </div>
