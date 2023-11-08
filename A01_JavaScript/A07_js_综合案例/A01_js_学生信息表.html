@@ -54,7 +54,7 @@
         }
 
 
-        .button {
+        [type="submit"] {
             border-radius: 4px;
             background-color: red;
         }
@@ -111,62 +111,158 @@
 
 
 <body>
+    <script type="text/javascript">
+        // 页面加载完成后执行
+        window.onload = function () {
+            // 定义数组
+            let personnels = [];
+            // 定义变量(用于记录序号)
+            let num = 0;
+            // 定义对象
+            const nameElement = document.querySelector('#name');
+            const ageElement = document.querySelector('#age');
+            const genderElement = document.querySelector('#gender');
+            const salaryElement = document.querySelector('#salary');
+            const provinceElement = document.querySelector('#province');
+
+
+            const myformElement = document.querySelector(`.myform`);
+            myformElement.addEventListener(`submit`, function (e) {
+                // 阻止表单默认事件
+                e.preventDefault();
+                nameElement.value
+                ageElement.value
+                genderElement.value
+                provinceElement.value
+
+
+
+
+                // 判断是否为空
+                if (nameElement.value == '' || ageElement.value == '' || genderElement.value == '' || salaryElement.value == '' || provinceElement.value == '') {
+                    alert('请填写完整信息');
+                } else {
+                    // 创建对象
+                    const personnel = {
+                        id: num++,
+                        name: nameElement.value,
+                        age: ageElement.value,
+                        gender: document.querySelector(`[value='${genderElement.value}']`).text,
+                        salary: salaryElement.value,
+                        province: document.querySelector(`[value=${provinceElement.value}]`).text,
+                    }
+
+
+
+
+                    // 向数组中添加对象
+                    personnels.push(personnel);
+                    console.log(personnels);
+                    //重置表单（清空表单）
+                    this.reset();
+                    render();
+                }
+
+
+
+            })
+
+
+
+            const tbodyElement = document.querySelector('.tbody');
+            function render() {
+
+                while (tbodyElement.lastChild != null) {
+                    tbodyElement.removeChild(tbodyElement.lastChild);
+                }
+
+                personnels.forEach(function (item, index) {
+
+                    const trElement = document.createElement('tr');
+                    const tdNameElement = document.createElement('td');
+                    const tdAgeElement = document.createElement('td');
+                    const tdGenderElement = document.createElement('td');
+                    const tdSalaryElement = document.createElement('td');
+                    const tdProvinceElement = document.createElement('td');
+                    trElement.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.name}</td>
+                    <td>${item.age}</td>
+                    <td>${item.gender}</td>
+                    <td>${item.salary}</td>
+                    <td>${item.province}
+                    <td><a href="">删除</a></td>`
+
+                    tbodyElement.appendChild(trElement);
+
+                })
+
+            }
+
+
+
+        }
+
+
+
+
+
+    </script>
     <div class="header">
         <div class="header-title">学生信息表</div>
         <div class="header-new">新增学生</div>
-        <div class="name-age-gender-salary-province">
-            <input type="text" id="name" placeholder="姓名">
-            <input type="text" id="age" placeholder="年龄">
-        
-            <select id="gender">
-                <option value="1">性别</option>
-                <option value="1">男</option>
-                <option value="0">女</option>
-             </select>
-            <input type="text" id="salary" placeholder="薪资">
-            <select id="province">
-                <option value=" ">请选择</option>
-                <option value="beijing">北京</option>
-                <option value="tianjin">天津</option>
-                <option value="hebei">河北</option>
-                <option value="shanghai">上海</option>
-                <option value="jiangsu">江苏</option>
-                <option value="zhejiang">浙江</option>
-                <option value="anhui">安徽</option>
-                <option value="fujian">福建</option>
-                <option value="jilin">吉林</option>
-                <option value="liaoning">辽宁</option>
-                <option value="heilongjiang">黑龙江</option>
-                <option value="shandong">山东</option>
-                <option value="henan">河南</option>
-                <option value="hunan">湖南</option>
-                <option value="jiangxi">江西</option>
-                <option value="shanghai">上海</option>
-                <option value="hubei">湖北</option>
-                <option value="hunan">湖南</option>
-                <option value="guangdong">广东</option>
-                <option value="guangxi">广西</option>
-                <option value="hainan">海南</option>
-                <option value="sichuan">四川</option>
-                <option value="chongqing">重庆</option>
-                <option value="sichuan">四川</option>
-                <option value="guizhou">贵州</option>
-                <option value="yunnnan">云南</option>
-                <option value="xinjiang">新疆</option>
-                <option value=" Inner Mongolia">内蒙古</option>
-                <option value="qinghai">青海</option>
-                <option value="xizang">西藏</option>
-                <option value="ningxia">宁夏</option>
-                <option value="gansu">甘肃</option>
-                <option value="shanxi">山西</option>
-                <option value=" Shanxi">陕西</option>
-                <option value="xinjiang">新疆</option>
-            </select>
+        <form class="myform" action="#" method="get">
+            <div class="name-age-gender-salary-province">
+                <input type="text" id="name" placeholder="姓名">
+                <input type="number" id="age" placeholder="年龄">
+                <select id="gender">
+                    <option value=1>男</option>
+                    <option value=0>女</option>
+                </select>
+                <input type="number" id="salary" placeholder="薪资">
+                <select id="province">
+                    <option value=" ">请选择</option>
+                    <option value="beijing">北京</option>
+                    <option value="tianjin">天津</option>
+                    <option value="hebei">河北</option>
+                    <option value="shanghai">上海</option>
+                    <option value="jiangsu">江苏</option>
+                    <option value="zhejiang">浙江</option>
+                    <option value="anhui">安徽</option>
+                    <option value="fujian">福建</option>
+                    <option value="jilin">吉林</option>
+                    <option value="liaoning">辽宁</option>
+                    <option value="heilongjiang">黑龙江</option>
+                    <option value="shandong">山东</option>
+                    <option value="henan">河南</option>
+                    <option value="hunan">湖南</option>
+                    <option value="jiangxi">江西</option>
+                    <option value="shanghai">上海</option>
+                    <option value="hubei">湖北</option>
+                    <option value="hunan">湖南</option>
+                    <option value="guangdong">广东</option>
+                    <option value="guangxi">广西</option>
+                    <option value="hainan">海南</option>
+                    <option value="sichuan">四川</option>
+                    <option value="chongqing">重庆</option>
+                    <option value="sichuan">四川</option>
+                    <option value="guizhou">贵州</option>
+                    <option value="yunnnan">云南</option>
+                    <option value="xinjiang">新疆</option>
+                    <option value=" Inner Mongolia">内蒙古</option>
+                    <option value="qinghai">青海</option>
+                    <option value="xizang">西藏</option>
+                    <option value="ningxia">宁夏</option>
+                    <option value="gansu">甘肃</option>
+                    <option value="shanxi">山西</option>
+                    <option value=" Shanxi">陕西</option>
+                    <option value="xinjiang">新疆</option>
+                </select>
 
-            <button class="button">新增学生</button>
+                <input type="submit" value="录入">
+        </form>
 
-
-        </div>
+    </div>
     </div>
     <div class="main-content">
         <table class="table-content">
@@ -182,16 +278,16 @@
                 <th>操作</th>
 
             </tr>
-            <tbody>
-                <tr>
+            <tbody class="tbody">
+                <!-- <tr>
                     <td>1</td>
                     <td>XXX</td>
                     <td>三</td>
                     <td>9.90</td>
                     <td>59.00</td>
                     <td>广东</td>
-                    <td>删除</td>
-                </tr>
+                    <td><a href="">删除</a></td>
+                </tr> -->
 
 
 
