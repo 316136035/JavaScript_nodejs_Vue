@@ -1,0 +1,202 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A01_js_学生信息表</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .header-title {
+            width: 100%;
+            font-size: 40px;
+            text-align: center;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .header-new {
+
+            width: 100%;
+            font-size: 20px;
+            text-align: center;
+            color: #000;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .name-age-gender-salary-province {
+            /* 视图宽度 */
+            width: calc(100%);
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+
+        }
+
+
+        .button {
+            border-radius: 4px;
+            background-color: red;
+        }
+
+        .table-content {
+
+            display: table;
+            margin: 0 auto;
+            /* 视图宽度 */
+            width: calc(80%);
+            /* 设置标题位置 
+            top 头部
+            bottom 尾部*/
+            caption-side: top;
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 2px rgb(100, 0, 0);
+            /* 设置表单列宽  auto 自动的  fixed固定的*/
+            table-layout: auto;
+            /* 设置单元格之间的边框距离（前提不能使用合并单元格之间的边框） */
+            /* border-spacing: 0px; */
+            /*  合并单元格之间的边框 （设置单元格之间的边框距离就不生效了）*/
+            border-collapse: collapse;
+            /* 隐藏没有内容的单元格 （前提不能使用合并单元格之间的边框*/
+            empty-cells: hide;
+
+        }
+
+        .manage {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            text-align: center;
+            color: #000;
+            font-weight: bold;
+        }
+
+        th {
+            background-color: rgb(61, 61, 136);
+            height: 30px;
+        }
+
+        th,
+        td {
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(0, 100, 70);
+            margin: 0;
+
+
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="header">
+        <div class="header-title">学生信息表</div>
+        <div class="header-new">新增学生</div>
+        <div class="name-age-gender-salary-province">
+            <input type="text" id="name" placeholder="姓名">
+            <input type="text" id="age" placeholder="年龄">
+            <input type="text" id="gender" placeholder="性别">
+            <input type="text" id="salary" placeholder="薪资">
+            <select id="province">
+                <option value=" ">请选择</option>
+                <option value="beijing">北京</option>
+                <option value="tianjin">天津</option>
+                <option value="hebei">河北</option>
+                <option value="shanghai">上海</option>
+                <option value="jiangsu">江苏</option>
+                <option value="zhejiang">浙江</option>
+                <option value="anhui">安徽</option>
+                <option value="fujian">福建</option>
+                <option value="jilin">吉林</option>
+                <option value="liaoning">辽宁</option>
+                <option value="heilongjiang">黑龙江</option>
+                <option value="shandong">山东</option>
+                <option value="henan">河南</option>
+                <option value="hunan">湖南</option>
+                <option value="jiangxi">江西</option>
+                <option value="shanghai">上海</option>
+                <option value="hubei">湖北</option>
+                <option value="hunan">湖南</option>
+                <option value="guangdong">广东</option>
+                <option value="guangxi">广西</option>
+                <option value="hainan">海南</option>
+                <option value="sichuan">四川</option>
+                <option value="chongqing">重庆</option>
+                <option value="sichuan">四川</option>
+                <option value="guizhou">贵州</option>
+                <option value="yunnnan">云南</option>
+                <option value="xinjiang">新疆</option>
+                <option value=" Inner Mongolia">内蒙古</option>
+                <option value="qinghai">青海</option>
+                <option value="xizang">西藏</option>
+                <option value="ningxia">宁夏</option>
+                <option value="gansu">甘肃</option>
+                <option value="shanxi">山西</option>
+                <option value=" Shanxi">陕西</option>
+                <option value="xinjiang">新疆</option>
+            </select>
+
+            <button class="button">新增学生</button>
+
+
+        </div>
+    </div>
+    <div class="main-content">
+        <table class="table-content">
+            <caption class="manage">人员管理</caption>
+            <!-- 标表头 -->
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>薪资</th>
+                <th>省份</th>
+
+            </tr>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>XXX</td>
+                    <td>三</td>
+                    <td>9.90</td>
+                    <td>59.00</td>
+                </tr>
+
+
+
+            </tbody>
+
+
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
