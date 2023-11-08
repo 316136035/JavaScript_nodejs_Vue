@@ -33,6 +33,12 @@
         #node-name {
             border: 1px solid #ccc;
         }
+
+        button {
+            margin-top: 10px;
+            background-color: rgb(143, 129, 129);
+            color: white;
+        }
     </style>
 
 </head>
@@ -43,27 +49,54 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+            // 获取ul元素
+            const ulElement = document.querySelector('#ul');
             // 监听按钮点击事件
-            const button = document.querySelector('button');
+            const button1 = document.querySelector('.add-section1');
             // 监听按钮点击事件
-            button.addEventListener('click', function () {
-                // 获取ul元素
-                const ulElement = document.querySelector('#ul');
+            button1.addEventListener('click', function () {
+
                 // 创建li元素
                 const liElement = document.createElement('li')
                 // 设置li元素内容
                 liElement.innerHTML = document.querySelector('#node-name').value;
                 // 添加一个类名
                 liElement.classList.add('myclass');
-                //  添加属性
+                // 添加属性
                 liElement.setAttribute('data-id', '123');
                 // 添加属性
-                liElement.setAttribute('key', 'value');
+                liElement.setAttribute('onclick', "删除节点(this)");
                 console.log(liElement);
-                // 父元素添加li子元素
+                // 父元素添加节点子元素最后面
                 ulElement.appendChild(liElement)
 
             });
+
+
+
+            // 监听按钮点击事件
+            const button2 = document.querySelector('.add-section2');
+            // 监听按钮点击事件
+            button2.addEventListener('click', function () {
+
+                // 创建li元素
+                const liElement = document.createElement('li')
+                // 设置li元素内容
+                liElement.innerHTML = document.querySelector('#node-name').value;
+                // 添加一个类名
+                liElement.classList.add('myclass');
+                // 添加属性
+                liElement.setAttribute('data-id', '123');
+                console.log(liElement);
+                // // 父元素添加节点子元素最前面(元素，位置)
+                ulElement.insertBefore(liElement, ulElement.firstChild)
+
+            });
+
+            ulElement.addEventListener('click', function (e) {
+                e.target.parentNode.remove(this)
+
+            })
 
         };
 
@@ -72,13 +105,11 @@
 
     <label for="node-name">节点名称：</label>
     <input type="text" id="node-name" value="请求输入节点名称">
-    <button class="add-section">添加节点</button>
+    <button class="add-section1">添加节点子元素最后面</button>
+    <button class="add-section2">添加节点子元素最前面</button>
 
     <ul id="ul">
-        <li>北京</li>
-        <li>上海</li>
-        <li>辽宁</li>
-        <li>江西</li>
+
     </ul>
 
 
