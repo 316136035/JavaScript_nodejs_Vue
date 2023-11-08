@@ -130,14 +130,6 @@
             myformElement.addEventListener(`submit`, function (e) {
                 // 阻止表单默认事件
                 e.preventDefault();
-                nameElement.value
-                ageElement.value
-                genderElement.value
-                provinceElement.value
-
-
-
-
                 // 判断是否为空
                 if (nameElement.value == '' || ageElement.value == '' || genderElement.value == '' || salaryElement.value == '' || provinceElement.value == '') {
                     alert('请填写完整信息');
@@ -152,38 +144,30 @@
                         province: document.querySelector(`[value=${provinceElement.value}]`).text,
                     }
 
-
-
-
                     // 向数组中添加对象
                     personnels.push(personnel);
                     console.log(personnels);
                     //重置表单（清空表单）
                     this.reset();
+                    // 渲染页面
                     render();
                 }
-
-
 
             })
 
 
 
             const tbodyElement = document.querySelector('.tbody');
+            // 渲染页面
             function render() {
-
-                while (tbodyElement.lastChild != null) {
-                    tbodyElement.removeChild(tbodyElement.lastChild);
-                }
-
+                // 清空tbody
+                tbodyElement.innerHTML = '';
+                // 遍历数组
                 personnels.forEach(function (item, index) {
-
+                    // 创建tr节点
                     const trElement = document.createElement('tr');
-                    const tdNameElement = document.createElement('td');
-                    const tdAgeElement = document.createElement('td');
-                    const tdGenderElement = document.createElement('td');
-                    const tdSalaryElement = document.createElement('td');
-                    const tdProvinceElement = document.createElement('td');
+
+                    // 给td节点添加内容
                     trElement.innerHTML = `
                     <td>${item.id}</td>
                     <td>${item.name}</td>
@@ -192,7 +176,7 @@
                     <td>${item.salary}</td>
                     <td>${item.province}
                     <td><a href="">删除</a></td>`
-
+                    // 将tr节点添加到tbody节点中
                     tbodyElement.appendChild(trElement);
 
                 })
