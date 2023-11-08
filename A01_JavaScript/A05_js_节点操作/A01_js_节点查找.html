@@ -45,7 +45,7 @@
             const containerElement1 = rowElement1.parentElement;
             // 3. 获取父元素 （IE浏览器中引入的旧方法，返回一个对象，如果元索没有父节点，则返回null。）
             const containerElement2 = rowElement1.parentNode;
-            // 4. 获取元素下的所有子元素
+            // 4. 获取元素下的所有子元素（children是父元素中直接存在的子元素，而childNodes是父元素中所有的子元素，包括文本节点和空格节点。）
             const rowElements = containerElement1.children;
             console.log('获取父元素的所有子元素:', rowElements);
             // 5. 获取元素下的第2个子元素
@@ -55,15 +55,16 @@
             const row2Element = document.querySelector('.row2');
             // 7. 获取容器元素的上一个元素
             const previousElement = row2Element.previousElementSibling
-            console.log('获取容器元素的上一个元素',previousElement);
+            console.log('获取容器元素的上一个元素', previousElement);
             // 8. 获取容器元素的下一个元素
             const nextElement = row2Element.nextElementSibling
-            console.log('获取容器元素的下一个元素',nextElement);
+            console.log('获取容器元素的下一个元素', nextElement);
 
+         
 
- };
+        };
 
-</script>
+    </script>
     <!--  -->
     <div class="container">
         <div class="row1">
@@ -79,6 +80,9 @@
             <div class="col1"></div>
         </div>
     </div>
+
+    
+
 </body>
 
 </html>
