@@ -1,0 +1,116 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A01_js_swipe滑动框架使用方式</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="./swiper-11.0.3/swiper/swiper-bundle.min.css">
+
+    <!-- Demo styles -->
+    <style>
+        .divswiper {
+            position: relative;
+            height: 200px;
+            width: 600px;
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #c90808;
+            margin: 0 auto;
+        }
+
+
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="divswiper">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <!-- 引入js文件 -->
+    <script src="./swiper-11.0.3/swiper/swiper-bundle.min.js"></script>
+
+
+    <script>
+
+        var swiper = new Swiper(".mySwiper", {
+            //设置每个视图中显示的轮播图滑块数量为4个。这将决定在每个屏幕上显示的滑块数量
+            slidesPerView: 4,
+            //设置相邻滑块之间的间距为10个像素。这将决定滑块之间的距离。
+            spaceBetween: 10,
+            //这是一个对象，用于配置轮播图的分页器。分页器通常显示在轮播图的底部，用于指示当前页和总页数
+            pagination: {
+                //这是一个字符串，表示要将分页器放置的HTML元素的类名。这将决定分页器显示的位置
+                el: ".swiper-pagination",
+                //这是一个布尔值，表示是否可以点击分页器来导航到对应的页面。如果设置为true，则可以点击分页器来导航
+                clickable: true,
+            },
+            //设置轮播图的自动播放，每隔1秒切换一次
+            autoplay: {
+                delay: 1000,//1秒切换一次
+            },
+            //设按下左右键切换方向
+            keyboard: true,
+        });
+    </script>
+</body>
+
+</html>
