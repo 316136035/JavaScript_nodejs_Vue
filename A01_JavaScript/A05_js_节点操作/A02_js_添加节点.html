@@ -55,7 +55,6 @@
             const button1 = document.querySelector('.add-section1');
             // 监听按钮点击事件
             button1.addEventListener('click', function () {
-
                 // 创建li元素
                 const liElement = document.createElement('li')
                 // 设置li元素内容
@@ -78,7 +77,6 @@
             const button2 = document.querySelector('.add-section2');
             // 监听按钮点击事件
             button2.addEventListener('click', function () {
-
                 // 创建li元素
                 const liElement = document.createElement('li')
                 // 设置li元素内容
@@ -94,7 +92,7 @@
             });
 
             ulElement.addEventListener('click', function (e) {
-                e.target.parentNode.remove(this)
+                e.target.parentNode.remove()
 
             })
 
