@@ -70,7 +70,7 @@
             bottom 尾部*/
             caption-side: top;
             /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
-            border: solid 2px rgb(100, 0, 0);
+            /* border: solid 2px rgb(100, 0, 0); */
             /* 设置表单列宽  auto 自动的  fixed固定的*/
             table-layout: auto;
             /* 设置单元格之间的边框距离（前提不能使用合并单元格之间的边框） */
@@ -117,7 +117,12 @@
         <div class="name-age-gender-salary-province">
             <input type="text" id="name" placeholder="姓名">
             <input type="text" id="age" placeholder="年龄">
-            <input type="text" id="gender" placeholder="性别">
+        
+            <select id="gender">
+                <option value="1">性别</option>
+                <option value="1">男</option>
+                <option value="0">女</option>
+             </select>
             <input type="text" id="salary" placeholder="薪资">
             <select id="province">
                 <option value=" ">请选择</option>
