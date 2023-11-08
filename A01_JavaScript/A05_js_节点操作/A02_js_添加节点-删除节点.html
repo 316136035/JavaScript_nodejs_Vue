@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A02_js_添加节点</title>
+    <title>A02_js_添加节点-删除节点</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -38,6 +38,12 @@
             margin-top: 10px;
             background-color: rgb(143, 129, 129);
             color: white;
+        }
+
+        img {
+            font-size: 20px;
+            width: 10px;
+            height: 10px;
         }
     </style>
 
@@ -57,14 +63,18 @@
             button1.addEventListener('click', function () {
                 // 创建li元素
                 const liElement = document.createElement('li')
+                //  获取输入框的值
+                let nane = document.querySelector('#node-name').value;
                 // 设置li元素内容
-                liElement.innerHTML = document.querySelector('#node-name').value;
+                liElement.innerHTML = `<div>
+                                            <span>${nane}</span>
+                                            <img src="../resources静态资源/img/删除.png" alt="">
+                                        </div>`;
                 // 添加一个类名
                 liElement.classList.add('myclass');
                 // 添加属性
                 liElement.setAttribute('data-id', '123');
-                // 添加属性
-                liElement.setAttribute('onclick', "删除节点(this)");
+
                 console.log(liElement);
                 // 父元素添加节点子元素最后面
                 ulElement.appendChild(liElement)
@@ -79,8 +89,13 @@
             button2.addEventListener('click', function () {
                 // 创建li元素
                 const liElement = document.createElement('li')
+                // 获取输入框的值
+                let nane = document.querySelector('#node-name').value;
                 // 设置li元素内容
-                liElement.innerHTML = document.querySelector('#node-name').value;
+                liElement.innerHTML = `<div>
+                                            <span>${nane}</span>
+                                            <img src="../resources静态资源/img/删除.png" alt="">
+                                        </div>`;
                 // 添加一个类名
                 liElement.classList.add('myclass');
                 // 添加属性
@@ -91,10 +106,20 @@
 
             });
 
+            // 监听删除按钮点击事件
             ulElement.addEventListener('click', function (e) {
-                e.target.parentNode.remove()
+                // 获取点击的元素的父父元素
+                let liElement = e.target.parentNode.parentNode;
+                // 删除节点
+                ulElement.removeChild(liElement);
 
             })
+
+
+
+
+
+
 
         };
 
