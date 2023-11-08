@@ -108,7 +108,7 @@
 
             // 监听删除按钮点击事件
             ulElement.addEventListener('click', function (e) {
-                // 获取点击的元素的父父元素
+                // 1.获取点击的元素  2.获取父元素的父元素
                 let liElement = e.target.parentNode.parentNode;
                 // 删除节点
                 ulElement.removeChild(liElement);
