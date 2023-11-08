@@ -68,22 +68,21 @@
       }
       //定义一个变量 用于存储毫秒数  用于计算剩余时间
       let = millisecondsAll = 0;
+      //定义一个函数 用于获取当前日期和时间 赋值给日期和时间选择框
       (function () {
         //获取当前日期的字符串格式
         datestring = datetime.year + "-" + datetime.month + "-" + datetime.day;
         //将日期字符串赋值给日期选择框
         document.querySelector('#date-selector').value = datestring;
-
         //获取当前时间的字符串格式
         timestring = datetime.hour + ":" + datetime.minute + ":" + datetime.second + "." + datetime.milliSeconds;
-
         //将时间字符串赋值给时间选择框
         document.querySelector('#time-selector').value = timestring;
-
-
-
       })()
 
+
+
+      //计算剩余时间的方法
       //定义一个常量lefttimeElement，表示通过querySelector方法获取到的class为'left-time'的元素
       const lefttimeElement = document.querySelector('.left-time');
       //定义定时器对象（用户关闭定时器）
@@ -133,17 +132,21 @@
         }, 1); //执行的间距毫秒数
       })
 
+      //点击按钮关闭定时器
       document.querySelector('.button2').addEventListener('click', function () {
         //关闭定时器
         clearInterval(interval)
       })
 
+      //显示当前时间
+      //定义一个常量currenttime，表示通过querySelector方法获取到的class为'current-time'的元素
       const currenttime = document.querySelector('.current-time')
       //获取当前时间
       setInterval(() => {
         //调用函数
         currenttime.innerHTML = '当前时间' + new Date().toLocaleString();
       }, 1); //执行的间距毫秒数
+
 
 
 
@@ -166,7 +169,7 @@
     <div>
       <div class="current-time">显示当前时间</div>
       <div class="left-time">显示距离执行任务还剩时间</div>
-    
+
     </div>
 
 
