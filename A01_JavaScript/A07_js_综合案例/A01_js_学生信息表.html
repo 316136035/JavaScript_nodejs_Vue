@@ -118,15 +118,15 @@
             let personnels = [];
             // 定义变量(用于记录序号)
             let num = 0;
-            // 定义对象
-            const nameElement = document.querySelector('#name');
-            const ageElement = document.querySelector('#age');
-            const genderElement = document.querySelector('#gender');
-            const salaryElement = document.querySelector('#salary');
-            const provinceElement = document.querySelector('#province');
+            const nameElement = document.querySelector('#name');// 通过查询选择器获取元素
+            const ageElement = document.querySelector('#age');// 通过查询选择器获取元素
+            const genderElement = document.querySelector('#gender');// 通过查询选择器获取元素
+            const salaryElement = document.querySelector('#salary');// 通过查询选择器获取元素
+            const provinceElement = document.querySelector('#province');// 通过查询选择器获取元素
 
-
+            // 通过查询选择器获取表单元素
             const myformElement = document.querySelector(`.myform`);
+            // 监听表单提交事件
             myformElement.addEventListener(`submit`, function (e) {
                 // 阻止表单默认事件
                 e.preventDefault();
@@ -136,12 +136,12 @@
                 } else {
                     // 创建对象
                     const personnel = {
-                        id: num++,
-                        name: nameElement.value,
-                        age: ageElement.value,
-                        gender: document.querySelector(`[value='${genderElement.value}']`).text,
-                        salary: salaryElement.value,
-                        province: document.querySelector(`[value=${provinceElement.value}]`).text,
+                        id: num++,//序号
+                        name: nameElement.value,//获取表单元素的值
+                        age: ageElement.value,//获取表单元素的值
+                        gender: document.querySelector(`[value='${genderElement.value}']`).text,//获取表单元素的文本值
+                        salary: salaryElement.value,//获取表单元素的值
+                        province: document.querySelector(`[value=${provinceElement.value}]`).text,//获取表单元素的文本值
                     }
 
                     // 向数组中添加对象
@@ -156,7 +156,7 @@
             })
 
 
-
+            // 通过查询选择器获取tbody节点
             const tbodyElement = document.querySelector('.tbody');
             // 渲染页面
             function render() {
