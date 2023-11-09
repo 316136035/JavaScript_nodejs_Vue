@@ -133,7 +133,7 @@
                 } else {
                     // 创建对象
                     const personnel = {
-                        id: personnels.length + 1,//获取数组的长度
+                        id: personnels.length + 1,//获取数组的长度（作为学生编号）
                         name: nameElement.value,//获取表单元素的值
                         age: ageElement.value,//获取表单元素的值
                         gender: document.querySelector(`[value='${genderElement.value}']`).text,//获取表单元素的文本值
@@ -169,7 +169,7 @@
                     <td>${personnels[i].gender}</td>
                     <td>${personnels[i].salary}</td>
                     <td>${personnels[i].province}
-                    <td><a href="" data-id=${i}>删除</a></td>`
+                    <td><a href="" data-id=${i}>删除</a></td>` //数组的索引作为删除的id
                     // 将tr节点添加到tbody节点中
                     tbodyElement.appendChild(trElement);
                 }
