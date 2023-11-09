@@ -116,8 +116,7 @@
         window.onload = function () {
             // 定义数组
             let personnels = [];
-            // 定义变量(用于记录序号)
-            let num = 0;
+
             const nameElement = document.querySelector('#name');// 通过查询选择器获取元素
             const ageElement = document.querySelector('#age');// 通过查询选择器获取元素
             const genderElement = document.querySelector('#gender');// 通过查询选择器获取元素
@@ -136,7 +135,7 @@
                 } else {
                     // 创建对象
                     const personnel = {
-                        id: num++,//序号
+                        id: personnels.length + 1,//获取数组的长度
                         name: nameElement.value,//获取表单元素的值
                         age: ageElement.value,//获取表单元素的值
                         gender: document.querySelector(`[value='${genderElement.value}']`).text,//获取表单元素的文本值
@@ -162,28 +161,43 @@
             function render() {
                 // 清空tbody
                 tbodyElement.innerHTML = '';
-                // 遍历数组
-                personnels.forEach(function (item, index) {
+
+                for (let i = 0; i < personnels.length; i++) {
                     // 创建tr节点
                     const trElement = document.createElement('tr');
 
                     // 给td节点添加内容
                     trElement.innerHTML = `
-                    <td>${item.id}</td>
-                    <td>${item.name}</td>
-                    <td>${item.age}</td>
-                    <td>${item.gender}</td>
-                    <td>${item.salary}</td>
-                    <td>${item.province}
-                    <td><a href="">删除</a></td>`
+                    <td>${i + 1}</td>
+                    <td>${personnels[i].id}</td>
+                    <td>${personnels[i].name}</td>
+                    <td>${personnels[i].age}</td>
+                    <td>${personnels[i].gender}</td>
+                    <td>${personnels[i].salary}</td>
+                    <td>${personnels[i].province}
+                    <td><a href="" data-id=${i}>删除</a></td>`
                     // 将tr节点添加到tbody节点中
                     tbodyElement.appendChild(trElement);
+                    console.log('****', i);
 
-                })
+                }
+
+
 
             }
+            //删除操作
 
+            tbodyElement.addEventListener('click', function (e) {
+                // 阻止表单默认事件
+                e.preventDefault();
+                if (e.target.tagName === 'A') {
+                    console.log('id:', e.target.dataset.id);
+                    personnels.splice(e.target.dataset.id, 1);
+                    console.log(e.target.dataset.id);
+                    render()
 
+                }
+            })
 
         }
 
@@ -253,6 +267,7 @@
             <caption class="manage">人员管理</caption>
             <!-- 标表头 -->
             <tr>
+                <th>序号</th>
                 <th>学号</th>
                 <th>姓名</th>
                 <th>年龄</th>
