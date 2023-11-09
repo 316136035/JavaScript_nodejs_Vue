@@ -127,9 +127,20 @@
             myformElement.addEventListener(`submit`, function (e) {
                 // 阻止表单默认事件
                 e.preventDefault();
+                // 获取表单中带有属性name的全部元素
+                const nameElements = document.querySelectorAll('.myform [name]');
+                //遍历元素
+                nameElements.forEach(item => {
+                    // 判断是否为空
+                    if (item.value === '') {
+                        // 提示用户
+                        return alert(`请填写完整的： ${item.getAttribute('placeholder')}`);
+
+                    }
+                })
+
                 // 判断是否为空
                 if (nameElement.value == '' || ageElement.value == '' || genderElement.value == '' || salaryElement.value == '' || provinceElement.value == '') {
-                    alert('请填写完整信息');
                 } else {
                     // 创建对象
                     const personnel = {
@@ -202,14 +213,14 @@
         <div class="header-new">新增学生</div>
         <form class="myform" action="#" method="get">
             <div class="name-age-gender-salary-province">
-                <input type="text" id="name" placeholder="姓名">
-                <input type="number" id="age" placeholder="年龄">
-                <select id="gender">
+                <input type="text" name="name" id="name" placeholder="姓名">
+                <input type="number" id="age" name="age" placeholder="年龄">
+                <select id="gender" name="gender" placeholder="性别">
                     <option value=1>男</option>
                     <option value=0>女</option>
                 </select>
-                <input type="number" id="salary" placeholder="薪资">
-                <select id="province">
+                <input type="number" id="salary" name='salary' placeholder="薪资">
+                <select id="province" name="province" placeholder="省份">
                     <option value=" ">请选择</option>
                     <option value="beijing">北京</option>
                     <option value="tianjin">天津</option>
