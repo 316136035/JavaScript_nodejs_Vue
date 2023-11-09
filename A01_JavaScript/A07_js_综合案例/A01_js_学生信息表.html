@@ -116,13 +116,11 @@
         window.onload = function () {
             // 定义数组
             let personnels = [];
-
             const nameElement = document.querySelector('#name');// 通过查询选择器获取元素
             const ageElement = document.querySelector('#age');// 通过查询选择器获取元素
             const genderElement = document.querySelector('#gender');// 通过查询选择器获取元素
             const salaryElement = document.querySelector('#salary');// 通过查询选择器获取元素
             const provinceElement = document.querySelector('#province');// 通过查询选择器获取元素
-
             // 通过查询选择器获取表单元素
             const myformElement = document.querySelector(`.myform`);
             // 监听表单提交事件
@@ -142,7 +140,6 @@
                         salary: salaryElement.value,//获取表单元素的值
                         province: document.querySelector(`[value=${provinceElement.value}]`).text,//获取表单元素的文本值
                     }
-
                     // 向数组中添加对象
                     personnels.push(personnel);
                     console.log(personnels);
@@ -154,18 +151,15 @@
 
             })
 
-
             // 通过查询选择器获取tbody节点
             const tbodyElement = document.querySelector('.tbody');
             // 渲染页面
             function render() {
                 // 清空tbody
                 tbodyElement.innerHTML = '';
-
                 for (let i = 0; i < personnels.length; i++) {
                     // 创建tr节点
                     const trElement = document.createElement('tr');
-
                     // 给td节点添加内容
                     trElement.innerHTML = `
                     <td>${i + 1}</td>
@@ -178,22 +172,19 @@
                     <td><a href="" data-id=${i}>删除</a></td>`
                     // 将tr节点添加到tbody节点中
                     tbodyElement.appendChild(trElement);
-                    console.log('****', i);
-
                 }
-
-
-
             }
             //删除操作
-
             tbodyElement.addEventListener('click', function (e) {
                 // 阻止表单默认事件
                 e.preventDefault();
+                // 判断是否是a标签
                 if (e.target.tagName === 'A') {
-                    console.log('id:', e.target.dataset.id);
-                    personnels.splice(e.target.dataset.id, 1);
-                    console.log(e.target.dataset.id);
+                    // 1.获取被点击的a标签的dataset.id属性
+                    let id = e.target.dataset.id;
+                    // 2.删除数组中对应索引的元素
+                    personnels.splice(id, 1);
+                    // 3.重新渲染页面
                     render()
 
                 }
