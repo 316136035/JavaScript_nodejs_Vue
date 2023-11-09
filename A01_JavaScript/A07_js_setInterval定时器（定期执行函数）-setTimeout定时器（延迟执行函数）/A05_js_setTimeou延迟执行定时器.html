@@ -63,11 +63,12 @@
 
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            setTimeout(() => {
+          let  timer =      setTimeout(() => {
                 //1.隐藏广告
                 document.querySelector('.ad').style.display = 'none';
                
             },3000); //3秒后执行隐藏
+            clearTimeout(timer)//清除定时器
         };
 
 
