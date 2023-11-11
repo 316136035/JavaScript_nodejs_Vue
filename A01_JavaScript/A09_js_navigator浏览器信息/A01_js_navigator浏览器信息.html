@@ -63,7 +63,7 @@
       // 替换原生的浏览器对象
       window.navigator = fakeBrowser;
 
-      document.querySelector('.ajax').addEventListener('click', function () {
+      document.querySelector('.xhr').addEventListener('click', function () {
 
         // 使用 XMLHttpRequest 发送请求
         const xhr = new XMLHttpRequest();
@@ -86,7 +86,7 @@
   </script>
   <div class="container">
     <div class="show">
-      <button class="ajax">发送请求</button>
+      <button class="xhr">发送请求</button>
 
     </div>
   </div>
