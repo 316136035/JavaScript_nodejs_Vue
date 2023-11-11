@@ -37,28 +37,28 @@
       // 1.通过查询选择器获取元素 2.添加事件监听
       document.querySelector('[type="submit"]').addEventListener('click', function (e) {
         // 阻止表单默认事件
-        // e.preventDefault();
+        //  e.preventDefault();
+
         //获取当前页面的地址对象
         console.log('获取当前页面的地址对象:', window.location);
         //获取当前页面的地址对象的href地址也可以设置href)地址
         console.log('获取当前页面的地址对象的href地址:', window.location.href);
-        //获取当前页面的地址对象的参数
-        let parameter = window.location.search;
+        //获取当前页面的地址对象的参数<key=value&key=value>
+        let parameter1 = window.location.search;
         console.log('获取当前页面的地址对象的参数:', parameter);
-        //获取当前页面的地址对象设置参数
+        //获取当前页面的地址对象设置参数<key=value&key=value>
         window.location.search = 'username=123&password=123';
-
-
-
-
-
-
-
+        //获取当前页面的地址对象的参数#后面的>
+        let parameter2 = window.location.hash;
 
 
       });
 
+      document.querySelector('.efresh').addEventListener('click', function (e) {
+        //强制刷新页面
+        window.location.reload(true);
 
+      })
 
     };
 
@@ -71,6 +71,8 @@
         <input type="password" name="password">
         <input type="submit" value="提交">
       </form>
+      <a href="#url">跳转到商品详情页</a>
+      <button class="efresh">强制刷新页面</button>
     </div>
   </div>
 
