@@ -131,6 +131,7 @@
                 e.preventDefault();
                 // 获取表单中带有属性name的全部元素
                 const nameElements = document.querySelectorAll('.myform [name]');
+                // 验证输入
                 mymodule.inputPrompt(nameElements)
                 // 调用模块的add方法
                 mymodule.add(nameElements[0].value, nameElements[1].value, nameElements[2].value, nameElements[3].value, nameElements[4].value);
@@ -139,7 +140,7 @@
             tbodyElement.addEventListener('click', function (e) {
                 mymodule.delete(e)
             });
-            // mymodule.delete();
+        
             // 引入模块
             const mymodule = {
                 // 渲染页面
@@ -163,6 +164,7 @@
                         tbodyElement.appendChild(trElement);
                     }
                 },
+                // 验证输入
                 inputPrompt: function (nameElements) {
                     for (let i = 0; i < nameElements.length; i++) {
                         //  // 判断是否为空
