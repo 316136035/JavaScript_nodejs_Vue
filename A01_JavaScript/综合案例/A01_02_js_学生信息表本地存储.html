@@ -1,0 +1,337 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A01_02_js_学生信息表本地存储</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .header-title {
+            width: 100%;
+            font-size: 40px;
+            text-align: center;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .header-new {
+
+            width: 100%;
+            font-size: 20px;
+            text-align: center;
+            color: #000;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .name-age-gender-salary-province {
+            /* 视图宽度 */
+            width: calc(100%);
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+
+        }
+
+
+        [type="submit"] {
+            border-radius: 4px;
+            background-color: red;
+        }
+
+        .table-content {
+
+            display: table;
+            margin: 0 auto;
+            /* 视图宽度 */
+            width: calc(80%);
+            /* 设置标题位置 
+            top 头部
+            bottom 尾部*/
+            caption-side: top;
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            /* border: solid 2px rgb(100, 0, 0); */
+            /* 设置表单列宽  auto 自动的  fixed固定的*/
+            table-layout: auto;
+            /* 设置单元格之间的边框距离（前提不能使用合并单元格之间的边框） */
+            /* border-spacing: 0px; */
+            /*  合并单元格之间的边框 （设置单元格之间的边框距离就不生效了）*/
+            border-collapse: collapse;
+            /* 隐藏没有内容的单元格 （前提不能使用合并单元格之间的边框*/
+            empty-cells: hide;
+
+        }
+
+        .stu-length {
+            color: chartreuse;
+            text-align: right;
+
+
+
+
+        }
+
+
+
+        .manage {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            text-align: center;
+            color: #000;
+            font-weight: bold;
+        }
+
+        th {
+            background-color: rgb(61, 61, 136);
+            height: 30px;
+        }
+
+        th,
+        td {
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(0, 100, 70);
+
+            text-align: right;
+
+
+        }
+    </style>
+</head>
+
+
+<body>
+    <script type="text/javascript">
+        // 页面加载完成后执行
+        window.onload = function () {
+
+            // 渲染页面
+            render() ;
+
+            const nameElement = document.querySelector('#name');// 通过查询选择器获取元素
+            const ageElement = document.querySelector('#age');// 通过查询选择器获取元素
+            const genderElement = document.querySelector('#gender');// 通过查询选择器获取元素
+            const salaryElement = document.querySelector('#salary');// 通过查询选择器获取元素
+            const provinceElement = document.querySelector('#province');// 通过查询选择器获取元素
+            // 通过查询选择器获取表单元素
+            const myformElement = document.querySelector(`.myform`);
+            // 监听表单提交事件
+            myformElement.addEventListener(`submit`, function (e) {
+                // 阻止表单默认事件
+                e.preventDefault();
+                // 获取表单中带有属性name的全部元素
+                const nameElements = document.querySelectorAll('.myform [name]');
+                //遍历元素
+                nameElements.forEach(item => {
+                    // 判断是否为空
+                    if (item.value === '') {
+                        // 提示用户
+                        return alert(`请填写完整的： ${item.getAttribute('placeholder')}`);
+
+                    }
+                })
+
+                // 判断是否为空
+                if (nameElement.value == '' || ageElement.value == '' || genderElement.value == '' || salaryElement.value == '' || provinceElement.value == '') {
+                } else {
+                    // 创建对象
+                    const personnel = {
+                        id: personnels.length + 1,//获取数组的长度（作为学生编号）
+                        name: nameElement.value,//获取表单元素的值
+                        age: ageElement.value,//获取表单元素的值
+                        gender: document.querySelector(`[value='${genderElement.value}']`).text,//获取表单元素的文本值
+                        salary: salaryElement.value,//获取表单元素的值
+                        province: document.querySelector(`[value=${provinceElement.value}]`).text,//获取表单元素的文本值
+                    }
+                    // 向数组中添加对象
+                    personnels.push(personnel);
+                    console.log(personnels);
+                    //重置表单（清空表单）
+                    this.reset();
+                    // 渲染页面
+                    render();
+                }
+
+            })
+
+            // 通过查询选择器获取tbody节点
+            const tbodyElement = document.querySelector('.tbody');
+            // 渲染页面
+            function render() {
+                // 清空tbody
+                // tbodyElement.innerHTML = '';
+                console.log(JSON.parse(localStorage.getItem('personnels')));
+                // 判断本地存储中是否为空
+                if (localStorage.getItem('personnels') === null) {
+                    let personnels = [];
+                    localStorage.setItem('personnels', JSON.stringify(personnels));
+                } else if (localStorage.getItem('personnels') !== null) {
+                        
+                    for (let i = 0; i < JSON.parse(localStorage.getItem('personnels')).length; i++) {
+                        // 创建tr节点
+                        const trElement = document.createElement('tr');
+                        // 给td节点添加内容
+                        trElement.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td>${personnels[i].id}</td>
+                    <td>${personnels[i].name}</td>
+                    <td>${personnels[i].age}</td>
+                    <td>${personnels[i].gender}</td>
+                    <td>${personnels[i].salary}</td>
+                    <td>${personnels[i].province}
+                    <td><a href="" data-id=${i}>删除</a></td>` //数组的索引作为删除的id
+                        // 将tr节点添加到tbody节点中
+                        tbodyElement.appendChild(trElement);
+                    }
+                }
+
+
+
+            }
+            //删除操作
+            tbodyElement.addEventListener('click', function (e) {
+                // 阻止表单默认事件
+                e.preventDefault();
+                // 判断是否是a标签
+                if (e.target.tagName === 'A') {
+                    // 1.获取被点击的a标签的dataset.id属性
+                    let id = e.target.dataset.id;
+                    // 2.删除数组中对应索引的元素
+                    personnels.splice(id, 1);
+                    // 3.重新渲染页面
+                    render()
+
+                }
+            })
+
+        }
+
+
+
+
+
+    </script>
+    <div class="header">
+        <div class="header-title">学生信息表</div>
+        <div class="header-new">新增学生</div>
+        <form class="myform" action="#" method="get">
+            <div class="name-age-gender-salary-province">
+                <input type="text" name="name" id="name" placeholder="姓名">
+                <input type="number" id="age" name="age" placeholder="年龄">
+                <select id="gender" name="gender" placeholder="性别">
+                    <option value=1>男</option>
+                    <option value=0>女</option>
+                </select>
+                <input type="number" id="salary" name='salary' placeholder="薪资">
+                <select id="province" name="province" placeholder="省份">
+                    <option value=" ">请选择</option>
+                    <option value="beijing">北京</option>
+                    <option value="tianjin">天津</option>
+                    <option value="hebei">河北</option>
+                    <option value="shanghai">上海</option>
+                    <option value="jiangsu">江苏</option>
+                    <option value="zhejiang">浙江</option>
+                    <option value="anhui">安徽</option>
+                    <option value="fujian">福建</option>
+                    <option value="jilin">吉林</option>
+                    <option value="liaoning">辽宁</option>
+                    <option value="heilongjiang">黑龙江</option>
+                    <option value="shandong">山东</option>
+                    <option value="henan">河南</option>
+                    <option value="hunan">湖南</option>
+                    <option value="jiangxi">江西</option>
+                    <option value="shanghai">上海</option>
+                    <option value="hubei">湖北</option>
+                    <option value="hunan">湖南</option>
+                    <option value="guangdong">广东</option>
+                    <option value="guangxi">广西</option>
+                    <option value="hainan">海南</option>
+                    <option value="sichuan">四川</option>
+                    <option value="chongqing">重庆</option>
+                    <option value="sichuan">四川</option>
+                    <option value="guizhou">贵州</option>
+                    <option value="yunnnan">云南</option>
+                    <option value="xinjiang">新疆</option>
+                    <option value=" Inner Mongolia">内蒙古</option>
+                    <option value="qinghai">青海</option>
+                    <option value="xizang">西藏</option>
+                    <option value="ningxia">宁夏</option>
+                    <option value="gansu">甘肃</option>
+                    <option value="shanxi">山西</option>
+                    <option value=" Shanxi">陕西</option>
+                    <option value="xinjiang">新疆</option>
+                </select>
+
+                <input type="submit" value="录入">
+        </form>
+
+
+    </div>
+    </div>
+
+    <div class="main-content">
+
+        <table class="table-content">
+            <caption class="manage">人员管理</caption>
+
+            <caption class="stu-length">共有数据<span>0</span>条</caption>
+            <!-- 标表头 -->
+            <tr>
+                <th>序号</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>薪资</th>
+                <th>省份</th>
+                <th>操作</th>
+
+            </tr>
+            <tbody class="tbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>XXX</td>
+                    <td>三</td>
+                    <td>9.90</td>
+                    <td>59.00</td>
+                    <td>广东</td>
+                    <td><a href="">删除</a></td>
+                </tr> -->
+
+
+
+            </tbody>
+
+
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
