@@ -29,7 +29,47 @@
     <link rel="stylesheet" href="#">
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        table {
+            /* 设置标题位置 
+        top 头部
+        bottom 尾部*/
+            caption-side: top;
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(100, 0, 0);
+            /* 设置表单列宽  auto 自动的  fixed固定的*/
+            table-layout: auto;
+            /* 设置单元格之间的边框距离（前提不能使用合并单元格之间的边框） */
+            /* border-spacing: 0px; */
+            /*  合并单元格之间的边框 （设置单元格之间的边框距离就不生效了）*/
+            border-collapse: collapse;
+            /* 隐藏没有内容的单元格 （前提不能使用合并单元格之间的边框*/
+            empty-cells: hide;
+            /* 表单居中 */
+            margin: 0 auto;
 
+
+
+        }
+
+        th,
+        td {
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(0, 100, 70);
+            padding-left: 20px;
+            padding-right: 20px;
+
+        }
+
+        caption {
+            font-size: 24px;
+
+        }
+
+        th {
+            font-size: 20px;
+        }
+    </style>
 
 </head>
 
@@ -39,22 +79,90 @@
     </table>
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
+        //定义数组存放对象
+        let phones = [];
+
+        for (let i = 0; i < 100; i++) {
+            // 创建tr节点
+            const trElement = document.createElement('tr');
+            let phone = {
+                "Brand": "Brand " + Math.floor(Math.random() * 10) + 1,
+                "Model": "Model " + Math.floor(Math.random() * 10),
+                "OSName": "OS " + Math.floor(Math.random() * 10),
+                "OSVersion": Math.floor(Math.random() * 5) + 1,
+                "Name": "CPU " + Math.floor(Math.random() * 10),
+                "CoreCount": Math.floor(Math.random() * 4) + 1,
+                "RAM": Math.floor(Math.random() * 8) + 2 + "GB",
+                "Storage": Math.floor(Math.random() * 256) + 16 + "GB",
+                "ScreenSize": Math.floor(Math.random() * 10) + 3 + "英寸",
+                "ScreenResolution": Math.floor(Math.random() * 20) + 1 + "分辨率",
+                "Capacity": Math.floor(Math.random() * 5000) + 1000 + "mAh",
+                "Status": Math.random() > 0.5 ? "Charging" : "Discharging",
+                "NetworkType": ["2G", "3G", "4G", "5G"][Math.floor(Math.random() * 4)]
+            };
+            phones.push(phone);
+        }
+
+      
         // 在页面加载完毕后才会执行的代码
+    
         window.onload = function () {
-            //定义数组存放对象
-            let Persons = [{ 姓名: "张三", 性别: "男", 年龄: 30, 地址: "北京" },
-            { 姓名: "李四", 性别: "女", 年龄: 25, 地址: "上海" },
-            { 姓名: "王五", 性别: "男", 年龄: 35, 地址: "广州" }]
+            const tbodyElement = document.querySelector('#tbody');
+            phones.forEach(function (phone) {
+                // 创建tr节点
+                const trElement = document.createElement('tr');
+                // 给td节点添加内容
+                trElement.innerHTML = `
+                 <tr>
+                    <td>${phone.Brand}</td>
+                    <td>${phone.Model}</td>
+                    <td>${phone.OSName}</td>
+                    <td>${phone.OSVersion}</td>
+                    <td>${phone.Name}</td>
+                    <td>${phone.CoreCount}</td>
+                    <td>${phone.RAM}</td>
+                    <td>${phone.Storage}</td>
+                    <td>${phone.ScreenSize}</td>
+                    <td>${phone.ScreenResolution}</td>
+                    <td>${phone.Capacity}</td>
+                    <td>${phone.Status}</td>
+                    <td>${phone.NetworkType}</td>
+                </tr>
+                `
+                // 将tr节点添加到tbody节点中
+                 tbodyElement.appendChild(trElement);
+            })
+          
+
         };
-        //forEach变量数组
-        Persons.array.forEach(element => {
-            console.log(element);
-        });
 
 
 
 
     </script>
+
+
+    <table class="table">
+        <tr>
+            <th>品牌</th>
+            <th>型号</th>
+            <th>操作系统名称</th>
+            <th>操作系统版本</th>
+            <th>CPU 型号</th>
+            <th>CPU 核心数</th>
+            <th>内存</th>
+            <th>存储容量</th>
+            <th>屏幕尺寸</th>
+            <th>屏幕分辨率</th>
+            <th>电池容量</th>
+            <th>电池状态</th>
+            <th>网络类型</th>
+        </tr>;
+        <tbody id="tbody">
+
+
+        </tbody>
+
 </body>
 
 </html>
