@@ -32,6 +32,7 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+            sessionStorage
         
            
 
@@ -41,12 +42,13 @@
 
     <div class="container">
         <div>
-            <label for="localStorage">key-value</label>
+            sessionStorage生命周期为关闭浏览器窗口
+            <label for=" sessionStorage">key-value</label>
             <input type="text" name="" id="setItem" placeholder="key-value">
             <button class="setItem">添加/替换 本地存储</button>
         </div>
         <div>
-            <label for="localStorage">获取localStorage</label>
+            <label for=" sessionStorage">获取 sessionStorage</label>
             <button class="getItem">获取本地存储</button> <span></span>
         </div>
         <div>
