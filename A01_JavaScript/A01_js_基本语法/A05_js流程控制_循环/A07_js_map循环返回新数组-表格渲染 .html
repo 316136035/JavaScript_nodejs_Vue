@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A06_js_forEach循环</title>
+    <title>A07_js_map循环返回新数组-表格渲染 </title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -82,7 +82,7 @@
         //定义数组存放对象
         let phones = [];
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 10000; i++) {
             // 创建tr节点
             const trElement = document.createElement('tr');
             let phone = {
@@ -103,36 +103,25 @@
             phones.push(phone);
         }
 
-      
+
         // 在页面加载完毕后才会执行的代码
-    
+
         window.onload = function () {
             const tbodyElement = document.querySelector('#tbody');
-            phones.forEach(function (phone) {
-                // 创建tr节点
-                const trElement = document.createElement('tr');
-                // 给td节点添加内容
-                trElement.innerHTML = `
-            
-                    <td>${phone.Brand}</td>
-                    <td>${phone.Model}</td>
-                    <td>${phone.OSName}</td>
-                    <td>${phone.OSVersion}</td>
-                    <td>${phone.Name}</td>
-                    <td>${phone.CoreCount}</td>
-                    <td>${phone.RAM}</td>
-                    <td>${phone.Storage}</td>
-                    <td>${phone.ScreenSize}</td>
-                    <td>${phone.ScreenResolution}</td>
-                    <td>${phone.Capacity}</td>
-                    <td>${phone.Status}</td>
-                    <td>${phone.NetworkType}</td>
-              
-                `
-                // 将tr节点添加到tbody节点中
-                 tbodyElement.appendChild(trElement);
+            //遍历数组  
+            let nerwphones = phones.map(function (phone, i) {
+                let td = ``
+                //
+                for (let key in phone) {
+                    //拼接字符串
+                    td += `<td>${phone[key]}</td>`
+                }
+                // 返回字符串给数组
+                return `<tr>${td}</tr>`//
             })
-          
+            // 渲染页面 nerwphones.join("")对象转字符串
+            tbodyElement.innerHTML = nerwphones.join("")
+
 
         };
 
