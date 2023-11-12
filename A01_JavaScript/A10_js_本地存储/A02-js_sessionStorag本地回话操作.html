@@ -32,31 +32,33 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-          document.querySelector('.setItem').addEventListener('click', function () {
-                // 获取输入框的值
-                var keyvalue = document.querySelector('#setItem').value;
-                // 拆分字符串
-                let array = keyvalue.split('-');
-                // 添加本地存储（替换一样）
-                sessionStorage.setItem(array[0], array[1]);
+            document.querySelector('.setItem').addEventListener('click', function () {
+                stu = {
+                    nam: '周星星',
+                    age: 19,
+                    gender: 20,
+                    address: '广东'
+                }
+                // 添加本地存储（替换一样）  转成JSON字符串
+                sessionStorage.setItem('stu', JSON.stringify(stu));
 
             })
             document.querySelector('.getItem').addEventListener('click', function () {
                 // 获取本地存储
-                var keyvalue = sessionStorage.getItem('key');
+                var keyvalue = sessionStorage.getItem('stu');
                 // 显示
                 document.querySelector('span').innerHTML = keyvalue;
             })
             document.querySelector('.removeItem').addEventListener('click', function () {
                 // 删除本地存储
-                sessionStorage.removeItem('key');
+                sessionStorage.removeItem('stu');
             })
             document.querySelector('.clearAll').addEventListener('click', function () {
                 // 清空本地存储全部
                 sessionStorage.clear();
             })
-        
-           
+
+
 
         }
 
@@ -65,8 +67,6 @@
     <div class="container">
         <div>
             sessionStorage生命周期为关闭浏览器窗口
-            <label for=" sessionStorage">key-value</label>
-            <input type="text" name="" id="setItem" placeholder="key-value">
             <button class="setItem">添加/替换 本地存储</button>
         </div>
         <div>

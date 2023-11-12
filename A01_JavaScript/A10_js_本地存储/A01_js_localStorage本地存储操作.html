@@ -34,25 +34,26 @@
         window.onload = function () {
             // 1.获取按钮元素 2.添加事件监听
             document.querySelector('.setItem').addEventListener('click', function () {
-                // 获取输入框的值
-                var keyvalue = document.querySelector('#setItem').value;
-                // 拆分字符串
-                let array = keyvalue.split('-');
-                // 添加本地存储（替换一样）
-                localStorage.setItem(array[0], array[1]);
+                stu={
+                    nam:'周星星',
+                    age:19,
+                    gender:20,
+                    address:'广东'}
+            // 添加本地存储（替换一样）  转成JSON字符串
+                localStorage.setItem('stu',JSON.stringify(stu) );
 
             })
             // 1.获取按钮元 2.添加事件监听
             document.querySelector('.getItem').addEventListener('click', function () {
                 // 获取本地存储
-                var keyvalue = localStorage.getItem('key');
+                var keyvalue = localStorage.getItem('stu');
                 // 显示
                 document.querySelector('span').innerHTML = keyvalue;
             })
             // 1.获取按钮元 2.添加事件监听
             document.querySelector('.removeItem').addEventListener('click', function () {
                 // 删除本地存储
-                localStorage.removeItem('key');
+                localStorage.removeItem('stu');
             })
             // 1.获取按钮元 2.添加事件监听
             document.querySelector('.clearAll').addEventListener('click', function () {
@@ -68,7 +69,6 @@
         <div>
             localStorage生命周期为一直
             <label for="localStorage">key-value</label>
-            <input type="text" name="" id="setItem" placeholder="key-value">
             <button class="setItem">添加/替换 本地存储</button>
         </div>
         <div>
