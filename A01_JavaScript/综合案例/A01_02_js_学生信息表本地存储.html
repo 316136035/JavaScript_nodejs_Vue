@@ -140,7 +140,7 @@
             tbodyElement.addEventListener('click', function (e) {
                 mymodule.delete(e)
             });
-        
+
             // 引入模块
             const mymodule = {
                 // 渲染页面
@@ -166,15 +166,14 @@
                 },
                 // 验证输入
                 inputPrompt: function (nameElements) {
-                    for (let i = 0; i < nameElements.length; i++) {
+                    nameElements.forEach(function (item) {
                         //  // 判断是否为空
-                        if (nameElements[i].value == null || nameElements[i].value == '' || nameElements[i].value == undefined) {
+                        if (item.value == null || item.value == '' || item.value == undefined) {
                             // 提示用户
-                            alert(`请填写完整的： ${nameElements[i].getAttribute('placeholder')}`)
+                            alert(`请填写完整的： ${item.getAttribute('placeholder')}`)
                             return
                         }
-
-                    }
+                    })
                 },
                 //添加用户
                 add: function (name, age, gender, salary, province) {
