@@ -34,7 +34,7 @@
         window.onload = function () {
             document.querySelector('.setItem').addEventListener('click', function () {
                 stu = {
-                    nam: '周星星',
+                    name: '周星星',
                     age: 19,
                     gender: 20,
                     address: '广东'
@@ -47,7 +47,8 @@
                 // 获取本地存储
                 var keyvalue = sessionStorage.getItem('stu');
                 // 显示
-                document.querySelector('span').innerHTML = keyvalue;
+                document.querySelector('span').innerHTML = JSON.parse(keyvalue). name;
+
             })
             document.querySelector('.removeItem').addEventListener('click', function () {
                 // 删除本地存储

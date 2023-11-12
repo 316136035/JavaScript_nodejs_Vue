@@ -34,13 +34,14 @@
         window.onload = function () {
             // 1.获取按钮元素 2.添加事件监听
             document.querySelector('.setItem').addEventListener('click', function () {
-                stu={
-                    nam:'周星星',
-                    age:19,
-                    gender:20,
-                    address:'广东'}
-            // 添加本地存储（替换一样）  转成JSON字符串
-                localStorage.setItem('stu',JSON.stringify(stu) );
+                stu = {
+                    name: '周星星',
+                    age: 19,
+                    gender: 20,
+                    address: '广东'
+                }
+                // 添加本地存储（替换一样）  转成JSON字符串
+                localStorage.setItem('stu', JSON.stringify(stu));
 
             })
             // 1.获取按钮元 2.添加事件监听
@@ -48,7 +49,7 @@
                 // 获取本地存储
                 var keyvalue = localStorage.getItem('stu');
                 // 显示
-                document.querySelector('span').innerHTML = keyvalue;
+                document.querySelector('span').innerHTML = JSON.parse(keyvalue).name;
             })
             // 1.获取按钮元 2.添加事件监听
             document.querySelector('.removeItem').addEventListener('click', function () {
@@ -57,7 +58,7 @@
             })
             // 1.获取按钮元 2.添加事件监听
             document.querySelector('.clearAll').addEventListener('click', function () {
-            // 清空本地存储全部
+                // 清空本地存储全部
                 localStorage.clear();
             })
 
