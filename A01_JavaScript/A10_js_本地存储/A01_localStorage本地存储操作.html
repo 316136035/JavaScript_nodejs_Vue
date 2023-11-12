@@ -1,0 +1,87 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title> A01_localStorage本地存储操作</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+</head>
+
+<body>
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            // 1.获取按钮元素 2.添加事件监听
+            document.querySelector('.setItem').addEventListener('click', function () {
+                // 获取输入框的值
+                var keyvalue = document.querySelector('#setItem').value;
+                // 拆分字符串
+                let array = keyvalue.split('-');
+                // 添加本地存储（替换一样）
+                localStorage.setItem(array[0], array[1]);
+
+            })
+            // 1.获取按钮元 2.添加事件监听
+            document.querySelector('.getItem').addEventListener('click', function () {
+                // 获取本地存储
+                var keyvalue = localStorage.getItem('key');
+                // 显示
+                document.querySelector('span').innerHTML = keyvalue;
+            })
+            // 1.获取按钮元 2.添加事件监听
+            document.querySelector('.removeItem').addEventListener('click', function () {
+                // 删除本地存储
+                localStorage.removeItem('key');
+            })
+            // 1.获取按钮元 2.添加事件监听
+            document.querySelector('.clearAll').addEventListener('click', function () {
+                // 清空本地存储
+                localStorage.clear();
+            })
+
+        }
+
+    </script>
+
+    <div class="container">
+        <div>
+            <label for="localStorage">key-value</label>
+            <input type="text" name="" id="setItem" placeholder="key-value">
+            <button class="setItem">添加/替换 本地存储</button>
+        </div>
+        <div>
+            <label for="localStorage">获取localStorage</label>
+            <button class="getItem">获取本地存储</button> <span></span>
+        </div>
+        <div>
+            <button class="removeItem">删除本地存储</button>
+            <button class="clearAll">清空本地存储"></button>
+        </div>
+        <div></div>
+
+    </div>
+
+</body>
+
+</html>

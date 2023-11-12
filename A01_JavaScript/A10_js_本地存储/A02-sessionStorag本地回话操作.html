@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A01_html标准结构</title>
+    <title> A01_localStorage本地存储操作</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 调用一个外部的CSS样式文件 -->
@@ -32,31 +32,8 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            // 1.获取按钮元素 2.添加事件监听
-            document.querySelector('.setItem').addEventListener('click', function () {
-                // 获取输入框的值
-                var keyvalue = document.querySelector('#setItem').value;
-                // 拆分字符串
-                let array = keyvalue.split('-');
-                // 添加本地存储（替换一样）
-                localStorage.setItem(array[0], array[1]);
-
-            })
-
-            document.querySelector('.getItem').addEventListener('click', function () {
-                // 获取本地存储
-                var keyvalue = localStorage.getItem('key');
-                // 显示
-                document.querySelector('span').innerHTML = keyvalue;
-            })
-            document.querySelector('.removeItem').addEventListener('click', function () {
-                // 删除本地存储
-                localStorage.removeItem('key');
-            })
-            document.querySelector('.clearAll').addEventListener('click', function () {
-                // 清空本地存储
-                localStorage.clear();
-            })
+        
+           
 
         }
 
