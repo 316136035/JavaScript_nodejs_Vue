@@ -20,7 +20,7 @@
   <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- 头标题 -->
-  <title>A02_ 支付成功自动跳转案例</title>
+  <title>A02_js_history操作←→指定页数</title>
   <!-- 设置网站图标调用一个外部的图片文件 -->
   <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
   <!-- 调用一个外部的CSS样式文件 -->
@@ -34,61 +34,32 @@
   <script type="text/javascript">
     // 在页面加载完毕后才会执行的代码
     window.onload = function () {
-
-      // 检测 userAgent (浏览器信息)!(function ()
-      const userAgent = navigator.userAgent
-      !(function () {
-        const userAgent = navigator.userAgent
-        // 验证是否为Android或iPhone
-        const android = userAgent.match(/(Android);?[\s /]+([\d.]+)?/)
-        const iphone = userAgent.match(/(iphone sos) s([ d ]+)/)
-        // 如果是Android或Phone.则涨转至移动站点
-        if (android || iphone)
-          location.href = 'http://m.itcast .cn';
-      })()
-      //获取浏览器信息
-      console.log(navigator.userAgent);
-
-      // 创建一个假的浏览器对象
-      var fakeBrowser = {
-        "device_type": "iPhone",
-        "os_name": "iOS",
-        "os_version": "16.6",
-        "os_build": "15E148",
-        "browser_name": "Safari",
-        "browser_version": "16.6",
-        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
-      }
-
-      // 替换原生的浏览器对象
-      window.navigator = fakeBrowser;
-
-      document.querySelector('.xhr').addEventListener('click', function () {
-
-        // 使用 XMLHttpRequest 发送请求
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://www.example.com/api/data');
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onload = function () {
-          if (xhr.status === 200) {
-            console.log(xhr.responseText);
-          } else {
-            console.error('请求失败');
-          }
-        };
-        xhr.send(JSON.stringify({ message: 'Hello World' }));
-  
-
-
+      document.querySelector('.back').addEventListener('click', function () {
+        // 调用浏览器的历史记录后退一步
+        history.back();
       })
+
+      document.querySelector('.forward').addEventListener('click', function () {
+        // 调用浏览器的历史记录前进一步
+        history.forward();
+      })
+      document.querySelector('.go').addEventListener('click', function () {
+        // 调用浏览器的历史记录跳转到指定页数
+        history.go(1);
+      })
+
+
     }
 
   </script>
   <div class="container">
-    <div class="show">
-      <button class="xhr">发送请求</button>
+    <div>
+      <button class="back">后退一步</button>
+      <button class="forward">前进一步</button>
+      <button class="go">跳转到指定页数</button">
 
     </div>
+
   </div>
 
 
