@@ -113,7 +113,9 @@
 <body>
     <script type="text/javascript">
         // 定义数组
-        let personnels = [];
+    
+        let personnels =[];
+
         // 页面加载完成后执行
         window.onload = function () {
 
@@ -147,6 +149,7 @@
                 render: function () {
                     // 清空tbody
                     tbodyElement.innerHTML = '';
+
                     // for (let i = 0; i < personnels.length; i++) {
                     //     // 创建tr节点
                     //     const trElement = document.createElement('tr');
@@ -164,6 +167,7 @@
                     //     tbodyElement.appendChild(trElement);
                     // }
                     // map方法遍历数组
+                  
                     let nerwphones = personnels.map((item, index) => {
                         let td = `<td>${index + 1}</td>`//索引+1 作为序号
                         //变量对象
@@ -202,7 +206,8 @@
                         province: document.querySelector(`[value=${province}]`).text,//获取表单元素的文本值
                     }
                     // 向数组中添加对象
-                    personnels.push(personnel);
+                    // personnels.push(personnel);
+                    localStorage.setItem('personnels', JSON.stringify(personnel));
                     // console.log('向数组中添加对象',personnels);
                     //重置表单（清空表单）
                     myformElement.reset();
