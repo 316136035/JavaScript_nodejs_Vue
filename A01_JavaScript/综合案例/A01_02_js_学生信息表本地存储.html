@@ -113,8 +113,8 @@
 <body>
     <script type="text/javascript">
         // 定义数组
-    
-        let personnels =[];
+
+        // let personnels =[];
 
         // 页面加载完成后执行
         window.onload = function () {
@@ -127,17 +127,17 @@
             const tbodyElement = document.querySelector('.tbody'); // 通过查询选择器获取tbody节点
             const myformElement = document.querySelector(`.myform`); // 通过查询选择器获取表单元素
 
-            // 监听表单提交事件
-            myformElement.addEventListener(`submit`, function (e) {
-                // 阻止表单默认事件
-                e.preventDefault();
-                // 获取表单中带有属性name的全部元素
-                const nameElements = document.querySelectorAll('.myform [name]');
-                // 验证输入
-                mymodule.inputPrompt(nameElements)
-                // 调用模块的add方法
-                mymodule.add(nameElements[0].value, nameElements[1].value, nameElements[2].value, nameElements[3].value, nameElements[4].value);
-            });
+            // // 监听表单提交事件
+            // myformElement.addEventListener(`submit`, function (e) {
+            //     // 阻止表单默认事件
+            //     e.preventDefault();
+            //     // 获取表单中带有属性name的全部元素
+            //     const nameElements = document.querySelectorAll('.myform [name]');
+            //     // 验证输入
+            //     mymodule.inputPrompt(nameElements)
+            //     // 调用模块的add方法
+            //     mymodule.add(nameElements[0].value, nameElements[1].value, nameElements[2].value, nameElements[3].value, nameElements[4].value);
+            // });
             //删除操作
             tbodyElement.addEventListener('click', function (e) {
                 mymodule.delete(e)
@@ -148,7 +148,7 @@
                 // 渲染页面
                 render: function () {
                     // 清空tbody
-                    tbodyElement.innerHTML = '';
+                    // tbodyElement.innerHTML = '';
 
                     // for (let i = 0; i < personnels.length; i++) {
                     //     // 创建tr节点
@@ -167,7 +167,9 @@
                     //     tbodyElement.appendChild(trElement);
                     // }
                     // map方法遍历数组
-                  
+                    let personnelsstr = localStorage.getItem('personnels');
+                    let personnels = JSON.parse(personnelsstr);
+                    console.log(personnels);
                     let nerwphones = personnels.map((item, index) => {
                         let td = `<td>${index + 1}</td>`//索引+1 作为序号
                         //变量对象
@@ -236,6 +238,7 @@
 
             }
 
+            mymodule.render();
 
 
         }
