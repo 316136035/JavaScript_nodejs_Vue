@@ -112,9 +112,7 @@
 
 <body>
     <script type="text/javascript">
-        // 定义数组
 
-        // let personnels =[];
 
         // 页面加载完成后执行
         window.onload = function () {
@@ -167,9 +165,11 @@
                     //     tbodyElement.appendChild(trElement);
                     // }
                     // map方法遍历数组
+                    //获取本地存储中的数据
                     let personnelsstr = localStorage.getItem('personnels');
-                    let personnels = JSON.parse(personnelsstr);
-                    console.log(personnels);
+                    // 将字符串转换成数组  JSON.parse(personnelsstr)要是空的  就返回一个空数组
+                    let personnels = JSON.parse(personnelsstr) || [];
+
                     let nerwphones = personnels.map((item, index) => {
                         let td = `<td>${index + 1}</td>`//索引+1 作为序号
                         //变量对象
@@ -205,10 +205,11 @@
                         age: age,//获取表单元素的值
                         gender: document.querySelector(`[value='${gender}']`).text,//获取表单元素的文本值
                         salary: salary,//获取表单元素的值
-                        province: document.querySelector(`[value=${province}]`).text,//获取表单元素的文本值
+                        province: document.querySelector(`[value=${province}]`)
+                            .text,//获取表单元素的文本值
                     }
-                    // 向数组中添加对象
-                    // personnels.push(personnel);
+             
+
                     localStorage.setItem('personnels', JSON.stringify(personnel));
                     // console.log('向数组中添加对象',personnels);
                     //重置表单（清空表单）
