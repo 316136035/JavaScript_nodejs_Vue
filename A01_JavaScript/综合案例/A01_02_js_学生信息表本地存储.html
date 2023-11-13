@@ -147,22 +147,36 @@
                 render: function () {
                     // 清空tbody
                     tbodyElement.innerHTML = '';
-                    for (let i = 0; i < personnels.length; i++) {
-                        // 创建tr节点
-                        const trElement = document.createElement('tr');
-                        // 给td节点添加内容
-                        trElement.innerHTML = `
-                                     <td>${i + 1}</td>
-                                     <td>${personnels[i].id}</td>
-                                     <td>${personnels[i].name}</td>
-                                     <td>${personnels[i].age}</td>
-                                     <td>${personnels[i].gender}</td>
-                                     <td>${personnels[i].salary}</td>
-                                     <td>${personnels[i].province}
-                                    <td><a href="" data-id=${i}>删除</a></td>` //数组的索引作为删除的id
-                        // 将tr节点添加到tbody节点中
-                        tbodyElement.appendChild(trElement);
-                    }
+                    // for (let i = 0; i < personnels.length; i++) {
+                    //     // 创建tr节点
+                    //     const trElement = document.createElement('tr');
+                    //     // 给td节点添加内容
+                    //     trElement.innerHTML = `
+                    //                  <td>${i + 1}</td>
+                    //                  <td>${personnels[i].id}</td>
+                    //                  <td>${personnels[i].name}</td>
+                    //                  <td>${personnels[i].age}</td>
+                    //                  <td>${personnels[i].gender}</td>
+                    //                  <td>${personnels[i].salary}</td>
+                    //                  <td>${personnels[i].province}
+                    //                 <td><a href="" data-id=${i}>删除</a></td>` //数组的索引作为删除的id
+                    //     // 将tr节点添加到tbody节点中
+                    //     tbodyElement.appendChild(trElement);
+                    // }
+                    // map方法遍历数组
+                    let nerwphones = personnels.map((item, index) => {
+                        let td = `<td>${index + 1}</td>`//索引+1 作为序号
+                        //变量对象
+                        for (const key in item) {
+                            // 循环属性名
+                            td += `<td>${item[key]}</td>`
+                        }
+                        td += ` <td><a href="" data-id=${index}>删除</a></td>` //数组的索引作为删除的id`
+                        // 添加到新数组
+                        return `<tr>${td}</tr>`
+                    })
+                    // 1.join方法将数组拼接成字符串 2.渲染页面
+                    tbodyElement.innerHTML = nerwphones.join('')
                 },
                 // 验证输入
                 inputPrompt: function (nameElements) {
