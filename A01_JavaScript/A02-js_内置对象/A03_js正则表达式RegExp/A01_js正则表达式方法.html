@@ -42,14 +42,16 @@
     // 在页面加载完毕后才会执行的代码
     window.onload = function () {
       //定义一个字符串
-      const str = `（Robam）抽油烟机领航家D1S欧式顶吸式双腔变频静音吸油烟机 大吸力22大风量排油烟机家用挥手智控60D1S老板`;
+      const str = `老板（Robam）抽油烟机领航家D1S欧式顶吸式双腔变频静音吸油烟机 大吸力22大风量排油烟机家用挥手智控60D1S老板`;
       //定义一个正则表达式
       regexp = /老板/;
       //正则表达式判断是否包含字符串
-      console.log(regexp.test(str));
+      console.log('正则表达式判断是否包含字符串', regexp.test(str));
       //正则表达式匹配字符串的开始索引
-      console.log(regexp.exec(str));
-      
+      console.log('正则表达式匹配字符串的开始索引', regexp.exec(str));
+      //正则表达式替换字符串 str.replace(正则表达式, '油烟机')
+      console.log('正则表达式替换字符串', str.replace(/['老板'|'方太']/gi, '油烟机'));
+     
 
 
 
