@@ -221,7 +221,8 @@
                     // 定义一个函数(返回一个对象)
                     function newPromise() {
                         return personnel = {
-                            id: personnels.length + 1,//获取数组的长度（作为学生编号）
+                            id:  personnels.length?personnels[personnels.length-1].id+1:1,//获取数组最后一个对象的id+1作为新加一个对象的id （作为学生编号） 当数组为空时  给id赋值为1
+                            // name: nameElements[0].value,//获取表单元素的值
                             name: name,//获取表单元素的值
                             age: age,//获取表单元素的值
                             gender: document.querySelector(`[value='${gender}']`).text,//获取表单元素的文本值
