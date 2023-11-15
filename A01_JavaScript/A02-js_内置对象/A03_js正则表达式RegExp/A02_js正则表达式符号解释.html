@@ -45,33 +45,33 @@
       //定义一个字符串
       const str = `老板（Robam）抽油烟机领航家D1S欧式顶吸式双腔变频静音吸油烟机大吸力22大风量排油烟机家用挥手智控60D1S老板`;
       //定义一个正则表达式 ^（匹配字符串的开头）
-      const regexp1 = /^老板/;
+      regexp1 = /^老板/;
       console.log('匹配字符串的开头', regexp1.test(str));
       //定义一个正则表达式 $（匹配字符串的结尾）
-      const regexp2 = /老板$/;
+      regexp2 = /老板$/;
       console.log(`匹配字符串的结尾:`, regexp2.test(str));
       //定义一个正则表达式 ^（匹配字符串的开头）$（匹配字符串的结尾）  只能有一个
-      const regexp3 = /^油烟机$/;
+      regexp3 = /^油烟机$/;
       console.log(`匹配字符串的开头和匹配字符串的结尾`, regexp3.test(str));
 
       //2.量词符号：用于指定前一个字符或字符范围的匹配次数，如 *（零个或多个出现）、+（一个或多个出现）、?（零个或一个出现）、{n}（恰好n个出现）、{n,}（至少n个出现）、{n,m}（至少n个出现，但不超过m个出现）等。
       const str1 = '华为智慧屏华为智慧屏华为';
-      const regexp4 = /^华为*$/;
+      regexp4 = /^华为*$/;
       console.log(`用于指定前一个字符或字符范围的匹配次数，如 *（零个或多个出现）只能有华为的字符`, regexp4.test(str1));
-      const regexp5 = /^华为*$/;
+      regexp5 = /^华为*$/;
       console.log(`用于指定前一个字符或字符范围的匹配次数，如 +（一个或多个出现）只能有华为的字符`, regexp5.test(str1));
-      const regexp6 = /^华为*$/;
+      regexp6 = /^华为*$/;
       console.log(`用于指定前一个字符或字符范围的匹配次数，如 ?（零个或一个出现）只能有华为的字符`, regexp6.test(str1));
-      const regexp7 = /^华为*$/;
+      regexp7 = /^华为*$/;
       console.log(`用于指定前一个字符或字符范围的匹配次数，如 {n}（恰好n个出现 只能有华为的字符`, regexp7.test(str1));
-      const regexp8 = /^华为*$/;
+      regexp8 = /^华为*$/;
       console.log(`用于指定前一个字符或字符范围的匹配次数，如 {n,}（至少n个出现） 只能有华为的字符`, regexp8.test(str1));
-      const regexp9 = /^华为*$/;
+      regexp9 = /^华为*$/;
       console.log(`用于指定前一个字符或字符范围的匹配次数，如 {n,m}（至少n个出现，但不超过m个出现）`, regexp9.test(str1));
 
       //3.字符范围匹配符号：用于匹配一个字符范围内的任意字符，如 [a-z]（匹配任意一个小写字母）、[0-9]（匹配任意一个数字） [^0-9] 代表取反值
       const str3 = '115ujyfguy';
-      const regexp10 = /^[a-z 0-9 A-Z -_]{8,16}$/;
+      regexp10 = /^[a-z 0-9 A-Z -_]{8,16}$/;
       console.log(`用于匹配一个字符范围内的任意字符，如 [a-z][0-9][A-Z]（匹配任意一个小写字母）`, regexp10.test(str3));
 
 
