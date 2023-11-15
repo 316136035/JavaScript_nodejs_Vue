@@ -37,7 +37,7 @@
       font-size: 30px;
     }
 
-    success {
+    .success {
       color: green;
     }
 
@@ -60,6 +60,8 @@
       // 2.获取焦点事件监听
       phone_numberElement.addEventListener(`focus`, function (event) {
         spanElement.innerText = `请输入手机号码............`;
+        // 3.清除样式
+        spanElement.className = ``;
 
       })
       // 3.失去焦点事件监听
@@ -70,10 +72,12 @@
        let is=  regexp.test(phone_numberElement.value)
         if (is) {
           spanElement.innerText = `输入正确`;
-          spanElement.classList.add(`success`);
+          // 样式
+          spanElement.className=`success`;
         } else {
           spanElement.innerText = `输入错误`;
-          spanElement.classList.add(`error`);
+          // 样式
+          spanElement.className=`error`;
         }
       })
 
