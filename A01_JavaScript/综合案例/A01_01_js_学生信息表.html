@@ -200,6 +200,7 @@
                         gender: document.querySelector(`[value='${gender}']`).text,//获取表单元素的文本值
                         salary: salary,//获取表单元素的值
                         province: document.querySelector(`[value=${province}]`).text,//获取表单元素的文本值
+                        time :new Date().getTime()
                     }
                     // 向数组中添加对象
                     personnels.push(personnel);

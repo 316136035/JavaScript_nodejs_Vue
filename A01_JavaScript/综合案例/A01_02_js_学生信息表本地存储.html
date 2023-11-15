@@ -82,6 +82,7 @@
 
         }
 
+
         .manage {
             margin-top: 20px;
             width: 100%;
@@ -90,6 +91,8 @@
             text-align: center;
             color: #000;
             font-weight: bold;
+            text-align: right;
+
         }
 
         th {
@@ -123,19 +126,21 @@
             const salaryElement = document.querySelector('#salary');// 通过查询选择器获取元素
             const provinceElement = document.querySelector('#province');// 通过查询选择器获取元素
             const tbodyElement = document.querySelector('.tbody'); // 通过查询选择器获取tbody节点
-            const myformElement = document.querySelector(`.myform`); // 通过查询选择器获取表单元素
+            const myformElement = document.querySelector(`.myform`); // 通过查询选择器获取表单元素 
+            const manageElement = document.querySelector(`.manage`); // 通过查询选择器获取表单元素 
 
             // // 监听表单提交事件
-            // myformElement.addEventListener(`submit`, function (e) {
-            //     // 阻止表单默认事件
-            //     e.preventDefault();
-            //     // 获取表单中带有属性name的全部元素
-            //     const nameElements = document.querySelectorAll('.myform [name]');
-            //     // 验证输入
-            //     mymodule.inputPrompt(nameElements)
-            //     // 调用模块的add方法
-            //     mymodule.add(nameElements[0].value, nameElements[1].value, nameElements[2].value, nameElements[3].value, nameElements[4].value);
-            // });
+            myformElement.addEventListener(`submit`, function (e) {
+                // 阻止表单默认事件
+                e.preventDefault();
+                // 获取表单中带有属性name的全部元素
+                const nameElements = document.querySelectorAll('.myform [name]');
+                // 验证输入inputPrompt方法
+                mymodule.inputPrompt(nameElements)
+                // 调用模块的add方法
+                mymodule.add(nameElements[0].value, nameElements[1].value, nameElements[2].value, nameElements[3].value, nameElements[4].value);
+
+            });
             //删除操作
             tbodyElement.addEventListener('click', function (e) {
                 mymodule.delete(e)
@@ -147,45 +152,57 @@
                 render: function () {
                     // 清空tbody
                     // tbodyElement.innerHTML = '';
-
-                    // for (let i = 0; i < personnels.length; i++) {
-                    //     // 创建tr节点
-                    //     const trElement = document.createElement('tr');
-                    //     // 给td节点添加内容
-                    //     trElement.innerHTML = `
-                    //                  <td>${i + 1}</td>
-                    //                  <td>${personnels[i].id}</td>
-                    //                  <td>${personnels[i].name}</td>
-                    //                  <td>${personnels[i].age}</td>
-                    //                  <td>${personnels[i].gender}</td>
-                    //                  <td>${personnels[i].salary}</td>
-                    //                  <td>${personnels[i].province}
-                    //                 <td><a href="" data-id=${i}>删除</a></td>` //数组的索引作为删除的id
-                    //     // 将tr节点添加到tbody节点中
-                    //     tbodyElement.appendChild(trElement);
-                    // }
                     // map方法遍历数组
                     //获取本地存储中的数据
                     let personnelsstr = localStorage.getItem('personnels');
                     // 将字符串转换成数组  JSON.parse(personnelsstr)要是空的  就返回一个空数组
                     let personnels = JSON.parse(personnelsstr) || [];
 
+                    //map遍历数组 返回新的数组
                     let nerwphones = personnels.map((item, index) => {
                         let td = `<td>${index + 1}</td>`//索引+1 作为序号
                         //变量对象
                         for (const key in item) {
-                            // 循环属性名
-                            td += `<td>${item[key]}</td>`
+                            if (key != 'time') {
+                                // 循环属性名
+                                td += `<td>${item[key]}</td>`
+                            }
+                            if (key === 'time') {
+                                // 循环属性名()
+                                td += `<td>${formatTime(item[key])}</td>`
+                            }
                         }
                         td += ` <td><a href="" data-id=${index}>删除</a></td>` //数组的索引作为删除的id`
                         // 添加到新数组
                         return `<tr>${td}</tr>`
                     })
                     // 1.join方法将数组拼接成字符串 2.渲染页面
-                    tbodyElement.innerHTML = nerwphones.join('')
+                    tbodyElement.innerHTML = nerwphones.join('');
+                    manageElement.textContent = `共有${personnels.length}条记录`
+
+                    //格式法时间
+                    function formatTime(time) {
+                        var date = new Date(time);
+                        //获取当前日期的年份
+                        this.year = date.getFullYear();
+                        //获取当前日期的月份（注意，月份是从0开始计数的，因此需要加1）
+                        this.month = date.getMonth() + 1;
+                        // 获取当前日期的日份
+                        this.date = date.getDate();
+                        // 获取当前时间的小时数（如果小时数小于10，则在前面添加0）
+                        this.hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+                        // 获取当前时间的分钟数（如果分钟数小于10，则在前面添加0）
+                        this.minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+                        //获取当前时间的秒数（如果秒数小于10，则在前面添加0）
+                        this.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+                        // 获取当前日期的毫秒数
+                        this.milliSeconds = date.getMilliseconds();
+                        return this.year + '-' + this.month + '-' + this.date + ' ' + this.hour + ':' + this.minute + ':' + this.second + '.' + this.milliSeconds;
+                    }
                 },
                 // 验证输入
                 inputPrompt: function (nameElements) {
+                    // 遍历表单元素
                     nameElements.forEach(function (item) {
                         //  // 判断是否为空
                         if (item.value == null || item.value == '' || item.value == undefined) {
@@ -197,21 +214,22 @@
                 },
                 //添加用户
                 add: function (name, age, gender, salary, province) {
-
-                    // 创建对象
-                    const personnel = {
-                        id: personnels.length + 1,//获取数组的长度（作为学生编号）
-                        name: name,//获取表单元素的值
-                        age: age,//获取表单元素的值
-                        gender: document.querySelector(`[value='${gender}']`).text,//获取表单元素的文本值
-                        salary: salary,//获取表单元素的值
-                        province: document.querySelector(`[value=${province}]`)
-                            .text,//获取表单元素的文本值
+                    let personnelsstr = localStorage.getItem('personnels');//获取本地存储中的数据
+                    let personnels = JSON.parse(personnelsstr) || [];//将字符串转换成数组  JSON.parse(personnelsstr)要是空的  就返回一个空数组
+                    personnels.push(newPromise());   //在数组中添加对象
+                    localStorage.setItem('personnels', JSON.stringify(personnels))//1.将数组转换成字符串  JSON.stringify(personnels) 2.将字符串存储到本地存储中
+                    // 定义一个函数(返回一个对象)
+                    function newPromise() {
+                        return personnel = {
+                            id: personnels.length + 1,//获取数组的长度（作为学生编号）
+                            name: name,//获取表单元素的值
+                            age: age,//获取表单元素的值
+                            gender: document.querySelector(`[value='${gender}']`).text,//获取表单元素的文本值
+                            salary: salary,//获取表单元素的值
+                            province: document.querySelector(`[value=${province}]`).text,//获取表单元素的文本值+
+                            time: Date.now()
+                        }
                     }
-             
-
-                    localStorage.setItem('personnels', JSON.stringify(personnel));
-                    // console.log('向数组中添加对象',personnels);
                     //重置表单（清空表单）
                     myformElement.reset();
                     // 渲染页面
@@ -220,15 +238,21 @@
                 },
                 //删除操作
                 delete: function (e) {
+                    let personnelsstr = localStorage.getItem('personnels');//获取本地存储中的数据
+                    let personnels = JSON.parse(personnelsstr)//将字符串转换成数组  JSON.parse(personnelsstr)要是空的  就返回一个空数组
                     // 阻止表单默认事件
                     e.preventDefault();
                     // 判断是否是a标签
                     if (e.target.tagName === 'A') {
                         // 1.获取被点击的a标签的dataset.id属性
                         let id = e.target.dataset.id;
-
                         // 2.删除数组中对应索引的元素
                         personnels.splice(id, 1);
+                        // 3.提示用户是否删除该条记录
+                        if(confirm('是否删除该条记录')){
+                            localStorage.setItem('personnels', JSON.stringify(personnels)) //.将数组转换成字符串  JSON.stringify(personnels) 2.将字符串存储到本地存储中
+                        }
+                       
                         // 3.重新渲染页面
                         mymodule.render();
 
@@ -238,8 +262,8 @@
 
 
             }
-
-            mymodule.render();
+                // 调用render方法
+               mymodule.render();
 
 
         }
@@ -308,8 +332,10 @@
     </div>
     </div>
     <div class="main-content">
+
         <table class="table-content">
-            <caption class="manage">人员管理</caption>
+            <caption class="manage">共有数据0条</caption>
+
             <!-- 标表头 -->
             <tr>
                 <th>序号</th>
@@ -319,6 +345,7 @@
                 <th>性别</th>
                 <th>薪资</th>
                 <th>省份</th>
+                <th>录入时间</th>
                 <th>操作</th>
 
             </tr>
