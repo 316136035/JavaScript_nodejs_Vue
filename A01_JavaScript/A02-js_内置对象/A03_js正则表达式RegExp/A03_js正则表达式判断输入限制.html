@@ -70,10 +70,10 @@
        let is=  regexp.test(phone_numberElement.value)
         if (is) {
           spanElement.innerText = `输入正确`;
-          spanElement.style.color = `green`;
+          spanElement.classList.add(`success`);
         } else {
           spanElement.innerText = `输入错误`;
-          spanElement.style.color = `red`;
+          spanElement.classList.add(`error`);
         }
       })
 
