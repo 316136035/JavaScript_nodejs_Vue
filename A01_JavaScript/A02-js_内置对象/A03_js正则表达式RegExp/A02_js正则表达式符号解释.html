@@ -1,0 +1,86 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+  <!--规定 HTML 文档的字符编码  兼用性-->
+  <meta charset="UTF-8">
+  <!-- 针对IE浏览器的一个兼容性设置-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+  <meta name="renderer" content="webkit">
+
+  <!-- 让低版本浏览器认识H5 的语义化标签 -->
+  <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+  <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+  <meta name="description" content="网页描述文字">
+  <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 头标题 -->
+  <title>A02_js正则表达式符号解释</title>
+  <!-- 设置网站图标调用一个外部的图片文件 -->
+  <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
+  <!-- 清除css默认样式 -->
+  <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+  <!-- 调用一个外部的CSS样式文件 -->
+  <link rel="stylesheet" href="#">
+  <!-- 引入外部js文件 不能和内部js一样使用-->
+  <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+  <script type="text/javascript">
+    // 在页面加载完毕后才会执行的代码
+    window.onload = function () {
+      //1.边界匹配符号：用于匹配字符串的边界，如 ^（匹配字符串的开头）、$（匹配字符串的结尾）
+      //定义一个字符串
+      const str = `老板（Robam）抽油烟机领航家D1S欧式顶吸式双腔变频静音吸油烟机大吸力22大风量排油烟机家用挥手智控60D1S老板`;
+      //定义一个正则表达式 ^（匹配字符串的开头）
+      const regexp1 = /^老板/;
+      console.log('匹配字符串的开头', regexp1.test(str));
+      //定义一个正则表达式 $（匹配字符串的结尾）
+      const regexp2 = /老板$/;
+      console.log(`匹配字符串的结尾:`, regexp2.test(str));
+      //定义一个正则表达式 ^（匹配字符串的开头）$（匹配字符串的结尾）  只能有一个
+      const regexp3 = /^油烟机$/;
+      console.log(`匹配字符串的开头和匹配字符串的结尾`, regexp3.test(str));
+
+      //2.量词符号：用于指定前一个字符或字符范围的匹配次数，如 *（零个或多个出现）、+（一个或多个出现）、?（零个或一个出现）、{n}（恰好n个出现）、{n,}（至少n个出现）、{n,m}（至少n个出现，但不超过m个出现）等。
+      const str1='华为智慧屏华为智慧屏华为';
+      const  regexp4 = /^华为*$/;
+      console.log(`用于指定前一个字符或字符范围的匹配次数，如 *（零个或多个出现）只能有华为的字符`, regexp4.test(str1));
+      const  regexp5 = /^华为*$/;
+      console.log(`用于指定前一个字符或字符范围的匹配次数，如 +（一个或多个出现）只能有华为的字符`, regexp5.test(str1));
+      const  regexp6 = /^华为*$/;
+      console.log(`用于指定前一个字符或字符范围的匹配次数，如 ?（零个或一个出现）只能有华为的字符`, regexp6.test(str1));
+      const  regexp7 = /^华为*$/;
+      console.log(`用于指定前一个字符或字符范围的匹配次数，如 {n}（恰好n个出现 只能有华为的字符`, regexp7.test(str1));
+      const  regexp8= /^华为*$/;
+      console.log(`用于指定前一个字符或字符范围的匹配次数，如 {n,}（至少n个出现） 只能有华为的字符`, regexp8.test(str1));
+      const  regexp9= /^华为*$/;
+      console.log(`用于指定前一个字符或字符范围的匹配次数，如 {n,m}（至少n个出现，但不超过m个出现）`, regexp9.test(str1));
+
+      //3.字符范围匹配符号：用于匹配一个字符范围内的任意字符，如 [a-z]（匹配任意一个小写字母）、[0-9]（匹配任意一个数字） [^0-9] 代表取反值
+      const str3='115ujyfguy';
+      const  regexp10= /^[a-z 0-9 A-Z]{8,16}$/;
+      console.log(`用于匹配一个字符范围内的任意字符，如 [a-z]（匹配任意一个小写字母）`, regexp10.test(str3));
+
+
+      
+
+
+    }
+
+  </script>
+</body>
+
+</html>
