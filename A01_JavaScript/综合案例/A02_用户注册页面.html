@@ -196,6 +196,24 @@
 
         }
       }
+      //短信验证码验证（鼠标离开时验证事件）
+      sms_code_Eelement.addEventListener('change', sms_code_verify);
+      //短信验证码（鼠标离开时验证方法）
+       function sms_code_verify() {
+        regexp = /^\d{6}$/;
+        if (!regexp.test(sms_code_Eelement.value)) {
+          sms_code_Eelement.nextElementSibling.innerText = '短信验证码格式不正确';// 1.获取容器元素的下一个元素 2.给容器元素添加提示信息
+          sms_code_Eelement.nextElementSibling.className = `error`;//通过类名添加样式
+          return false
+        } else {
+          sms_code_Eelement.nextElementSibling.innerText = '短信验证码可用！';// 1.获取容器元素的下一个元素 2.给容器元素添加提示信息
+          sms_code_Eelement.nextElementSibling.className = `correct`;//通过类名添加样式
+          return true
+        }
+
+       }
+
+
       // 点击获取验证码定义变量（避免点击多次）
       let flag = true;
       get_code_Eelement.addEventListener('click', function (e) {
