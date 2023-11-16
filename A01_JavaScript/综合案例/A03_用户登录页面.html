@@ -274,7 +274,7 @@
         }
       }
       // 监听登录按钮的点击事件 调用验证方法
-      login_Eelement.addEventListener('click', (e) => { e.preventDefault(); login_verify(e) })
+      login_Eelement.addEventListener('submit', (e) => { e.preventDefault(); login_verify(e) })
       function login_verify(e) {
         console.log(username_verify(e), password_verify(e), checkbox_Eelement.checked);
         if (username_verify(e) && password_verify(e) && checkbox_Eelement.checked) {
