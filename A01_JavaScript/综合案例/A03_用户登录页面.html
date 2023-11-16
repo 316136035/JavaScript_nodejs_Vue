@@ -188,8 +188,12 @@
       //使用事件委托的方式为topElement添加点击事件
       main_content_right_top_Element.addEventListener('click', function (e) {
         e.preventDefault();//阻止默认事件
-        setAttributeoffsetLeft(e);//下划线的方法
-        page_Switching(e);//页面切换
+        //获取标签名
+        if (e.target.tagName === 'A') {
+          setAttributeoffsetLeft(e);//下划线的方法
+          page_Switching(e);//页面切换
+        }
+
 
       })
       //下划线方法
