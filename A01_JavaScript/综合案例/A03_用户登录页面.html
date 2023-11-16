@@ -124,11 +124,21 @@
     .sms_code_form>div {
       width: 255px;
       height: 30px;
-      border: 1px solid black;
       border-radius: 3px;
-      margin: 20px;
+      margin-top: 20px;
+      margin-left: 20px;
       text-align: left;
     }
+
+    .username,
+    .password {
+      border: 1px solid rgba(46, 36, 36, 0.412);
+      width: 255px;
+      height: 30px;
+    }
+
+
+
 
     /*  form 表单的第个3个元素  下划线           */
     .account_form :nth-child(3) {
@@ -144,6 +154,7 @@
 
     }
 
+    /* 登录按钮*/
     .login {
       color: white;
       background-color: transparent;
@@ -153,6 +164,13 @@
       display: none;
     } */
 
+    /* 二维码图片的div */
+    .qr_code {
+      display: none;
+
+    }
+
+    /*二维码图片 */
     .showimg {
       display: flex;
       justify-content: center;
@@ -161,15 +179,12 @@
       margin-bottom: 20px;
     }
 
+    /* 请使用微信扫码登录 提示文字 */
     .prompt {
       text-align: center;
     }
 
-    .qr_code {
-      display: none;
-
-    }
-
+    /* 短信验证码的div */
     .sms_code {
       display: none;
     }
@@ -184,6 +199,7 @@
 
 
       const main_content_right_top_Element = document.querySelector('.main_content_right_top');//获取右侧内容区上面的div
+      const arrayElement = document.querySelectorAll('.main_content_right_center>div')//获取右侧内容区下面的div
       const stripElement = document.querySelector('.strip')//获取下划线div
       //使用事件委托的方式为topElement添加点击事件
       main_content_right_top_Element.addEventListener('click', function (e) {
@@ -208,8 +224,7 @@
         }
 
       }
-      //获取所有的div
-      const arrayElement = document.querySelectorAll('.main_content_right_center>div')
+
       //页面切换
       function page_Switching(e) {
         let num = e.target.dataset.class; //获取自定义属性的值
@@ -222,11 +237,53 @@
 
 
       // 右侧内容区  输入框的正则表达式判断
-      function check(obj) {
-        //这个查看 A02_用户注册页面.html
+      const username_Eelement = document.querySelector('.username');
+      const password_Eelement = document.querySelector('.password');
+      const checkbox_Eelement = document.querySelector('.checkbox');
+      const login_Eelement = document.querySelector('.login');
+
+
+      // 监听输入框的值 调用验证方法
+      username_Eelement.addEventListener('change', username_verify)
+      // 验证用户名方法
+      function username_verify(e) {
+        regExp = /^[a-z 0-9_]{8,16}$/i;//正则表达式
+        if (!regExp.test(username_Eelement.value)) {//正则表达式验证
+          document.querySelector('.username').nextElementSibling.innerHTML = '用户名只能是8-16位数字、字母、下划线组成';;//1.获取元素的下一个兄弟元素2.设置内容3.设置颜色
+          document.querySelector('.username').nextElementSibling.style.color = 'red';//3.设置颜色
+          return false
+        } else {
+          document.querySelector('.username').nextElementSibling.innerHTML = '用户名可用';//1.获取元素的下一个兄弟元素2.设置内容3.设置颜色
+          document.querySelector('.username').nextElementSibling.style.color = 'green';//3.设置颜色
+          return true
+        }
+
+      }
+      // 监听输入框的值 调用验证方法
+      password_Eelement.addEventListener('change',  password_verify)
+      function password_verify(e) {
+        regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?.&]{8,}$/;//正则表达式
+        if (!regExp.test( password_Eelement.value)) {//正则表达式验证
+          password_Eelement.nextElementSibling.innerHTML = '密码只能是8-16位数字、字母、下划线组成';//1.获取元素的下一个兄弟元素2.设置内容3.设置颜色
+          password_Eelement.nextElementSibling.style.color = 'red';//3.设置颜色
+          return false
+        } else {
+          password_Eelement.nextElementSibling.innerHTML = '密码可用';//1.获取元素的下一个兄弟元素2.设置内容3.设置颜色
+          password_Eelement.nextElementSibling.style.color = 'green';//3.设置颜色
+          return true
+        }
+      }
+      // 监听登录按钮的点击事件 调用验证方法
+      login_Eelement.addEventListener('click', (e) => { e.preventDefault(); login_verify(e) })
+      function login_verify(e) {
+        console.log(username_verify(e), password_verify(e), checkbox_Eelement.checked);
+        if (username_verify(e) && password_verify(e) && checkbox_Eelement.checked) {
+          alert('登录成功')
+        } else { 
+         alert('登录失败') }
+
       }
     }
-
 
   </script>
   <!-- 顶部导航条 -->
@@ -255,18 +312,27 @@
           </div>
           <div class="strip"></div>
           <div class="main_content_right_center">
+            <!-- 账号登录页面 -->
             <div class="account" display="none">
               <form class="account_form" action="#" method="post">
-                <div><input type="text" placeholder="请输入用户名" class="username"></div>
-                <div><input type="password" placeholder="密码" class="password"></div>
-                <div><input type="checkbox" class="checkbox"> <a href="">《服务条例》</a><a href="">服务条例</a></div>
+                <div class="username_div">
+                  <input required type="text" placeholder="请输入用户名" class="username">
+                  <div></div>
+                </div>
+                <div class="password_div"><input required type="password" placeholder="密码" class="password">
+                  <spam></spam>
+                </div>
+                <div class="checkbox_div"><input type="checkbox" class="checkbox"> <a href="">《服务条例》</a><a
+                    href="">服务条例</a></div>
                 <div><input type="submit" value="登 录" class="login"></div>
               </form>
             </div>
+            <!-- 二维码登录页面 -->
             <div class="qr_code">
               <div class="showimg"> <img src="../resources静态资源/img/show.png" alt=""></div>
               <div class="prompt">请使用微信扫码登录</div>
             </div>
+            <!-- 短信登录页面 -->
             <div class="sms_code">
               <form class="sms_code_form" action="#" method="post">
                 <div> <input type="text" placeholder="请输入手机号" class="phone"></div>
