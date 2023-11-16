@@ -1,5 +1,23 @@
 @charset "utf-8";
 
+/* 左浮动 */
+.float-left {
+    float: left;
+}
+
+/* 右浮动 */
+.float-right {
+    float: right;
+}
+
+/* 清除浮动影响 */
+.clear-both::after {
+    content: "";
+    /* 设置为块元素 */
+    display: block;
+    /* 清除浮动影响 */
+    clear: both;
+}
 /* CSS Document */
 * {
     color: #444;
