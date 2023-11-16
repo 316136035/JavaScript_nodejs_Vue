@@ -100,6 +100,7 @@
 
 <body>
   <script type="text/javascript">
+    // 页面加载完成后执行
     window.onload = function () {
       const form_Eelement = document.querySelector('form');
       const username_Eelement = document.querySelector('#username');
@@ -110,21 +111,24 @@
       const submit_Eelement = document.querySelector('[type="submit"]');
       const get_code_Eelement = document.querySelector('.get-code');
 
+      // 点击获取验证码定义变量（避免点击多次）
       let flag = true;
       get_code_Eelement.addEventListener('click', function (e) {
         // 阻止表单默认事件
         e.preventDefault();
+        // 定义一个倒计时变量
         let num = 60;
+        // 判断（避免点击多次）
         if (flag) {
-          flag = false;
+          flag = false;// 点击后设置为false
+          // 定义一个定时器
           const timer = setInterval(function () {
             if (num <= 0) {
-              clearInterval(timer)
-              get_code_Eelement.innerText = '获取验证码';
-              flag = true;
-              num = 10;
+              clearInterval(timer);// 清除定时器
+              get_code_Eelement.innerText = '获取验证码';// 重新设置按钮文字
+              flag = true;// 重新设置点击状态
             } else {
-              get_code_Eelement.innerText = num + '秒后重新获取';
+              get_code_Eelement.innerText = num + '秒后重新获取';// 设置倒计时文字
               num--;
             }
           }, 1000)
@@ -149,7 +153,7 @@
     <input type="password" id="password" name="password" placeholder="请输入密码"> <span class="verify-password"></span> <br>
     <input type="password" id="confirm_password" name="confirm_password" placeholder="请再次输入密码">
     <span class="verify-confirm_password"></span> <br>
-    <input type="text" placeholder="请输入短信验证码" id="sms_code" name="sms_code"> <span class="get-code">获取验证码</span>
+    <input type="text" placeholder="请输入短信验证码" id="sms_code" name="sms_code"> <a href="" class="get-code">获取验证码</a>
     <span class="verify-sms_code"></span> <br>
     <input type="checkbox" id="consent" name="consent">已阅读并同意<a href="">用户服务协议</a><br>
     <input type="submit" value="下一步">
