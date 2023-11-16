@@ -244,12 +244,9 @@
       })
 
       consent_Eelement.addEventListener('change', function (e) {
-        let checked = e.target.checked;
-        if (!checked) {
-          alert('请勾选用户协议');
-          e.target.checked = true;
-        }
-      
+        return e.target.checked;
+
+
       }
       )
     };
