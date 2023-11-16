@@ -80,7 +80,7 @@
       background-color: #45a049;
     }
 
-    .get-code {
+    .get_code {
       position: relative;
       left: -100px;
       cursor: pointer;
@@ -91,7 +91,18 @@
 
     [type="submit"] {
       width: 50%;
-      ;
+
+    }
+
+    .correct {
+      font-size: 15px;
+      color: green;
+
+    }
+
+    .error {
+      font-size: 10px;
+      color: red;
     }
   </style>
 
@@ -106,11 +117,85 @@
       const username_Eelement = document.querySelector('#username');
       const password_Eelement = document.querySelector('#password');
       const confirm_password_Eelement = document.querySelector('#confirm_password');
+      const phone_number_Eelement = document.querySelector('#phone_number');
       const sms_code_Eelement = document.querySelector('#sms_code');
       const consent_Eelement = document.querySelector('#consent');
       const submit_Eelement = document.querySelector('[type="submit"]');
-      const get_code_Eelement = document.querySelector('.get-code');
+      const get_code_Eelement = document.querySelector('.get_code');
 
+
+      //用户名验证（鼠标离开时验证事件）
+      username_Eelement.addEventListener('change', username_verify);
+      //用户名（鼠标离开时验证方法）
+      function username_verify() {
+        console.log(username_Eelement.value);
+        let username = username_Eelement.value;//获取用户名
+        regExp = /^[a-z 0-9_]{8,16}$/i;//正则表达式
+        //判断用户名是否符合正则表达式
+        if (!regExp.test(username)) {
+          //用户名不符合正则表达式
+          username_Eelement.nextElementSibling.innerText = '用户名只能由数字、字母、下划线组成，且长度在8-16之间';// 1.获取容器元素的下一个元素2.给密码添加提示信息
+          username_Eelement.nextElementSibling.className = `error`;//通过类名添加样式
+          return false
+        } else {
+          username_Eelement.nextElementSibling.innerText = '用户名可用！';// 1.获取容器元素的下一个元素2.给密码添加提示信息
+          username_Eelement.nextElementSibling.className = `correct`;//通过类名添加样式
+          return true
+        }
+
+      }
+      //密码验证（鼠标离开时验证事件）
+      password_Eelement.addEventListener('change', password_verify);
+      //密码（鼠标离开时验证方法）
+      function password_verify() {
+        regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?.&]{8,}$/;
+
+        if (!regExp.test(password_Eelement.value)) {
+          password_Eelement.nextElementSibling.innerText = ' 密码必须包含大小写字母,数字和特殊字符,且长度在8-16之间';;// 1.获取容器元素的下一个元素2.给密码添加提示信息
+          password_Eelement.nextElementSibling.className = `error`;//通过类名添加样式
+          return false
+        } else {
+          password_Eelement.nextElementSibling.innerText = '密码可用！';;// 1.获取容器元素的下一个元素2.给密码添加提示信息
+          password_Eelement.nextElementSibling.className = `correct`;//通过类名添加样式
+          return true
+
+        }
+      }
+      //确认密码验证（鼠标离开时验证事件）
+      confirm_password_Eelement.addEventListener('change', confirm_password_verify);
+      //确认密码（鼠标离开时验证方法）
+      function confirm_password_verify() {
+        regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?.&]{8,}$/;
+        //判断两次输入的密码是否一致或者用户名不符合正则表达式
+        if (password_Eelement.value !== confirm_password_Eelement.value || !regExp.test(password_Eelement.value)) {
+          confirm_password_Eelement.nextElementSibling.innerText = '两次输入的密码不一致或者不符合要求';// 1.获取容器元素的下一个元素2.给密码添加提示信息
+          confirm_password_Eelement.nextElementSibling.className = `error`//通过类名添加样式
+          return false
+        } else {
+          confirm_password_Eelement.nextElementSibling.innerText = '密码一致';// 1.获取容器元素的下一个元素2.给密码添加提示信息
+          confirm_password_Eelement.nextElementSibling.className = `correct`;//通过类名添加样式
+          return true
+        }
+      }
+
+
+      //手机号验证（鼠标离开时验证事件）
+      phone_number_Eelement.addEventListener('change', phone_number_verify);
+      //手机号（鼠标离开时验证方法）
+      function phone_number_verify() {
+        regexp = /^(13[0-9]|14[57]|15[0-3,5-9]|16[25678]|17[0678]|18[0-9]|19[89])\d{8}$/;//手机号验证正则表达式
+        //判断手机号是否符合正则表达式
+        if (!regexp.test(phone_number_Eelement.value)) {
+          phone_number_Eelement.nextElementSibling.innerText = '手机号码格式不正确';// 1.获取容器元素的下一个元素 2.给容器元素添加提示信息
+          phone_number_Eelement.nextElementSibling.className = `error`;//通过类名添加样式
+          return false
+        } else {
+          phone_number_Eelement.nextElementSibling.innerText = '手机号码可用！';// 1.获取容器元素的下一个元素 2.给容器元素添加提示信息
+          phone_number_Eelement.nextElementSibling.className = `correct`;;//通过类名添加样式
+          return true
+
+        }
+      }
       // 点击获取验证码定义变量（避免点击多次）
       let flag = true;
       get_code_Eelement.addEventListener('click', function (e) {
@@ -145,18 +230,39 @@
 
 
 
+
+
+
+
   </script>
 
   <h1>用户注册</h1>
   <form class='form' action="#" method="POST">
-    <input type="text" id="username" name="username" placeholder="请输入用户名"> <span class="verify-username"></span><br>
-    <input type="password" id="password" name="password" placeholder="请输入密码"> <span class="verify-password"></span> <br>
-    <input type="password" id="confirm_password" name="confirm_password" placeholder="请再次输入密码">
-    <span class="verify-confirm_password"></span> <br>
-    <input type="text" placeholder="请输入短信验证码" id="sms_code" name="sms_code"> <a href="" class="get-code">获取验证码</a>
-    <span class="verify-sms_code"></span> <br>
-    <input type="checkbox" id="consent" name="consent">已阅读并同意<a href="">用户服务协议</a><br>
-    <input type="submit" value="下一步">
+    <div> <input type="text" id="username" name="username" placeholder="请输入用户名">
+      <span class="verify_username"></span>
+    </div>
+
+    <div>
+      <input type="password" id="password" name="password" placeholder="请输入密码">
+      <span class="verify_password"></span>
+    </div>
+    <div>
+      <input type="password" id="confirm_password" name="confirm_password" placeholder="请再次输入密码">
+      <span class="verify_confirm_password"></span>
+    </div>
+
+    <div>
+      <input type="text" placeholder="请输入手机号码" id="phone_number" name="phone_number">
+      <span class="verify_phone_number"></span>
+    </div>
+
+    <div><input type="text" placeholder="请输入短信验证码" id="sms_code" name="sms_code"> <a href="" class="get_code">获取验证码</a>
+      <span class="verify_sms_code"></span> <br>
+    </div>
+    <div> <input type="checkbox" id="consent" name="consent">已阅读并同意<a href="">用户服务协议</a></div>
+
+    <div><input type="submit" value="下一步"></div>
+
 
 
 
