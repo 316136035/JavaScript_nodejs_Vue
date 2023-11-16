@@ -149,9 +149,9 @@
       background-color: transparent;
     }
 
-    .account {
-      /* display: none; */
-    }
+    /* .account {
+      display: none;
+    } */
 
     .showimg {
       display: flex;
@@ -194,7 +194,7 @@
       })
       //下划线方法
       function setAttributeoffsetLeft(e) {
-       
+
         let tagname = e.target.tagName; //获取标签名
         if (tagname == 'A' && e.target != null) {
           //获取子元素在父元素中的位置
@@ -212,7 +212,7 @@
         arrayElement.forEach(function (item, index) {
           item.style.display = 'none';//隐藏所有元素
         })
-      
+
         document.querySelector(`.main_content_right_center > :nth-child(${num}) `).style.display = 'block';//显示当前点击的元素
       }
 
