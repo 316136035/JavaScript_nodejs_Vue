@@ -1,0 +1,365 @@
+/* #region -------基本css属性 */
+/* 左浮动 */
+.float-left {
+    float: left;
+}
+
+/* 右浮动 */
+.float-right {
+    float: right;
+}
+
+/* 清除浮动影响 */
+.clear-both::after {
+    content: "";
+    /* 设置为块元素 */
+    display: block;
+    /* 清除浮动影响 */
+    clear: both;
+}
+
+/* 版心 */
+.container {
+    /* 宽度 */
+    width: calc(100% - 20px);
+    /* 居中 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin: 0 auto;
+    /* 背景颜色 */
+    /* background-color: rgb(124, 172, 124); */
+}
+
+/*#endregion 基本css属性结束*/
+/* #region -------导航条*/
+.top {
+    /* 背景颜色 */
+    background-color: #e3e4e5;
+    /* 边距 */
+    border: 1px solid #ddd;
+    /* 高度 */
+    height: 30px;
+
+}
+
+.top-navigation-items {
+    /*清除空白处 */
+    font-size: 0;
+}
+
+/* 左侧欢迎词 */
+.top-welcome {
+    /* 字体大小 */
+    font-size: 20px;
+    /* 字体居中 */
+    text-align: center;
+    /* 行距 */
+    line-height: 30px;
+    /* 字符 粗体 */
+    font-weight: bold;
+    /*  字符颜色*/
+    color: red;
+}
+
+/* 右侧导航区 */
+.top-navigation-items li {
+    /* 左浮动 */
+    float: left;
+
+
+
+}
+
+/* 右侧导航区中的a标签 */
+.top-navigation-items li a {
+    /* 字体大小 */
+    font-size: 12px;
+    /*字体类型  */
+    font-family: Microsoft YaHei;
+    /* 字体居中 */
+    text-align: center;
+    /* 行距 */
+    line-height: 30px;
+    /* 边框 */
+    border-right: 1px solid #999;
+    /* 内边框 */
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/* 右侧导航区中的第一个a标签 */
+.login-register :first-child {
+    /* 边框 */
+    border-right: 0;
+    /* 内边框 */
+    padding-left: 0;
+    padding-right: 0;
+
+}
+
+/* 右侧导航区中的最后一个a标签 */
+.top-navigation-items li:last-child a {
+    /* 边框 */
+    border-right: 0;
+    /* 内边框 */
+    padding-right: 0;
+}
+
+/*#endregion----------- 导航条结束 */
+/* #region -------头部开始*/
+.header {
+    /* 背景颜色 */
+    /* background-color: rgb(149, 117, 117); */
+    /* 边框 */
+    border-bottom: 1px solid rgb(235, 3, 3);
+  
+}
+/* 头部-容器 */
+.header_container{
+    /* 开启flex布局 */
+    display: flex;
+    /* 设置flex方向 */
+    flex-direction: row;
+    /* 设置flex对齐方式 */
+    justify-content: space-between;
+    /* 设置flex对齐方式 */
+    align-items: center
+}
+
+
+/*  头部-图片区 */
+.header-img {
+    /* 高度 */
+    width: calc(10%);
+    /* 宽度 */
+    height: 80px;
+    /* 外边框 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin: 10px;
+    /* 设置背景图片组合写法(图片地址 是否重复图片 设置图片方位) */
+    background: url("../resources静态资源/img/京东图标.png") no-repeat top center;
+    /* 设置背景大小 */
+    background-size: 120px 80px;
+}
+.header-search-nav{
+    width: calc(100% -20%);
+}
+/* 头部 -搜索区 输入框+按钮+链接  */
+.header-search-input-buttons {
+    /* 空包文本处理 */
+    font-size: 0;
+    /* 内上边距 */
+    padding-top: 24px;
+    /* 开启相对定位 */
+    position: relative;
+    /* 相对定位 左 */
+    left: 40px;
+    /* background-color: chartreuse; */
+}
+
+/* 头部 -搜索区 输入框*/
+.header-search input {
+    /* 宽度 */
+    width: calc(100% - 13%);
+    /* 高度 */
+    height: 34px;
+    /* 边框 */
+    border: 1px solid red;
+    /* 字符大小 */
+    font-size: 12px;
+
+}
+
+/* 头部 -搜索区 按钮*/
+.header-search .search {
+    /* 宽度 */
+    width: calc(7%);
+    /* 高度 */
+    height: 36px;
+    /* 字符大小 */
+    font-size: 12px;
+    /* 引入外部图片作为背景显示 注意：要设置height或者height 不然不生效*/
+    background-image: url("../resources静态资源/img/搜索.png");
+    /*处理基线没有对齐的问题 垂直对齐：底部； */
+    vertical-align: bottom;
+}
+.header-banner{
+    width: calc(10%);
+ 
+    height: 80px;
+}
+
+
+
+/* ------------------------------------导航区1----------------------------------- */
+.header-nav1 {
+    /* 宽度 */
+    width: 810px;
+    /* 高度 */
+    height: 20px;
+    /* background-color: rgb(30, 210, 171); */
+}
+
+.header-nav1 ul li {
+    /* 开启相对定位 */
+    position: relative;
+    /*相对定位 左 40px  */
+    left: 40px;
+    /* 右外边框 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin-right: 10px;
+    /* 浮动 */
+    float: left;
+
+
+}
+
+/*#endregion -------导航区1结束*/
+/*#endregion -------头部结束*/
+/* #region -------主要内容区*/
+.main-content {
+    /* 背景颜色 */
+    background-color: #f4e9e9;
+    /* 边框 */
+    border: 1px solid red;
+}
+
+table {
+    /* 视图宽度 */
+    width: calc(100%);
+    /* 设置标题位置 
+        top 头部
+        bottom 尾部*/
+    caption-side: top;
+    /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+    border: solid 2px rgb(100, 0, 0);
+    /* 设置表单列宽  auto 自动的  fixed固定的*/
+    table-layout: auto;
+    /* 设置单元格之间的边框距离（前提不能使用合并单元格之间的边框） */
+    /* border-spacing: 0px; */
+    /*  合并单元格之间的边框 （设置单元格之间的边框距离就不生效了）*/
+    border-collapse: collapse;
+    /* 隐藏没有内容的单元格 （前提不能使用合并单元格之间的边框*/
+    empty-cells: hide;
+}
+
+
+th,
+td {
+
+    /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+    border: solid 2px rgb(0, 100, 70);
+
+
+
+}
+
+
+/*#endregion -------主要内容区结束*/
+
+/* #region -------底部 开始*/
+
+/*  底部 上方*/
+.footer-top {
+    /* 高度 */
+    height: 160px;
+    /* 内边距 四个值代表 上，右，下，左  注意：外边距  */
+    padding: 20px 0 20px 0;
+    /* 背景颜色 */
+    background-color: rgb(251, 245, 245);
+
+}
+
+/*  底部 上方 li元素*/
+.footer-top-items>li {
+    /* 宽度 */
+    width: 198px;
+    /* 左浮动 */
+    float: left;
+    /*处理 溢出：隐藏；问题  */
+    overflow: hidden;
+
+
+}
+
+/*  底部 上方 标题 */
+.footer-top-items>li>h5 {
+    /* 高度 */
+    height: 22px;
+    /* 字体大小 */
+    font-size: 14px;
+    /* 字体加粗 */
+    font-weight: bold;
+    /* 字体样式 */
+    font-family: 'Microsoft YaHei', 'Heiti SC', 'tahoma', 'arial', 'Hiragino' 'Sans GB', 'sans-seri';
+    /* 外边距 四个值代表 上，右，下，左  注意：外边距  设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin: 0 0 5px 0;
+
+}
+
+/*  底部 上方  内容 */
+.footer-top-items>li>ul>li {
+    /* 高度 */
+    height: 22px;
+    /* 字体大小 */
+    font-size: 12px;
+    /* 字体样式 */
+    font-family: 'Microsoft YaHei', 'Heiti SC', 'tahoma', 'arial', 'Hiragino' 'Sans GB', 'sans-seri';
+}
+
+/* 底部 上方  最后一个元素 中h5*/
+.footer-top-items :last-child h5 {
+    /* 外边距 四个值代表 上，右，下，左  注意：外边距  设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin: 0 0 15px 0;
+}
+
+/* 底部 上方  最后一个元素 中.view-details */
+.footer-top-items :last-child .view-details {
+    /* 外边距 四个值代表 上，右，下，左  注意：外边距  设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin: 0 0 15px 0;
+    /* a 标签是行内元素 改成块级元素（用于字体居右） */
+    display: block;
+    /* 字体居右 */
+    text-align: right;
+}
+
+/*底部 下方 */
+.footer-bottom {
+    /* 高度 */
+    height: 243px;
+    /* 内边距 四个值代表 上，右，下，左   */
+    padding: 20px 0 20px 0;
+    /* 背景颜色 */
+    background-color: rgb(251, 245, 245);
+
+}
+
+/* 底部 下方 每一行元素 */
+.footer-bottom-contents {
+    /* 字体居中 */
+    text-align: center;
+}
+
+/* 底部 下方 每一行元素中的ul元素*/
+.footer-bottom-contents ul {
+    /*  ul标签是块级元素 改成行内块元素（用于字体也居中）*/
+    display: inline-block;
+}
+
+/* 底部 下方 每一行元素的ul元素中的li元素*/
+.footer-bottom-contents ul li {
+    /* 左浮动 */
+    float: left;
+}
+
+/* 底部 下方 每一行元素的ul元素的li元素中的a元素*/
+.footer-bottom-contents ul li a {
+    /* 内边距 四个值代表 上，右，下，左   */
+    padding: 0 8px 0 8px;
+    /* 边框 左 */
+    border-left: 1px solid #999;
+    color: #999;
+}
+
+/* 底部 下方 ul元素中的第一个元素中的a元素 */
+.footer-bottom-contents ul :first-child a {
+    /* 清除边框 左 */
+    border-left: 0;
+
+}
