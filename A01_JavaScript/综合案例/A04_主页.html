@@ -30,7 +30,8 @@
 </head>
 
 <body>
-    <SCript type="text/javascript">
+    <script type="text/javascript">
+
         window.onload = function () {
             const cssarray = ['discount-1', 'discount-2', 'discount-3', 'discount-4', 'discount-5', 'discount-6', 'discount-7', 'discount-8', 'discount-9', 'discount-10'];
 
@@ -119,72 +120,26 @@
             //定义变量（用户id）
             let id = 1;
             //通过查询选择器获取元素
-            const tbodyElement = document.querySelector('.tbody');
+            const tbodyElement = document.querySelector('.monitor .tbody');
 
-            arrayObject.forEach(element => {
+            //遍历数组  
+            let newarrayObject = arrayObject.map(function (item, i) {
+                console.log(item);
+                let td = ``
+                
+                td += `<td>${i}</td>`
+                for (let key in item) {
+                    //拼接字符串
 
-                //创建td元素
-                let idElement = document.createElement('td')
-                //id元素存入创建的文本节点
-                idElement.appendChild(document.createTextNode(id++))
-                //创建td元素
-                let skuElement = document.createElement('td')
-                //id元素存入创建的文本节点
-                skuElement.appendChild(document.createTextNode(element.sku))
-                //创建td元素
-                let nameElement = document.createElement('td')
-                //id元素存入创建的文本节点
-                nameElement.appendChild(document.createTextNode(element.name))
-                //创建td元素
-                let priceElement = document.createElement('td')
-                //id元素存入创建的文本节点
-                priceElement.appendChild(document.createTextNode(element.price))
-                //创建tr元素id元素-id元素
-                let trElement = document.createElement('tr')
-                //tr元素存入多个td子元素
-                trElement.appendChild(idElement)
-                trElement.appendChild(skuElement)
-                trElement.appendChild(nameElement)
-                trElement.appendChild(priceElement)
-                //获取随机数
-                let num = getRandomInt(0, cssarray.length - 1)
-                //类名方式操作css（更改类名）
-                trElement.className = cssarray[num]
-                //tbody元素存入trElement子元素
-                tbodyElement.appendChild(trElement)
-
-
-
-            });
-            //定义变量（用户记录属性）
-            let str;
-            //定义函数
-            function fun(event) {
-                console.log(event);
-                //获取当前元素的标签名
-                if (event.target.tagName === `TD`) {
-                    // 获取当前元素的父类元素
-                    let trElement = event.target.parentElement;
-                    //获取元素的属性值 赋值给变量
-                    str = trElement.className;
-                    //删除的属性值
-                    trElement.classList.remove(str)
-                    //添加属性值
-                    trElement.classList.add(`discount-0`)
+                    td += `<td>${item[key]}</td>`
                 }
-            }
-            //通过查询选择器获取元素（父类添加鼠标悬停监听事件，子类元素冒泡，事件冒泡是false 子类→父类→超类必须是同名事件）
-            tbodyElement.addEventListener(`mouseover`, fun)
-            //通过查询选择器获取元素（父类添加鼠标离开监听事件，子类元素冒泡，事件冒泡是false 子类→父类→超类必须是同名事件）
-            tbodyElement.addEventListener('mouseout', function (event) {
-                //获取当前元素的父类元素
-                let trElement = event.target.parentElement;
-                //删除的属性值
-                trElement.classList.remove(`discount-0`)
-                //添加属性值
-                trElement.classList.add(str)
-
+              
+                // 返回字符串给数组
+                return `<tr>${td}</tr>`//
             })
+            // 渲染页面 nerwphones.join("")对象转字符串
+            tbodyElement.innerHTML = newarrayObject.join("")
+
 
         }
     </SCript>
@@ -232,7 +187,7 @@
                         <input type="text">
                         <!-- 头部 -搜索区 按钮 -->
                         <button class="search"></button>
-                       
+
                     </div>
 
                 </div>
@@ -257,25 +212,36 @@
     <div class="main-content">
         <!-- 版心 -->
         <div class="container clear-both">
+            <div class="navigation">
+                <a href="" data-class="1">首页</a>
+                <a href="" data-class="2">淘神价</a>
+                <a href="" data-class="3">报价</a>
+
+            </div>
+            <div class="containerAll">
+                <div class="front"></div>
+                <div class="monitor">
+                    <table>
+                        <caption>标题</caption>
+                        <!-- 标表头 -->
+                        <tr>
+                            <th>序号</th>
+                            <th>ID</th>
+                            <th>商品名称</th>
+                            <th>现价</th>
+                        </tr>
+                        <tbody class="tbody">
+                            <!-- <tr></tr> -->
 
 
-            <table>
+                        </tbody>
 
-                <caption>标题</caption>
-                <!-- 标表头 -->
-                <tr>
-                    <th>序号</th>
-                    <th>ID</th>
-                    <th>商品名称</th>
-                    <th>现价</th>
-                </tr>
-                <tbody class="tbody">
-                    <!-- <tr></tr> -->
+                    </table>
 
+                </div>
+                <div class="quote"></div>
 
-                </tbody>
-
-            </table>
+            </div>
 
 
 
