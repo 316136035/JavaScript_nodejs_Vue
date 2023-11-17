@@ -231,7 +231,11 @@
 
       }
         //定义对象存放本地存储的方法
-      const local_storage{
+      const local_storage={
+        getSelection(e){
+          return localStorage.getItem('username')
+        },
+        
         
       }  
       //用户名验证（鼠标离开时验证事件）调用verify对象中的方法
