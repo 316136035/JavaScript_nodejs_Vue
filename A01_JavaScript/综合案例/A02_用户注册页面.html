@@ -119,7 +119,7 @@
       const confirm_password_Eelement = document.querySelector('#confirm_password');
       const phone_number_Eelement = document.querySelector('#phone_number');
       const sms_code_Eelement = document.querySelector('#sms_code');
-      const consent_Eelement = document.querySelector('#consent'); 
+      const consent_Eelement = document.querySelector('#consent');
       const submit_Eelement = document.querySelector('[type="submit"]');
       const get_code_Eelement = document.querySelector('.get_code');
       // 点击获取验证码定义变量（避免点击多次）
@@ -130,16 +130,19 @@
         username_verify: () => {
           let username = username_Eelement.value;//获取用户名
           regExp = /^[a-z 0-9_]{8,16}$/i;//正则表达式
-          //判断用户名是否符合正则表达式
-          if (!regExp.test(username)) {
+          //1.判断用户名是否符合正则表达式 2.判断用户名是否已经存在
+          if (regExp.test(username) && localStorage.getItem(`${username}`) === null) {
+            console.log(localStorage.getItem(`${username}`) === null);
+            username_Eelement.nextElementSibling.innerText = '用户名可用！';// 1.获取容器元素的下一个元素2.给密码添加提示信息
+            username_Eelement.nextElementSibling.className = `correct`;//通过类名添加样式
+
+            return true
+          } else {
             //用户名不符合正则表达式
             username_Eelement.nextElementSibling.innerText = '用户名只能由数字、字母、下划线组成，且长度在8-16之间';// 1.获取容器元素的下一个元素2.给密码添加提示信息
             username_Eelement.nextElementSibling.className = `error`;//通过类名添加样式
+
             return false
-          } else {
-            username_Eelement.nextElementSibling.innerText = '用户名可用！';// 1.获取容器元素的下一个元素2.给密码添加提示信息
-            username_Eelement.nextElementSibling.className = `correct`;//通过类名添加样式
-            return true
           }
 
         },
@@ -230,14 +233,14 @@
 
 
       }
-        //定义对象存放本地存储的方法
-      const local_storage={
-        getSelection(e){
-          return localStorage.getItem('username')
+      //定义对象存放本地存储的方法
+      const local_storage = {
+        getSelection: (e) => {
+          return localStorage.getItem('username') === e.e
         },
-        
-        
-      }  
+
+
+      }
       //用户名验证（鼠标离开时验证事件）调用verify对象中的方法
       username_Eelement.addEventListener('change', verify.username_verify);
       //密码验证（鼠标离开时验证事件）调用verify对象中的方法
@@ -249,19 +252,21 @@
       //短信验证码验证（鼠标离开时验证事件）调用verify对象中的方法
       sms_code_Eelement.addEventListener('change', verify.sms_code_verify);
       //获取验证码按钮（鼠标离开时验证事件 传入事件对象 调用verify对象中的方法）
-      get_code_Eelement.addEventListener('click',  (e)=> { verify.get_code(e) })
+      get_code_Eelement.addEventListener('click', (e) => { verify.get_code(e) })
       form_Eelement.addEventListener('submit', function (e) {
         //判断是否满足验证条件
-        if (!(verify.username_verify() && verify.password_verify() && verify.confirm_password_verify() && verify.phone_number_verify() && verify.sms_code_verify()&&consent_Eelement.checked)) {
+        if (!(verify.username_verify() && verify.password_verify() && verify.confirm_password_verify() && verify.phone_number_verify() && verify.sms_code_verify() && consent_Eelement.checked)) {
           e.preventDefault();
           alert('注册失败');
-        }else {
+        } else {
+        localStorage.setItem('username', username_Eelement.value);
           alert('注册成功');
+          location.href = 'A02_用户注册页面.html';
         }
 
       })
 
- 
+
     };
 
 
