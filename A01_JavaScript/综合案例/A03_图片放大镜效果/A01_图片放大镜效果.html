@@ -32,21 +32,34 @@
         .main_content_left {
             width: 400px;
             background-color: rgb(139, 84, 84);
+            margin: 20px;
+
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        /* 中盒子 */
+        .main_content_left_img_middle {
+            /* 开启定位 */
             position: relative;
         }
 
-        /* 设置图片的放大镜效果 middle 中的图面*/
-        .main_content_left_img_middle {
-            width: 400px;
-            height: 400px;
-
-        }
 
         /* 设置图片的放大镜效果 middle 中图片 */
         .main_content_left_img_middle>img {
             width: 400px;
             height: 400px;
+            border: 1px solid red;
 
+        }
+        /* 遮罩盒子 */
+        .mask_box {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(244, 4, 4, 0.305);
+            position: absolute;
+            /* 绝对定位左边50px */
+            left: 0px;
+            top: 0px;
         }
 
         /* 设置图片的放大镜效果 middle 小的图面*/
@@ -98,15 +111,18 @@
             （参考的是包含块，没有脱离文档流的元素，父元素就是包含块，对应脱离文档流的元素，第一个开启定位的祖先元素，就是包含块） */
             position: absolute;
             /* 绝对定位左边50px */
-            left: 400px;
-            top: 0px;
+            left: 420px;
+            top: 20px;
             background-color: #b91127;
+            /*影藏元素 */
             display: none;
             /* 背景图片不重复 */
             background-repeat: no-repeat;
             /* 背景 宽度/高度*/
             background-size: 800px 800px;
 
+            background-image: url("../../resources静态资源/img/健康清洁1.jpg");
+            border: 1px solid green;
 
         }
     </style>
@@ -118,19 +134,17 @@
 
         // 页面加载完成后执行
         window.onload = function () {
-            // 1. 获取图片的放大镜效果 中图片
-            const middle_Element = document.querySelector(`.main_content_left_img_middle`)
-            // 2. 获取图片的放大镜效果 小图片
+            // 1. 中图片
+            const middle_Element = document.querySelector(`.main_content_left_img_middle`);
+            // 2. 小图片
             const small_Element = document.querySelector('.main_content_left_img_small');
-            // 3. 获取图片的放大镜效果 大图片
+            // 3.  大图片
             big_Element = document.querySelector('.big');
-            /*  鼠标经过事件
-                mouseenter不能穿透
-                mouseover可以穿透*/
+            /*  小图片鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
             small_Element.addEventListener(`mouseover`, function (e) {
                 if (e.target.tagName === 'IMG') { mouseenter_small(e) }
             });
-            // 3. 设置图片的放大镜效果 小图片的鼠标经过事件
+            //小图片的鼠标经过事件
             function mouseenter_small(e) {
                 small_Element.querySelector('.active').classList.remove('active');// 移除active类
                 e.target.parentNode.classList.add('active');// 添加active类
@@ -139,20 +153,18 @@
             }
 
 
-            let Timeid = null;
-            //  中图片的鼠标经过事件
-            middle_Element.querySelector('img').addEventListener(`mouseenter`, function (e) {
-
-                mouseente_middle(e);
+            //  中图片鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
+            middle_Element.addEventListener(`mouseover`, function (e) {
+                mouseente_middle(e);//
 
 
             });
-            //     中图片的鼠标离开事件
-            middle_Element.querySelector('img').addEventListener(`mouseleave`, function (e) {
+            //中图片的鼠标离开事件
+            middle_Element.addEventListener(`mouseleave`, function (e) {
                 mouseleave_middle(e)
 
             });
-            // 大图片的鼠标经过事件
+            // 大图片图片鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
             big_Element.addEventListener(`mouseenter`, function (e) {
 
                 mouseente_middle(e);
@@ -160,23 +172,21 @@
 
 
             });
-            //     中图片的鼠标离开事件
+            // 中图片的鼠标离开事件
             big_Element.addEventListener(`mouseleave`, function (e) {
                 mouseleave_middle(e)
 
             });
 
-
+            //中图片和大图片共用方法
             function mouseente_middle(e) {
-                console.log('进入', e.target.tagName);
                 big_Element.style.display = 'block';
 
             }
+            //中图片和大图片共用方法
             function mouseleave_middle(e) {
-                console.log('离开', e.target.tagName);
-                // const Timeid = setTimeout(() => {
                 big_Element.style.display = 'none';
-                // }, 1000);
+
 
             }
 
@@ -198,6 +208,7 @@
                 <!-- 设置图片的放大镜效果 中图片 -->
                 <div class="main_content_left_img_middle">
                     <img src="../../resources静态资源/img/健康清洁1.jpg" alt="">
+                    <div class="mask_box"></div>
                 </div>
 
                 <!-- 设置图片的放大镜效果 小图片 -->
@@ -227,7 +238,7 @@
                     </ul>
 
                 </div>
-                <div class="big" background-image="url(../../resources静态资源/img/健康清洁1.jpg)"> </div>
+                <div class="big"> </div>
             </div>
 
         </div>
