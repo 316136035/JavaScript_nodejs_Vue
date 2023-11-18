@@ -140,6 +140,8 @@
             const small_Element = document.querySelector('.main_content_left_img_small');
             // 3.  大图片
             big_Element = document.querySelector('.big');
+          
+            
             /*  小图片鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
             small_Element.addEventListener(`mouseover`, function (e) {
                 if (e.target.tagName === 'IMG') { mouseenter_small(e) }
@@ -189,6 +191,7 @@
 
 
             }
+
 
 
 
