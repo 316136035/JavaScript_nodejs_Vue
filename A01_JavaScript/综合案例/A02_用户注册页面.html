@@ -257,12 +257,11 @@
       form_Eelement.addEventListener('submit', function (e) {
         //判断是否满足验证条件
         if (!(verify.username_verify() && verify.password_verify() && verify.confirm_password_verify() && verify.phone_number_verify() && verify.sms_code_verify() && consent_Eelement.checked)) {
-          e.preventDefault();
+          e.preventDefault();//阻止表单默认事件
           alert('注册失败');
         } else {
           localStorage.setItem('username', username_Eelement.value);
-          e.preventDefault();
-          alert('OK');
+          e.preventDefault();//阻止表单默认事件
           location.href = './A04_主页.html';
         }
 
