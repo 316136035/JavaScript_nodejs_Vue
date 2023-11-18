@@ -253,15 +253,17 @@
       sms_code_Eelement.addEventListener('change', verify.sms_code_verify);
       //获取验证码按钮（鼠标离开时验证事件 传入事件对象 调用verify对象中的方法）
       get_code_Eelement.addEventListener('click', (e) => { verify.get_code(e) })
+
       form_Eelement.addEventListener('submit', function (e) {
         //判断是否满足验证条件
         if (!(verify.username_verify() && verify.password_verify() && verify.confirm_password_verify() && verify.phone_number_verify() && verify.sms_code_verify() && consent_Eelement.checked)) {
           e.preventDefault();
           alert('注册失败');
         } else {
-        localStorage.setItem('username', username_Eelement.value);
-          alert('注册成功');
-          location.href = 'A02_用户注册页面.html';
+          localStorage.setItem('username', username_Eelement.value);
+          e.preventDefault();
+          alert('OK');
+          location.href = './A04_主页.html';
         }
 
       })
