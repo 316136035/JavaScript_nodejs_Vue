@@ -19,7 +19,7 @@
     <meta name="description" content="网页描述文字">
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A06_底部</title>
+    <title>淘神价主页</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../resources静态资源/img/网站图标.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -33,8 +33,7 @@
     <script type="text/javascript">
 
         window.onload = function () {
-          
-
+            // 定义一个数组
             let arrayObject = [
                 { sku: 100027606896, name: `老板（Robam) 抽油烟机探索家D3S家用油烟机三面拢烟变频烟机燃气灶烟灶套装23风量吸油烟机28D3S套装`, price: 4299 },
                 { sku: 100023781630, name: `老板（Robam）抽油烟机领航家D1S欧式顶吸双腔变频22大风量家用燃气灶吸油烟机灶具套装60D1S套装天然气`, price: 3999 },
@@ -107,30 +106,44 @@
                 { sku: 100021565685, name: `老板（Robam）WB780DH 10套大容量嵌入式洗碗洗锅机热风烘干消杀长效循环存储一体机家用中式搁架快速洗`, price: 3299 },
                 { sku: 100014816111, name: `老板（Robam）JZT-57B6D家用燃气灶天然气灶双灶嵌入式 5.2kW大火力猛火灶易打理可调节底盘灶具灶台换灶选老板`, price: 2099 },
                 { sku: 100066733298, name: `老板（Robam) 抽油烟机探索家D3S家用油烟机三面拢烟变频烟机燃气灶烟灶套装23风量吸油烟机28D3S套装`, price: 6399 }];
+            const login_register_Element = document.querySelector('.login-register')//获取登录注册元素
+            function rendering_login() {//渲染登录注册方法
+                if (localStorage.getItem('taoshenjia') !== null) {//1.获取本地存储的taoshenjia 2.判断是否有值
+                    let taoshenjia = JSON.parse(localStorage.getItem('taoshenjia'))//字符串转对象
+                    ////渲染登录注册元素
+                    document.querySelector('.login-register').innerHTML = ` <a href="#">${taoshenjia.username}</a><a href="#">退出登录</a>>` 
+                } else {
+                    return false
+                }
+            }
 
-         
-            //定义变量（用户id）
-            let id = 1;
+            rendering_login();
+            const login_register_last_Element = document.querySelector('.login-register :last-child')//获取登录注册元素最后一个元素
+            login_register_last_Element.addEventListener('click', function () {//点击退出登录事件
+                localStorage.removeItem('taoshenjia')//删除本地存储的taoshenjia
+                location.href = './A04_主页.html'//跳转到登录页面
+            })
+
             //通过查询选择器获取元素
             const tbodyElement = document.querySelector('.monitor .tbody');
+            //渲染表单页面的方法
+            function rendering_table() {
+                //遍历数组  
+                let newarrayObject = arrayObject.map(function (item, i) {
+                    let td = ``
+                    td += `<td>${i + 1}</td>`//序号
+                    for (let key in item) {//遍历对象
+                        //拼接字符串
+                        td += `<td>${item[key]}</td>`
+                    }
+                    // 返回字符串给数组
+                    return `<tr>${td}</tr>`//
+                })
+                // 渲染页面 nerwphones.join("")对象转字符串
+                tbodyElement.innerHTML = newarrayObject.join("")
+            }
+            rendering_table();//渲染表单页面
 
-            //遍历数组  
-            let newarrayObject = arrayObject.map(function (item, i) {
-                console.log(item);
-                let td = ``
-                
-                td += `<td>${i}</td>`
-                for (let key in item) {
-                    //拼接字符串
-
-                    td += `<td>${item[key]}</td>`
-                }
-              
-                // 返回字符串给数组
-                return `<tr>${td}</tr>`//
-            })
-            // 渲染页面 nerwphones.join("")对象转字符串
-            tbodyElement.innerHTML = newarrayObject.join("")
 
 
         }

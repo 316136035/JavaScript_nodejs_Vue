@@ -263,10 +263,10 @@
 
       }
       // 监听输入框的值 调用验证方法
-      password_Eelement.addEventListener('change',  password_verify)
+      password_Eelement.addEventListener('change', password_verify)
       function password_verify(e) {
         regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?.&]{8,16}$/;//正则表达式
-        if (!regExp.test( password_Eelement.value)) {//正则表达式验证
+        if (!regExp.test(password_Eelement.value)) {//正则表达式验证
           password_Eelement.nextElementSibling.innerHTML = '密码必须包含大小写字母,数字和特殊字符,且长度在8-16之间';//1.获取元素的下一个兄弟元素2.设置内容3.设置颜色
           password_Eelement.nextElementSibling.style.color = 'red';//3.设置颜色
           return false
@@ -277,14 +277,27 @@
         }
       }
       // 监听登录按钮的点击事件 调用验证方法
-      account_form_Eelement.addEventListener('submit', (e)=>{ login_verify(e)} )
+      account_form_Eelement.addEventListener('submit', (e) => { login_verify(e) })
       function login_verify(e) {
-        e.preventDefault()
-        console.log(username_verify() , password_verify(),checkbox_Eelement.checked);
-        if (username_verify() && password_verify() && checkbox_Eelement.checked) {
+        e.preventDefault()//阻止默认事件
+
+
+        if (username_verify() && password_verify() && checkbox_Eelement.checked
+          && username_Eelement.value == 'QQ316136035' && password_Eelement.value == 'Dog34994963.') {
+
           alert('登录成功')
-        } else { 
-         alert('登录失败') }
+          e.preventDefault();//阻止表单默认事件
+          //获取表单数据作为对象
+          const taoshenjia = {
+            username: username_Eelement.value,
+            password: password_Eelement.value
+          }
+          //将对象存储到本地 localStorage.setItem('key',value) 2.对象转字符串JSON.stringify(taoshenjia)
+          localStorage.setItem('taoshenjia', JSON.stringify(taoshenjia));
+          location.href = './A04_主页.html';    //跳转到主页
+        } else {
+          alert('登录失败')
+        }
 
       }
     }
