@@ -260,9 +260,16 @@
           e.preventDefault();//阻止表单默认事件
           alert('注册失败');
         } else {
-          localStorage.setItem('username', username_Eelement.value);
           e.preventDefault();//阻止表单默认事件
-          location.href = './A04_主页.html';
+          //获取表单数据作为对象
+          const taoshenjia = {
+            username: username_Eelement.value,
+            password: password_Eelement.value,
+            phone_number: phone_number_Eelement.value,
+          }
+          //将对象存储到本地 localStorage.setItem('key',value) 2.对象转字符串JSON.stringify(taoshenjia)
+          localStorage.setItem('taoshenjia', JSON.stringify(taoshenjia));
+          location.href = './A04_主页.html';    //跳转到主页
         }
 
       })
