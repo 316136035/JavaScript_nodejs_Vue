@@ -111,9 +111,9 @@
                 if (localStorage.getItem('taoshenjia') !== null) {//1.获取本地存储的taoshenjia 2.判断是否有值
                     let taoshenjia = JSON.parse(localStorage.getItem('taoshenjia'))//字符串转对象
                     ////渲染登录注册元素
-                    document.querySelector('.login-register').innerHTML = ` <a href="#">${taoshenjia.username}</a><a href="#">退出登录</a>>`
+                    login_register_Element.innerHTML = ` <a href="#">${taoshenjia.username}</a><a href="#">退出登录</a>>`
                 } else {
-                     document.querySelector('.login-register').innerHTML = `<a href="./A03_登录页面.html">登录</a><a href="./A02_注册页面.html">注册</a>`
+                    login_register_Element.innerHTML = `<a href="./A03_登录页面.html">登录</a><a href="./A02_注册页面.html">注册</a>`
                 }
             }
             rendering_login();//渲染登录注册方法
@@ -121,7 +121,7 @@
             const login_register_last_Element = document.querySelector('.login-register :last-child')//获取登录注册元素最后一个元素
             login_register_last_Element.addEventListener('click', function () {//点击退出登录事件
                 localStorage.removeItem('taoshenjia')//删除本地存储的taoshenjia
-                document.querySelector('.login-register').innerHTML = `<a href="./A03_登录页面.html">登录</a><a href="./A02_注册页面.html">注册</a>`
+                login_register_Element.innerHTML = `<a href="./A03_登录页面.html">登录</a><a href="./A02_注册页面.html">注册</a>`
       
             })
 
