@@ -1,0 +1,188 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A01_图片放大镜效果</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        /* 设置图片的放大镜效果 */
+        .main_content_left {
+            width: 350px;
+            background-color: rgb(139, 84, 84);
+            position: relative;
+        }
+
+        /* 设置图片的放大镜效果 middle 中的图面*/
+        .main_content_left_img_middle {
+            width: 350px;
+            height: 350px;
+
+        }
+
+        .main_content_left_img_middle>img {
+            width: 350px;
+            height: 350px;
+
+        }
+
+        /* 设置图片的放大镜效果 middle 小的图面*/
+        .main_content_left_img_small>ul {
+            background-color: #11b989;
+            width: 350px;
+            /* 开启flex布局 */
+            display: flex;
+            /* 主轴的方向：
+                row  水平正常方向 左→右 （默认）
+                row-reverse 水平反转 右→左  */
+            flex-direction: row;
+            /* flex布局 侧轴对齐方式-单行方式_align-items */
+            align-items: center;
+            /* display隐藏元素不占位  */
+            overflow: auto;
+
+
+
+        }
+
+        .main_content_left_img_small>li>ul>img {
+            width: 350px;
+            height: 350px;
+            border: #11b989;
+        }
+
+        .main_content_left_img_small>ul>li>img {
+            width: 58px;
+            height: 58px;
+
+
+        }
+
+        .active {
+            border: #b91127 5px solid;
+        }
+
+        .big {
+
+            width: 500px;
+            height: 500px;
+            /* 开启绝对定位 (左右/上下并不能一起使用但可以可以特殊使用)*
+            （参考的是包含块，没有脱离文档流的元素，父元素就是包含块，对应脱离文档流的元素，第一个开启定位的祖先元素，就是包含块） */
+            position: absolute;
+            /* 绝对定位左边50px */
+            left: 350px;
+            top: 0px;
+            background-color: #b91127;
+            display: none;
+
+        }
+    </style>
+</head>
+
+
+<body>
+    <script type="text/javascript">
+
+        // 页面加载完成后执行
+        window.onload = function () {
+            // 1. 获取图片的放大镜效果 中图片
+            const middle_Element = document.querySelector(`.main_content_left_img_middle`)
+            // 2. 获取图片的放大镜效果 小图片
+            const small_Element = document.querySelector('.main_content_left_img_small');
+            /*  mouseenter不能穿透
+                mouseover可以穿透*/
+            small_Element.addEventListener(`mouseover`, function (e) {
+                if (e.target.tagName === 'IMG') { mouseenter_small(e) }
+            });
+            function mouseenter_small(e) {
+                small_Element.querySelector('.active').classList.remove('active');// 移除active类
+                e.target.parentNode.classList.add('active');// 添加active类
+                middle_Element.children[0].src = e.target.src;// 中图片设置小图片的src
+            }
+            middle_Element.addEventListener(`mouseover`, function (e) {
+                if (e.target.tagName === 'IMG') { 
+                    console.log(e.target);
+                  }
+            });
+          
+
+        }
+
+
+
+
+
+    </script>
+    <div>
+        <div class="container">
+            <div class="main_content_left">
+                <!-- 设置图片的放大镜效果 中图片 -->
+                <div class="main_content_left_img_middle">
+                    <img src="../../resources静态资源/img/健康清洁1.jpg" alt="">
+                </div>
+
+                <!-- 设置图片的放大镜效果 小图片 -->
+                <div class="main_content_left_img_small">
+                    <ul>
+                        <li>
+                            <img src="../../resources静态资源/img/健康清洁1.jpg" class="active" alt="">
+                        </li>
+                        <li>
+                            <img src="../../resources静态资源/img/健康清洁2.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="../../resources静态资源/img/健康清洁3.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="../../resources静态资源/img/健康清洁4.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../resources静态资源/img/办公环境1.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="../../resources静态资源/img/办公环境2.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="../../resources静态资源/img/办公设备3.png" alt="">
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="big"> big</div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
