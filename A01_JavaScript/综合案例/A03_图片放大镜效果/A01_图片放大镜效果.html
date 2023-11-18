@@ -51,7 +51,6 @@
             border: 1px solid red;
 
         }
-
         /* 遮罩盒子 */
         .mask_box {
             width: 200px;
@@ -135,15 +134,15 @@
 
         // 页面加载完成后执行
         window.onload = function () {
-            //
+            // 1. 中图片
             const middle_Element = document.querySelector(`.main_content_left_img_middle`);
             // 2. 小图片
             const small_Element = document.querySelector('.main_content_left_img_small');
             // 3.  大图片
             big_Element = document.querySelector('.big');
-
-
-
+            
+          
+            
             /*  小图片鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
             small_Element.addEventListener(`mouseover`, function (e) {
                 if (e.target.tagName === 'IMG') { mouseenter_small(e) }
