@@ -33,7 +33,7 @@
     <script type="text/javascript">
 
         window.onload = function () {
-            const cssarray = ['discount-1', 'discount-2', 'discount-3', 'discount-4', 'discount-5', 'discount-6', 'discount-7', 'discount-8', 'discount-9', 'discount-10'];
+          
 
             let arrayObject = [
                 { sku: 100027606896, name: `老板（Robam) 抽油烟机探索家D3S家用油烟机三面拢烟变频烟机燃气灶烟灶套装23风量吸油烟机28D3S套装`, price: 4299 },
@@ -108,15 +108,7 @@
                 { sku: 100014816111, name: `老板（Robam）JZT-57B6D家用燃气灶天然气灶双灶嵌入式 5.2kW大火力猛火灶易打理可调节底盘灶具灶台换灶选老板`, price: 2099 },
                 { sku: 100066733298, name: `老板（Robam) 抽油烟机探索家D3S家用油烟机三面拢烟变频烟机燃气灶烟灶套装23风量吸油烟机28D3S套装`, price: 6399 }];
 
-            // 生成指定范围内的随机整数
-            function getRandomInt(min, max) {
-                //上升一位 向上取整
-                min = Math.ceil(min);
-                //下降一位 向下取整
-                max = Math.floor(max);//下降一位 向下取整
-                //随机无穷的小数*（最大值-最小值+1）+最小值 再向下取整
-                return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
+         
             //定义变量（用户id）
             let id = 1;
             //通过查询选择器获取元素
