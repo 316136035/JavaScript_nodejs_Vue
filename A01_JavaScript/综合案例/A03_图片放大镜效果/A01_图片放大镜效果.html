@@ -42,6 +42,7 @@
 
         }
 
+        /* 设置图片的放大镜效果 middle 中图片 */
         .main_content_left_img_middle>img {
             width: 350px;
             height: 350px;
@@ -67,12 +68,14 @@
 
         }
 
+        /* 设置图片的放大镜效果 middle 小的图面 */
         .main_content_left_img_small>li>ul>img {
             width: 350px;
             height: 350px;
             border: #11b989;
         }
 
+        /* 设置图片的放大镜效果 middle 小的图面 */
         .main_content_left_img_small>ul>li>img {
             width: 58px;
             height: 58px;
@@ -80,12 +83,13 @@
 
         }
 
+        /* 设置图片的放大镜效果 middle 小的图面 */
         .active {
             border: #b91127 5px solid;
         }
 
+        /* 设置图片的放大镜效果 middle 大的图面 */
         .big {
-
             width: 500px;
             height: 500px;
             /* 开启绝对定位 (左右/上下并不能一起使用但可以可以特殊使用)*
@@ -111,24 +115,53 @@
             const middle_Element = document.querySelector(`.main_content_left_img_middle`)
             // 2. 获取图片的放大镜效果 小图片
             const small_Element = document.querySelector('.main_content_left_img_small');
-            /*  mouseenter不能穿透
+            /*  鼠标经过事件
+                mouseenter不能穿透
                 mouseover可以穿透*/
             small_Element.addEventListener(`mouseover`, function (e) {
                 if (e.target.tagName === 'IMG') { mouseenter_small(e) }
             });
+            // 3. 设置图片的放大镜效果 小图片的鼠标经过事件
             function mouseenter_small(e) {
                 small_Element.querySelector('.active').classList.remove('active');// 移除active类
                 e.target.parentNode.classList.add('active');// 添加active类
                 middle_Element.children[0].src = e.target.src;// 中图片设置小图片的src
             }
+
+            // 3. 获取图片的放大镜效果 大图片
+            big_Element = document.querySelector('.big');
+            let Timeid = null;
+            // 4. 设置图片的放大镜效果 中图片的鼠标经过事件
             middle_Element.addEventListener(`mouseover`, function (e) {
-                if (e.target.tagName === 'IMG') { 
-                    console.log(e.target);
-                  }
+                if (e.target.tagName === 'IMG') {
+                    clearTimeout(Timeid);
+                    mouseover_middle(e);
+
+                }
+            });
+            function mouseover_middle(e) {
+                big_Element.style.display = 'block';
+
+            }
+
+            // 5. 设置图片的放大镜效果 大图片的鼠标离开事件
+            middle_Element.addEventListener(`mouseout`, function (e) {
+                if (e.target.tagName === 'IMG') {
+                    mouseout_middle(e)
+                }
             });
 
-            A
-          
+
+            function mouseout_middle(e) {
+                const Timeid = setTimeout(() => {
+                    big_Element.style.display = 'none';
+                }, 2000);
+
+            }
+
+
+
+
 
         }
 
