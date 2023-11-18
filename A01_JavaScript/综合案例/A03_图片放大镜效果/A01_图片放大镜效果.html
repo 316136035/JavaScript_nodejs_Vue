@@ -90,8 +90,10 @@
 
         /* 设置图片的放大镜效果 middle 大的图面 */
         .big {
-            width: 500px;
-            height: 500px;
+            /* 宽度 */
+            width: 400px;
+            /* 高度 */
+            height: 400px;
             /* 开启绝对定位 (左右/上下并不能一起使用但可以可以特殊使用)*
             （参考的是包含块，没有脱离文档流的元素，父元素就是包含块，对应脱离文档流的元素，第一个开启定位的祖先元素，就是包含块） */
             position: absolute;
@@ -100,6 +102,11 @@
             top: 0px;
             background-color: #b91127;
             display: none;
+            /* 背景图片不重复 */
+            background-repeat: no-repeat;
+             /* 已宽度/高度的最小值等比例缩放 （最优方案 ）*/
+             background-size: cover;
+
 
         }
     </style>
@@ -115,6 +122,8 @@
             const middle_Element = document.querySelector(`.main_content_left_img_middle`)
             // 2. 获取图片的放大镜效果 小图片
             const small_Element = document.querySelector('.main_content_left_img_small');
+            // 3. 获取图片的放大镜效果 大图片
+              big_Element = document.querySelector('.big');
             /*  鼠标经过事件
                 mouseenter不能穿透
                 mouseover可以穿透*/
@@ -126,38 +135,51 @@
                 small_Element.querySelector('.active').classList.remove('active');// 移除active类
                 e.target.parentNode.classList.add('active');// 添加active类
                 middle_Element.children[0].src = e.target.src;// 中图片设置小图片的src
+                big_Element.style.backgroundImage = `url(${e.target.src})`;
             }
 
-            // 3. 获取图片的放大镜效果 大图片
-            big_Element = document.querySelector('.big');
+          
             let Timeid = null;
-            // 4. 设置图片的放大镜效果 中图片的鼠标经过事件
-            middle_Element.addEventListener(`mouseover`, function (e) {
-                if (e.target.tagName === 'IMG') {
-                    clearTimeout(Timeid);
-                    mouseover_middle(e);
+            //  中图片的鼠标经过事件
+            middle_Element.querySelector('img').addEventListener(`mouseenter`, function (e) {
+          
+                mouseente_middle(e);
 
-                }
+
             });
-            function mouseover_middle(e) {
+            //     中图片的鼠标离开事件
+            middle_Element.querySelector('img').addEventListener(`mouseleave`, function (e) {
+                mouseleave_middle(e)
+
+            });
+              // 大图片的鼠标经过事件
+              big_Element .addEventListener(`mouseenter`, function (e) {
+              
+                mouseente_middle(e);
+
+
+
+            });
+             //     中图片的鼠标离开事件
+             big_Element .addEventListener(`mouseleave`, function (e) {
+                mouseleave_middle(e)
+
+            });
+             
+
+            function mouseente_middle(e) {
+                console.log('进入', e.target.tagName);
                 big_Element.style.display = 'block';
 
             }
-
-            // 5. 设置图片的放大镜效果 大图片的鼠标离开事件
-            middle_Element.addEventListener(`mouseout`, function (e) {
-                if (e.target.tagName === 'IMG') {
-                    mouseout_middle(e)
-                }
-            });
-
-
-            function mouseout_middle(e) {
-                const Timeid = setTimeout(() => {
-                    big_Element.style.display = 'none';
-                }, 2000);
+            function mouseleave_middle(e) {
+                console.log('离开', e.target.tagName);
+                // const Timeid = setTimeout(() => {
+                  big_Element.style.display = 'none';
+                // }, 1000);
 
             }
+
 
 
 
@@ -205,7 +227,7 @@
                     </ul>
 
                 </div>
-                <div class="big"> big</div>
+                <div class="big"> </div>
             </div>
 
         </div>
