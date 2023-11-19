@@ -70,6 +70,7 @@
             /* 绝对定位左边50px */
             left: 0px;
             top: 0px;
+            display: none;
         }
 
         /* 设置图片的放大镜效果 middle 小的图面*/
@@ -135,6 +136,7 @@
             border: 1px solid green;
 
         }
+        /* 右侧容器 */
         .right_container{
             width: 800px;
             height: 1200px;
@@ -156,6 +158,8 @@
             const small_Element = document.querySelector('.main_content_left_img_small');
             // 3.  大图片
             big_Element = document.querySelector('.big');
+            //4.遮罩盒子
+            mask_box_Element = document.querySelector('.mask_box');
 
 
 
@@ -203,6 +207,16 @@
 
 
             }
+
+            //1. 遮罩盒子鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
+            middle_Element.addEventListener('mouseover' ,function(e){
+                mask_box_Element.style.display = 'block';
+            })
+            //2. 遮罩盒子鼠标离开事件mouseenter不能穿透   mouseover可以穿透*/
+            middle_Element.addEventListener('mouseleave' ,function(e){
+                mask_box_Element.style.display = 'none';
+            })
+
 
 
 
