@@ -28,6 +28,15 @@
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <style>
+        .container{
+              /* 开启flex布局 */
+              display: flex;
+            /* 主轴的方向：
+                row  水平正常方向 左→右 （默认）
+                row-reverse 水平反转 右→左  */
+            flex-direction: row;
+
+        }
         /* 设置图片的放大镜效果 */
         .main_content_left {
             width: 400px;
@@ -126,6 +135,11 @@
             border: 1px solid green;
 
         }
+        .right_container{
+            width: 800px;
+            height: 1200px;
+            border: 1px solid red;
+        }
     </style>
 </head>
 
@@ -202,8 +216,9 @@
 
 
     </script>
-    <div>
-        <div class="container">
+    <div class="container">
+     
+        <div class="left_container">
             <div class="main_content_left">
                 <!-- 设置图片的放大镜效果 中图片 -->
                 <div class="main_content_left_img_middle">
@@ -243,7 +258,10 @@
 
         </div>
 
+        <div class="right_container">
+            右边盒子
 
+        </div>
 
 
     </div>
