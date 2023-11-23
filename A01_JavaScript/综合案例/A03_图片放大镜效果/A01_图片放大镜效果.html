@@ -61,6 +61,7 @@
             /* 绝对定位左边50px */
             left: 0px;
             top: 0px;
+            display: none;
         }
 
         /* 设置图片的放大镜效果 middle 小的图面*/
@@ -141,6 +142,8 @@
             const small_Element = document.querySelector('.main_content_left_img_small');
             // 3.  大图片
             big_Element = document.querySelector('.big');
+            //4.遮罩盒子
+            mask_box_Element = document.querySelector('.mask_box');
 
 
 
@@ -153,7 +156,7 @@
                 small_Element.querySelector('.active').classList.remove('active');// 移除active类
                 e.target.parentNode.classList.add('active');// 添加active类
                 middle_Element.children[0].src = e.target.src;// 中图片设置小图片的src
-                big_Element.style.backgroundImage = `url(${e.target.src})`;
+                big_Element.style.backgroundImage = `url(${e.target.src})`;// 大图片设置小图片的src
             }
 
 
@@ -172,7 +175,7 @@
             big_Element.addEventListener(`mouseenter`, function (e) {
                 mouseente_middle(e);
             });
-            // 中图片的鼠标离开事件
+            // 大图片的鼠标离开事件
             big_Element.addEventListener(`mouseleave`, function (e) {
                 mouseleave_middle(e)
 
@@ -180,18 +183,24 @@
 
             //中图片和大图片共用方法
             function mouseente_middle(e) {
-                big_Element.style.display = 'block';
-
+                big_Element.style.display = 'block';// 显示大图片
+                mask_box_Element.style.display = 'block';// 显示遮罩盒子
             }
             //中图片和大图片共用方法
             function mouseleave_middle(e) {
-                big_Element.style.display = 'none';
-
-
+                big_Element.style.display = 'none';;// 显示大图片
+                mask_box_Element.style.display = 'none';// 显示遮罩盒子
             }
 
 
+            //下面是处理“遮罩盒子”的事件
+            //  中图片鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
+            middle_Element.addEventListener(`mouseover`, function (e) {
+                
 
+            });
+
+           
 
 
 
