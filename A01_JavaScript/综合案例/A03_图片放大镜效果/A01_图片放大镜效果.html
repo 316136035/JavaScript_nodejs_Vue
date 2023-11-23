@@ -28,6 +28,15 @@
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <style>
+        .container{
+              /* 开启flex布局 */
+              display: flex;
+            /* 主轴的方向：
+                row  水平正常方向 左→右 （默认）
+                row-reverse 水平反转 右→左  */
+            flex-direction: row;
+
+        }
         /* 设置图片的放大镜效果 */
         .main_content_left {
             width: 400px;
@@ -61,6 +70,7 @@
             /* 绝对定位左边50px */
             left: 0px;
             top: 0px;
+            display: none;
             display: none;
         }
 
@@ -127,6 +137,13 @@
             border: 1px solid green;
 
         }
+        /* 右侧容器 */
+        .right_container{
+            width: 800px;
+            height: 1200px;
+            border: 1px solid red;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -175,30 +192,23 @@
             big_Element.addEventListener(`mouseenter`, function (e) {
                 mouseente_middle(e);
             });
-            // 大图片的鼠标离开事件
+            // 中图片的鼠标离开事件
             big_Element.addEventListener(`mouseleave`, function (e) {
-                mouseleave_middle(e)
-
+                //
             });
 
             //中图片和大图片共用方法
             function mouseente_middle(e) {
-                big_Element.style.display = 'block';// 显示大图片
-                mask_box_Element.style.display = 'block';// 显示遮罩盒子
+                big_Element.style.display = 'block';
+
             }
             //中图片和大图片共用方法
             function mouseleave_middle(e) {
-                big_Element.style.display = 'none';;// 显示大图片
-                mask_box_Element.style.display = 'none';// 显示遮罩盒子
+                big_Element.style.display = 'none';
+
+
             }
 
-
-            //下面是处理“遮罩盒子”的事件
-            //  中图片鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
-            middle_Element.addEventListener(`mouseover`, function (e) {
-                
-
-            });
 
            
 
@@ -212,8 +222,9 @@
 
 
     </script>
-    <div>
-        <div class="container">
+    <div class="container">
+     
+        <div class="left_container">
             <div class="main_content_left">
                 <!-- 设置图片的放大镜效果 中图片 -->
                 <div class="main_content_left_img_middle">
@@ -253,7 +264,10 @@
 
         </div>
 
+        <div class="right_container">
+            右边盒子
 
+        </div>
 
 
     </div>
