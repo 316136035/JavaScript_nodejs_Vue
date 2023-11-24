@@ -74,8 +74,8 @@
         .main_content_left_img_middle {
             /* 开启定位 */
             position: relative;
-             /* 鼠标拖动样式-实际拖动用js实现 */
-             cursor:grabbing;
+            /* 鼠标拖动样式-实际拖动用js实现 */
+            cursor: grabbing;
         }
 
 
@@ -207,7 +207,7 @@
             //  中图片鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
             middle_Element.addEventListener(`mouseover`, function (e) {
                 mouseente_middle(e);
-               
+
                 mask_box_Element.style.display = 'block';// 遮罩盒子显示
             });
             //中图片的鼠标离开事件
@@ -244,19 +244,17 @@
                 //获取元素在视口中的位置对象
                 const BoundingClientxy = middle_Element.getBoundingClientRect()
                 // console.log('获取元素在视口中的位置对象', BoundingClientxy);
-                console.log('获取元素在视口中的坐标X', BoundingClientxy.x);
-                console.log('获取元素在视口中的坐标y', BoundingClientxy.y);
-                console.log('获取鼠标在视口中的坐标X：', e.pageX);
-                console.log('获取鼠标在视口中的坐标y：', e.pageY);
+                // console.log('获取元素在视口中的坐标X', BoundingClientxy.x);
+                // console.log('获取元素在视口中的坐标y', BoundingClientxy.y);
+                // console.log('获取鼠标在视口中的坐标X：', e.pageX);
+                // console.log('获取鼠标在视口中的坐标y：', e.pageY);
                 //鼠标在视口中的坐标-元素在视口中的坐标=鼠标在元素中的坐标
                 let x = e.pageX - BoundingClientxy.x// 鼠标在元素中的坐标X
                 //鼠标在视口中的坐标-元素在视口中的坐标-获取html页面并获取被卷去的头部=鼠标在元素中的坐标
                 let y = e.pageY - BoundingClientxy.y - document.documentElement.scrollTop// 鼠标在元素中的坐标Y
 
-
-
-                console.log('**：', middle_Element.offsetWidth - mask_box_Element.offsetWidth);
-                if (x > 0 && x < middle_Element.offsetWidth - mask_box_Element.offsetWidth) {
+                if (x > 0 && x < 400 && y > 0 && y < 400) {
+                    console.log('鼠标在元素中的坐标', x, y);
                     mask_box_Element.style.left = x + 'px'
                     mask_box_Element.style.top = y + 'px'
                 }
