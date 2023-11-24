@@ -181,32 +181,35 @@
 
             //  中图片鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
             middle_Element.addEventListener(`mouseover`, function (e) {
-                mouseente_middle(e);//
-
-
+                mouseente_middle(e);
+                mask_box_Element.style.display = 'block';// 遮罩盒子显示
             });
             //中图片的鼠标离开事件
             middle_Element.addEventListener(`mouseleave`, function (e) {
                 mouseleave_middle(e)
+                mask_box_Element.style.display = 'none';// 遮罩盒子隐藏
 
             });
+
+
             // 大图片图片鼠标经过事件mouseenter不能穿透   mouseover可以穿透*/
             big_Element.addEventListener(`mouseenter`, function (e) {
                 mouseente_middle(e);
             });
-            // 中图片的鼠标离开事件
+            // 大图片的鼠标离开事件
             big_Element.addEventListener(`mouseleave`, function (e) {
-                //
+                mouseleave_middle(e)
             });
+
 
             //中图片和大图片共用方法
             function mouseente_middle(e) {
-                big_Element.style.display = 'block';
+                big_Element.style.display = 'block';// 大图片显示
 
             }
             //中图片和大图片共用方法
             function mouseleave_middle(e) {
-                big_Element.style.display = 'none';
+                big_Element.style.display = 'none';// 大图片隐藏
 
 
             }
