@@ -39,7 +39,6 @@
 
         .container {
 
-
             /* 开启flex布局 */
             display: flex;
             /* 主轴的方向：
@@ -67,15 +66,17 @@
 
 
 
-            border: 1px solid rgb(0, 0, 0);
         }
 
         /* 中盒子 */
         .main_content_left_img_middle {
+            width: 400px;
+            height: 400px;
             /* 开启定位 */
             position: relative;
             /* 鼠标拖动样式-实际拖动用js实现 */
             cursor: grabbing;
+
         }
 
 
@@ -83,7 +84,7 @@
         .main_content_left_img_middle>img {
             width: 400px;
             height: 400px;
-            border: 1px solid red;
+            /* border: 1px solid red; */
 
         }
 
@@ -98,6 +99,10 @@
             top: 0px;
             display: none;
             display: none;
+        }
+
+        .main_content_left_img_small {
+            height: 100px;
         }
 
         /* 设置图片的放大镜效果 middle 小的图面*/
@@ -150,7 +155,7 @@
             position: relative;
             /* 绝对定位左边50px */
             left: 400px;
-            top: -496px;
+            top: -500px;
             /* background-color: hsl(173, 83%, 40%); */
             /*影藏元素 */
             display: none;
@@ -242,7 +247,7 @@
 
             middle_Element.addEventListener(`mousemove`, function (e) {
                 //获取元素在视口中的位置对象
-                const BoundingClientxy = middle_Element.getBoundingClientRect()
+                const BoundingClientxy = middle_Element.getBoundingClientRect();
                 // console.log('获取元素在视口中的位置对象', BoundingClientxy);
                 // console.log('获取元素在视口中的坐标X', BoundingClientxy.x);
                 // console.log('获取元素在视口中的坐标y', BoundingClientxy.y);
@@ -253,16 +258,33 @@
                 //鼠标在视口中的坐标-元素在视口中的坐标-获取html页面并获取被卷去的头部=鼠标在元素中的坐标
                 let y = e.pageY - BoundingClientxy.y - document.documentElement.scrollTop// 鼠标在元素中的坐标Y
 
-                if (x > 0 && x < 400 && y > 0 && y < 400) {
-                    console.log('鼠标在元素中的坐标', x, y);
+                //获取中盒子的宽度和高度
+                let middle_Width = middle_Element.offsetWidth;
+                let middle_Height = middle_Element.offsetHeight;
+                //获取遮罩盒子的宽度和高度
+                let mask_box_Width = mask_box_Element.offsetWidth;
+                let mask_box_Height = mask_box_Element.offsetHeight;
 
-                    let mx = 0; let my = 0;
-                    if (x < 100) { mx = 0; }
-                    if (y < 100) { my = 0; }
+                if (x > 0 && x < middle_Width && y > 0 && y < middle_Height) {// 判断鼠标在元素中的坐标X和Y是否在中盒子的范围内
 
+                    let mx = 0; let my = 0;// 定义遮罩盒子的位置
 
-                    mask_box_Element.style.left = mx + 'px'
-                    mask_box_Element.style.top = my + 'px'
+                    //鼠标的X坐标小于中盒子的宽度的一半，遮罩盒子的X坐标为0
+                    if (x <= mask_box_Width / 2) { mx = 0; }
+                    //鼠标的X坐标大于/等于中盒子的宽度减去遮罩盒子的X坐标的一半，遮罩盒子的X坐标=中盒子的宽度-遮罩盒子的宽度
+                    if (x >= middle_Width - (mask_box_Width / 2)) { mx = middle_Width - mask_box_Width }
+                    //鼠标的X坐标大于遮罩盒子的宽度/2 并且鼠标的X坐标小于（中盒子的宽度-遮罩盒子的宽度/2）  遮罩盒子的X坐标=鼠标的坐标-（遮罩盒子的宽度/2）
+                    if (x > (mask_box_Width / 2) && x < middle_Width - (mask_box_Width / 2)) { mx = x - mask_box_Width / 2; }
+
+                    //上面同理
+                    if (y <= mask_box_Height / 2) { my = 0; }
+                    if (y >= middle_Height - (mask_box_Height / 2)) { my = middle_Height - mask_box_Height }
+                    if (y > (mask_box_Height / 2) && y < middle_Height - (mask_box_Height / 2)) { my = y - mask_box_Height / 2; }
+
+                    mask_box_Element.style.left = mx + 'px';// 遮罩盒子的left
+                    mask_box_Element.style.top = my + 'px'// 遮罩盒子的top
+                    big_Element.style.backgroundPositionX = -2 * mx + 'px';// 背景图片的left位置
+                    big_Element.style.backgroundPositionY = -2 * my + 'px';// 背景图片的top位置
                 }
 
 
