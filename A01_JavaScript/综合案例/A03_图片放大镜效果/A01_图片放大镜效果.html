@@ -255,8 +255,14 @@
 
                 if (x > 0 && x < 400 && y > 0 && y < 400) {
                     console.log('鼠标在元素中的坐标', x, y);
-                    mask_box_Element.style.left = x + 'px'
-                    mask_box_Element.style.top = y + 'px'
+
+                    let mx = 0; let my = 0;
+                    if (x < 100) { mx = 0; }
+                    if (y < 100) { my = 0; }
+
+
+                    mask_box_Element.style.left = mx + 'px'
+                    mask_box_Element.style.top = my + 'px'
                 }
 
 
