@@ -42,11 +42,11 @@
 
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //参数a，b必填后面的会变成伪数组
+            //参数a，b必填后面的会变成真数组
             function getsun(a, b, ...array) {
                 let sun = 0;//定义一个变量
                 sun += a + b;//累加
-                array.forEach((item) => {//遍历伪数组
+                array.forEach((item) => {//遍历真数组
                     sun += item;//累加
                 })
                 return sun
