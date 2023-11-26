@@ -47,7 +47,7 @@
             function regularFunction() {
                 console.log(this);
             }
-            const obj = { name: "我是对象" };
+            const obj = { name: "我是普通函数" };
             // this 指向全局对象（在浏览器中通常是window）
             regularFunction();
 
@@ -57,7 +57,7 @@
             obj.regularFunction();
 
             const obj1 = {
-                name: "我是对象",
+                name: "我是箭头函数",
                 arrowFunction: () => {
                     console.log(this);
                 }
