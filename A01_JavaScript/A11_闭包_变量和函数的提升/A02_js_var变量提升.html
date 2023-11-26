@@ -29,27 +29,11 @@
 
 <body>
    <script type="text/javascript">
+      // 1.把所有var声明的变量提升到 当前作用域的最前面
+      // 2.只提升声明， 不提升赋值
+      console.log(str);
+      var str = '代码';
 
-      function mainfn() {
-         let i = 0; //数据私有法
-         function fn() {
-            // 内层函数+外部变量=闭包(作用就是外部可以使用内部的变量)
-            //
-            i++;
-            console.log('使用次数：' + i);
-
-         }
-         return fn;//返回函数
-
-
-      }
-      const fun = mainfn() // 1.调用函数2.返回函数（常量-->引用 fn()函数-->变量不会被回收，可能会内存溢出）
-
-      fun();//调用函数
-      fun();//调用函数
-      fun();//调用函数
-      fun();//调用函数
-      fun();//调用函数
 
 
 
