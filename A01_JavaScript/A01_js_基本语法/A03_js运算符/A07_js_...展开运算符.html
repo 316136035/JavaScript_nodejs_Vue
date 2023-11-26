@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A07_js_this函数</title>
+    <title>A07_js_展开运算符</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -41,33 +41,12 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            /**普通函数中的this*/
-           
-            //定义函数
-            function regularFunction() {
-                console.log(this);
-            }
-            const obj = { name: "我是对象" };
-            // this 指向全局对象（在浏览器中通常是window）
-            regularFunction();
-            //对象添加函数
-            obj.regularFunction = regularFunction;
-            // this 指向 obj 对象
-            obj.regularFunction();
-
-
-
-
-           
-            const obj1 = {
-                name: "我是对象",
-                arrowFunction : () => {
-                    console.log(this);
-                }
-            };
-            // this 仍然指向全局对象（在浏览器中通常是window），
-            obj1 .arrowFunction(); 
-
+            let array1 = [1, 2, 3, 4, 5];
+            console.log(`展开运算符array：`, ...array1);//展开运算符 =1,2,3,4,5,6,7,8,9,10
+            console.log(`最大值：`, Math.max(...array1));//最大值=10
+            console.log(`最大值：`, Math.min(...array1));//最大值=10
+            let array2 = [6, 7, 8, 9, 10];
+            console.log('组合数组', [...array1, ...array2]);
 
 
         };
