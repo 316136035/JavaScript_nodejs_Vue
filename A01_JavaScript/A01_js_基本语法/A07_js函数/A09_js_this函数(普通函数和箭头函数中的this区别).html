@@ -42,7 +42,7 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
             /**普通函数中的this*/
-           
+
             //定义函数
             function regularFunction() {
                 console.log(this);
@@ -50,24 +50,20 @@
             const obj = { name: "我是对象" };
             // this 指向全局对象（在浏览器中通常是window）
             regularFunction();
-            
+
             //对象添加函数
             obj.regularFunction = regularFunction;
             // this 指向 obj 对象
             obj.regularFunction();
 
-
-
-
-           
             const obj1 = {
                 name: "我是对象",
-                arrowFunction : () => {
+                arrowFunction: () => {
                     console.log(this);
                 }
             };
-            // this 仍然指向全局对象（在浏览器中通常是window），
-            obj1 .arrowFunction(); 
+            //  因为obj1是windoes调用的所以 this 仍然指向全局对象（在浏览器中通常是window），
+            obj1.arrowFunction();
 
 
 
