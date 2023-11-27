@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A02_js函数_默认参数</title>
+    <title>A04_js普通函数_变量的作用域</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -30,62 +30,37 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        .item {
-            /* 将改当前元素变成伸缩容器 */
-            display: flex;
-            /* 主轴的方向：
-             row  水平正常方向 左→右 （默认）
-             row-reverse 水平反转 右→左 
-             column 垂直正常方向 上→下 
-             column-reverse 垂直正常方向 下→上*/
-            flex-direction: column;
-            /* 侧轴对齐方式 侧轴开始位置 上 （默认主轴的方向不变*）*/
-            align-items: flex-start;
-        }
 
-        button {
-            background-color: red;
-            border: 1px solid black;
-            margin-top: 10px;
-            font-size: 24px;
-            color: aliceblue;
-        }
     </style>
 
 </head>
 
 <body>
-    <div class="item">
-        <div>
-            <button id="button1">函数_默认参数</button>
-        </div>
-    </div>
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
-        let array = [];
+        //全局变量
+        let num = 10;
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //通过id获取元素并添加事件
-            document.getElementById(`button1`).addEventListener('click', function () {
-                //调用无参函数
-                let num = withParametersReturn(0, 100)
-                console.log(num)
-            })
+            //函数fun()
+            function fun() {
+                //局部变量(当局部变量不存在会在父类中查找，如果函数内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐)
+                let num = 20;
+                //函数fun1()
+                function fun1() {
+                     //局部变量(当局部变量不存在会在父类中查找，如果函数内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐)
 
-        }
-        //有参函数定义并有返回值(控制台查看) 
-        //start=0, end=0 （设置默认值，当调用方传参数的时候优先使用调用方传入参数 ）
-        function withParametersReturn(start = 0, end = 0) {
-            //当调用方不传参数默认值为undefined（未定义）
-            console.log("start:" + start, ' end' + end)
-            let num = 0;
-            for (let i = start; i <= end; i++) {
-                num += i
+                    // let num = 30;
+                    console.log(num)
+
+                }
+                //调用函数fu1n()
+                fun1()
             }
-            return num
+            //调用函数fun()
+            fun()
         }
-
 
     </script>
 </body>

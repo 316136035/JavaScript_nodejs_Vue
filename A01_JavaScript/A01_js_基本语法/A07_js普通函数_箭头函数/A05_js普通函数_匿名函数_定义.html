@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A04_js函数_变量的作用域</title>
+    <title>A05_js普通函数_匿名函数</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -43,23 +43,20 @@
         let num = 10;
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //函数fun()
-            function fun() {
-                //局部变量(当局部变量不存在会在父类中查找，如果函数内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐)
-                let num = 20;
-                //函数fun1()
-                function fun1() {
-                     //局部变量(当局部变量不存在会在父类中查找，如果函数内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐)
+            //匿名函数表达式
+            let fu=function(a,b){console.log(`匿名函数表达式:`,a+b);};
+            //调用匿名函数表达式
+            fu(1,2);
 
-                    // let num = 30;
-                    console.log(num)
+            //匿名函数立即执行写法一
+            (function(a,b){console.log('匿名函数立即执行写法一:',a+b);})(1,2);
 
-                }
-                //调用函数fu1n()
-                fun1()
-            }
-            //调用函数fun()
-            fun()
+            
+            //匿名函数立即执行写法二
+            (function(a,b){console.log('匿名函数立即执行写法二:',a+b);}(1,2));
+
+
+
         }
 
     </script>

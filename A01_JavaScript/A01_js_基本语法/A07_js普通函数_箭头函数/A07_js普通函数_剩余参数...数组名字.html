@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A05_js函数_匿名函数</title>
+    <title>A07_js普通函数_剩余参数...数组名字</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -39,25 +39,26 @@
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
-        //全局变量
-        let num = 10;
+
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            //匿名函数表达式
-            let fu=function(a,b){console.log(`匿名函数表达式:`,a+b);};
-            //调用匿名函数表达式
-            fu(1,2);
-
-            //匿名函数立即执行写法一
-            (function(a,b){console.log('匿名函数立即执行写法一:',a+b);})(1,2);
-
-            
-            //匿名函数立即执行写法二
-            (function(a,b){console.log('匿名函数立即执行写法二:',a+b);}(1,2));
-
+            //参数a，b必填后面的会变成真数组
+            function getsun(a, b, ...array) {
+                let sun = 0;//定义一个变量
+                sun += a + b;//累加
+                array.forEach((item) => {//遍历真数组
+                    sun += item;//累加
+                })
+                return sun
+            }
+            let sun = getsun(1, 2, 3, 4, 57, 895, 8458, 64, 864, 654, 9684, 56)//调用函数并传入参数
+            console.log(sun);//输出结果
 
 
         }
+
+
+
 
     </script>
 </body>

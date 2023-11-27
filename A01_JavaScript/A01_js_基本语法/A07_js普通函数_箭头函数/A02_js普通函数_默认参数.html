@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A01_js函数_定义</title>
+    <title>A02_js普通函数_默认参数</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -57,23 +57,9 @@
 <body>
     <div class="item">
         <div>
-            <button id="button1">无参函数定义(控制台查看)</button>
+            <button id="button1">函数_默认参数</button>
         </div>
-        <div>
-            <button id="button2">无参函数定义但有返回值(控制台查看)</button>
-        </div>
-        <div>
-            <button id="button3">有参函数定义(控制台查看)</button>
-        </div>
-        <div>
-            <button id="button4">有参函数定义并有返回值(控制台查看)</button>
-        </div>
-
     </div>
-
-
-
-
 
     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
@@ -83,62 +69,22 @@
             //通过id获取元素并添加事件
             document.getElementById(`button1`).addEventListener('click', function () {
                 //调用无参函数
-                withoutParameters();
-            })
-            //通过id获取元素并添加事件
-            document.getElementById(`button2`).addEventListener('click', function () {
-                //调用无参函数并带返回值
-                let pi = withoutParametersReturn();
-                console.log(`无参函数定义但有返回值调用了,返回值:`, pi)
-            })
-            //通过id获取元素并添加事件
-            document.getElementById(`button3`).addEventListener('click', function () {
-                //调用有参函数
-                withParameters(0, 100)
-            })
-            //通过id获取元素并添加事件
-            document.getElementById(`button4`).addEventListener('click', function () {
-                //调用有参函数并带返回值
-                let nun = withParametersReturn(0, 100)
-                console.log(`有参函数定义并有返回值调用了,返回值:`, nun)
-
+                let num = withParametersReturn(0, 100)
+                console.log(num)
             })
 
         }
-        //无参函数定义(控制台查看)
-        function withoutParameters() {
-            console.log(`无参函数定义成功调用了！`);
-        }
-        //无参函数定义但有返回值(控制台查看)
-        function withoutParametersReturn() {
-            return 3.14
-
-        }
-        //有参函数定义(控制台查看)
-        function withParameters(start, end) {
+        //有参函数定义并有返回值(控制台查看) 
+        //start=0, end=0 （设置默认值，当调用方传参数的时候优先使用调用方传入参数 ）
+        function withParametersReturn(start = 0, end = 0) {
+            //当调用方不传参数默认值为undefined（未定义）
+            console.log("start:" + start, ' end' + end)
             let num = 0;
             for (let i = start; i <= end; i++) {
                 num += i
-
-            }
-            console.log('有参函数定义:', num)
-        }
-        //有参函数定义并有返回值(控制台查看)
-        function withParametersReturn(start, end) {
-            let num = 0;
-            for (let i = start; i <= end; i++) {
-                num += i
-
             }
             return num
-
         }
-
-
-
-
-
-
 
 
     </script>
