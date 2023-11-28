@@ -30,7 +30,13 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-
+        button {
+            width: 100px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 10px;
+        }
     </style>
 
 </head>
@@ -48,27 +54,36 @@
                 name: "我是箭头函数",
                 arrowFunction: () => {
                     console.log(this); //windows调用了对象 对象调用了 arrowFunction  所以this指向的是windows
-                     
+
                 }
             };
-            obj1.arrowFunction(); 
+            obj1.arrowFunction();
 
 
-            
+
             const obj2 = {
                 name: "我是普通函数",
-                arrowFunction: function() {
+                arrowFunction: function () {
                     console.log(this);//指向的是本类中的this
-                    const count= ()=>{
+                    const count = () => {
                         console.log(this);  //指向的是上一级的this obj2
                     }
                     count();
-    
-                     
+
+
                 }
             };
-            obj2.arrowFunction(); 
-           
+            obj2.arrowFunction();
+
+            //通过查询选择器绑定事件
+            document.querySelector('button').addEventListener('click', function () {//普通函数
+                console.log('普通函数', this);
+            });
+            //通过查询选择器绑定事件
+            document.querySelector('button').addEventListener('click', () => {//箭头函数
+                console.log('箭头函数', this);
+            });
+
 
 
 
@@ -80,6 +95,10 @@
 
 
     </script>
+
+    <div>
+        <button>普通函数和箭头函数的this区分</button>
+    </div>
 </body>
 
 </html>
