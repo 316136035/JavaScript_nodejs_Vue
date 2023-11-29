@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A03_js_对象_结构赋值</title>
+    <title>A03_js_对象_解构</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -54,11 +54,11 @@
 
 
 
-            const { name, age, gender, address: { sheng, shi } } = person;//解构赋值(属性名和变量名必须一样) 对象中找不到与变量名一致的属性时变量值为 undefined:
-            console.log('解构赋值(属性名he 变量名必须一样) 对象中找不到与变量名一致的属性时变量值为(undefined):', name, age, gender, sheng, shi);
+            const { name, age, gender, address: { sheng, shi } } = person;//对象_解构(属性名和变量名必须一样) 对象中找不到与变量名一致的属性时变量值为 undefined:
+            console.log('对象_解构(属性名he 变量名必须一样) 对象中找不到与变量名一致的属性时变量值为(undefined):', name, age, gender, sheng, shi);
 
-            const { name: username, age: userage, gender: usergender, address: { sheng: usersheng, shi: usershi } } = person;//解构赋值(name:username,属性名变更) 对象中找不到与变量名一致的属性时变量值为(undefined):
-            console.log('解构赋值(name:username,属性名变更) 对象中找不到与变量名一致的属性时变量值为(undefined):', username, age, gender, sheng, shi);
+            const { name: username, age: userage, gender: usergender, address: { sheng: usersheng, shi: usershi } } = person;//对象_解构(name:username,属性名变更) 对象中找不到与变量名一致的属性时变量值为(undefined):
+            console.log('对象_解构值(name:username,属性名变更) 对象中找不到与变量名一致的属性时变量值为(undefined):', username, age, gender, sheng, shi);
 
 
             const persons = [
@@ -69,7 +69,7 @@
                 }
             ];
             const [{ name1, gender1, address1: { sheng1, shi1 } }] = persons
-            console.log('解构赋值(属性名he 变量名必须一样) 对象中找不到与变量名一致的属性时变量值为(undefined):', name1, gender1, sheng1, shi1);
+            console.log('对象_解构(属性名he 变量名必须一样) 对象中找不到与变量名一致的属性时变量值为(undefined):', name1, gender1, sheng1, shi1);
 
 
 
@@ -82,12 +82,14 @@
                     { "epp": "3824.15", "id": "100070922224", "m": "6999.00", "op": "4699.00", "p": "4499.00", },
                 ]
             }
-             if( msg.code==200&&msg.msg=='成功'){
-                const {data}=msg;//解构赋值(属性名he 变量名必须一样) 对象中找不到与变量名一致的属性时变量值为(undefined):
-                data.forEach(item=>{ //遍历数组
-                    console.log(item)
-                })
-             }
+            if (msg.code == 200 && msg.msg == '成功') {
+                get(msg);//调用方法（参数为 msg对象）
+                function get({ data }) { //定义方法并使用对象解构获取data对象
+                    data.forEach(item => { //遍历数组
+                        console.log(item)
+                    })
+                }
+            }
 
 
 

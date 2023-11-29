@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A05_js_数组_结构赋值</title>
+    <title>A05_js_数组_解构</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -46,13 +46,13 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
             let array = ['丰田', '比亚迪', '本田', '日产'];
-            const [Toyota, Biyadi, Rennyo, Rishi] = array;//解构赋值（数组索引出的值，赋值给变量）
-            console.log('解构赋值（数组索引出的值，赋值给变量:', Toyota, Biyadi, Rennyo, Rishi);
+            const [Toyota, Biyadi, Rennyo, Rishi] = array;//数组解构（数组索引出的值，赋值给变量）
+            console.log('数组解构（数组索引出的值，赋值给变量:', Toyota, Biyadi, Rennyo, Rishi);
             //变量多，单元值少(空位值为undefined) //变量少，单元值多(空位值为undefined)
-            [Toyota1, Biyadi1, Rennyo1, Rishi1, baoma1] = array;//解构赋值（数组索引出的值，赋值给变量.变量多，单元值少(变量值为undefined)
-            console.log('解构赋值（数组索引出的值，赋值给变量.变量多，单元值少(变量值为undefined):', Toyota, Biyadi, Rennyo, Rishi, baoma1);
-            [Toyota1, Biyadi1, Rennyo1, Rishi1, baoma1='宝马'] = array;//解构赋值（数组索引出的值，赋值给变量.变量多，单元值少(变量值为默认值)
-            console.log('解构赋值（数组索引出的值，赋值给变量.变量多，单元值少(变量值为默认值):', Toyota, Biyadi, Rennyo, Rishi, baoma1);
+            [Toyota1, Biyadi1, Rennyo1, Rishi1, baoma1] = array;//数组解构（数组索引出的值，赋值给变量.变量多，单元值少(变量值为undefined)
+            console.log('数组解构（数组索引出的值，赋值给变量.变量多，单元值少(变量值为undefined):', Toyota, Biyadi, Rennyo, Rishi, baoma1);
+            [Toyota1, Biyadi1, Rennyo1, Rishi1, baoma1='宝马'] = array;//数组解构（数组索引出的值，赋值给变量.变量多，单元值少(变量值为默认值)
+            console.log('数组解构构（数组索引出的值，赋值给变量.变量多，单元值少(变量值为默认值):', Toyota, Biyadi, Rennyo, Rishi, baoma1);
 
 
             let a = 1;
@@ -63,11 +63,11 @@
             array = [Rishi, Biyadi, Rennyo, Toyota]//交换变量的值
             console.log('交换变量的值:', array.toString());
            
-            const [Toyota2, Biyadi2, ...arr] = array;//解构赋值（数组索引出的值，赋值给变量  ...arr剩余值是真实数组）
+            const [Toyota2, Biyadi2, ...arr] = array;//数组解构（数组索引出的值，赋值给变量  ...arr剩余值是真实数组）
             console.log('...arr剩余值是真实数组:', Toyota1, Biyadi1, arr);
 
-            const [Toyota3, , ...arr1] = array;//解构赋值（数组索引出的值，赋值给变量(按需引入）  ...arr剩余值是真实数组）
-            console.log('解构赋值（数组索引出的值，赋值给变量(按需引入）  ...arr剩余值是真实数组:',Toyota2, arr1);
+            const [Toyota3, , ...arr1] = array;//数组解构值（数组索引出的值，赋值给变量(按需引入）  ...arr剩余值是真实数组）
+            console.log('数组解构（数组索引出的值，赋值给变量(按需引入）  ...arr剩余值是真实数组:',Toyota2, arr1);
 
             
             const  person =['周叙述',19,['广东','广州']];//多维数组
