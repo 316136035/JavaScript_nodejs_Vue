@@ -47,15 +47,34 @@
         window.onload = function () {
             let array = ['丰田', '比亚迪', '本田', '日产'];
             const [Toyota, Biyadi, Rennyo, Rishi] = array;//解构赋值（数组索引出的值，赋值给变量）
-            console.log(Toyota, Biyadi, Rennyo, Rishi);
+            console.log('解构赋值（数组索引出的值，赋值给变量:', Toyota, Biyadi, Rennyo, Rishi);
+            //变量多，单元值少(空位值为undefined) //变量少，单元值多(空位值为undefined)
+            [Toyota1, Biyadi1, Rennyo1, Rishi1, baoma1] = array;//解构赋值（数组索引出的值，赋值给变量.变量多，单元值少(变量值为undefined)
+            console.log('解构赋值（数组索引出的值，赋值给变量.变量多，单元值少(变量值为undefined):', Toyota, Biyadi, Rennyo, Rishi, baoma1);
+            [Toyota1, Biyadi1, Rennyo1, Rishi1, baoma1='宝马'] = array;//解构赋值（数组索引出的值，赋值给变量.变量多，单元值少(变量值为默认值)
+            console.log('解构赋值（数组索引出的值，赋值给变量.变量多，单元值少(变量值为默认值):', Toyota, Biyadi, Rennyo, Rishi, baoma1);
+
 
             let a = 1;
             let b = 2;
-            [b,a]=[a,b];//交换变量的值
-            console.log(a,b);
+            [b, a] = [a, b];//交换变量的值
+            console.log('交换变量的值:', a, b);
 
-            array = [Rishi, Biyadi, Rennyo, Toyota]//解构赋值（数组索引出的值，赋值给数组）
-            console.log(array.toString());
+            array = [Rishi, Biyadi, Rennyo, Toyota]//交换变量的值
+            console.log('交换变量的值:', array.toString());
+           
+            const [Toyota2, Biyadi2, ...arr] = array;//解构赋值（数组索引出的值，赋值给变量  ...arr剩余值是真实数组）
+            console.log('...arr剩余值是真实数组:', Toyota1, Biyadi1, arr);
+
+            const [Toyota3, , ...arr1] = array;//解构赋值（数组索引出的值，赋值给变量(按需引入）  ...arr剩余值是真实数组）
+            console.log('解构赋值（数组索引出的值，赋值给变量(按需引入）  ...arr剩余值是真实数组:',Toyota2, arr1);
+
+            
+            const  person =['周叙述',19,['广东','广州']];//多维数组
+            const [name,age,[shengng,shi]] = person;//数组索引出的值，赋值给变量
+            console.log('多维数组;',name,age,shengng,shi)
+           
+
 
 
 
