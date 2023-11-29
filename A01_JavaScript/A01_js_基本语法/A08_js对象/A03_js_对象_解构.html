@@ -83,8 +83,8 @@
                 ]
             }
             if (msg.code == 200 && msg.msg == '成功') {
-                get(msg);//调用方法（参数为 msg对象）
-                function get({ data }) { //定义方法并使用对象解构获取data对象
+                get(msg);//调用方法（参数为 msg对象
+                function get({ data }) { //定义方法  传入的使用对象解构获取data对象
                     data.forEach(item => { //遍历数组
                         console.log(item)
                     })
