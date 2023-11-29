@@ -72,12 +72,15 @@
                 /**内层是循环的每一轮比较的次数*/
                 for (let j = 0; j < array.length - 1 - i; j++) {
                     if (array[j] > array[j + 1]) {
-                        /*定义一个变量*/
-                        let ii = array[j];
-                        //赋值
-                        array[j] = array[j + 1];
-                        //赋值
-                        array[j + 1] = ii;
+                        // /*定义一个变量*/
+                        // let ii = array[j];
+                        // //赋值
+                        // array[j] = array[j + 1];
+                        // //赋值
+                        // array[j + 1] = ii;
+                          
+                        [ array[j+1],array[j]]=[[array[j]],array[j+1]];//数组的结构赋值，交换位置
+
                     }
                 }
             }
@@ -90,17 +93,20 @@
 
         })
         document.querySelector(".button2").addEventListener("click", function () {
+        
             /**外层是循环的是轮数*/
             for (let i = 0; i < array.length - 1; i++) {
                 /**内层是循环的每一轮比较的次数*/
                 for (let j = 0; j < array.length - 1 - i; j++) {
                     if (array[j] < array[j + 1]) {
-                        /*定义一个变价*/
-                        let ii = array[j];
-                        //赋值
-                        array[j] = array[j + 1];
-                        //赋值
-                        array[j + 1] = ii;
+                        // /*定义一个变价*/
+                        // let ii = array[j];
+                        // //赋值
+                        // array[j] = array[j + 1];
+                        // //赋值
+                        // array[j + 1] = ii;
+                  
+                        [ array[j+1],array[j]]=[[array[j]],array[j+1]]//数组的结构赋值，交换位置
                     }
                 }
             }
