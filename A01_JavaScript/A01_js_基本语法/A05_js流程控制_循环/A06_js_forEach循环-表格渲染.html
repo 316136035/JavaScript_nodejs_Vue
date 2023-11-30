@@ -111,23 +111,25 @@
             phones.forEach(function (item, index) {
                 // 创建tr节点
                 const trElement = document.createElement('tr');
+                //对象_解构
+                const { Brand, Model, OSName, OSVersion, Name, CoreCount, RAM, Storage, creenSize, ScreenResolution, Capacity, Status, NetworkType } = item
                 // 给td节点添加内容
                 trElement.innerHTML = `
             
                     <td>${index + 1}</td>
-                    <td>${item.Brand}</td>
-                    <td>${item.Model}</td>
-                    <td>${item.OSName}</td>
-                    <td>${item.OSVersion}</td>
-                    <td>${item.Name}</td>
-                    <td>${item.CoreCount}</td>
-                    <td>${item.RAM}</td>
-                    <td>${item.Storage}</td>
-                    <td>${item.ScreenSize}</td>
-                    <td>${item.ScreenResolution}</td>
-                    <td>${item.Capacity}</td>
-                    <td>${item.Status}</td>
-                    <td>${item.NetworkType}</td>
+                    <td>${Brand}</td>
+                    <td>${Model}</td>
+                    <td>${OSName}</td>
+                    <td>${OSVersion}</td>
+                    <td>${Name}</td>
+                    <td>${CoreCount}</td>
+                    <td>${RAM}</td>
+                    <td>${Storage}</td>
+                    <td>${creenSize}</td>
+                    <td>${ScreenResolution}</td>
+                    <td>${Capacity}</td>
+                    <td>${Status}</td>
+                    <td>${NetworkType}</td>
               
                 `
                 // 将tr节点追加到tbody节点中
