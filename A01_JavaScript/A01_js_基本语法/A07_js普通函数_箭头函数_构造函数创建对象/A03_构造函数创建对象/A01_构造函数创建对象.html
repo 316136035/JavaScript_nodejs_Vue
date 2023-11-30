@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A08_js_普通函数中的this</title>
+    <title>A01_构造函数创建对象</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -30,7 +30,13 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-
+        button {
+            width: 100px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 10px;
+        }
     </style>
 
 </head>
@@ -41,30 +47,19 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            /**普通函数中的this*/
-
-            //定义函数
-            function regularFunction() {
-                console.log(this);
+            function Person(name, age) {
+                this.name = name;
+                this.age = age;
+               
             }
-            const obj = { name: "我是普通函数" };
-            // this 指向全局对象（在浏览器中通常是window）
-            regularFunction();
-
-            //对象添加函数
-            obj.regularFunction = regularFunction;
-            // this 指向 obj 对象
-            obj.regularFunction();
-
-            const obj1 = {
-                name: "我是箭头函数",
-                arrowFunction: () => {
-                    console.log(this);
-                }
-            };
-            //  因为obj1是windoes调用的所以 this 仍然指向全局对象（在浏览器中通常是window），
-            obj1.arrowFunction();
-
+            let array=[];
+              //for(变量起始值;终止条件;变化量)
+              for (let i = 0; i < 10; i++){
+                array.push(new Person('张三'+i,i));
+              }
+              console.log(array);
+               
+            
 
 
         };
@@ -72,6 +67,8 @@
 
 
     </script>
+
+ 
 </body>
 
 </html>
