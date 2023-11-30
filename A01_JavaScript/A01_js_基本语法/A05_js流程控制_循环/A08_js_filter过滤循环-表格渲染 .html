@@ -148,6 +148,9 @@
 
             // 给操作系统版本输入框添加失去焦点监听事件
             document.querySelector('.OSVersion').addEventListener('blur', function (e) {
+                 if (e.target.value == '') {//如果输入框为空
+                    return;
+                }
                 const newphones = phones.filter(function (item) {//回过滤后的新数组对象
                     return item.OSVersion == e.target.value;//过滤出OSVersion等于e.target.value的对象 （e.target.value  js 通过事件对象获取输入框s的内容）
 
