@@ -103,36 +103,37 @@
             phones.push(phone);
         }
 
-      
+
         // 在页面加载完毕后才会执行的代码
-    
+
         window.onload = function () {
             const tbodyElement = document.querySelector('#tbody');
-            phones.forEach(function (phone) {
+            phones.forEach(function (item, index) {
                 // 创建tr节点
                 const trElement = document.createElement('tr');
                 // 给td节点添加内容
                 trElement.innerHTML = `
             
-                    <td>${phone.Brand}</td>
-                    <td>${phone.Model}</td>
-                    <td>${phone.OSName}</td>
-                    <td>${phone.OSVersion}</td>
-                    <td>${phone.Name}</td>
-                    <td>${phone.CoreCount}</td>
-                    <td>${phone.RAM}</td>
-                    <td>${phone.Storage}</td>
-                    <td>${phone.ScreenSize}</td>
-                    <td>${phone.ScreenResolution}</td>
-                    <td>${phone.Capacity}</td>
-                    <td>${phone.Status}</td>
-                    <td>${phone.NetworkType}</td>
+                    <td>${index + 1}</td>
+                    <td>${item.Brand}</td>
+                    <td>${item.Model}</td>
+                    <td>${item.OSName}</td>
+                    <td>${item.OSVersion}</td>
+                    <td>${item.Name}</td>
+                    <td>${item.CoreCount}</td>
+                    <td>${item.RAM}</td>
+                    <td>${item.Storage}</td>
+                    <td>${item.ScreenSize}</td>
+                    <td>${item.ScreenResolution}</td>
+                    <td>${item.Capacity}</td>
+                    <td>${item.Status}</td>
+                    <td>${item.NetworkType}</td>
               
                 `
                 // 将tr节点添加到tbody节点中
-                 tbodyElement.appendChild(trElement);
+                tbodyElement.appendChild(trElement);
             })
-          
+
 
         };
 
@@ -144,6 +145,7 @@
 
     <table class="table">
         <tr>
+            <th>序号</th>
             <th>品牌</th>
             <th>型号</th>
             <th>操作系统名称</th>
