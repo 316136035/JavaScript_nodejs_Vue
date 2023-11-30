@@ -1,0 +1,210 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A08_js_filter过滤循环-表格渲染 </title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        table {
+            /* 设置标题位置 
+        top 头部
+        bottom 尾部*/
+            caption-side: top;
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(100, 0, 0);
+            /* 设置表单列宽  auto 自动的  fixed固定的*/
+            table-layout: auto;
+            /* 设置单元格之间的边框距离（前提不能使用合并单元格之间的边框） */
+            /* border-spacing: 0px; */
+            /*  合并单元格之间的边框 （设置单元格之间的边框距离就不生效了）*/
+            border-collapse: collapse;
+            /* 隐藏没有内容的单元格 （前提不能使用合并单元格之间的边框*/
+            empty-cells: hide;
+            /* 表单居中 */
+            margin: 0 auto;
+
+
+
+        }
+
+        th,
+        td {
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(0, 100, 70);
+            padding-left: 20px;
+            padding-right: 20px;
+
+        }
+
+        caption {
+            font-size: 24px;
+
+        }
+
+        th {
+            font-size: 20px;
+        }
+
+        .input {
+            width: 10px;
+        }
+
+        ;
+    </style>
+
+</head>
+
+<body>
+
+
+    </table>
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        //定义数组存放对象
+        let phones = [];
+
+        for (let i = 0; i < 100; i++) {
+            // 创建tr节点
+            const trElement = document.createElement('tr');
+            let phone = {
+                "Brand": "Brand " + Math.floor(Math.random() * 10) + 1,
+                "Model": "Model " + Math.floor(Math.random() * 10),
+                "OSName": "OS " + Math.floor(Math.random() * 10),
+                "OSVersion": Math.floor(Math.random() * 5) + 1,
+                "Name": "CPU " + Math.floor(Math.random() * 10),
+                "CoreCount": Math.floor(Math.random() * 4) + 1,
+                "RAM": Math.floor(Math.random() * 8) + 2 + "GB",
+                "Storage": Math.floor(Math.random() * 256) + 16 + "GB",
+                "ScreenSize": Math.floor(Math.random() * 10) + 3 + "英寸",
+                "ScreenResolution": Math.floor(Math.random() * 20) + 1 + "分辨率",
+                "Capacity": Math.floor(Math.random() * 5000) + 1000 + "mAh",
+                "Status": Math.random() > 0.5 ? "Charging" : "Discharging",
+                "NetworkType": ["2G", "3G", "4G", "5G"][Math.floor(Math.random() * 4)]
+            };
+            phones.push(phone);
+        }
+
+
+        // 在页面加载完毕后才会执行的代码
+
+        window.onload = function () {
+            const tbodyElement = document.querySelector('#tbody');
+
+            function filter过滤循环(phones) {
+                phones.forEach(function (item, index) {
+                    // 创建tr节点
+                    const trElement = document.createElement('tr');
+                    //对象_解构
+                    const { Brand, Model, OSName, OSVersion, Name, CoreCount, RAM, Storage, creenSize, ScreenResolution, Capacity, Status, NetworkType } = item
+                    // 给td节点添加内容
+                    trElement.innerHTML = `
+            
+                    <td>${index + 1}</td>
+                    <td>${Brand}</td>
+                    <td>${Model}</td>
+                    <td>${OSName}</td>
+                    <td>${OSVersion}</td>
+                    <td>${Name}</td>
+                    <td>${CoreCount}</td>
+                    <td>${RAM}</td>
+                    <td>${Storage}</td>
+                    <td>${creenSize}</td>
+                    <td>${ScreenResolution}</td>
+                    <td>${Capacity}</td>
+                    <td>${Status}</td>
+                    <td>${NetworkType}</td>
+              
+                `
+                    // 将tr节点追加到tbody节点中
+                    tbodyElement.appendChild(trElement);
+                })
+            }
+            filter过滤循环(phones);//渲染tbody节点
+
+            // 给操作系统版本输入框添加失去焦点监听事件
+            document.querySelector('.OSVersion').addEventListener('blur', function (e) {
+                const newphones = phones.filter(function (item) {//过滤出item对象中OSVersion属性等于e.target.value的值
+                    return item.OSVersion == e.target.value;//过滤出OSVersion等于e.target.value的值（e.target.value  js 通过事件对象获取输入框s的内容）
+
+                })
+                tbodyElement.innerHTML = '';//清空tbody节点
+
+                filter过滤循环(newphones);//重新渲染tbody节点
+
+
+            })
+
+        };
+
+
+
+
+    </script>
+
+
+    <table class="table">
+        <tr>
+
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th><input type="text" placeholder="请输入操作系统版本" class="OSVersion"></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>;
+        <tr>
+            <th>序号</th>
+            <th>品牌</th>
+            <th>型号</th>
+            <th>操作系统名称</th>
+            <th>操作系统版本</th>
+            <th>CPU 型号</th>
+            <th>CPU 核心数</th>
+            <th>内存</th>
+            <th>存储容量</th>
+            <th>屏幕尺寸</th>
+            <th>屏幕分辨率</th>
+            <th>电池容量</th>
+            <th>电池状态</th>
+            <th>网络类型</th>
+        </tr>;
+        <tbody id="tbody">
+
+
+        </tbody>
+
+</body>
+
+</html>
