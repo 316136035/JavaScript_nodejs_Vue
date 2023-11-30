@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A09_js箭头函数_定义</title>
+    <title>A03_js箭头函数_this</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -30,7 +30,13 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-
+        button {
+            width: 100px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 10px;
+        }
     </style>
 
 </head>
@@ -42,31 +48,41 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
             //箭头函数更适用于那些本来需要匿名函数的地方
+            //箭头函数不会创建自己的this,它只会从自己的作用域链的上一层沿用this.
+
+            const obj1 = {
+                name: "我是箭头函数",
+                arrowFunction: () => {
+                    console.log(this); //windows调用了对象 对象调用了 arrowFunction  所以this指向的是windows
+
+                }
+            };
+            obj1.arrowFunction();
 
 
-            //1. 定义普通箭头函数
-            const fun1 = () => {
-                console.log('我是普通箭头函数');
-            }
-            fun1();
+
+            const obj2 = {
+                name: "我是普通函数",
+                arrowFunction: function () {
+                    console.log(this);//指向的是本类中的this
+                    const count = () => {
+                        console.log(this);  //指向的是上一级的this obj2
+                    }
+                    count();
 
 
-            //2.定义普通带参数箭头函数,只有一个参数的时候可以省略小括号
-            const fun2 = i => {
-                console.log('定义普通带参数箭头函数:', i);
-            }
-            fun2(1);
+                }
+            };
+            obj2.arrowFunction();
 
-            //3.定义普通带参数箭头函数,只有一行代码的时候可以省略大括号并有返回值
-            const fun3 = (a, b) => a + b;
-            console.log('只有一行代码的时候可以省略大括号并有返回值:', fun3(1, 2))//3
-
-            //4.箭头函数返回对象
-            const fun4 = (name) => ({
-                name:name,
-                age: 18
+            //通过查询选择器绑定事件
+            document.querySelector('button').addEventListener('click', function () {//普通函数
+                console.log('普通函数', this);
             });
-            console.log('箭头函数返回对象:', fun4(''));
+            //通过查询选择器绑定事件
+            document.querySelector('button').addEventListener('click', () => {//箭头函数
+                console.log('箭头函数', this);
+            });
 
 
 
@@ -79,6 +95,10 @@
 
 
     </script>
+
+    <div>
+        <button>普通函数和箭头函数的this区分</button>
+    </div>
 </body>
 
 </html>
