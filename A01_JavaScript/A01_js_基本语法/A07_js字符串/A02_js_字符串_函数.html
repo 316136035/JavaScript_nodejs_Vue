@@ -47,15 +47,15 @@
             console.log('split()指定字符拆分成数组(重点):', str.split('-'));
             console.log('indexO()获取字符串中指定字符的索引;', str.indexOf('AI'));
             console.log('lastIndexOf()获取字符串中指定字符的最后一个索引:', str.lastIndexOf('AI'));
-            console.log('startsWith()检测是否以某字符开头:', str.startsWith('华为'));
-            console.log('endswith检测是否以某字符结尾 :', str.endsWith('AA'));
-            console.log('includes()检测字符串中是否包含指定字符:', str.includes('AI'));
+            console.log('startsWith()检测是否以某字符开头:', str.startsWith('华为')); //boolean值
+            console.log('endswith检测是否以某字符结尾 :', str.endsWith('AA')); //boolean值
+            console.log('includes()检测字符串中是否包含指定字符:', str.includes('AI')); //boolean值
             console.log('substring(start,end)(需要截取的第一个字符的索引[,结束的索引号]) 用于字符串截取(重点)', str.substring(str.lastIndexOf('-') + 1, str.length))
             console.log('toLowerCase()将字符串转换为小写:', str.toLowerCase());
             console.log('toUpperCase()将字符串转换为大写:', str.toUpperCase());
             console.log('trim()去除字符串两端的空格:', str.trim());
             console.log('replace()将字符串中的字符替换为另一个字符-支持正则匹配:', str.replace('智慧屏', '智能屏'));
-            console.log('match()用于查找字符串中是否含有某个子串:-支持正则匹配', str.match('智慧屏'));
+            console.log('match()用于查找字符串中是否含有某个子串:-', str.match('智慧屏'));
 
         };
 
