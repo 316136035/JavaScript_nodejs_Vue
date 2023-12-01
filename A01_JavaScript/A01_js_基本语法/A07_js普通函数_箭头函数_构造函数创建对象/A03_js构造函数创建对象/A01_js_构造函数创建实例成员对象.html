@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A04_构造函数创建对象</title>
+    <title>A01_构造函数创建实例成员对象</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -30,13 +30,7 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        button {
-            width: 100px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 5px;
-            margin: 10px;
-        }
+   
     </style>
 
 </head>
@@ -49,18 +43,26 @@
         window.onload = function () {
             //构造函数创建对象
             function Person(name, age) {
-                this.name = name;
-                this.age = age;
-               
+                this.name = name; //实例属性
+                this.age = age; //实例属性
+                this.say = function () {//实例函数
+                    console.log('我叫' + this.name + '我今年' + this.age + '岁');
+                }
+
             }
-            let array=[];
-              //for(变量起始值;终止条件;变化量)
-              for (let i = 0; i < 10; i++){
-                array.push(new Person('张三'+i,i));
-              }
-              console.log(array);
-               
-            
+            let array = [];
+            //for(变量起始值;终止条件;变化量)
+            for (let i = 0; i < 10; i++) {
+                array.push(new Person('张三' + i, i)); //创建对象结构相同但是他的地址不一样（要对比是否相等只能对比属性值）
+            }
+            for (let i = 0; i < array.length; i++) {
+                array[i].say();
+            }
+
+
+
+
+
 
 
         };
@@ -69,7 +71,7 @@
 
     </script>
 
- 
+
 </body>
 
 </html>
