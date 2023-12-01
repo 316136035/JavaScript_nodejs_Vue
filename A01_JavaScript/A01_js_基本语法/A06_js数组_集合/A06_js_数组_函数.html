@@ -44,13 +44,78 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-          
+
             //定义数组
-            let array1 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+            let array = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+            let array1 = ['H', 'I', 'G', 'H', 'I', 'G', 'H'];
 
-            
+            //数组转字符串
+            const str = array.join('---');
+            console.log(`数组转字符串:`, str)
 
-         
+            //数组反转reverse()
+            array.reverse();
+            console.log(`数组反转:`, array)
+
+            //findIndex()查找数组中元素的索引有的返回索引  没有返回-1
+            let num = array.findIndex(function (item, index) {
+                return item === '.'
+            })
+
+            console.log('findIndex()查找数组中元素的索引有的返回索引: ', num);
+            //concat()  合并数组
+            const arrays = array.concat(array1);
+            console.log('合并数组:', arrays);
+
+            const commoditys = [
+                {
+                    name: '小米',//商品名称
+                    sale: 100,//商品销量
+                    salePrice: 100,//商品销售价格
+                },
+                {
+                    name: '华为',//商品名称
+                    sale: 100,//商品销量
+                    salePrice: 900,//商品销售价格
+                },
+
+                {
+                    name: '苹果',//商品名称
+                    sale: 100,//商品销量
+                    salePrice: 900,//商品销售价格
+                },
+            ];
+            //find 查找素，返回符合测试条件的第一个数组元素对象，如果没有符合条件的则返回 undefined(重点):
+            let find = commoditys.find(function (item, index) {
+                return item.salePrice > 100;
+            })
+            console.log('find 查找素，返回符合测试条件的第一个数组元素值，如果没有符合条件的则返回 undefined(重点):', find);
+
+            // every 检测数组所有元素是否都符合指定条件，如果所有元素都通过检测返回 true，否则返回 false(重点）；
+            let every = commoditys.every(function (item, index) {
+                return item.salePrice > 100;
+            })
+            console.log('very 检测数组所有元素是否都符合指定条件，如果所有元素都通过检测返回 true，否则返回 false(重点):',  every );
+
+
+
+              // 检测数组中的元素是否满指定条件 如果数组中有元素满足条件返回 true，否则返回 false
+              let some = commoditys.some(function (item, index) {
+                return item.salePrice > 100;
+            })
+            console.log('检测数组中的元素是否满指定条件 如果数组中有元素满足条件返回 true，否则返回 false:',some );
+
+
+
+
+
+
+
+
+
+
+
+
         };
 
 
