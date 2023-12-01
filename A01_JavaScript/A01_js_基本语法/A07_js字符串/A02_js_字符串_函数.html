@@ -1,0 +1,67 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A02_js_字符串_函数</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+            //定义字符串
+            let str = "华为智慧屏-V65-英寸超薄全面屏AI摄像头-120Hz高刷-4K液晶游戏智能护眼电视机-HD65THAA";
+            console.log('length获字符串的度长度(重点):', str.length);
+            console.log('split()指定字符拆分成数组(重点):', str.split('-'));
+            console.log('indexO()获取字符串中指定字符的索引;', str.indexOf('AI'));
+            console.log('lastIndexOf()获取字符串中指定字符的最后一个索引:', str.lastIndexOf('AI'));
+            console.log('startsWith()检测是否以某字符开头:', str.startsWith('华为'));
+            console.log('endswith检测是否以某字符结尾 :', str.endsWith('AA'));
+            console.log('includes()检测字符串中是否包含指定字符:', str.includes('AI'));
+            console.log('substring(start,end)(需要截取的第一个字符的索引[,结束的索引号]) 用于字符串截取(重点)', str.substring(str.lastIndexOf('-') + 1, str.length))
+            console.log('toLowerCase()将字符串转换为小写:', str.toLowerCase());
+            console.log('toUpperCase()将字符串转换为大写:', str.toUpperCase());
+            console.log('trim()去除字符串两端的空格:', str.trim());
+            console.log('replace()将字符串中的字符替换为另一个字符-支持正则匹配:', str.replace('智慧屏', '智能屏'));
+            console.log('match()用于查找字符串中是否含有某个子串:-支持正则匹配', str.match('智慧屏'));
+
+        };
+
+
+
+    </script>
+</body>
+
+</html>
