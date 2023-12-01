@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A09_js_reduce求和循环 </title>
+    <title>A09_js_reduce数组_对象 _求和循环 </title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -50,16 +50,38 @@
                 console.log('当前值:', cur);
                 console.log('当前索引:', index);
                 console.log('数组', array);
-                return pre + cur;
+                return pre + cur;//+=
             }, 100);//初始值
-            console.log('普通写法:',sum);
+            console.log('普通写法:', sum);
 
 
-          //箭头函数的写法
-              //（每次相加的值，当前值，当前索引，数组）=>返回值 ，初始值
-            let sum2 = array.reduce((pre, cur, index, array) =>  pre + cur, 100);//初始值
-            console.log('箭头函数的写法:',sum2);
+            //箭头函数的写法
+            //（每次相加的值，当前值，当前索引，数组）=>返回值 ，初始值
+            let sum2 = array.reduce((pre, cur, index, array) => pre + cur, 100);//初始值
+            console.log('箭头函数的写法:', sum2);
+
+
+            //对象数组的写法
+            const persons = [
+                { name: '周先生', age: 18, money: 8888 },
+                { name: '张先生', age: 20, money: 6000 },
+                { name: '王先生', age: 16, money: 7000 },
+            ];
+            //（每次相加的值，当前值对象，当前索引，数组）=>返回值 ，初始值
+            const sum3 = persons.reduce((pre, cur) => {
+                console.log('金额：:',cur.money);
+                return pre + cur.money;//+=
+            }, 0);//初始值
+            console.log('共发出金额：', sum3);
+
         };
+
+
+
+
+
+
+
 
 
 
