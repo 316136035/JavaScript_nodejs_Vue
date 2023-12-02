@@ -50,7 +50,7 @@
             const str = `方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S,方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E`;
             //赠品渲染案例 普通写法
             const arr = str.split(',');//将字符串分割为数组
-            const newarr = arr.map(function (item) {//将数组中的每一项都进行处理 返回新的数组
+            const newarr = arr.map(function (item) {//将数组中的每一项都进行处理 返回字符串
                 return `<spam>附件：${item}</spam> <br>`
             });
             newarr.join('');//将数组转字符串
