@@ -58,9 +58,7 @@
 
 
            // 赠品渲染案例 高级写法
-            document.querySelector('.div2').innerHTML=  str.split(',').map(item => {
-                return `<spam>${item}</spam> <br>`
-            }).join('');
+            document.querySelector('.div2').innerHTML=  str.split(',').map(item =>  `<spam>${item}</spam> <br>`  ).join(''); //将字符串分割为数组，然后将数组中的每一项都进行处理，返回新的数组，最后将数组转字符串，并添加到div中
 
 
 
