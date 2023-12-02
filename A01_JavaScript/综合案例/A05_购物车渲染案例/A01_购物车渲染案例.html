@@ -1,0 +1,121 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A01_购物车渲染案例</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入外部js文件 不能和内部js一样使用-->
+    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <style>
+        .goods {
+            width: 300px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        //定义一个常量(常量不允许重新赋值,声明的时候必须赋值 (初始化))
+        //建议数组和对象使用 const 来声明
+        //引用数据类型可以用const 因为引用数据类型栈的地址不变
+        const pi = 3.14;
+        // 在页面加载完毕后才会执行的代码
+        window.onload = function () {
+
+            const list = [
+                {
+                    "id": "100011310369",
+                    "sku_name": "方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E",
+                    "epp": "1627.00",
+                    'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg',
+                    'count': '1',
+                    'unitedText': `消毒柜,黑色`,
+                    'affixesName': '刀'
+                },
+                {
+                    "id": "100011310369",
+                    "sku_name": "方太（FOTILE）侧吸烟灶消三件套 21风量抽油烟机 4.5kW燃气灶 100升大容量嵌入式消毒柜JCD7+HT8BE.S+J51E",
+                    "epp": "5197",
+                    'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/23231…/95507/6567340fF2e50273d/877db18ef54c980e.jpg.dpg',
+                    'count': '2',
+                    "unitedText": '【烟灶消】烟灶+大容量消毒柜',
+                    'affixesName': '方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S,方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E'
+
+                },
+                {
+                    "id": "100067603408",
+                    "sku_name": "Apple iPhone 15 Pro Max 256GB 原色钛金属A3108手机 支持移动联通电信5G MU2Q3CH/A【企业客户专享】",
+                    "epp": "1627.00",
+                    'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg',
+                    'count': '1',
+                    'unitedText': "原色钛金属,256GB",
+                    'GiftsName': '方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S,方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E'
+                }
+            ];
+            list.map(function (item) {
+                console.log(item);
+                return null
+            })
+
+
+
+
+        };
+
+
+
+    </script>
+
+    <div class="cart">
+        <div class="item">
+            <div class="goods">
+                <div class="img-sku_name">
+                    <div><img
+                            src="https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg"
+                            alt=""></div>
+                    <div class="sku_name">方太（FOTILE）侧吸烟灶消三件套 21风量抽油烟机 4.5kW燃气灶 100升大容量嵌入式消毒柜JCD7+HT8BE.S+J51E</div>
+                </div>
+                <div class="affixesName">方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S,方太消毒柜家用 嵌入式 毒筷碗柜 100L双
+
+                    <div class="unitedText">unitedText</div>
+                    <div class="epp">单价1627.00</div>
+                    <div class="count">数量</div>
+                    <div class="money">00.00</div>
+                </div>
+
+            </div>
+            <div>附件：</div>
+        </div>
+
+
+
+
+
+</body>
+
+</html>
