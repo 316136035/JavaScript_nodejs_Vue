@@ -133,9 +133,9 @@
             const str = list.map(function (item) {
                 //解构赋值 id sku_name epp src count unitedText affixesName GiftsName
                 const { id, sku_name, epp, src, count, unitedText, affixesName, GiftsName } = item;
-                let str_unitedText = unitedText.map(item => `<div>${item.sort} ${item.color}</div>`).join('');
-                let str_affixesName = affixesName.map(item => `<div>[附件]${item.name}</div>`).join('');
-                let str_GiftsName = GiftsName.map(item => `<div>[赠品]${item.name}</div>`).join('')
+                let str_unitedText = unitedText.map(item => `<div>${item.sort} ${item.color}</div>`).join('');//参数:使用map循环方法将数组中的元素转换成字符串
+                let str_affixesName = affixesName.map(item => `<div>[附件]${item.name}</div>`).join('');//附件名称:使用map循环方法将数组中的元素转换成字符串
+                let str_GiftsName = GiftsName.map(item => `<div>[赠品]${item.name}</div>`).join('')//赠品 :使用map循环方法将数组中的元素转换成字符串
                 return `
                 <!-- 商品图片，名称，价格，数量 -->
             <div class="item">
