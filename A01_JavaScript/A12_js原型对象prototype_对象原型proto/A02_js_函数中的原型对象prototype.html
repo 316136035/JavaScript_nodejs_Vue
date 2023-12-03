@@ -15,16 +15,16 @@
        <script src="../resources静态资源/js/html5shiv.min.js"></script>
     <![endif]-->
 
-    <!--< Meta Name=" description（网站内容描述）" Content="网页描 述文字"   兼用性>  -->
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
     <meta name="description" content="网页描述文字">
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A04_js_原型对象prototype中的构造函数constructor</title>
+    <title>A02_js_函数中的原型对象prototype</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
-    <link rel="stylesheet" href="../../../resources静态资源/css/reset.css">
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <!-- 引入外部js文件 不能和内部js一样使用-->
@@ -41,30 +41,26 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-          //  new Array[0, 1, 2, 9, 4, 5]
-            const array = [1, 1, 2, 9, 4, 5];
-
-             //定义一个原型对象（共享的）原型对象中的this指向的是实现对象
-            Array.prototype.max = function () {
-                return this.reduce((i, item) => Math.max(i, item));// 数组的reduce方法 构造函数的this指向的是实现对象  求最大值
-            }
-            console.log(array.max());//调用方法
-
-              //定义一个原型对象（共享的）原型对象中的this指向的是实现对象
-              Array.prototype.min = function () {
-                return this.reduce((i, item) => Math.min(i, item));// 数组的reduce方法 构造函数的this指向的是实现对象  求最小值
-            }
-            console.log(array.min());//调用方法
-
-            Array.prototype.sum = function () {
-                return this.reduce((i, item) => i + item);// 数组的reduce方法 构造函数的this指向的是实现对象  求和
-            }  
-
-            console.log(array.sum());//调用方法
+            // 定义一个构造函数 构造函数的this指向的是实现对象
+            function Person(name, age) {
+                this.name = name; //实例属性
+                this.age = age;
+            };
+            /*  1. 构造函数通过原型分配的函数是所有对象所 共享的
+                2. javaScript 规定，每一个构造函数都有一个 prototype 属性，指向另一个对象，所以我们也称为原型对象这个对象可以挂载函数，对象实例化不会多次创建原型上函数，节约内存
+                3.我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。
+                4.构造函数和原型对象中的this 都指向 实例化的对象*/
+            //prototype原型对象（共享的）原型对象中的this指向的是实现对象
+            Person.prototype.sayHI = function () { console.log('我叫' + this.name + '我今年' + this.age + '岁') } 
+         
+            const p1 = new Person('张三', 10);//创建对象
+            const p2 = new Person('李四', 11);
+            console.log(p1.sayHI === p2.sayHI);//比较的是引用地址
+            console.log('原型对象:',Person.prototype);
+        
 
 
         }
-
 
     </script>
 

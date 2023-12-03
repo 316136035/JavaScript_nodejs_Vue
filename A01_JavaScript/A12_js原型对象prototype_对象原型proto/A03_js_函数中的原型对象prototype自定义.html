@@ -20,11 +20,11 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A01_js_函数封装 </title>
+    <title>A03_js_函数中的原型对象prototype自定义</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
-    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <!-- 引入外部js文件 不能和内部js一样使用-->
@@ -41,25 +41,30 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            function Person(name,age) {
-                this.name = name; //实例属性
-                this.age = age;
-                this.sayHI = function () {//静态方法  尽量不用这种方法定义函数（可以使用原型prototype添加）
-                    console.log('我叫' + this.name + '我今年' + this.age + '岁')
-                }//静态属性
+          //  new Array[0, 1, 2, 9, 4, 5]
+            const array = [1, 1, 2, 9, 4, 5];
+
+           //prototype原型对象（共享的）原型对象中的this指向的是实现对象
+            Array.prototype.max = function () {
+                return this.reduce((i, item) => Math.max(i, item));// 数组的reduce方法 构造函数的this指向的是实现对象  求最大值
             }
-          const p1=  new  Person('张三',10);//创建对象
-          const p2=  new Person('李四',20);//创建对象
-          console.log(p1===p2);//判断两个对象是否相等 地址不相等所以是false
-          console.log(p1.sayHI===p2.sayHI);//地址不相等所以是false
-          console.log(Person.prototype);
+            console.log(array.max());//调用方法
 
-          
-          
-       
+            //prototype原型对象（共享的）原型对象中的this指向的是实现对象
+              Array.prototype.min = function () {
+                return this.reduce((i, item) => Math.min(i, item));// 数组的reduce方法 构造函数的this指向的是实现对象  求最小值
+            }
+            console.log(array.min());//调用方法
 
-        };
+             //prototype原型对象（共享的）原型对象中的this指向的是实现对象
+            Array.prototype.sum = function () {
+                return this.reduce((i, item) => i + item);// 数组的reduce方法 构造函数的this指向的是实现对象  求和
+            }  
 
+            console.log(array.sum());//调用方法
+
+
+        }
 
 
     </script>
