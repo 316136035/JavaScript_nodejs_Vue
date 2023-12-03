@@ -59,6 +59,7 @@
             display: flex;
             /* 复合写法:主轴方向-换行方式 */
             align-items: flex-start;
+           
         }
 
         .unitedText,
@@ -79,8 +80,12 @@
             height: 40px;
             background-color: rgb(193, 16, 16);
             border: #b50f0f 1px solid;
+        }
 
-
+        .total {
+            /* 开启浮动 */
+            float: right;
+            font-size: 20px;
 
         }
     </style>
@@ -101,7 +106,7 @@
                 {
                     "id": "100011310369",  //商品id
                     "sku_name": "方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E",//商品名称
-                    "epp": "1627.00",//商品价格
+                    "epp": "1627.20",//商品价格
                     'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg',//商品图片
                     'count': '1',//商品数量
                     'unitedText': [{ sort: '消毒柜', color: '黑色' }],//参数
@@ -111,7 +116,7 @@
                 {
                     "id": "100011310369",
                     "sku_name": "方太（FOTILE）侧吸烟灶消三件套 21风量抽油烟机 4.5kW燃气灶 100升大容量嵌入式消毒柜JCD7+HT8BE.S+J51E",
-                    "epp": "5197",
+                    "epp": "5197.09",
                     'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/232317/1/4882/95507/6567340fF2e50273d/877db18ef54c980e.jpg.dpg',
                     'count': '2',
                     "unitedText": [{ sort: '烟灶', color: '' }, { sort: '消毒柜', color: '' }],
@@ -132,7 +137,7 @@
             ];
             const str = list.map(function (item) {
                 //解构赋值 id sku_name epp src count unitedText affixesName GiftsName  （数组默认值为null）
-                const { id, sku_name, epp, src, count, unitedText=null, affixesName=null, GiftsName=null} = item;
+                const { id, sku_name, epp, src, count, unitedText = null, affixesName = null, GiftsName = null } = item;
                 let str_unitedText = unitedText.map(item => `<div>${item.sort} ${item.color}</div>`).join('');//参数:使用map循环方法将数组中的元素转换成字符串
                 let str_affixesName = affixesName.map(item => `<div>[附件]${item.name}</div>`).join('');//附件名称:使用map循环方法将数组中的元素转换成字符串
                 let str_GiftsName = GiftsName.map(item => `<div>[赠品]${item.name}</div>`).join('')//赠品 :使用map循环方法将数组中的元素转换成字符串
@@ -155,14 +160,28 @@
                         <!-- 数量 -->
                         <div class="count">X${Number(count)}</div>
                         <!-- 单品合计金额 -->
-                        <div class="money">¥${Number(epp) * Number(count)}</div>
+                        <div class="money">¥${(Number(epp) * Number(count)).toFixed(2)}</div>
                     </div>
                 </div>
                 <div class="affixesName">${str_affixesName}</div>
                 <div class="giveawayName">${str_GiftsName}</div>`
 
             }).join('');
-            document.querySelector('.cart').innerHTML = str;
+            document.querySelector('.cart').innerHTML = str;//渲染页面
+
+            // 计算总价
+
+            const span_Element = document.querySelector('.bottom span');
+
+            let total = list.reduce((total, item) => {
+                return total + Number(item.epp) * Number(item.count);
+            }, 0).toFixed(2);
+            console.log(span_Element);
+            span_Element.innerText = `总计:¥${total}`;
+
+
+
+
 
         };
 
@@ -204,7 +223,7 @@
         </div>
     </div>
 
-    <div class="bottom">....</div>
+    <div class="bottom"><div class="total"><span>00.00</span> <button>提交</button></div></div>
 
 
 
