@@ -46,18 +46,18 @@
 
              //定义一个原型对象（共享的）原型对象中的this指向的是实现对象
             Array.prototype.max = function () {
-                return this.reduce((a, b) => Math.max(a, b));// 数组的reduce方法 构造函数的this指向的是实现对象  求最大值
+                return this.reduce((i, item) => Math.max(i, item));// 数组的reduce方法 构造函数的this指向的是实现对象  求最大值
             }
             console.log(array.max());//调用方法
 
               //定义一个原型对象（共享的）原型对象中的this指向的是实现对象
               Array.prototype.min = function () {
-                return this.reduce((a, b) => Math.min(a, b));// 数组的reduce方法 构造函数的this指向的是实现对象  求最小值
+                return this.reduce((i, item) => Math.min(i, item));// 数组的reduce方法 构造函数的this指向的是实现对象  求最小值
             }
             console.log(array.min());//调用方法
 
             Array.prototype.sum = function () {
-                return this.reduce((a, b) => a + b);// 数组的reduce方法 构造函数的this指向的是实现对象  求和
+                return this.reduce((i, item) => i + item);// 数组的reduce方法 构造函数的this指向的是实现对象  求和
             }  
 
             console.log(array.sum());//调用方法
