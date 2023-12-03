@@ -135,6 +135,7 @@
                     'GiftsName': [{ name: '方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S' }, { name: '方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E' }],
                 }
             ];
+            //map方法遍历每一个对象，处理数据，返回hmtl字符串
             const str = list.map(function (item) {
                 //解构赋值 id sku_name epp src count unitedText affixesName GiftsName  （数组默认值为null）
                 const { id, sku_name, epp, src, count, unitedText = null, affixesName = null, GiftsName = null } = item;
@@ -160,24 +161,24 @@
                         <!-- 数量 -->
                         <div class="count">X${Number(count)}</div>
                         <!-- 单品合计金额 -->
-                        <div class="money">¥${(Number(epp) * Number(count)).toFixed(2)}</div>
+                        <div class="money">¥${(Number(epp) * Number(count)).toFixed(2)}</div> 
                     </div>
                 </div>
                 <div class="affixesName">${str_affixesName}</div>
                 <div class="giveawayName">${str_GiftsName}</div>`
 
-            }).join('');
+            }).join(''); //商品列表:使用map循环方法将数组中的元素转换成字符串
             document.querySelector('.cart').innerHTML = str;//渲染页面
 
+
             // 计算总价
-
+            // 1.通过查询选择器获取节点对象
             const span_Element = document.querySelector('.bottom span');
-
+            // 2.通过reduce方法计算总价（每一次相加的数，对象）
             let total = list.reduce((total, item) => {
-                return total + Number(item.epp) * Number(item.count);
+                return total + Number(item.epp) * Number(item.count); // 相加 =单价*数量（每一个对象的epp和count属性）
             }, 0).toFixed(2);
-            console.log(span_Element);
-            span_Element.innerText = `总计:¥${total}`;
+            span_Element.innerText = `总计:¥${total}`;//渲染页面
 
 
 
