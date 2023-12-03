@@ -41,14 +41,27 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+            function Person(name, age) {
+                this.name = name; //实例属性
+                this.age = age;
+              
           
           
           
        
 
         };
-
-
+      
+        Person.prototype.sayHI = function () {//原型方法  prototype添加）
+                    console.log('我叫' + this.name + '我今年' + this.age + '岁')
+                }//静态属性
+               
+      const p1 = new Person('张三', 10);//创建对象
+      p1.sayHI();
+    
+      
+   
+    }
 
     </script>
 
