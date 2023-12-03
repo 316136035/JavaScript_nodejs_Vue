@@ -30,8 +30,57 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        .goods {
+        .item {
+            border: 1px solid #ccc;
+        }
+
+        .top {
+            width: calc(100%);
+            /* 将改当前元素变成伸缩容器 ，
+            缩容器下面的全部子背元素会变成伸缩项目（仅对子背元素有影响）
+            1.仅伸缩容器的子元素成为了伸缩项目，孙子元素、重孙子元素等后代，不是伸缩项目。
+            2.无论原来是哪种元素(块、行内块、行内) ，一旦成为了伸缩项目，全都会“块状化”.*/
+            display: flex;
+            /* 复合写法:主轴方向-换行方式 */
+            align-items: flex-start;
+
+        }
+
+        .params {
+            display: flex;
+            /* 复合写法:主轴方向-换行方式 */
+            align-items: flex-start;
+
+        }
+
+
+        .img-sku_name {
             width: 300px;
+            display: flex;
+            /* 复合写法:主轴方向-换行方式 */
+            align-items: flex-start;
+        }
+
+        .unitedText,
+        .epp,
+        .count,
+        .money {
+
+            width: 130px;
+            margin: 20px;
+        }
+        .bottom{
+              /* 开启固定定位（参考的是视图位置） */
+              position: fixed;
+               /* 固定定位下边0px */
+            bottom: 0px;
+            width: calc(100%);
+            height: 40px;
+            background-color: rgb(193, 16, 16);
+            border: #b50f0f 1px solid;
+              
+              
+              
         }
     </style>
 
@@ -49,22 +98,24 @@
 
             const list = [
                 {
-                    "id": "100011310369",
-                    "sku_name": "方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E",
-                    "epp": "1627.00",
-                    'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg',
-                    'count': '1',
-                    'unitedText': `消毒柜,黑色`,
-                    'affixesName': '刀'
+                    "id": "100011310369",  //商品id
+                    "sku_name": "方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E",//商品名称
+                    "epp": "1627.00",//商品价格
+                    'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg',//商品图片
+                    'count': '1',//商品数量
+                    'unitedText': [{sort:'消毒柜',color:'黑色'}],//参数
+                    'affixesName': [] ,//附件名称
+                    'GiftsName': [{name:"小扫把"},{name:'刀片'}]//赠品
                 },
                 {
                     "id": "100011310369",
                     "sku_name": "方太（FOTILE）侧吸烟灶消三件套 21风量抽油烟机 4.5kW燃气灶 100升大容量嵌入式消毒柜JCD7+HT8BE.S+J51E",
                     "epp": "5197",
-                    'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/23231…/95507/6567340fF2e50273d/877db18ef54c980e.jpg.dpg',
+                    'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/232317/1/4882/95507/6567340fF2e50273d/877db18ef54c980e.jpg.dpg',
                     'count': '2',
-                    "unitedText": '【烟灶消】烟灶+大容量消毒柜',
-                    'affixesName': '方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S,方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E'
+                    "unitedText": [{sort:'烟灶',color:''},{sort:'消毒柜',color:''}],
+                    'affixesName': [{name:'方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S'},{name:'方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E'}],
+                    'GiftsName':[]
 
                 },
                 {
@@ -73,17 +124,55 @@
                     "epp": "1627.00",
                     'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg',
                     'count': '1',
-                    'unitedText': "原色钛金属,256GB",
-                    'GiftsName': '方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S,方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E'
+                    'unitedText': [{sort:'256GB属',color:'原色钛金属'}],//参数
+                    'affixesName': [],
+                    'GiftsName': [{name:'方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S'},{name:'方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E'}],
                 }
             ];
-            list.map(function (item) {
-                console.log(item);
-                return null
-            })
+            const str = list.map(function (item) {
+                //解构赋值 id sku_name epp src count unitedText affixesName GiftsName
+                const {id,sku_name,epp,src,count,unitedText,affixesName,GiftsName}= item; 
+                    console.log(unitedText);
+                    console.log(affixesName);
+                    console.log(GiftsName);
 
+                return `
+                <!-- 商品图片，名称，价格，数量 -->
+            <div class="item">
+                <div class="top">
+                    <div class="img-sku_name">
+                        <div><img
+                                src="${src}"alt=""></div>
+                        <div>${sku_name}</div>
 
-
+                    </div>
+                    <!-- 附件名称 -->
+                    <div class='params'>
+                        <!-- 参数 -->
+                        <div class="unitedText">${unitedText.map(function (item) {
+                            return `<div>${item.sort} ${item.color}</div>`
+                        }).join('')}</div>
+                        <!-- 单价 -->
+                        <div class="epp">${Number(epp).toFixed(2)}</div>
+                        <!-- 数量 -->
+                        <div class="count">X${Number(count)}</div>
+                        <!-- 单品合计金额 -->
+                        <div class="money">${Number(epp) * Number(count)}</div>
+                    </div>
+                </div>
+                <div class="affixesName">${
+                    affixesName.map(function (item) {
+                        return `<div>[附件]${item.name}</div>`
+                    }).join('')
+                }</div>
+                <div class="affixesName">${
+                    GiftsName.map(function (item) {
+                        return `<div>[赠品]${item.name}</div>`
+                    }).join('')
+                }</div>`
+                
+            }).join('');
+            document.querySelector('.cart').innerHTML = str;
 
         };
 
@@ -92,25 +181,40 @@
     </script>
 
     <div class="cart">
-        <div class="item">
-            <div class="goods">
-                <div class="img-sku_name">
-                    <div><img
-                            src="https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg"
-                            alt=""></div>
-                    <div class="sku_name">方太（FOTILE）侧吸烟灶消三件套 21风量抽油烟机 4.5kW燃气灶 100升大容量嵌入式消毒柜JCD7+HT8BE.S+J51E</div>
-                </div>
-                <div class="affixesName">方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S,方太消毒柜家用 嵌入式 毒筷碗柜 100L双
+        <!-- 每一个商品 -->
+        <div class="items">
+            <!-- 商品图片，名称，价格，数量 -->
+            <div class="item">
+                <div class="top">
+                    <div class="img-sku_name">
+                        <div><img
+                                src="https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg"
+                                alt=""></div>
+                        <div>方太（FOTILE）侧吸烟灶消三件套 21风量抽油烟机 4.5kW燃气灶 100升大容量嵌入式消毒柜JCD7+HT8BE.S+J51E</div>
 
-                    <div class="unitedText">unitedText</div>
-                    <div class="epp">单价1627.00</div>
-                    <div class="count">数量</div>
-                    <div class="money">00.00</div>
+                    </div>
+                    <!-- 附件名称 -->
+                    <div class="params">
+                        <!-- 参数 -->
+                        <div class="unitedText">参数</div>
+                        <!-- 单价 -->
+                        <div class="epp">单价1627.00</div>
+                        <!-- 数量 -->
+                        <div class="count">数量</div>
+                        <!-- 单品合计金额 -->
+                        <div class="money">00.00</div>
+                    </div>
                 </div>
+                <div>附件</div>
+                <div>赠品</div>
+
 
             </div>
-            <div>附件：</div>
+
         </div>
+    </div>
+
+        <div class="bottom">....</div>
 
 
 
