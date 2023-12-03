@@ -69,18 +69,19 @@
             width: 130px;
             margin: 20px;
         }
-        .bottom{
-              /* 开启固定定位（参考的是视图位置） */
-              position: fixed;
-               /* 固定定位下边0px */
+
+        .bottom {
+            /* 开启固定定位（参考的是视图位置） */
+            position: fixed;
+            /* 固定定位下边0px */
             bottom: 0px;
             width: calc(100%);
             height: 40px;
             background-color: rgb(193, 16, 16);
             border: #b50f0f 1px solid;
-              
-              
-              
+
+
+
         }
     </style>
 
@@ -103,9 +104,9 @@
                     "epp": "1627.00",//商品价格
                     'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg',//商品图片
                     'count': '1',//商品数量
-                    'unitedText': [{sort:'消毒柜',color:'黑色'}],//参数
-                    'affixesName': [] ,//附件名称
-                    'GiftsName': [{name:"小扫把"},{name:'刀片'}]//赠品
+                    'unitedText': [{ sort: '消毒柜', color: '黑色' }],//参数
+                    'affixesName': [],//附件名称
+                    'GiftsName': [{ name: "小扫把" }, { name: '刀片' }]//赠品
                 },
                 {
                     "id": "100011310369",
@@ -113,9 +114,9 @@
                     "epp": "5197",
                     'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/232317/1/4882/95507/6567340fF2e50273d/877db18ef54c980e.jpg.dpg',
                     'count': '2',
-                    "unitedText": [{sort:'烟灶',color:''},{sort:'消毒柜',color:''}],
-                    'affixesName': [{name:'方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S'},{name:'方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E'}],
-                    'GiftsName':[]
+                    "unitedText": [{ sort: '烟灶', color: '' }, { sort: '消毒柜', color: '' }],
+                    'affixesName': [{ name: '方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S' }, { name: '方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E' }],
+                    'GiftsName': []
 
                 },
                 {
@@ -124,18 +125,17 @@
                     "epp": "1627.00",
                     'src': 'https://img20.360buyimg.com/n0/s80x80_jfs/t1/238369/10/4780/153622/6567406aF8355cf43/60f0a0a38627785d.jpg.dpg',
                     'count': '1',
-                    'unitedText': [{sort:'256GB属',color:'原色钛金属'}],//参数
+                    'unitedText': [{ sort: '256GB属', color: '原色钛金属' }],//参数
                     'affixesName': [],
-                    'GiftsName': [{name:'方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S'},{name:'方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E'}],
+                    'GiftsName': [{ name: '方太燃气灶（天然气）家用嵌入式猛火灶具 4.5kW*一级能效 防爆玻璃面板 双灶HT8BE.S' }, { name: '方太消毒柜家用 嵌入式 消毒筷碗柜 100L双层大容量下密网设计二星级紫外线消毒杀菌 ZTD100J-J51E' }],
                 }
             ];
             const str = list.map(function (item) {
                 //解构赋值 id sku_name epp src count unitedText affixesName GiftsName
-                const {id,sku_name,epp,src,count,unitedText,affixesName,GiftsName}= item; 
-                    console.log(unitedText);
-                    console.log(affixesName);
-                    console.log(GiftsName);
-
+                const { id, sku_name, epp, src, count, unitedText, affixesName, GiftsName } = item;
+                let str_unitedText = unitedText.map(item => `<div>${item.sort} ${item.color}</div>`).join('');
+                let str_affixesName = affixesName.map(item => `<div>[附件]${item.name}</div>`).join('');
+                let str_GiftsName = GiftsName.map(item => `<div>[赠品]${item.name}</div>`).join('')
                 return `
                 <!-- 商品图片，名称，价格，数量 -->
             <div class="item">
@@ -149,9 +149,7 @@
                     <!-- 附件名称 -->
                     <div class='params'>
                         <!-- 参数 -->
-                        <div class="unitedText">${unitedText.map(function (item) {
-                            return `<div>${item.sort} ${item.color}</div>`
-                        }).join('')}</div>
+                        <div class="unitedText">${str_unitedText}</div>
                         <!-- 单价 -->
                         <div class="epp">${Number(epp).toFixed(2)}</div>
                         <!-- 数量 -->
@@ -160,17 +158,9 @@
                         <div class="money">${Number(epp) * Number(count)}</div>
                     </div>
                 </div>
-                <div class="affixesName">${
-                    affixesName.map(function (item) {
-                        return `<div>[附件]${item.name}</div>`
-                    }).join('')
-                }</div>
-                <div class="affixesName">${
-                    GiftsName.map(function (item) {
-                        return `<div>[赠品]${item.name}</div>`
-                    }).join('')
-                }</div>`
-                
+                <div class="affixesName">${str_affixesName}</div>
+                <div class="giveawayName">${str_GiftsName}</div>`
+
             }).join('');
             document.querySelector('.cart').innerHTML = str;
 
@@ -181,7 +171,7 @@
     </script>
 
     <div class="cart">
-        <!-- 每一个商品 -->
+        每一个商品
         <div class="items">
             <!-- 商品图片，名称，价格，数量 -->
             <div class="item">
@@ -214,7 +204,7 @@
         </div>
     </div>
 
-        <div class="bottom">....</div>
+    <div class="bottom">....</div>
 
 
 
