@@ -41,19 +41,7 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            function Person(name,age) {
-                this.name = name; //实例属性
-                this.age = age;
-                this.sayHI = function () {//静态方法  尽量不用这种方法定义函数（可以使用原型prototype添加）
-                    console.log('我叫' + this.name + '我今年' + this.age + '岁')
-                }//静态属性
-            }
-          const p1=  new  Person('张三',10);//创建对象
-          const p2=  new Person('李四',20);//创建对象
-          console.log(p1===p2);//判断两个对象是否相等 地址不相等所以是false
-          console.log(p1.sayHI===p2.sayHI);//地址不相等所以是false
-          console.log(Person.prototype);
-
+          
           
           
        
