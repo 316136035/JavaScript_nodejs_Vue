@@ -52,7 +52,7 @@
             man.prototype.constructor = man;// 从新指向构造函数本身 （由于重新赋值了 所以要重新指向）
             man.prototype.smokes = function () { };//子类原型对象中挂载函数
 
-            console.log(man.prototype);//true
+            console.log(man.prototype);
 
 
             //定义子类构造函数
@@ -61,7 +61,7 @@
             woman.prototype.constructor = man;// 从新指向构造函数本身 （由于重新赋值了 所以要重新指向）
             woman.prototype.make = function () { };//子类原型对象中挂载函数
 
-            console.log(woman.prototype);//true
+            console.log(woman.prototype);
 
 
 
