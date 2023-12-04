@@ -48,7 +48,7 @@
             };
             //定义子类构造函数
             function man() { };
-            man.prototype = new Person('男人');//子类原型对象中赋值父类对象（构造器会被覆盖） new这个对象每次创建会产生新的地址
+            man.prototype = new Person('男人');//子类原型对象中赋值父类对象（构造器会被覆盖来继承父类的属性） new这个对象每次创建会产生新的地址
             man.prototype.constructor = man;// 从新指向构造函数本身 （由于重新赋值了 所以要重新指向）
             man.prototype.smokes = function () { };//子类原型对象中挂载函数
 
@@ -57,7 +57,7 @@
 
             //定义子类构造函数
             function woman() { };
-            woman.prototype = new Person('女人');///子类原型对象中赋值父类对象（构造器会被覆盖）  new这个对象每次创建会产生新的地址
+            woman.prototype = new Person('女人');///子类原型对象中赋值父类对象（构造器会被覆盖来继承父类的属性）  new这个对象每次创建会产生新的地址
             woman.prototype.constructor = man;// 从新指向构造函数本身 （由于重新赋值了 所以要重新指向）
             woman.prototype.make = function () { };//子类原型对象中挂载函数
 
