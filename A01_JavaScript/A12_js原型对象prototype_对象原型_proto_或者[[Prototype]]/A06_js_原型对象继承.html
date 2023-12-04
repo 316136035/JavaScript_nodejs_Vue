@@ -61,7 +61,7 @@
             //定义子类构造函数
             function woman() { };
             woman.prototype = new Person('女人');///子类原型对象中赋值父类对象（构造器会被覆盖来继承父类的属性）  new这个对象每次创建会产生新的地址
-            woman.prototype.constructor = man;// 从新指向构造函数本身 （由于重新赋值了 所以要重新指向）
+            woman.prototype.constructor =  woman;// 从新指向构造函数本身 （由于重新赋值了 所以要重新指向）
             woman.prototype.make = function () { 
                 console.log('我是女人，我会做' + this.job);
             };//子类原型对象中挂载函数
