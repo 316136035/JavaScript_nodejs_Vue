@@ -75,6 +75,15 @@
             console.log(str.charAt(0));//获取字符串的第1个字字符
 
 
+           const funstr  =  `function fun (name,age){
+                console.log('姓名：${name} 年龄：${age}')
+            }`;
+             eval(funstr); //将字符串转换为函数
+             fun('张三',18);
+
+          
+
+
             //小案例（获取姓名年龄并打印到控制器）
             //通过id选择器获取元素添加监听事件
             document.getElementById("button").addEventListener('click', function () {
