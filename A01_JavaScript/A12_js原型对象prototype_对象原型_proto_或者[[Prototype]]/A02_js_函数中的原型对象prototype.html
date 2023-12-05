@@ -41,7 +41,7 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-            // 定义一个构造函数 构造函数的this指向的是实现对象
+            // 定义一个构造函数 构造函数的this指向的是实例对象
             function Person(name, age) {
                 this.name = name; //实例属性
                 this.age = age;
@@ -50,7 +50,7 @@
                 2. javaScript 规定，每一个构造函数都有一个 prototype 属性，指向另一个对象，所以我们也称为原型对象这个对象可以挂载函数，对象实例化不会多次创建原型上函数，节约内存
                 3.我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。
                 4.构造函数和原型对象中的this 都指向 实例化的对象*/
-            //prototype原型对象（共享的）原型对象中的this指向的是实现对象
+            //prototype原型对象（共享的）原型对象中的this指向的是实例对象
             Person.prototype.sayHI = function () { console.log('我叫' + this.name + '我今年' + this.age + '岁') } 
          
             const p1 = new Person('张三', 10);//创建对象

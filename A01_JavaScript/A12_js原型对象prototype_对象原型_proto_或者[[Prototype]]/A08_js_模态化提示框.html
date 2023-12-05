@@ -30,35 +30,53 @@
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
     <style>
-        .hint-box {
-            border: 1px solid #131112;
-            width: 200px;
-            height: 100px;
-            margin: 0 auto;
-            /*  主轴的方向 水平居中 */
-            justify-content: center;
-            /*  侧轴的方向 垂直居中 */
-            align-items: center;
-            /* top: 50%;
-            left: 50%;  */
-            /* transform: translateX(-50%) translateY(-50%);2D变换_位移对行内元素没有效果  百分比是按照自身的参数来计算位移 */
-            background: #d07c7c;
+        .btn-box button {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
 
+        .hint-box {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #911212;
+            /* 开启绝对定位 */
+            position: absolute;
+            /* 绝对定位 水平方向 */
+            left: 0;
+            right: 0;
+            /* 绝对定位 垂直方向 */
+            top: 0;
+            bottom: 0;
+            /* 设置为自动 实现居中 */
+            margin: auto
+        }
+
+        .hint-title-closure {
+            /* 开启flex布局 */
+            display: flex;
+            /* flex布局 主轴水平对齐方式： 主轴的靠左 中 靠右 （主轴的方向不变）*/
+            justify-content: space-between;
+        }
+
+        .hint-title {
+            /* 使用字体*/
+            font-family: "东方大楷体" !important;
+            /* 字体大小 */
+            font-size: 30px;
+            text-align: center;
 
         }
-        .hint-title{
 
-            display: flex;
-            /* 设置主轴方向 水平 */
-            flex-direction: row;
-            /* 换行方式 
-            nowrap 不换行（默认）
-            wrap 换行（注意：要使用对齐方式）
-            wrap-reverse 反向换行（注意：要使用对齐方式）*/
-            /* flex-wrap: wrap; */
-            /* 主轴的起点位置排序-左对齐 （默认主轴的方向不变）*/
-            justify-content: flex-start;
+        .hint-text {
+            margin-top: 40px;
+            text-align: center;
+        }
 
+        .hint-btn {
+            position: absolute;
+            right: 0;
+            bottom: 0;
         }
     </style>
 
@@ -71,7 +89,47 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
 
+            // 定义弹出框构造器函数
+            const pop_ups = function (title = '', text = '') {
+                const hint_box_Element = document.querySelector('.hint-box');
+                hint_box_Element && hint_box_Element.remove()
+                this.hint_box = document.createElement("div");
+                this.hint_box.classList = 'hint-box';
+                this.hint_box.innerHTML = `
+                <div>
+                    <div class="hint-title-closure">
+                        <div class="hint-title">${title}</div>
+                        <div class="hint-closure"> 关闭</div>
+                    </div>
+                    <div class="hint-text">
+                     <p>${text}</p>
+                    </div>
+                    <div class="hint-btn">
+                        <button class="hint-btn-ok">确定</button> 
+                    </div>
+                 </div>` }
 
+            //构造器函数的原型对象挂载方法
+            pop_ups.prototype.show = function () {
+                document.body.appendChild(this.hint_box);//原型对象中的this指向的是实例对象 追加到body标签中
+                document.querySelector('.hint-closure').addEventListener('click', () => {
+                    this.close()
+                })
+            }
+            //构造器函数的原型对象挂载方法
+            pop_ups.prototype.close = function () {
+                this.hint_box.remove();
+            }
+
+            document.querySelector('.login').addEventListener('click', function () {
+                new pop_ups('登录', '你还没有登录').show();
+            });
+            document.querySelector('.register').addEventListener('click', function () {
+                new pop_ups('注册', '你还没有注册').show();
+            });
+            document.querySelector('.hint').addEventListener('click', function () {
+                new pop_ups('提示', '自定义提示信息！！').show();
+            });
 
 
 
@@ -82,27 +140,13 @@
 
 
     </script>
-    <div>
-        <button id="login">登录</button>
-        <button id="register">注册</button>
-        <button id="hint">提示</button>
+    <div class="btn-box">
+        <button class="login">登录</button>
+        <button class="register">注册</button>
+        <button class="hint">提示</button>
     </div>
-    <div class="hint-box">
-        <div class="hint-content">
-            <div class="hint-title-closure">
-                <div class="hint-title">标题</div>
-                <div class="hint-closure"> 关闭</div>
-            </div>
-            <div class="hint-text">
-                <p>
-                    我是提示内容
-                </p>
-            </div>
-            <div class="hint-btn">
-                <button class="hint-btn-ok">确定</button>
-            </div>
-        </div>
-    </div>
+
+
 
 
 </body>

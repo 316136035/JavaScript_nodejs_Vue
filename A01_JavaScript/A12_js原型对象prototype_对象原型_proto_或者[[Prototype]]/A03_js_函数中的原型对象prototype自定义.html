@@ -44,21 +44,21 @@
           //  new Array[0, 1, 2, 9, 4, 5]
             const array = [1, 1, 2, 9, 4, 5];
 
-           //prototype原型对象（共享的）原型对象中的this指向的是实现对象
+       //prototype原型对象（共享的）原型对象中的this指向的是实例对象
             Array.prototype.max = function () {
-                return this.reduce((i, item) => Math.max(i, item));// 数组的reduce方法 构造函数的this指向的是实现对象  求最大值
+                return this.reduce((i, item) => Math.max(i, item));// 数组的reduce方法 构造函数的this指向的是实例对象  求最大值
             }
             console.log(array.max());//调用方法
 
-            //prototype原型对象（共享的）原型对象中的this指向的是实现对象
+         //prototype原型对象（共享的）原型对象中的this指向的是实例对象
               Array.prototype.min = function () {
-                return this.reduce((i, item) => Math.min(i, item));// 数组的reduce方法 构造函数的this指向的是实现对象  求最小值
+                return this.reduce((i, item) => Math.min(i, item));// 数组的reduce方法 构造函数的this指向的是实例对象  求最小值
             }
             console.log(array.min());//调用方法
 
-             //prototype原型对象（共享的）原型对象中的this指向的是实现对象
+             //prototype原型对象（共享的）原型对象中的this指向的是实例对象
             Array.prototype.sum = function () {
-                return this.reduce((i, item) => i + item);// 数组的reduce方法 构造函数的this指向的是实现对象  求和
+                return this.reduce((i, item) => i + item);// 数组的reduce方法 构造函数的this指向的是实例对象  求和
             }  
 
             console.log(array.sum());//调用方法
