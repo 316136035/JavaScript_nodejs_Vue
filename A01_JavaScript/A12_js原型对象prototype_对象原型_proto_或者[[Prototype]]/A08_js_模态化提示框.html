@@ -88,6 +88,8 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+          
+            
 
             // 定义弹出框构造器函数
             const pop_ups = function (title = '', text = '') {
@@ -135,6 +137,8 @@
             document.querySelector('.hint').addEventListener('click', function () {
                 new pop_ups('提示', '自定义提示信息！！').show(); // 调用原型对象中的函数
             });
+
+        
 
         }
 
