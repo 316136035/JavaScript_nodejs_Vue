@@ -92,10 +92,10 @@
             // 定义弹出框构造器函数
             const pop_ups = function (title = '', text = '') {
                 const hint_box_Element = document.querySelector('.hint-box');
-                hint_box_Element && hint_box_Element.remove()
-                this.hint_box = document.createElement("div");
-                this.hint_box.classList = 'hint-box';
-                this.hint_box.innerHTML = `
+                hint_box_Element && hint_box_Element.remove();//逻辑运算符 前面的是false就不执行后面的的表达式，前面的ture就执行后面的的（表达式/函数）
+                this.hint_box = document.createElement("div");//创建div标签
+                this.hint_box.classList = 'hint-box';//给div标签添加样式
+                this.hint_box.innerHTML = `  
                 <div>
                     <div class="hint-title-closure">
                         <div class="hint-title">${title}</div>
@@ -107,34 +107,34 @@
                     <div class="hint-btn">
                         <button class="hint-btn-ok">确定</button> 
                     </div>
-                 </div>` }
+                 </div>` //给div标签添加内容
+            }
 
-            //构造器函数的原型对象挂载方法
+            //构造器函数的原型对象挂载方法（弹出）
             pop_ups.prototype.show = function () {
                 document.body.appendChild(this.hint_box);//原型对象中的this指向的是实例对象 追加到body标签中
+                // 通过查询选择器绑定事件（关闭事件）箭头函数没有this 会往上一级查找this 所以this是实例对象
                 document.querySelector('.hint-closure').addEventListener('click', () => {
-                    this.close()
+                    this.close();//调用原型对象中的关闭函数关闭
                 })
             }
-            //构造器函数的原型对象挂载方法
+            //构造器函数的原型对象挂载方法（关闭）
             pop_ups.prototype.close = function () {
-                this.hint_box.remove();
+                this.hint_box.remove();//移除提示框
             }
 
+            // 通过查询选择器绑定事件
             document.querySelector('.login').addEventListener('click', function () {
-                new pop_ups('登录', '你还没有登录').show();
+                new pop_ups('登录', '你还没有登录').show();  // 调用原型对象中的函数
             });
+            // 通过查询选择器绑定事件
             document.querySelector('.register').addEventListener('click', function () {
-                new pop_ups('注册', '你还没有注册').show();
+                new pop_ups('注册', '你还没有注册').show();  // 调用原型对象中的函数
             });
+            // 通过查询选择器绑定事件
             document.querySelector('.hint').addEventListener('click', function () {
-                new pop_ups('提示', '自定义提示信息！！').show();
+                new pop_ups('提示', '自定义提示信息！！').show(); // 调用原型对象中的函数
             });
-
-
-
-
-
 
         }
 
