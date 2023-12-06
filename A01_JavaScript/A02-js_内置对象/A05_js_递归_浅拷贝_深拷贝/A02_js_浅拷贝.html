@@ -20,7 +20,7 @@
   <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- 头标题 -->
-  <title>A01_js_Object对象</title>
+  <title>A02_js_浅拷贝</title>
   <!-- 设置网站图标调用一个外部的图片文件 -->
   <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
   <!-- 清除css默认样式 -->
@@ -36,30 +36,25 @@
   <script type="text/javascript">
     // 在页面加载完毕后才会执行的代码
     window.onload = function () {
-      const Person = {
-        name: '张三',
-        age: 18,
-        sex: '男',
-        sayHello() {
-          console.log(`我叫${this.name},今年${this.age}岁,性别${this.sex}`)
-        }
-      };
-      let arraykeys = Object.keys(Person);//获取对象全部属性名（数组）
-      let arrayvalues = Object.values(Person);//获取对象全部属性值（数组）
-      console.log(arraykeys);
-      console.log(arrayvalues);
+      const car = {
+        name: '奥迪',
+        price: 100000,
+        color: '黑色'
+      }
 
-      const newPerson={};//创建空对象
-      Object.assign(newPerson,Person);//将对象属性分配到新对象（）
-      
-      Object.assign(Person,{address:'北京市海淀区'});//将属性分配到对象中  只能拷贝对象属性，不能拷贝方法
-      console.log(Person);
-      console.log(Person);
+      const car1 = car;//浅拷贝  地址指向的是同一个内存空间 所以修改一个会影响另一个
+      car1.color = '红色';
+      console.log(car, car1);
+      console.log('*******************************');
+      const copy = {};
+      const copy1 = Object.assign(copy, car);//将属性分配到对象中 浅拷贝()  属性地址指向的是不同一个内存空间  但是函数地址是同一个内存空间
+      copy1.color = '白色';
+      console.log(car, copy1);
 
-      
-    
-
-
+      console.log('*******************************');//将属性分配到对象中 浅拷贝()  属性地址指向的是不同一个内存空间 但是函数地址是同一个内存空间
+      const copy2 = {...car}
+      copy2.name = '宝马'
+      console.log(car, copy2);
 
 
 
@@ -69,6 +64,8 @@
 
 
     }
+
+
 
   </script>
 
