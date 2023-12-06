@@ -57,6 +57,7 @@
       function deepClone(oldObj) {
         let newObj = {};//创建一个空对象
         //遍历对象(key=属性名  oldObj[key]=属性值)
+        //遍历数组(key=索引  newObj[key]=值)
         for (const key in oldObj) {
           if (oldObj[key] instanceof Array) {//判断是否是数组
             deepClone(oldObj[key]);//递归调用深拷贝方法
