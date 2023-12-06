@@ -47,13 +47,13 @@
                 try {
                     console.log('可能出现异常代码写这里')
                     const doc = document.getElementById('btn');
-                    doc.addEventListener('click', function () {
-                        console.log("这段代码不会执行..");
-
-                    })
+                    //下面代码会报错
+                    doc.addEventListener('click', function () { });
 
                 } catch (e) {
-                    console.log('处理异常代码写这里', e)
+                    console.log('处理异常代码写这里', e.message)
+                    throw new Error('直接抛出异常'); //抛出异常 中断下面的代码
+                    console.log('这段代码不会执行')
                 } finally {
                     console.log('最终执行的代码写这里')
 
@@ -61,11 +61,12 @@
 
             }
 
-            test();
+     
+          test();
 
             function test1() {
-                1/0;
-                throw new Error('直接抛出异常');
+               
+                throw new Error('直接抛出异常'); //抛出异常 中断下面的代码
              
 
             }
