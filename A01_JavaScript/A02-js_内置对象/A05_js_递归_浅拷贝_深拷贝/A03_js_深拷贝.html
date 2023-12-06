@@ -28,7 +28,7 @@
   <!-- 调用一个外部的CSS样式文件 -->
   <link rel="stylesheet" href="#">
   <!-- 引入外部js文件 不能和内部js一样使用-->
-  <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+  <script src='../../resources静态资源/js/lodash.min.js'></script>
 
 <body>
 
@@ -45,7 +45,8 @@
       const person = {
         name: '张三',
         sex: '男',
-        hobby: ['看电影', '打游戏', '购物'],
+        age: 19,
+        hobby: ['看电影', '打游戏'],
         running: function () {
           console.log(this.name + 'running');
         }
@@ -53,33 +54,48 @@
 
       }
 
+      console.log('原有对象', person);
       // //1.使用递归来拷贝
-      function deepClone(oldObj) {
-        let newObj = {};//创建一个空对象
+      function deepClone(newObj, oldObj) {
         //遍历对象(key=属性名  oldObj[key]=属性值)
         //遍历数组(key=索引  newObj[key]=值)
         for (const key in oldObj) {
           if (oldObj[key] instanceof Array) {//判断是否是数组
-            deepClone(oldObj[key]);//递归调用深拷贝方法
-          } if (oldObj[key] instanceof Function) {//判断是否是函数
+            newObj[key] = [];//新对象创建新数组
+            deepClone(newObj[key], oldObj[key]);//递归调用深拷贝方法
+            //拷贝数组  用数组的扩展运算符实现
+            //oldObj[key] = [...arr];
+          }
+          if (oldObj[key] instanceof Function) {//判断是否是函数
             newObj[key] = eval('(' + oldObj[key].toString() + ')');  //eval()  字符串转化为函数挂载到新对象中；
-          } else {
+          }
+          if (typeof oldObj[key] === 'number' || typeof oldObj[key] === "string") {//判断是否是对象
             //1. newObj[key]设置属性名和（对象.XX）一样使用 2.  oldObj[key]获取属性值 (变量对象和数组也会使用到这个赋值方法)
-            newObj[key] = oldObj[key];   
+            newObj[key] = oldObj[key];
           }
         }
         return newObj;//返回新对象
       }
-      console.log('原有对象', person);
-      const p1 = deepClone(person);
-      console.log('使用递归来拷贝的对象:', p1);
+
+      const newObj = {};
+      const newObj1 = deepClone(newObj, person);
+      newObj1.name = '王五';
+      newObj1.hobby.push('递归');
+      console.log('递归', newObj1);
+
+
+   
+
+       //2.使用包含函数来拷贝
+      const p2 = _.cloneDeep(person);
+      console.log('使用包含函数来拷贝', p2);
 
 
 
-      // 3.使用JSON.parse(JSON.stringify())来拷贝
+      // 3.使用JSON.parse(JSON.stringify())来拷贝 （不能拷贝函数）
       const p3 = JSON.parse(JSON.stringify(person));
       p3.name = '李四';
-
+      p3.hobby.push('JSON.parse(JSON.stringify())来拷贝');
       console.log('JSON来拷贝的对象', p3);
 
 

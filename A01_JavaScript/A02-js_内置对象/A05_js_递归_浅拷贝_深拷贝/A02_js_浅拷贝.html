@@ -58,7 +58,11 @@
 
       const arr = [1, 2, 3, 4, 5] ;
       const copyarr = [...arr];////浅拷贝  属性地址指向的是不同一个内存空间 但是函数地址是同一个内存空间
-    
+     
+      copyarr.push(6);
+      console.log("原有数组", arr);
+      console.log("浅拷贝数组", copyarr);
+   
 
 
 
