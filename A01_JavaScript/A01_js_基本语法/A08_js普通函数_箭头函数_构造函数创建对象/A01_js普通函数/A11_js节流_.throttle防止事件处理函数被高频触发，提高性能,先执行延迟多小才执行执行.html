@@ -60,15 +60,41 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
+            //*********节流防止事件处理函数被高频触发，提高性能,先执行延迟多小才执行执行*********
             const div1Element = document.querySelector(".div1");
             let i = 1;
-            function thro() {
-                div1Element.innerHTML = i++;
-
-            }
+            function thro() { div1Element.innerHTML = i++; }
             //防止事件处理函数被高频触发，提高性能,先执行延迟多小才执行执行
             // _.throttle(函数, 延迟时间) 要引入lodash.min.js
-            div1Element.addEventListener('mousemove', _.throttle(thro, 2000));
+            div1Element.addEventListener('mousemove', _.throttle(thro, 5000));
+
+            //********自定义节流效果 节流防止事件处理函数被高频触发，提高性能,先执行延迟多小才执行执行*****
+
+
+
+            const div2Element = document.querySelector(".div2");
+            let ii = 1;
+            function throttle(objict, time) {
+                let timeout = null;
+               
+                return () => {
+                    if (!timeout) {//如果没有timeout
+                       timeout = window.setTimeout(function () { //延迟执行的函数
+                            // this.innerHTML = ii++; //执行函数体
+                            this.innerHTML = ii++;
+                            timeout = null;
+                        }.bind(div2Element), //绑定当前的函数体  让函数体中的this指向当前的div2Element
+                            time);
+
+                    }
+
+
+                }
+
+            }
+            //通过函查询器绑定mousemove事件 调用函数debounce(mou2, 1000) 
+            //函数有() 只能执行一次 所以调用debounce函数必须要返回一个函数作为当前的函数体
+            div2Element.addEventListener('mousemove', throttle(div2Element, 1000));
 
 
 
