@@ -3,7 +3,7 @@
 
 2.  clear  或者  cls           # 清空界面
 
-3.  ls/dir                   #  查看列表(list)
+3.  ls或者dir                   #  查看列表(list)
 
 4.  cd 目录名                  # 进入到目录中去
 
