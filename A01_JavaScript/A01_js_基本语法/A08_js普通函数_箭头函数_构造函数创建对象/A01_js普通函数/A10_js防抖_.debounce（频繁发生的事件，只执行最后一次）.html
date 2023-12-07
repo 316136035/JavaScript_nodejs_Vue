@@ -76,8 +76,8 @@
             const div2Element = document.querySelector(".div2");
             let ii = 0;
             //定义一个函数（提供改定时器使用）
-            function mou2() {
-                div1Element.innerHTML = i++;
+            function mou2(objict) {
+                objict.innerHTML = i++;
             }
             //自定义防抖效果
             function debounce(mou, time) {
@@ -87,7 +87,8 @@
                 return () => {
                     if (timeout) { clearTimeout(timeout); }//如果有延迟执行的函数，就清除延迟执行的函数
                     timeout = window.setTimeout(function () { //延迟执行的函数
-                        this.innerHTML = ii++; //执行函数体
+                        // this.innerHTML = ii++; //执行函数体
+                        mou2(this);
                     }.bind(div2Element),  //绑定当前的函数体  让函数体中的this指向当前的div2Element
                         time);
 
