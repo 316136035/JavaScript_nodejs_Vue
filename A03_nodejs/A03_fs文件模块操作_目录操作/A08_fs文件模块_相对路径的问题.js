@@ -4,11 +4,11 @@ const fs = require('fs');
 //'./fs文件模块.txt'===相对路径 当命令在其他目录执行js文件时候，相对路径为执行命令的路径（可以在使用__dirname获取当前目录的路径+绝对路劲）
 // fs.writeFileSync('./fs文件模块.txt',`瀛洲学士风流远Sync` )
 //获取当前目录的路径
-console.log(__dirname)
+console.log('获取当前目录的路径:',__dirname)
 console.log(__dirname+'/fs文件模块.txt')
 //可以使用绝对路劲
 fs.writeFileSync(__dirname+'/fs文件模块.txt',`瀛洲学士风流远Sync` )
 //获取当前文件的路径
-console.log(__filename)
+console.log('获取当前文件的路径:',__filename)
 
 
