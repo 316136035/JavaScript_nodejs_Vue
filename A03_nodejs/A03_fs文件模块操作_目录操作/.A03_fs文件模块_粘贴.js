@@ -25,7 +25,7 @@ const fs = require('fs');
 //创建输入流
 const rs = fs.createReadStream('./A03_fs文件模块_复制和粘贴.js')
 //创建输出流
-const ws = fs.createWriteStream('./A03_fs文件模块_粘贴.js')
+const ws = fs.createWriteStream('.A03_fs文件模块_粘贴.js')
 
 //绑定读取成功回调 （每读取一组就调用一次这个回调）
 rs.on('data', data => {
