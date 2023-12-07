@@ -60,7 +60,7 @@
     <script type="text/javascript">
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
-
+            //*****************************lodash.min.js工具类实现防抖效果********************************
             const div1Element = document.querySelector(".div1");
             let i = 0;
             //定义一个函数（提供改定时器使用）
@@ -71,7 +71,7 @@
             div1Element.addEventListener('mousemove', _.debounce(mou1, 1000));
 
 
-            //自定义防抖效果
+            //*****************************自定义防抖效果********************************
 
             const div2Element = document.querySelector(".div2");
             let ii = 0;
@@ -81,15 +81,15 @@
             }
             //自定义防抖效果
             function debounce(mou, time) {
-                 
-                let timeout;
+
+                let timeout;//用于关闭定时器
                 //返回一个函数作为当前的函数体
                 return () => {
-                    if (timeout) {clearTimeout(timeout);}//如果有延迟执行的函数，就清除延迟执行的函数
+                    if (timeout) { clearTimeout(timeout); }//如果有延迟执行的函数，就清除延迟执行的函数
                     timeout = window.setTimeout(function () { //延迟执行的函数
                         this.innerHTML = ii++; //执行函数体
                     }.bind(div2Element),  //绑定当前的函数体  让函数体中的this指向当前的div2Element
-                    time); 
+                        time);
 
                 }
 
