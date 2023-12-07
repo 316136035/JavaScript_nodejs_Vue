@@ -33,9 +33,10 @@ const  fs=require('fs');
 //创建文件输出流（写入流，异步写入文件） ({ flags: 'a' } 追加写入)
 const WS =fs.createWriteStream('./A02_fs文件模块.txt' ,{ flags: 'a' })
 //流式写入
-WS.write("A\r\n")
-WS.write("B\r\n")
-WS.write("C\r\n")
+WS.write("碧玉妆成一树高\r\n")
+WS.write("万条垂下绿丝绦。\r\n")
+WS.write("不知细叶谁裁出，\r\n")
+WS.write("二月春风似剪刀。\r\n")
 //关闭流
 WS.close();
 
