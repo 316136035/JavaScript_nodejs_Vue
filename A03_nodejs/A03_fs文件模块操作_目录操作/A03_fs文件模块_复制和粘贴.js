@@ -23,24 +23,26 @@ const fs = require('fs');
 
 //输入流和输出流（又叫‘读取流和写入流’） 读取和写入
 //创建输入流
-const rs= fs.createReadStream('./A04_借口.ogg')
+const rs = fs.createReadStream('./A04_借口.ogg')
 //创建输出流
-const ws= fs.createWriteStream('./A04_借口1.ogg')
+const ws = fs.createWriteStream('./A04_借口1.ogg')
 
 //绑定读取成功回调 （每读取一组就调用一次这个回调）
-rs.on('data',data=>{
+rs.on('data', data => {
     //读取的是buffer数组
     // console.log("读取成功..",data, "每一组的长度：",data.length)
     //通过输出流（写入流）写入
     ws.write(data)
-  
+    //关闭流
+    WS.close();
+
 })
 //绑定读取失败回调
-rs.on('error', err=>{
+rs.on('error', err => {
     console.log("读取失败..")
 })
 //绑定读取读取完毕
-rs.on('end',()=>{
+rs.on('end', () => {
     ws.close();
     console.log("读取完毕..")
 })

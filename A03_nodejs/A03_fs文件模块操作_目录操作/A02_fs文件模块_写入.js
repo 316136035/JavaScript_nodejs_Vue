@@ -31,7 +31,7 @@ const  fs=require('fs');
 // fs.appendFileSync('./A04_fs文件模块.txt',`appendFileSync` )
 
 //创建文件输出流（写入流）
-const WS =fs.createWriteStream('./A04_fs文件模块.txt')
+const WS =fs.createWriteStream('./A02_fs文件模块.txt')
 //流式写入
 
 WS.write("A\r\n")
