@@ -76,9 +76,9 @@
             let ii = 1;
             function throttle(objict, time) {
                 let timeout = null;
-               
                 return () => {
                     if (!timeout) {//如果没有timeout
+                          console.log(this);
                        timeout = window.setTimeout(function () { //延迟执行的函数
                             // this.innerHTML = ii++; //执行函数体
                             this.innerHTML = ii++;
