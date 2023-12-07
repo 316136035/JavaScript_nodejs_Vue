@@ -53,7 +53,7 @@
 
             //onloadeddata在视频播放器接收到数据并开始加载时触发
             videoElement.onloadeddata = function () {
-                videoElement.currentTime = localStorage.getItem('currentTime'); //获取本地存储的当前播放时间并设置当前播放时间
+                videoElement.currentTime = localStorage.getItem('currentTime')||0; //获取本地存储的当前播放时间并设置当前播放时间
             }
 
 
