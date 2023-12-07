@@ -39,7 +39,7 @@ rs.on('data', data => {
 })
 //绑定读取失败回调
 rs.on('error', err => {
-    console.log("读取失败..")
+    console.log("读取失败..",err)
 })
 //绑定读取读取完毕
 rs.on('end', () => {
