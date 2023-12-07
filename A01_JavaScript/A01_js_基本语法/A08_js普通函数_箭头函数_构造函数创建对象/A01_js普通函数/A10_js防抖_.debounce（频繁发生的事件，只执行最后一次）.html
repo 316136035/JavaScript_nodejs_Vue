@@ -33,11 +33,12 @@
         body {
             background: #f0f0f0;
             display: flex;
-              /* 复合写法:主轴方向-换行方式 */
-              flex-flow: row wrap;
+            /* 复合写法:主轴方向-换行方式 */
+            flex-flow: row wrap;
             /* 主轴的靠左 中 靠右 （主轴的方向不变）*/
             justify-content: space-between;
         }
+
         div {
             width: 400px;
             height: 400px;
@@ -45,8 +46,8 @@
             font-size: 40px;
             text-align: center;
             margin: 50px;
-    
-            
+
+
 
         }
     </style>
@@ -63,16 +64,45 @@
             const div1Element = document.querySelector(".div1");
             let i = 0;
             //定义一个函数（提供改定时器使用）
-            function mou() {
+            function mou1() {
                 div1Element.innerHTML = i++;
             }
-            //频繁发生的事件，只执行最后一次_.debounce(函数, 延迟时间)
-            div1Element.addEventListener('mousemove', _.debounce(mou, 1000));
+            //频繁发生的事件，只执行最后一次_.debounce(函数, 延迟时间)  要引入lodash.min.js
+            div1Element.addEventListener('mousemove', _.debounce(mou1, 1000));
 
 
             //自定义防抖效果
 
             const div2Element = document.querySelector(".div2");
+            let ii = 0;
+            //定义一个函数（提供改定时器使用）
+            function mou2() {
+                div1Element.innerHTML = i++;
+            }
+            //自定义防抖效果
+            function debounce(mou, time) {
+                 
+                let timeout;
+                //返回一个函数作为当前的函数体
+                return () => {
+                    if (timeout) {clearTimeout(timeout);}//如果有延迟执行的函数，就清除延迟执行的函数
+                    timeout = window.setTimeout(function () { //延迟执行的函数
+                        this.innerHTML = ii++; //执行函数体
+                    }.bind(div2Element),  //绑定当前的函数体  让函数体中的this指向当前的div2Element
+                    time); 
+
+                }
+
+
+            }
+            //通过函查询器绑定mousemove事件 调用函数debounce(mou2, 1000) 
+            //函数有() 只能执行一次 所以调用debounce函数必须要返回一个函数作为当前的函数体
+            div2Element.addEventListener('mousemove', debounce(mou2, 1000));
+
+
+
+
+
 
 
 
