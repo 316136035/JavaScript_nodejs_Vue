@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A09_js改变对象中this指向_bind_.apply_call</title>
+    <title>A10_js防抖（频繁发生的事件，只执行最后一次）</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <link rel="shortcut icon" href="../../../resources静态资源/img/favicon.ico" type="image/x-icon" />
     <!-- 清除css默认样式 -->
@@ -28,15 +28,26 @@
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <!-- 引入外部js文件 不能和内部js一样使用-->
-    <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+    <script src="../../../resources静态资源/js/lodash.min.js"></script>
     <style>
-        button {
-            width: 100px;
-            height: 30px;
-            border: #1f0a0a 1px solid;
-            color: #814242;
+        body {
+            background: #f0f0f0;
+            display: flex;
+              /* 复合写法:主轴方向-换行方式 */
+              flex-flow: row wrap;
+            /* 主轴的靠左 中 靠右 （主轴的方向不变）*/
+            justify-content: space-between;
+        }
+        div {
+            width: 400px;
+            height: 400px;
+            background: red;
+            font-size: 40px;
+            text-align: center;
+            margin: 50px;
+    
+            
 
-            cursor: pointer;
         }
     </style>
 
@@ -49,44 +60,33 @@
         // 在页面加载完毕后才会执行的代码
         window.onload = function () {
 
-            //1.bind改变this指向 bind（对象，参数） （函数不会执行，只是返回一个函数）
-            document.querySelector("button").addEventListener("click", function () {
-                alert("发送短信");
-                this.disabled = true;// 禁用按钮
-                window.setTimeout(function () {
-                    //默认this指向的是window对象
-                    this.disabled = false;// 解禁按钮
-                }.bind(this) //bind改变this指向外层的this（外层的this是按钮） bind函数不会执行，只是返回一个函数，
-                    , 2000);
-            });
-            //2.apply改变this指向 apply（对象，数组）（ 函数会执行 ）
-            const person={
-                name:"张三",
-            };
-            function sayHello(a,b){
-                console.log(this); //this指向的是Window对象 apply改变this指向为person对象
+            const div1Element = document.querySelector(".div1");
+            let i = 0;
+            //定义一个函数（提供改定时器使用）
+            function mou() {
+                div1Element.innerHTML = i++;
             }
-            sayHello.apply(person,['A','B']);
+            //频繁发生的事件，只执行最后一次_.debounce(函数, 延迟时间)
+            div1Element.addEventListener('mousemove', _.debounce(mou, 1000));
 
 
-             //3.call改变this指向 .call（对象，参数）（ 函数会执行 ）
-             const person1={
-                name:"丽水",
-            };
-            function sayHello(str){
-                console.log(this); //this指向的是Window对象 call改变this指向为person1对象
-            }
-            sayHello.call(person1,'哈哈');
+            //自定义防抖效果
+
+            const div2Element = document.querySelector(".div2");
 
 
-          
+
+
+
+
 
         };
 
 
 
     </script>
-    <button>发送短信</button>
+    <div class="div1"></div>
+    <div class="div2"></div>
 </body>
 
 </html>
