@@ -6,7 +6,7 @@ const fs = require('fs');
 //获取当前目录的路径
 console.log('获取当前目录的路径:',__dirname)
 console.log(__dirname+'/fs文件模块.txt')
-//可以使用绝对路劲
+//获取当前目录的路径再拼接为绝对路径
 fs.writeFileSync(__dirname+'/fs文件模块.txt',`瀛洲学士风流远Sync` )
 //获取当前文件的路径
 console.log('获取当前文件的路径:',__filename)
