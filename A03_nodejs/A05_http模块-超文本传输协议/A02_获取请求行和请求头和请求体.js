@@ -5,15 +5,15 @@ const server = http.createServer(
     //请求对象，响应对象
     (request, response) => {
         //获取请求方式
-        console.log(request.method)
+        console.log('获取请求方式',request.method)
         //获取请求路径+key——value
-        console.log(request.url)
+        console.log('取请求路径+key——value',request.url)
         //获取http协议版本号
-        console.log(request.httpVersion)
+        console.log('获取http协议版本号',request.httpVersion)
         //获取全部请求头
-        console.log(request.headers)
+        console.log('获取全部请求头',request.headers)
         //获取部分请求头
-        console.log(request.headers.accept)
+        console.log('获取部分请求头',request.headers.accept)
         //获取请求体
         let body = '';
         //绑定data方法 回调函数
@@ -22,7 +22,7 @@ const server = http.createServer(
         })
         //绑定end方法 回调函数
         request.on('end', () => {
-            console.log(body)
+            console.log( '获取请求体:',body)
             //响应给浏览器
             response.end(body)
         })
