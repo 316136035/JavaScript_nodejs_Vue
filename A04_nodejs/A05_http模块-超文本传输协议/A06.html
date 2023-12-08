@@ -27,9 +27,11 @@
         // 在页面加载完毕后执行的代码
         window.onload = function () {
             document.querySelector('.container').addEventListener('click', function (e) {
-              console.log(e.target.tagName);
+          
               if(e.target.tagName==='BUTTON'){
-                console.log(e.target.parentNode);
+              let str=  e.target.parentNode.classList.value.split('_')[1];  //获取按钮的父级的class值，然后用split方法将class值分割成数组，然后取数组的第二个元素，也就是class值中的_后面的值
+              console.log(str);
+             
               }
             });
         };
