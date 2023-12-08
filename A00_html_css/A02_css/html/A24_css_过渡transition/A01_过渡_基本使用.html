@@ -1,0 +1,114 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A01_过渡_基本使用</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .father1 {
+            /* 高度 */
+            height: 400px;
+        }
+
+        .father1 div {
+            /* 宽度 */
+            width: 200px;
+            /* 高度 */
+            height: 20px;
+            /* 背景颜色 */
+            background-color: blue;
+            /* 外边距中 */
+            margin-top: 5px;
+            /* 开启过渡效果 (宽度,高度)
+            一般写在非事件对象中
+            过渡效果用于有事件触发的时候*/
+            /* transition-property: width, height,background-color; */
+            /* 开启过渡效果全部 */
+            transition-property: all;
+            /* 设置过渡效果持续时间 */
+            transition-duration: 5s;
+            /* 设置过渡效果持续时间 配置单独效果是用 */
+            /* transition-duration: 0.8s ,5s,10s; */
+        }
+
+        .father1 div:hover {
+            /* 宽度 */
+            width: 1190px;
+            /* 高度 */
+            height: 40px;
+            /* 背景颜色 */
+            background-color: rgb(255, 0, 64);
+        }
+
+        .father2 div {
+            /* 宽度 */
+            width: 200px;
+            /* 高度 */
+            height: 200px;
+            /* 背景颜色 */
+            background-color: rgb(255, 0, 0);
+            /*外边距中 */
+            margin: 0 auto;
+            /* 透明度 */
+            opacity: 0.5;
+            /* 开启过渡效果 (宽度,高度)
+            一般写在非事件对象中
+            过渡效果用于有事件触发的时候
+            开启过渡效果全部 */
+            transition-property: all;
+            /* 设置过渡持续时间 */
+            transition-duration: 5s;
+        }
+
+        .father2 div:hover {
+            /* 变换_组合写法_ 位移translate_ 缩放scale_ Z轴旋转rotate  统一按照自身的参数来计算（按顺序实现）*/
+            transform: scale(1.5) translate(20px, 20px) rotate(90deg);
+            /* 盒子外阴影（水平方向，垂直方向，阴影模糊程度 ，阴影外延值，阴影颜色） */
+            box-shadow: 0px 0px 10px 10px rgb(0, 255, 136);
+            /* 透明度 */
+            opacity: 1;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father1">
+        <div>div1</div>
+        <div>div2</div>
+        <div>div3</div>
+        <div>div4</div>
+        <div>div5</div>
+    </div>
+    <div class="father2">
+        <div>div6</div>
+    </div>
+
+
+
+    <!-- 引入三方依赖包 -->
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+</body>
+
+</html>

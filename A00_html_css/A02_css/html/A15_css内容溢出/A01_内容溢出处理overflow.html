@@ -1,0 +1,64 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A01_内容溢出处理overflow</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .div1 {
+            /* 设置宽度 */
+            width: 200px;
+            /* 设置高度 */
+            height: 200px;
+            /* 设置背景颜色 */
+            background-color: chartreuse;
+            /*内容溢出处理作用在容器中
+            overflow参数：
+            visible 溢出可见显示 （默认）
+            scroll 溢出滚动条显示
+            hidden 溢出隐藏显示
+            auto    溢出自动显示 */
+            overflow: auto;
+            /* 水平方向溢出隐藏显示 测试中的功能 */
+            /* overflow-x:hidden; */
+            /* 垂直方向溢自动显示  测试中的功能 */
+            /* overflow-y: auto;*/
+        }
+
+        .div2 {
+            /* 设置宽度 */
+            width: 800px;
+            /* 设置高度 */
+            height: 80px;
+            /* 设置背景颜色 */
+            background-color: rgb(255, 0, 21);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="div1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est esse laudantium, doloremque alias accusantium ipsam
+        porro ab reprehenderit sunt quo. Rem cumque maiores veniam ab animi quae quos natus tempora
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est esse laudantium, doloremque alias accusantium ipsam
+        porro ab reprehenderit sunt quo. Rem cumque maiores veniam ab animi quae quos natus tempora
+        <div class="div2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est esse laudantium, doloremque alias
+            accusantium ipsam porro ab reprehenderit sunt quo. Rem cumque maiores veniam ab animi quae quos natus
+            tempora</div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est esse laudantium, doloremque alias accusantium ipsam
+        porro ab reprehenderit sunt quo. Rem cumque maiores veniam ab animi quae quos natus tempora
+    </div>
+
+        <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+</body>
+
+
+</html>

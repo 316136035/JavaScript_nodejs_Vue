@@ -1,0 +1,82 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A05_盒子模型外边距_marign</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .div1 {
+
+            /* 外边距 组合写法 */
+            /* 一个值代表 四个方向内边距一样 */
+            margin: 10px;
+            /* 二个值代表 上下一样，左右一样 */
+            margin: 10px 20px;
+            /* 三个值代表 上，左右一样，下 */
+            margin: 10px 20px 30px;
+            /* 四个值代表 上，右，下，左 */
+            margin: 10px 20px 30px 40px;
+            /* 设置背景颜色 */
+            background-color: rgb(0, 34, 255);
+            /* 固定内容区大小content-box   默认的 */
+            box-sizing: content-box;
+
+        }
+
+        .div2 {
+
+            /* 外边距 定位写法 */
+            /* 设置外边距上方大小 */
+            margin-top: 10px;
+            /* 设置外边距下方大小 */
+            margin-bottom: 20px;
+            /* 设置外边距左方大小 */
+            margin-left: 30px;
+            /* 设置外边距右方大小 */
+            margin-right: 40px;
+            /* 设置背景颜色 */
+            background-color: chartreuse;
+            /* 固定内容区大小content-box   默认的 */
+            box-sizing: content-box;
+
+
+        }
+
+        div {
+            /* 设置内容区_content宽度 */
+            width: 200px;
+            /* 设置内容区_content高度 */
+            height: 200px;
+            /* 固定内容区大小content-box   默认的 */
+            box-sizing: content-box;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="div1">设置外边距组合写法</div>
+    <hr>
+    <div class="div2">设置外边距方位写法</div>
+    <hr>
+
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

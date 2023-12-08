@@ -1,0 +1,111 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A02_绝对定位absolute</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .container {
+            /* 设置背景颜色 */
+            background-color: burlywood;
+            /* 设置边框宽度 */
+            border: 10px solid black;
+            /* 设置内边距 */
+            padding: 20px;
+            /* 开启相对定位 */
+            position: relative;
+      }
+
+        .div {
+            /* 设置宽度 */
+            width: 200px;
+            /* 设置高度 */
+            height: 200px;
+        }
+
+        .div1 {
+            /* 设置背景颜色 */
+            background-color: chartreuse;
+
+        }
+
+        .div2 {
+            /* 设置背景颜色 */
+            background-color: rgb(255, 0, 30);
+            /* 开启绝对定位 (左右/上下并不能一起使用但可以可以特殊使用)*
+            （参考的是包含块，没有脱离文档流的元素，父元素就是包含块，对应脱离文档流的元素，第一个开启定位的祖先元素，就是包含块） */
+            position: absolute;
+            /* 绝对定位左边50px */
+            left:20px;
+            /* 绝对定位上边50px */
+            /* top: 220px; */
+            /* 绝对定位右边50px */
+            /* right: 50px; */
+            /* 绝对定位下边50px */
+            /* bottom: 50px; */
+            /* 设置内边距 */
+            /* padding: 20px; */
+            /* 设置边框宽度 */
+            /* border: 5px solid black; */
+            /* 设置外边距  必须配置top  对应的*/
+            /* margin-top: 20px; */
+            /* 绝对定位和浮动不能共存  */
+            /* 过渡 动画 */
+            transition: 0.1s all linear;
+
+        }
+
+        .div3 {
+            /* 设置背景颜色 */
+            background-color: rgb(17, 0, 255);
+        }
+        /* 获取容器给 hover鼠标悬浮时 设置div2中样式*/
+        .container:hover .div2{
+           left:200px;
+        }
+    
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="div div1">A</div>
+        <div class="div div2">B</div>
+        <div class="div div3">C</div>
+    </div>
+    <div>
+        <h3>绝对定位使用（要配合相对定位relative使用）</h3>
+        <div>position: absolute;（参考的是包含块，没有脱离文档流的元素，父元素就是包含块，对应脱离文档流的元素，第一个开启定位的祖先元素，就是包含块</div>
+        <h3>绝对定位元素的特点</h3>
+        <div>
+            <div>1.脱离文档流，会对后面的兄弟元素、父元素有影响</div>
+           <div>2.left 不能和 right 一起设置，top 和 bottom 不能一起设置</div>
+           <div>3.绝对定位、浮动不能同时设置，如果同时设置，浮动失效，以定位为主。</div>
+           <div>4.绝对定位的元素，也能通过 margin 调整位置，但不推荐这样做。</div>
+           <div>5.无论是什么元素(行内、行内块、块级)设置为绝对定位之后，都变成了定位元素</div>
+           <div>何为定位元素?-- 默认宽、高都被内容所撑开，且能自由设置宽高。</div>
+          
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A10_盒子模型resize调整页面大小</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .resize {
+            /* 宽度 */
+            width: 200px;
+            /* 高度 */
+            height: 200px;
+            /* 内边距 */
+            padding: 10px;
+            /* 边框 */
+            border: 5px solid brown;
+            /* 外边距 */
+            margin: 10px;
+            /* 背景颜色 */
+            background-color: chartreuse;
+            /* 使用resize：调整页面大小 必须添加overflow: hidden 溢出：隐藏；; 
+            resize: both;   水平+垂直可调整
+            resize: horizontal;  水平可调整
+            resize: vertical; 垂直可调整
+            resize: none; 不能调整 默认 */
+            resize: both;
+            /* 溢出：隐藏； */
+            overflow: hidden;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="resize"> </div>
+<!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

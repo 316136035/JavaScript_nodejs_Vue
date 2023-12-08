@@ -1,0 +1,114 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A12_伸缩盒模型_拉伸性-压缩性-基准长度_复合写法_flex</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .outer {
+            width: 1000px;
+            height: 400px;
+            background-color: dimgrey;
+            /* 居中 */
+            margin: 0 auto;
+            /* 将改当前元素变成伸缩容器 ，
+            缩容器下面的全部子背元素会变成伸缩项目（仅对子背元素有影响）
+            1.仅伸缩容器的子元素成为了伸缩项目，孙子元素、重孙子元素等后代，不是伸缩项目。
+            2.无论原来是哪种元素(块、行内块、行内) ，一旦成为了伸缩项目，全都会“块状化”.*/
+            display: flex;
+            /* 设置主轴方向 水平 */
+            flex-direction: row;
+            /* 换行方式 
+            nowrap 不换行（默认）
+            wrap 换行（注意：要使用对齐方式）
+            wrap-reverse 反向换行（注意：要使用对齐方式）*/
+            /* flex-wrap: wrap; */
+            /* 主轴的起点位置排序-左对齐 （默认主轴的方向不变）*/
+            justify-content: flex-start;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: chartreuse;
+            /*
+          伸缩盒模型_拉伸性-压缩性-基准长度_复合写法 flex复合属性
+            是复合属性，复合了: flex-gTowflex-shripkflex~basis 三个属性，默认值为 0 1 auto。
+            如果写 flex:1 1 auto ，则可简写为: flex:auto
+            如果写 flex:1 1 ，则可简写为: flex:10
+            如果写 flex:9  auto ，则可简写为: flex:none
+            如果写 flex: 1 auto ，则可简写为: flex: auto --即 flex 初始值。*/
+            /* 用最多的是flex复合属性： 设置拉伸 设置压缩 基准长度是0   简写为  flex:1 */
+            /* flex: 1 1 0; */
+            flex: 1;
+
+
+
+
+
+
+        }
+
+        .inner1 {
+            background-color: rgb(0, 139, 69);
+
+        }
+
+        .inner2 {
+
+            background-color: darkred;
+
+
+        }
+
+        .inner3 {
+            background-color: rgb(53, 0, 139);
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 伸缩容器  -->
+    <div class="outer">
+        <!-- 伸缩项目 -->
+        <div class="inner inner1">1</div>
+        <div class="inner inner2">2</div>
+        <div class="inner inner3">3</div>
+    </div>
+    <hr>
+
+
+
+
+
+
+
+
+    <!-- 引入三方依赖包 -->
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+</body>
+
+</html>

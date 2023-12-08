@@ -1,0 +1,146 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A02_背景-图片_原点_origin+clip_截取+size_大小+复合写法</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .box {
+            /* 宽度 */
+            width: 400px;
+            /* 高度 */
+            height: 200px;
+            /* 内边距 */
+            padding: 20px;
+            /* 边框 */
+            border: 50px dashed goldenrod;
+            /* 外边距 */
+            margin: 50px;
+            font-size: 100px;
+            text-align: center;
+            font-weight: bolder;
+            color: transparent;
+
+
+
+        }
+
+        /*背景图片的原点  */
+        .box1 {
+            /* 设置背景图片(图片小会自动重复图片补全页面) */
+            background-image: url("../resources静态资源/img/视频封面.png");
+            /* 设置背景图片不重复 */
+            background-repeat: no-repeat;
+            /* 设置背景图片的原点是内边距左上方（默认的） */
+            background-origin: padding-box;
+            /* 设置背景图片的原点是内容区左上方 */
+            /* background-origin:content-box; */
+            /* 设置背景图片的原点是边框左上方 */
+            /* background-origin: border-box; */
+        }
+
+        /* 背景图片的截取 */
+        .box2 {
+            /* 设置背景图片(图片小会自动重复图片补全页面) */
+            background-image: url("../resources静态资源/img/视频封面.png");
+            /* 设置背景不重复 */
+            background-repeat: no-repeat;
+            /* 设置背景图片的原点是内边距左上方（默认的） */
+            background-origin: padding-box;
+            /* 截取背景图片 内边距外的图片截取不要 */
+            background-clip:padding-box;
+            /* 截取背景图片 内容区外的图片截取不要 */
+            /* background-clip: content-box; */
+            /* 截取背景图片 边框外的图片截取不要 （默认的）*/
+            /* background-clip: border-box; */
+
+        }
+
+        /* 背景图片的大小 */
+        .box3 {
+            /* 宽度 */
+            width: 400px;
+            /* 高度 */
+            height: 400px;
+            /* 设置背景图片(图片小会自动重复图片补全页面) */
+            background-image: url("../resources静态资源/img/视频封面.png");
+            /* 设置背景不重复 */
+            background-repeat: no-repeat;
+
+
+
+        }
+
+        /* 背景图片只显示在文字上 */
+        .box4 {
+            /* 设置背景图片(图片小会自动重复图片补全页面) */
+            background-image: url("../resources静态资源/img/视频封面.png");
+            /* 设置背景不重复 */
+            background-repeat: no-repeat;
+            /* 背景图片只显示在文字上 文字要设置为透明 */
+            /* -webkit-background-clip: text; */
+
+
+        }
+
+        /* 背景大小 */
+        .box5 {
+            /* 宽度 */
+            width: 400px;
+            /* 高度 */
+            height: 400px;
+            /* 边框 */
+            border: 1px dashed goldenrod;
+            /* 设置背景图片(图片小会自动重复图片补全页面) */
+            background-image: url("../resources静态资源/img/大背景.png");
+            /* 设置背景不重复 */
+            background-repeat: no-repeat;
+            /*  */
+            /* background-size: 400px 400px;
+            background-size: 100% 100% ; */
+            /* 已宽度/高度的最大值等比例缩放 */
+            /* background-size: contain; */
+            /* 已宽度/高度的最小值等比例缩放 （最优方案 ）*/
+            background-size: cover;
+
+        }
+
+        /* 背景原点+背景截取+背景大小的复合写法 */
+
+        .box6{
+            /* （背景颜色，url地址，是否重复，背景位置，/ 背景大小，原点位置，截取方式） */
+            background:  red url("../resources静态资源/img/大背景.png") no-repeat left /cover padding-box padding-box;
+
+
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="box box1">淘神价</div>
+    <div class="box box2">淘神价</div>
+    <div class="box box3">淘神价</div>
+    <div class="box box4">淘神价</div>
+    <div class="box box5">淘神价</div>
+    <div class="box box6">淘神价</div>
+
+
+    <!--  <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

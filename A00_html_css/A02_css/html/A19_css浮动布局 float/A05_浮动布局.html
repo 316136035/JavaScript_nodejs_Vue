@@ -1,0 +1,207 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A05_浮动布局</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        /* 清除html 默认样式 */
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* 左浮动 */
+        .float-left {
+            float: left;
+        }
+
+        /* 右浮动 */
+        .float-right {
+            float: right;
+        }
+
+        /* 清除浮动影响 */
+        .clear-both::after {
+            /* 设置内容为空 */
+            content: "";
+            /* 设置为块元素 */
+            display: block;
+            /* 清除浮动影响 */
+            clear: both;
+        }
+
+        /*父容器 */
+        .container {
+            /* 设置宽度 */
+            width: 970px;
+            /* 设置边框 */
+            border: 1px solid red;
+            /* 设置元素居中 */
+            margin: 0 auto;
+            /* 设置背景颜色 */
+            background-color: rgb(255, 127, 176);
+            /* 设置文字居中 */
+            text-align: center;
+
+        }
+
+        /* 公司标志 */
+        .loge {
+            /* 设置宽度 */
+            width: 200px;
+            /* 设置高度 */
+            height: 80px;
+            /* 设置背景颜色 */
+            background-color: chartreuse;
+            /* 设置外边框 上0下0 左右5 */
+            margin: 0 5px;
+            /* 设置行距  实现文字垂直居中*/
+            line-height: 80px;
+        }
+
+        /* 主页 */
+        .banner1 {
+            /* 设置宽度 */
+            width: 540px;
+            /* 设置高度 */
+            height: 80px;
+            /* 设置背景颜色 */
+            background-color: rgb(255, 0, 0);
+            /* 设置外边框 上0下0 左右5 */
+            margin: 0 5px;
+            /* 设置行距  实现文字垂直居中*/
+            line-height: 80px;
+        }
+
+        .banner2 {
+            /* 设置宽度 */
+            width: 200px;
+            /* 设置高度 */
+            height: 80px;
+            /* 设置背景颜色 */
+            background-color: chartreuse;
+            /* 设置外边框 上0下0 左右5 */
+            margin: 0 5px;
+            /* 设置行距  实现文字垂直居中*/
+            line-height: 80px;
+        }
+
+        /* 菜单 */
+        .menu {
+            /* 设置高度 */
+            height: 40px;
+            /* 设置外边框上10 */
+            margin-top: 10px;
+            /* 设置行距  实现文字垂直居中*/
+            line-height: 40px;
+            /* 设置背景颜色 */
+            background-color: aqua;
+        }
+
+        /* 内容区 左侧left上方-> */
+        .intem1,
+        .intem2 {
+            /* 设置宽度 */
+            width: 370px;
+            /* 设置高度 */
+            height: 200px;
+            /* 设置外边框 */
+            margin: 5px;
+            /* 设置背景颜色 */
+            background-color: darkgreen;
+            /* 设置行距  实现文字垂直居中*/
+            line-height: 200px;
+        }
+
+        /* 内容区 左侧left下方-> */
+        .intem3,
+        .intem4,
+        .intem5,
+        .intem6 {
+            /* 设置宽度 */
+            width: 180px;
+            /* 设置高度 */
+            height: 200px;
+            /* 设置外边框 */
+            margin: 5px;
+            /* 设置背景颜色 */
+            background-color: darkgreen;
+            /* 设置行距  实现文字垂直居中*/
+            line-height: 200px;
+        }
+
+        /* 内容区 右侧right */
+        .intem7,
+        .intem8,
+        .intem9 {
+            /* 设置宽度 */
+            width: 200px;
+            /* 设置高度 */
+            height: 130px;
+            /* 设置外边框 */
+            margin:5px;
+            /* 设置背景颜色 */
+            background-color: darkgreen;
+            /* 设置行距  实现文字垂直居中*/
+            line-height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--父容器-->
+    <div class="container">
+        <!-- 头部  page-header 清除浮动影响clear-both-->
+        <div class="page-header clear-both">
+            <div class="float-left loge">公司标志</div>
+            <div class="float-left banner1">主页</div>
+            <div class="float-left banner2"> banner2</div>
+        </div>
+        <!-- 菜单 menu -->
+        <div class="menu">菜单</div>
+        <!-- 内容区  contrne  清除浮动影响clear-both-->
+        <div class="contrne clear-both ">
+            <!-- 左侧left  左浮动float-left-->
+            <div class="float-left left">
+                <!-- 左侧上方left-top 清除浮动影响clear-both-->
+                <div class="left-top clear-both">
+                    <!-- 左浮动float-left -->
+                    <div class="intem1 float-left">栏目1</div>
+                    <div class="intem2 float-left">栏目2</div>
+                </div>
+                <!-- 左侧下方left-bottom 清除浮动影响clear-both-->
+                <div class="left-bottom clear-both">
+                    <!-- 左浮动float-left -->
+                    <div class="intem3 float-left">栏目3</div>
+                    <div class="intem4 float-left">栏目4</div>
+                    <div class="intem5 float-left">栏目5</div>
+                    <div class="intem6 float-left">栏目6</div>
+                </div>
+
+            </div>
+            <!-- 右侧right 右浮动float- right-->
+            <div class="float-right right">
+                <div class="intem7">栏目7</div>
+                <div class="intem8">栏目8</div>
+                <div class="intem9">栏目9</div>
+            </div>
+
+        </div>
+        <!-- 底部 -->
+        <div class="bottom">底部</div>
+
+    </div>
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A02_布局重置默认样式</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 重置默认样式 方案一，经常用/ -->
+    <link rel="stylesheet" href="../A21_css布局/reset.css">
+    <!-- 重置默认样式 方案二，不经常用/ -->
+     <!-- <link rel="stylesheet" href="../A21_css布局/normalize.css"> -->
+</head>
+
+
+<style>
+    /* 重置默认样式 方案二，不经常用 */
+    /* *{
+        margin: 0;
+        padding: 0;
+    } */
+
+    .notice {
+        font-size: 20px;
+        color: red;
+    }
+</style>
+
+<body>
+
+    <div>
+        <h3>html默认样式比喻:</h3>
+        <div>1.p 元素有默认的上下 margin。</div>
+        <div>2.h1~h6 标题也有上下 margin ，且字体加粗</div>
+        <div>3. body 元素有默认的 8px 外边距</div>
+        <div>4.超链接有默认的文字颜色和下划线。</div>
+        <div>5.u1 元素有默认的左 pading。</div>
+        <div>6. ..............等等</div>
+        <div>
+            在早期，元素默认样式，能够让我们快速的绘制网页，但如今网页的设计越来越复杂，内容越来越多，而且很精细，这些默认样式会给我们绘制页面带来麻烦，而且这些默认样式，在不同的浏览器上呈现出来的效果也不一样，所以我们需要重置这些默认样式
+        </div>
+
+    </div>
+    <hr>
+
+    <div class="default-style">
+        <h1>A</h1>
+        <h2>B</h2>
+        <h3>C</h3>
+        <a href="https://b.jd.com/">京东</a>
+        <ul>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+
+        </ul>
+         </div>
+    <hr>
+    <div  class="notice">reset.css</div>
+    <div>选择到具有默认样式的元素，清空其默认的样式。 经过reset.css后的网页，好似“一张白纸，开发人员可根据设计稿，精细的去添加具体的样式</div>
+    <hr>
+    <div>
+          <div  class="notice">Normalize.css</div>
+        <div>1.保护了有价值的默认样式，而不是完全去掉它们。</div>
+        <div>2.为大部分HTML元素提供一般化的样式。</div>
+        <div>3.新增对 HTML5 元素的设置。</div>
+        <div>4.对并集选择器的使用比较谨慎，有效避免调试工具杂乱。</div>
+
+
+    </div>
+     <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

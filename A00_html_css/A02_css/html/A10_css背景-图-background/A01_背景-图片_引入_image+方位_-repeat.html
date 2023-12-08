@@ -1,0 +1,71 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A01_背景-图片_引入image_方位_repeat</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        div {
+            /* 设置宽度 */
+            width: 800px;
+            /* 设置高度度 */
+            height: 400px;
+            /* 设置文字大小 */
+            font-size: 20px;
+            /* 设置边框样式 */
+            border: 2px double red;
+            /* 设置背景颜色：
+             transparent 透明色（默认） 可以为三原色 */
+            background-color: transparent;
+            /* 设置背景图片(图片小会自动重复图片补全页面) */
+            background-image: url("../../../resource资源文件/img/favicon.ico");
+            /* 设置背景图片(图片重复方式设置)
+            repeat;  默认重复图片/背景
+            no-repeat; 不能重复图片/背景
+            repeat-x  x方向重复图片/背景
+            repeat-y  y方向重复图片/背景*/
+            background-repeat: no-repeat;
+            /* 设置图片/背景方位
+             background-positio:xxxxxxx （第一中写法）
+             top center上面水平方向中间
+             bottom center下面水平方向中间
+             left center左边垂直方向中间
+             right center右边垂直方向中间
+             center  水平，垂直方向中间
+             left top    左上角
+             left bottom     左下角
+             right top    右上角
+             right bottom     右下角 */
+            /* background-position: right bottom; */
+            /* 设置图片方位 （第二中写法 水平方向px，垂直方向px）*/
+            background-position: 100px 200px
+        }
+
+        .Combinedwriting {
+            /* 设置背景图片/背景组合写法(图片/背景地址 是否重复图片/背景 设置图片/背景方位) */
+            background:  url("../resources静态资源/img/A01_图标标签.jpg") no-repeat right bottom  ;
+        }
+    </style>
+</head>
+
+<body>
+    <div>你好啊！！</div>
+    <div class="Combinedwriting">设置背景图片组合写法</div>
+
+
+
+<!--  <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

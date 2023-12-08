@@ -1,0 +1,53 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A02_css样式优先级</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 外部样式 -->
+    <link rel="stylesheet" href="../../css/A02_css样式优先级.css">
+    <!--内部样式-->
+    <style>
+        div {
+            color: chartreuse;
+        }
+        /* 鼠标悬停早选择器中会出现（X,X,X）先比较第一位再比较第二位再比较第三位  （权重大的就会显示）*/
+        div spam.tao {
+            background-color: aqua;
+        }
+          /* 鼠标悬停早选择器中会出现（X,X,X）先比较第一位再比较第二位再比较第三位  （权重大的就会显示）*/
+        div>p>samp::after {
+            background-color: rgb(180, 15, 51);
+        }
+        /* 权重最大无敌的!important  作用在属性上*/
+        .shen{
+            background-color: brown !important; 
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 行内样式 -->
+    <div style="color: blue;">CSS样式优先级 行内样式>内部样式 = 外部样式 注意：内部样式 = 外部样式和页面加载有关，后面加载的会覆盖前面加载的</div>
+    <div>CSS样式优先级: id选择器>class类选择器>div元素选择器>*通配选择器</div>
+    <hr>
+    <div>
+        <div>优先级权重分析</div>
+        <div class="container">
+            <p>
+            <span class="tao">淘神价</span> <br>
+            <span class="shen">taoshenjia</span>
+            </p>
+        </div>
+    </div>
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A02_结构伪类选择器_选择第一个元素-选择最后一个元素 </title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 外部样式 -->
+    <!-- <link rel="stylesheet" href="#"> -->
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        /*选择 div元素中的子辈元素p 再选择子辈元素中p的第一个子辈元素 注意：计算的是全部子辈元素*/
+        div>p:first-child {
+            background-color: chartreuse;
+        }
+
+        /*选择 div元素中的全部后代元素p 再选择后代元素中p的第一个后代元素 注意：兄弟元素前可以有不是标签的元素*/
+        div p1:first-child {
+            background-color: rgb(255, 0, 76);
+        }
+
+        /*选择 div元素中的子辈元素p 再选择后子辈元素p的最后一个后代元素 注意：计算的是全部子辈元素*/
+        div>p:last-child {
+            color: tomato;
+        }
+
+        /*选择 div元素中的全部后代元素p 再选择后代元素中p的最后一个后代元素 注意：兄弟元素可以有不是标签的元素*/
+        div p:last-child {
+            color: tomato;
+        }
+
+        /*选择 ul元素中的子辈元素li 再选择子辈元素中li 的第一个子辈元素 (注意：计算的是同类型元素) */
+        ul>li:first-of-type {
+            background-color: blue;
+        }
+
+        /* 选择 ul元素中的子辈元素li 再选择子辈元素中li 的最后一个子辈元素 注意：计算的是同类型元素 */
+        ul>li:last-of-type {
+            background-color: rgb(0, 255, 0);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <p>选择 div元素中的子辈元素p 再选择子辈元素中p的第一个子辈元素 注意：计算的是全部子辈元素</p>
+        <p>B</p>
+        <p>C</p>
+        <p>选择 div元素中的子辈元素p 再选择后子辈元素p的最后一个后代元素 注意：计算的是全部子辈元素</p>
+    </div>
+    <hr>
+    <div>
+        <marquee behavior="" direction="">
+            <p1>选择 div元素中的全部后代元素p 再选择后代元素中p的第一个后代元素 注意：兄弟元素前可以有不是标签的元素</p1>
+        </marquee>
+        <p>B</p>
+        <p>C</p>
+        <marquee behavior="" direction="">
+            <p>选择 div元素中的全部后代元素p 再选择后代元素中p的最后一个后代元素 注意：兄弟元素可以有不是标签的元素/p>
+        </marquee>
+    </div>
+    <hr>
+    <ul>
+        <samp>干扰行</samp>
+        <li>选择 ul元素中的子辈元素li 再选择子辈元素中li 的第一个子辈元素 (注意：计算的是同类型元素)</li>
+        <li>B</li>
+        <li>选择 ul元素中的子辈元素li 再选择子辈元素中li 的最后一个子辈元素 注意：计算的是同类型元素</li>
+        <samp>干扰行</samp>
+    </ul>
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+
+
+</body>
+
+</html>

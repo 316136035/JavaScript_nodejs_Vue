@@ -1,0 +1,159 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A07_盒子模型外边距方位注意事项_marign </title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .vertical>div {
+            /* 行内块元素方式显示 */
+            display: inline-block;
+            /* 设置宽度 */
+            width: 100px;
+            /* 设置高度 */
+            height: 100px;
+        }
+
+        .level>div {
+            /* 块级元素方式显示 （默认的）*/
+            display: block;
+            /* 设置宽度 */
+            width: 100px;
+            /* 设置高度 */
+            height: 100px;
+        }
+
+        .div1 {
+            /* 设置背景颜色 */
+            background-color: rgb(255, 0, 0);
+        }
+
+        /* 行内块元素方式显示 */
+        /* 水平方向 */
+        .div2 {
+            background-color: rgb(47, 255, 0);
+            /* 设置左外边距会影响右边的全部div后移动 （包括自身）*/
+            margin-left: 20px;
+            /* 设置右外边距会影响右边的全部div后移动（不包括自身） */
+            margin-right: 40px;
+            /* 设置上外边距会影响整行*/
+            margin-top: 1px;
+            /* 设置上外边距会影响整行*/
+            margin-bottom: 1px;
+        }
+
+        .div3 {
+            /* 设置背景颜色 */
+            background-color: rgb(255, 208, 0);
+        }
+
+
+        .div4 {
+            /* 设置背景颜色 */
+            background-color: rgb(0, 13, 255);
+        }
+
+        /* 块级元素方式显示 （默认的）  */
+        /* 垂直方向 */
+        .div5 {
+            /* 设置背景颜色 */
+            background-color: rgb(119, 0, 255);
+            /* 设置左外边距*/
+            margin-left: 20px;
+            /* 设置右外边距 */
+            margin-right: 20px;
+            /* 设置上外边距会影响全部div后移动（包括自身）*/
+            margin-top: 10px;
+            /* 设置上外边距会影响全部div后移动（不包括自身）*/
+            margin-bottom: 20px;
+        }
+
+        .div6 {
+            background-color: rgb(255, 0, 238);
+        }
+
+        /* 行内元素*/
+        .inline1 {
+            /* 设置背景颜色 */
+            background-color: rgb(48, 228, 12);
+
+        }
+
+        /* 行内元素*/
+        .inline2 {
+            /* 设置左外边距  上下边距不会有效果*/
+            margin-left: 200px;
+            /* 设置右外边距  上下边距不会有效果*/
+            margin-right: 200px;
+            /* 设置背景颜色 */
+            background-color: rgb(9, 184, 223);
+
+        }
+
+        .inline3 {
+            /* 设置背景颜色 */
+            background-color: rgb(223, 9, 45);
+        }
+
+        /* 块级元素设置外边距为自动auto */
+        .auto {
+            width: 900px;
+            height: 20px;
+            /* 设置背景颜色 */
+            background-color: rgb(223, 9, 45);
+            /* 设置外边距左为自动，块级元素会跑到最右边，当外边距左右也设置为自动， 元素会在水平中间显示 只能是水平方向 */
+            margin-left: auto;
+            /* 设置外边距右为自动，块级元素会跑到最左边，当外边距左右也设置为自动，元素会在水平中间显示  只能是水平方向 */
+            margin-right: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 行内块元素方式显示 -->
+    <div class="vertical">
+        <div class="div1">行内块元素方式显示div1</div>
+        <div class="div2">行内块元素方式显示div2</div>
+        <div class="div3">行内块元素方式显示div3</div>
+
+    </div>
+    <hr>
+    <!-- 块级元素方式显示 （默认的） -->
+    <div class="level">
+        <div class="div4">块级元素方式显示 div4</div>
+        <div class="div5">块级元素方式显示 div5</div>
+        <div class="div6">块级元素方式显示 div6</div>
+
+    </div>
+    <hr>
+    <div class="inline">
+        <!-- 行内元素 -->
+        <span class="inline1">行内元素inline1</span>
+        <span class="inline2">行内元素inline2</span>
+        <span class="inline3">行内元素inline3</span>
+
+    </div>
+    <hr>
+    <!-- 块级元素 -->
+    <div class="auto">
+        设置外边距左为自动（ 块级元素会跑到当前父元素最右边，当外边距左右也设置为自动， 元素会在当前父元素水平中间显示）
+    </div>
+ <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

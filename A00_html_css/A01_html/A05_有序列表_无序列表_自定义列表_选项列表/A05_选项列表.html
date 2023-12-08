@@ -1,0 +1,49 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+           <script src="../resources静态资源/js/html5shiv.min.js"></script>
+        <![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
+    <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A05_选项列表</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+</head>
+
+<body>
+    <div>
+        <!--form表单  action="请求地址"    method="请求方式" target="页签打开方式"-->
+        <form action="#" method="get">
+            <!--输入框 type="文本类型" list="datalist" 关联datalist选项列表 查找选项中的关键字 作为提示-->
+            <input type="text" list="datalist">
+            <!-- 普通按钮 -->
+            <button>搜索</button>
+            <!-- 选项列表 -->
+            <datalist id="datalist">
+                <!--选项  通过js请求服务器返回的 -->
+                <option value="周文斌">周文斌 </option>
+                <option value="周伟彬">周伟彬</option>
+                <option value="和文彬">和文彬</option>
+                <option value="苏伟元">苏伟元</option>
+            </datalist>
+            <hr>
+        </form>
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A08_盒子模型外边距合并注意事项_marign</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .A {
+            width: 200px;
+            height: 200px;
+            background-color: chartreuse;
+            /*相邻的外边距设置下方和上面（其中的一个会不生效，取最大值，只会存在bottom-->top）-->  */
+            margin-bottom: 50px;
+        }
+
+        .B {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 0, 38);
+            /*相邻的外边距设置下方和上面（其中的一个会不生效，取最大值,只会存在bottom-->top）-->  */
+            margin-top: 50px;
+        }
+
+        .inline>div {
+            width: 100px;
+            height: 100px;
+            /* 设置为行内块元素显示模式.水平方位排序 */
+            display: inline-block;
+        }
+
+        .C {
+            /* 相邻的外边距设置右会和左的合并显示 */
+            background-color: rgb(255, 238, 0);
+            margin-right: 50px;
+        }
+
+        .D {
+            background-color: rgb(111, 0, 255);
+            /* 相邻的外边距设置左会和右的合并显示 */
+            margin-left: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <div class="A">A</div>
+        <div class="B">B</div>
+
+    </div>
+    <hr>
+    <div class="inline">
+        <div class="C">C</div>
+        <div class="D">D</div>
+
+    </div>
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

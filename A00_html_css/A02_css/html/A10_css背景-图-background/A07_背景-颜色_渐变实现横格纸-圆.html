@@ -1,0 +1,63 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A07_背景-颜色_渐变实现横格纸-圆 </title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 外部样式 -->
+    <!-- <link rel="stylesheet" href="#"> -->
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .box1 {
+            width: 600px;
+            height: 800px;
+            border: 1px solid red;
+            /* 内边距 */
+            padding: 20px;
+            /* 居中 */
+            margin: 0 auto;
+            /* 重复线性渐变  */
+            background-image: repeating-linear-gradient(transparent 0px, transparent 29px, gray 30px);
+            /* 背景截取 */
+            background-clip: content-box;
+
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            /*实现圆的效果*/
+            border-radius: 50%;
+             /* 重复径性渐变  */
+            background-image: radial-gradient(at 80px 80px,yellow,red);
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+        <div class="box1"> </div>
+        <div class="box2"> </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

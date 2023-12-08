@@ -1,0 +1,72 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码-->
+        <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+        <meta name="renderer" content="webkit">
+        <!-- 让低版本浏览器认识H5 的语义化标签 -->
+        <!--[if lt ie g]>
+           <script src="../resources静态资源/js/html5shiv.min.js"></script>
+        <![endif]-->
+        <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
+        <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+        <title>A08_标签分类</title><!-- 设置网站图标调用一个外部的图片文件 -->
+        <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+        <!-- 调用一个外部的CSS样式文件 -->
+        <link rel="stylesheet" href="#">
+</head>
+
+<body>
+        <div> <!--form表单  action="请求地址"    method="请求方式" target="页签打开方式"-->
+                <form action="https:search.jd.com/Search?" method="get" target="_blank"> <!-- 组合表单中的相关元素 -->
+                        <fieldset> <!-- <legend> 标签为 组合表单标题 -->
+                                <legend>主要分类</legend> <!-- label关联焦点  for="元素id值"-->
+                                <label for="username">账号：</label>
+                                <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"  disabled 属性规定应该禁用 input 元素-->
+                                <label for="username"></label>
+                                <input type="text" name="username" id="username" value="请求输入密码" maxlength="18"><br>
+                                <label>密码：<!--输入框 type="密码类型" name="服务器取值用key" id="用着js"-->
+                                        <input type="password" name="passwor" id=""> <br>
+                                </label>
+                                <!-- 单选框  type="radio" name="组"    name="用于服务器取值key"-->
+                                单选框： <input type="radio" name="gender" value="0" checked="ture" id="nan">
+                                <label for="nan">男</label>
+                                <input type="radio" name="gender" v alue="1" id="nv">
+                                <label for="nv">女</label>
+                        </fieldset> <!-- 组合表单中的相关元素 -->
+                        <fieldset> <!-- <legend> 标签为 组合表单标题 -->
+                                <legend>次要分类</legend>
+                                <!--  多选框  type="radio" name="组" name="用于服务器取值key" checked="ture"默认选中--> 多选框： <label
+                                        for="basketball">篮球</label> <input type="checkbox" name="hobby"
+                                        value="basketball" checked="ture" id="basketball"> <label
+                                        for="smokes">抽烟</label> <input type="checkbox" name="hobby" value="smokes"
+                                        checked="ture" id="smokes"> <label for="drive">开车</label> <input type="checkbox"
+                                        name="hobby" value="drive" id="drive"> <label for="running">跑步</label> <input
+                                        type="checkbox" name="hobby" value="running" id="running"> <label
+                                        for="game">游戏</label> <input type="checkbox" name="hobby" value="game"
+                                        id="game">
+                                <!--textarea多行的文本输入控件             name="用于服务器取值key            autofocus页面加载后文本区域自动获得焦点            cols="1"文本区内的宽度            rows="30" 文本区内的高度            disabled 属性规定应该禁用 input 元素-->
+                                <textarea name="textarea" autofocus="" cols="50" rows="20"
+                                        disabled="disabled">多行的文本输入控件</textarea> <!--section下拉选择框  name="用于服务器取值key-->
+                                下拉选择框： <select name="selected">
+                                        <option value="河北省">河北省</option>
+                                        <option value="江苏省">江苏省</option> <!--value服务器的选项值 selected默认选中  -->
+                                        <option value="广东省" selected="">广东省</option>
+                                        <option value="辽宁省">辽宁省</option> <!-- disabled 属性规定应该禁用 input 元素 -->
+                                        <option value="云南省" disabled="disabled">云南省</option>
+                                </select>
+                        </fieldset>
+                        <div> <!--普通按钮 这种按钮不会提交表单--> <button type="button">普通按钮 这种按钮不会提交表单</button>
+                                <!--提交按钮1  disabled 属性规定应该禁用 input 元素--> <button disabled="disabled">提交按钮1</button>
+                                <!--提交按钮2--> <input type="submit" value="提交按钮2"> <!--重置按钮--> <input type="reset"
+                                        value="重置按钮">
+                        </div>
+                </form>
+        </div>
+</body>
+
+</html>

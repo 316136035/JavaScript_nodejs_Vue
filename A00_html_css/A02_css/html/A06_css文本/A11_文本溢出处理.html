@@ -1,0 +1,64 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A11_文本溢出处理</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        ul {
+            width: 400px;
+            height: 400px;
+            /* 边框 */
+            border: 1px solid red;
+            /* 清除li默认样式 */
+            list-style: none;
+            /* 字体大小 */
+            font-size: 20px;
+            /* 内边距 */
+            padding-left: 0;
+        }
+        li{
+            margin-top: 10px;
+            /* 溢出：隐藏 */
+            overflow: hidden;
+            /* 强制不换行 */
+            white-space: nowrap;
+            /* 文本溢出后以省略号代替 （必须配合overflow: hidden;white-space: nowrap;使用） */
+            text-overflow: ellipsis;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>刺猬阿甘 南瓜酥小龙虾味休闲膨化零食办公室下午茶追剧解馋小吃13g*30袋</li>
+            <li>夏日纷Somersby果味酒330ml*2罐装(2罐黑莓/2罐苹果/2罐接骨木随机发货)</li>
+            <li>永衡良品胰岛素针头0.20mmX5mm(33G)100支装独立装一次性使用胰岛素注射笔用针头通用型</li>
+            <li>千格 华夫饼1000g整箱礼盒 饼干蛋糕网红休闲零食面包早餐家庭装</li>
+            <li>联想ThinkPad neo 14 14英寸商务笔记本电脑【i7-12700H 16G 512G 2.2K RTX2050 4G独显 win11H】黑 定制款</li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A07_文本垂直方向 </title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .div1 {
+            /* 设置字体像素值 */
+            font-size: 80px;
+            /* 设置高度 */
+            height: 300px;
+            /* 背景颜色 */
+            background-color: rgb(67, 42, 165);
+
+        }
+
+        span {
+            /* 设置字体像素值 */
+            font-size: 40px;
+            background-color: rgb(255, 0, 98);
+            /* 设置垂直方向 （top顶部对齐， baseline基线对齐（默认的），bottom底部对齐，middle居中（当前元素中部）不能作用在块级元素） */
+            vertical-align: middle;
+        }
+
+        .div2 {
+            /* 设置字体像素值 */
+            font-size: 40px;
+            /* 设置高度 */
+            height: 300px;
+            /* 背景颜色 */
+            background-color: rgb(165, 151, 42);
+
+
+        }
+
+        img {
+            width: 100px;
+            /* 设置垂直方向 （top顶部对齐， baseline基线对齐（默认的），bottom底部对齐，middle居中（当前元素中部）不能作用在块级元素）
+            当图片大于文件 是文字垂直方向改变 */
+            vertical-align: middle;
+
+        }
+
+        /* 获取tbodytr元素下的全部子元素td */
+        .tbodytr td {
+            /* 设置高度 */
+            height: 50px;
+        }
+
+        /*  获取tbodytr元素*/
+        .tbodytr {
+            /* tr继承tr的垂直方向*/
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="div1">联想ThinkBook英特尔酷睿i9x<span>x前端</span></div>
+    <div class="div2">联想ThinkBook英特尔酷睿i9x<img src="../../../resource资源文件/img/favicon.ico"></div>
+    <div>
+        <table border="1" cellspacing="0">
+            <caption>人员信息</caption>
+            <thead>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </thead>
+            <tbody>
+                <tr class="tbodytr">
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

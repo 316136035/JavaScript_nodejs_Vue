@@ -1,0 +1,15 @@
+/* #region -------背景开始 */
+html,
+body {
+    /* 监听视图宽度 */
+    width: calc(100%);
+    /* 监听视图高度 */
+    height: calc(100%);
+}
+
+body {
+    background-image: url("../resources静态资源/image/背景.png");
+    /* 已宽度/高度的最小值等比例缩放 （最优方案 ）*/
+    background-size: cover;
+}
+/*#endregion----------- 背景结束 */

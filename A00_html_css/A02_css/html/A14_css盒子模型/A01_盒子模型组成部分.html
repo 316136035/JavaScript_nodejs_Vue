@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A01_盒子模型组成部分</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .div{
+            /*设置内容区宽度 */
+            width: 400px; 
+             /*设置内容区高度 */
+            height: 400px;
+            /* 设置字体大小 */
+            font-size: 10px;
+            /* 设置背景颜色 */
+            background-color: red;
+            /* 设置内边距  会覆盖背景部分 */
+            padding: 10px;
+            /* 设置边框样式（像素值，线型，边框颜色 ）  */
+            border: 10px solid green;
+            /* 设置外边距 */
+            margin:20px;
+            /* 固定内容区大小content-box   默认的 */
+            box-sizing: content-box;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+   
+        <div class="div">
+            content内容区
+        </div>
+        <div>
+            <img src="../resources静态资源/img/盒子模型.png" alt="">
+        </div>
+
+
+
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

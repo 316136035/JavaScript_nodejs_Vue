@@ -1,0 +1,102 @@
+/* #region -------背景 开始 */
+html,
+body {
+    /* 监听视图宽度 */
+    width: calc(100%);
+    /* 监听视图高度 */
+    height: calc(100%);
+}
+
+body {
+    background-image: url("../resources静态资源/image/背景.png");
+    /* 已宽度/高度的最小值等比例缩放 （最优方案 ）*/
+    background-size: cover;
+}
+
+/*#endregion----------- 背景 结束 */
+/* #region -------头部 开始 */
+
+.head {
+    /* 高度 */
+    height: 100px;
+    /* 开启flex布局 */
+    display: flex;
+    /* flex布局 主轴水平对齐方式： 主轴的靠左 中 靠右 （主轴的方向不变）*/
+    justify-content: space-between;
+    /* 头部背景颜色 */
+    background-color: rgba(89, 107, 88, 0.442);
+}
+
+
+/* 字体设置  */
+@font-face {
+    /* 字体的名称 */
+    font-family: "东方大楷体";
+    /* 字体地址*/
+    src: url("../resources静态资源/wed字体/淘神价/K5eY0GRPr09C.woff2") format("woff2"),
+        url("../resources静态资源/wed字体/淘神价/K5eY0GRPr09C.woff") format("woff");
+    font-display: swap;
+}
+
+.head-left {
+    /* 使用字体*/
+    font-family: "东方大楷体" !important;
+    /* 字体大小 */
+    font-size: 50px;
+    text-align: center;
+    line-height: 60px;
+    margin: 20px;
+    /* 字体样式：正常 */
+    font-style: normal;
+    /* 线性颜色区域渐变 颜色可以无限添加  （50px纯红色 100px变黄色 ）150px纯绿色 */
+    background-image: linear-gradient(45deg, red 50px, yellow 100px, green 180px);
+    /* 字体颜色 */
+    color: transparent;
+    /* 背景截取就留文字中颜色 */
+    -webkit-background-clip: text;
+    /* flex布局 侧轴对齐方式-单行方式_align-items */
+    align-items: center;
+
+
+
+
+}
+
+.head-right {
+    /* 开启flex布局 */
+    display: flex;
+
+    /* 主轴的方向：
+     row  水平正常方向 左→右 （默认）
+      row-reverse 水平反转 右→左  */
+    flex-direction: row-reverse;
+    /* flex布局 侧轴对齐方式-单行方式_align-items */
+    align-items: center;
+
+}
+
+.head-right>div {
+    /* 字体大小 */
+    font-size: 20px;
+    /* 内边距 */
+    padding: 10px;
+    /* 外边距 左 20xpa */
+    margin-left: 20px;
+    /* 字体颜色 */
+    color: white;
+    /*  背景透明色*/
+    background: transparent;
+    /* 边框 */
+    border: 1px solid white;
+    /* 圆角 4个方位一样 */
+    border-radius: 10px;
+}
+
+/* 鼠标悬停 */
+.head-right>div:hover {
+    /* 鼠标样式 */
+    cursor: pointer;
+
+}
+
+/*#endregion----------- 头部 结束 */

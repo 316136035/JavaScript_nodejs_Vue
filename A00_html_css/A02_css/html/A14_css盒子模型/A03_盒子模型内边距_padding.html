@@ -1,0 +1,107 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A03_盒子模型内边距_padding</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .div1 {
+            /* 设置背景颜色 */
+            background-color: aqua;
+            /*设置内容区宽度 */
+            width: 100px;
+            /*设置内容区高度 */
+            height: 100px;
+            /*设置上方内边距 */
+            padding-top: 10px;
+            /*设置下方内边距 */
+            padding-bottom: 20px;
+            /*设置左方内边距 */
+            padding-left: 30px;
+            /*设置右方内边距 */
+            padding-right: 40px;
+            /* 固定内容区大小content-box   默认的 */
+            box-sizing: content-box;
+
+
+        }
+
+        .div2 {
+            /* 设置背景颜色 */
+            background-color: rgb(145, 255, 0);
+            /*设置内容区宽度 */
+            width: 100px;
+            /*设置内容区高度 */
+            height: 100px;
+            /* 内边距 组合写法 */
+            /* 一个值代表 四个方向内边距一样 */
+            padding: 40px;
+            /* 二个值代表 上下一样，左右一样 */
+            padding: 40px 80px;
+            /* 三个值代表 上，左右一样，下 */
+            padding: 40px 80px 100px;
+            /* 四个值代表 上，右，下，左 */
+            padding: 80px 60px 40px 40px;
+
+        }
+
+        span {
+            /* 设置背景颜色 */
+            background-color: rgb(255, 0, 128);
+            /*设置内容区宽度 */
+            width: 50px;
+            /*设置内容区高度 */
+            height: 50px;
+            /* 四个值代表 上，右，下，左 */
+            padding: 20px 60px 40px 40px;
+        }
+
+        img {
+            /* 设置背景颜色 */
+            background-color: rgb(255, 0, 128);
+            /*设置内容区宽度 */
+            width: 50px;
+            /*设置内容区高度 */
+            height: 50px;
+            /* 四个值代表 上，右，下，左 */
+            padding: 20px 60px 40px 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="div1">设置内边距</div>
+    <hr>
+    <div class="div2">内边距 组合写法</div>
+    <hr>
+    <span>行内元素，尽量不用使用内边距 </span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <img src="../../../resource资源文件/img/A01_图标标签.jpg" alt="行内元素可以使用内边距">
+
+
+
+
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

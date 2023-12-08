@@ -1,0 +1,40 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+           <script src="../resources静态资源/js/html5shiv.min.js"></script>
+        <![endif]-->
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
+    <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>AA05_表单_文本域-下拉选择框</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+</head>
+
+<body>
+    <div> <!--form表单  action="请求地址"    method="请求方式"-->
+        <form action="#" method="get">
+            <!--textarea多行的文本输入控件             name="用于服务器取值key            autofocus页面加载后文本区域自动获得焦点            cols="1"文本区内的宽度            rows="30" 文本区内的高度             -->
+            <textarea name="textarea" autofocus="" cols="50" rows="20">多行的文本输入控件</textarea>
+            <hr> <!--section下拉选择框  name="用于服务器取值key--> 下拉选择框：
+            <select name="selected">
+                <option value="河北省">河北省</option>
+                <option value="江苏省">江苏省</option> <!--value服务器的选项值 selected默认选中  -->
+                <option value="广东省" selected="">广东省</option>
+                <option value="辽宁省">辽宁省</option>
+                <option value="云南省">云南省</option>
+            </select> <!--提交按钮1--> <button>提交按钮1</button>
+
+        </form>
+    </div>
+</body>
+
+</html>

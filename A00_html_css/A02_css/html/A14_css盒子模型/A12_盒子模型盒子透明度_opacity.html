@@ -1,0 +1,71 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A12_盒子模型盒子透明度</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            /* 外边距 居中 */
+            margin: 0 auto;
+            /* 外边距 */
+            margin-top: 50px;
+            /*盒子模型透明度设置 （0---1）  */
+            opacity: 0.5;
+
+        }
+
+        .box2 {
+            /* 宽度 */
+            width: 591px;
+            /* 开启相对定位 */
+            position: relative;
+        }
+
+        h1 {
+            /* 开启绝对定位（父类要开启相对定位） */
+            position: absolute;
+            /* 绝对定位 右75px */
+            right: 75px;
+            /*绝对定位 上 0 */
+            top: 0;
+            background-color: black;
+            color: rgb(231, 5, 5);
+            /* 文字居中 */
+            text-align: right;
+            /*盒子模型透明度设置 （0---1）  */
+            opacity:0.5;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box1"> </div>
+    <div class="box2">
+        <img src="../resources静态资源/img/视频封面.png" alt="">
+        <h1>淘神价VIP</h1>
+    </div>
+
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

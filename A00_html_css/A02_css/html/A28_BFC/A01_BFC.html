@@ -1,0 +1,49 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A01_html标准结构</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+</head>
+
+<body>
+    <h1>什么是BFC？？？</h1>
+    <p>1.元素开启 BFC 后，其子元素不会再产生 margin 塌陷问题</p>
+    <p>2.元素开启 BFC 后，自己不会被其他浮动元素所覆盖。</p>
+    <p>2.元素开启 BFC 后就算其子元素浮动，元素自身高度也不会塌陷</p>
+    <h1>下面的元素全部可以开启 开启BFC</h1>
+   <p>根元素</p>
+   <p>浮动元素</p>
+   <p>绝对定位、固定定位的元素</p>
+   <p>行内块元素</p>
+   <p>表格单元格: table、thead、 tbody 、 tfoot、th、 td、tr、caption</p>
+   <p>overflow 的值不为 visible 的块元案</p>
+   <p>伸缩项目</p>
+   <p>多列容器</p>
+   <p>column-span 为 al1 的元素 (即使该元察没有包裹在多列容器中)</p>
+   <p>display 的值，设置为 flow-root</p>
+
+</body>
+
+</html>

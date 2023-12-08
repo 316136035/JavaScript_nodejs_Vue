@@ -1,0 +1,825 @@
+/* #region -------基本css属性 */
+/* 左浮动 */
+.float-left {
+    float: left;
+}
+
+/* 右浮动 */
+.float-right {
+    float: right;
+}
+
+/* 清除浮动影响 */
+.clear-both::after {
+    content: "";
+    /* 设置为块元素 */
+    display: block;
+    /* 清除浮动影响 */
+    clear: both;
+}
+
+/* 版心 */
+.container {
+    /* 宽度 */
+    width: 1190px;
+    /* 居中 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin: 0 auto;
+    /* 背景颜色 */
+    /* background-color: rgb(124, 172, 124); */
+}
+
+/*#endregion 基本css属性结束*/
+/* #region -------导航条*/
+.top {
+    /* 背景颜色 */
+    background-color: #e3e4e5;
+    /* 边距 */
+    border: 1px solid #ddd;
+    /* 高度 */
+    height: 30px;
+
+}
+
+.top-navigation-items {
+    /*清除空白处 */
+    font-size: 0;
+}
+
+/* 左侧欢迎词 */
+.top-welcome {
+    /* 字体大小 */
+    font-size: 20px;
+    /* 字体居中 */
+    text-align: center;
+    /* 行距 */
+    line-height: 30px;
+    /* 字符 粗体 */
+    font-weight: bold;
+    /*  字符颜色*/
+    color: red;
+}
+
+/* 右侧导航区 */
+.top-navigation-items li {
+    /* 左浮动 */
+    float: left;
+
+
+
+}
+
+/* 右侧导航区中的a标签 */
+.top-navigation-items li a {
+    /* 字体大小 */
+    font-size: 12px;
+    /*字体类型  */
+    font-family: Microsoft YaHei;
+    /* 字体居中 */
+    text-align: center;
+    /* 行距 */
+    line-height: 30px;
+    /* 边框 */
+    border-right: 1px solid #999;
+    /* 内边框 */
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/* 右侧导航区中的第一个a标签 */
+.login-register :first-child {
+    /* 边框 */
+    border-right: 0;
+    /* 内边框 */
+    padding-left: 0;
+    padding-right: 0;
+
+}
+
+/* 右侧导航区中的最后一个a标签 */
+.top-navigation-items li:last-child a {
+    /* 边框 */
+    border-right: 0;
+    /* 内边框 */
+    padding-right: 0;
+}
+
+/*#endregion----------- 导航条结束 */
+/* #region -------头部开始*/
+.header {
+    /* 背景颜色 */
+    /* background-color: rgb(149, 117, 117); */
+    /* 边框 */
+    border-bottom: 1px solid rgb(235, 3, 3);
+
+}
+
+/*  头部-图片区 */
+.header-img {
+    /* 高度 */
+    width: 170px;
+    /* 宽度 */
+    height: 120px;
+    /* 外边框 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin: 10px;
+    /* 设置背景图片组合写法(图片地址 是否重复图片 设置图片方位) */
+    background: url("../resources静态资源/image/京东图标.png") no-repeat top center;
+    /* 设置背景大小 */
+    background-size: 190px 120px;
+}
+
+/*  头部 -搜索区+导航区 */
+.header-search {
+    /* 高度 */
+    width: 810px;
+    /* 宽度 */
+    height: 60px;
+    /* 开启相对定位 */
+    position: relative;
+    /* background-color: chocolate; */
+}
+
+/* 头部 -搜索区 输入框+按钮+链接  */
+.header-search-input-buttons {
+    /* 空包文本处理 */
+    font-size: 0;
+    /* 内上边距 */
+    padding-top: 24px;
+    /* 开启相对定位 */
+    position: relative;
+    /* 相对定位 左 */
+    left: 40px;
+    /* background-color: chartreuse; */
+}
+
+/* 头部 -搜索区 输入框*/
+.header-search input {
+    /* 宽度 */
+    width: 548px;
+    /* 高度 */
+    height: 34px;
+    /* 边框 */
+    border: 1px solid red;
+    /* 字符大小 */
+    font-size: 12px;
+
+}
+
+/* 头部 -搜索区 按钮*/
+.header-search .search {
+    /* 宽度 */
+    width: 58px;
+    /* 高度 */
+    height: 36px;
+    /* 字符大小 */
+    font-size: 12px;
+    /* 引入外部图片作为背景显示 注意：要设置height或者height 不然不生效*/
+    background-image: url("../resources静态资源/image/搜索.png");
+    /*处理基线没有对齐的问题 垂直对齐：底部； */
+    vertical-align: bottom;
+}
+
+/* 头部 -搜索区 购物车*/
+.header-search .shopping {
+    /* 改成行内联块元素 */
+    display: inline-block;
+    /* 宽度 */
+    width: 138px;
+    /* 高度 */
+    height: 36px;
+    /* 字符大小 */
+    font-size: 12px;
+    /* 背景颜色 */
+    background-color: chartreuse;
+    /*处理基线没有对齐的问题   垂直对齐：底部；*/
+    vertical-align: bottom;
+    /* 外 左边距 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin-left: 20px;
+    /* 字符水平居中 */
+    text-align: center;
+    /* 字符垂直居中 */
+    line-height: 36px;
+
+}
+
+/* ------------------------------------导航区1----------------------------------- */
+.header-nav1 {
+    /* 宽度 */
+    width: 810px;
+    /* 高度 */
+    height: 20px;
+    /* background-color: rgb(30, 210, 171); */
+}
+
+
+.header-nav1 ul li {
+    /* 开启相对定位 */
+    position: relative;
+    /*相对定位 左 40px  */
+    left: 40px;
+    /* 右外边框 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin-right: 10px;
+    /* 浮动 */
+    float: left;
+
+
+}
+
+/* ------------------------------------导航区2----------------------------------- */
+
+.header-nav2 {
+    /* 宽度 */
+    width: 810px;
+    /* 高度 */
+    height: 60px;
+    /* background-color: chocolate; */
+}
+
+
+.header-nav2 ul li {
+    /* 开启相对定位 */
+    position: relative;
+    /*相对定位 上20px  */
+    top: 20px;
+    /* 浮动 */
+    float: left;
+    /* 字体大小 */
+    font-size: 15px;
+    /* 字符居中 */
+    line-height: 40px;
+    /* 外边距 左0 右8 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin: 0 8px;
+
+
+
+
+}
+
+/* ------------------------------------广告区----------------------------------- */
+
+.header-banner {
+    /* 宽度 */
+    width: 170px;
+    /* 高度 */
+    height: 120px;
+    /* 外边距 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin: 10px;
+    /* 设置背景图片组合写法(图片地址 是否重复图片 设置图片方位) */
+    background: url("../resources静态资源/image/广告.png") no-repeat top center;
+    /* 设置背景大小 */
+    background-size: 190px 120px;
+}
+
+/* #endregion-----头部结束*/
+/* #region -------内容区 三个框 开始*/
+/* 内容区  */
+.main-content {
+    /* 背景颜色 */
+    background-color: #f4e9e9;
+    /* 边框 */
+    border: 1px solid red;
+}
+
+/* 内容区 左边   */
+.main-content-left-nav {
+    /* 宽度 */
+    width: 190px;
+    /* 高度 */
+    height: 460px;
+    /* 背景颜色 */
+    background-color: rgb(250, 247, 250);
+    /* 外边框上 */
+    margin-top: 10px;
+    /* 内边距上 */
+    padding-top: 10px;
+    /* 内边距下 */
+    padding-bottom: 10px;
+    /* 开启相对定位 */
+    position: relative;
+}
+
+/* 内容区中间显示区（二级菜单会定位到这里显示） */
+.content-middle-banner {
+    /* 宽度 */
+    width: 790px;
+    /* 高度 */
+    height: 480px;
+    /* 背景颜色 */
+    background-color: rgb(60, 4, 133);
+    /* 外边框 上 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin-top: 10px;
+    /* 外边框 左 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin-left: 10px;
+    /* 外边框 右 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin-right: 10px;
+    /* 引入外部图片作为背景显示 注意：要设置height或者height 不然不生效*/
+    background-image: url("../resources静态资源/image/内容区中间.jpg");
+}
+
+
+
+/* 内容区右边*/
+.content-right-other {
+    /* 宽度 */
+    width: 190px;
+    /* 高度 */
+    height: 480px;
+    /* background-color: rgb(4, 133, 103); */
+    /* 外边框 上 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin-top: 10px;
+}
+
+/* #endregion内容区 三个框 结束*/
+/* #region -------内容区中左边+中间显示区开始 */
+/* 内容区 左边  ul元素 */
+.main-content-left-nav ul {
+    /* 高度 */
+    height: 25px;
+    /* 内边框 左 */
+    padding-left: 18px;
+    /* 行高 */
+    line-height: 25px;
+}
+
+/* 内容区 左边  ul元素 中的li元素中的a 元素 */
+.main-content-left-nav>ul>li>a {
+    /* 高度 */
+    height: 25px;
+    /* 行高 */
+    line-height: 25px;
+    /* 字体类型 */
+    font-family: Microsoft YaHei;
+    /* 字体颜色 */
+    color: #333;
+    /* 字体大小 */
+    font-size: 14px;
+
+}
+
+/* 内容区 左边  ul元素 中的li元素中的a :hover鼠标悬浮时 */
+.main-content-left-nav ul li>a:hover {
+    /* 字体颜色 */
+    color: rgb(246, 244, 244);
+}
+
+/* 内容区 左边  ul元素 中的li元素 :hover鼠标悬浮时 */
+.main-content-left-nav ul>li:hover {
+    /* 背景颜色 */
+    background-color: rgb(249, 4, 4);
+
+}
+
+/* 内容区 左边  ul元素 中的li元素 :hover鼠标悬浮时 选中second-menu元素 */
+.main-content-left-nav ul>li:hover .second-menu {
+    /* 设置为显示 */
+    display: block;
+}
+
+/*定位到内容区中间显示区（二级菜单会定位到这里显示） */
+.second-menu {
+    /* 宽度 */
+    width: 760px;
+    /* 高度 */
+    height: 440px;
+    /* 背景颜色 */
+    background-color: rgb(243, 241, 238);
+    /* background-color: hsl(70 50% 50% / 0.75); */
+    padding: 20px;
+    /* 开启绝对定位 */
+    position: absolute;
+    top: 0;
+    left: 190px;
+    /* 默认为隐藏 */
+    display: none;
+}
+
+/* 二级菜单样式中的a元素 */
+.second-menu-top>a {
+    /* 字体大小 */
+    font-size: 12px;
+    /* 背景颜色 */
+    background-color: #333;
+    /* 内边框 */
+    padding: 5px;
+    /* 字体颜色 */
+    color: #fafafa;
+}
+
+/* 二级菜单样式中的dl元素  */
+.second-menu dl {
+    /* 高度*/
+    height: 40px;
+    /* 外边框 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin: 10px;
+}
+
+/* 二级菜单样式中的dt元素 */
+.second-menu dl dt {
+    /*宽度  */
+    width: 70px;
+    /* 高度 */
+    height: 40px;
+    /* 浮动： 左浮 */
+    float: left;
+    /* 内边距 左*/
+    padding-left: 10px;
+    /* 内边距 右*/
+    padding-right: 10px;
+    /*字体粗细：粗体；  */
+    font-weight: bold;
+    /* 字体 靠右 */
+    text-align: right;
+}
+
+/* 二级菜单样式中的 dd 元素 */
+.second-menu dl dd {
+    /* 高度  */
+    height: 20px;
+    /* 浮动： 左浮 */
+    float: left;
+    /* 内边距 左*/
+    padding-left: 10px;
+    /* 内边距 右*/
+    padding-right: 10px;
+}
+
+/* 二级菜单样式dl dd a元素 */
+.second-menu dl dd a {
+    /* 边框 */
+    border-left: 1px solid rgb(153, 153, 153);
+    ;
+}
+
+/* #endregion内容区中左边+中间显示区结束 */
+/* #region -------内容区右边上方--- 图标/登录/注册 开始 */
+/* 内容区右边上方 */
+.content-right-othe-top {
+    /* 高度 */
+    width: 190px;
+    /* 宽度 */
+    height: 194px;
+    /* background-color: chartreuse; */
+
+}
+
+/* 右上方图片 */
+.content-right-othe-top-log-Register-image {
+    /* 设置背景图片组合写法(图片地址 是否重复图片 设置图片方位) */
+    background: no-repeat center/80% url("../resources静态资源/image/log-Register.png");
+    /* 背景图片大小 */
+    background-size: 40px 40px;
+    /* 宽度 */
+    width: 190px;
+    /* 高度 */
+    height: 40px;
+    /* 内边距 上 */
+    padding-top: 10px;
+
+}
+
+/* 右上方 登录/注册- */
+.content-right-othe-top-log-Register {
+    /* 高度 */
+    height: 16;
+    /* 字体居中 */
+    text-align: center;
+
+}
+
+/* 右上方 福利*/
+.content-right-othe-top-benefits {
+    /* 高度 */
+    height: 45px;
+    /* 内边距 */
+    padding: 10px;
+    /* 背景颜色 */
+    background-color: rgb(254, 237, 232);
+}
+
+/* 右上方 PLUS会员区 */
+.content-right-othe-top-plus {
+    /* 高度 */
+    height: 45px;
+    /* 内边距 左 */
+    padding-left: 10px;
+    /* 背景颜色 */
+    background-color: rgb(255, 240, 197);
+}
+
+/* #endregion内容区右边上方 图标/登录/注册 结束 */
+/* #region -------内容区右边下方 开始 */
+/* 内容区右边下方 */
+.content-right-othe-bottom {
+    /* 宽度 */
+    width: 190px;
+    /* 高度 */
+    height: 235px;
+    /* 内边距 上 */
+    padding-top: 10px;
+    /* 背景颜色 */
+    background-color: rgb(246, 245, 247);
+    /* 处理margin塌陷问题  溢出：隐藏；*/
+    overflow: hidden;
+    /* 设置鼠标指针样式为手型（要实现点击使用js实现） */
+    cursor: pointer;
+
+}
+
+/* 内容区右边下方中的li  */
+.content-right-othe-bottom-list li {
+    /* 宽带 */
+    width: 63px;
+    /* 高度 */
+    height: 55px;
+    /* 浮动：左浮 */
+    float: left;
+    /* 背景颜色 */
+    background-color: rgb(246, 245, 247);
+    /* 字符居中 */
+    text-align: center;
+}
+
+/* 内容区右边下方中的第一个ul */
+.content-right-othe-bottom-list ul:first-child {
+    /* 外边距 上 （设置外边距最好在他的父类中设置overflow: hidden;）*/
+    margin-top: 10px;
+}
+
+.content-right-othe-bottom-list-img {
+    /* 宽度 */
+    width: 63px;
+    /* 高度 */
+    height: 28px;
+    /* 引入外部图片作为背景显示 注意：要设置height或者height 不然不生效*/
+    background-image: url("../resources静态资源/image/右下图.png");
+
+
+}
+
+/* 获取内容区右边下方中第1个子元素再获取子元素中的第1个子元素 中的 .content-right-othe-bottom-list-img */
+.content-right-othe-bottom-list:nth-child(1) li:nth-child(1) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: 0px -10px;
+}
+
+/* 获取内容区右边下方中第1个子元素再获取子元素中的第2个子元素 中的 .content-right-othe-bottom-list-img */
+.content-right-othe-bottom-list:nth-child(1) li:nth-child(2) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: -63px -10px;
+}
+
+/* 获取内容区右边下方中第1个子元素再获取子元素中的第3个子元素 中的 .content-right-othe-bottom-list-img */
+.content-right-othe-bottom-list:nth-child(1) li:nth-child(3) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: -126px -10px;
+}
+
+/* 获取内容区右边下方中第2个子元素再获取子元素中的第1个子元素 中的 .content-right-othe-bottom-list-img */
+.content-right-othe-bottom-list:nth-child(2) li:nth-child(1) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: 0px -65px;
+}
+
+/* 获取内容区右边下方中第2个子元素再获取子元素中的第2个子元素 中的 .content-right-othe-bottom-list-img */
+
+.content-right-othe-bottom-list:nth-child(2) li:nth-child(2) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: -63px -65px;
+}
+
+/* 获取内容区右边下方中第2个子元素再获取子元素中的第3个子元素 中的 .content-right-othe-bottom-list-img */
+
+.content-right-othe-bottom-list:nth-child(2) li:nth-child(3) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: -126px -65px;
+}
+
+/* 获取内容区右边下方中第3个子元素再获取子元素中的第1个子元素 中的 .content-right-othe-bottom-list-img */
+
+.content-right-othe-bottom-list:nth-child(3) li:nth-child(1) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: 0px -120px;
+}
+
+/* 获取内容区右边下方中第3个子元素再获取子元素中的第2个子元素 中的 .content-right-othe-bottom-list-img */
+.content-right-othe-bottom-list:nth-child(3) li:nth-child(2) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: -63px -120px;
+}
+
+/* 获取内容区右边下方中第3个子元素再获取子元素中的第3个子元素 中的 .content-right-othe-bottom-list-img */
+.content-right-othe-bottom-list:nth-child(3) li:nth-child(3) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: -126px -120px;
+}
+
+/* 获取内容区右边下方中第4个子元素再获取子元素中的第1个子元素 中的 .content-right-othe-bottom-list-img */
+.content-right-othe-bottom-list:nth-child(4) li:nth-child(1) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: 0px -175px;
+}
+
+/* 获取内容区右边下方中第4个子元素再获取子元素中的第2个子元素 中的 .content-right-othe-bottom-list-img */
+.content-right-othe-bottom-list:nth-child(4) li:nth-child(2) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: -63px -175px;
+}
+
+/* 获取内容区右边下方中第4个子元素再获取子元素中的第4个子元素 中的 .content-right-othe-bottom-list-img */
+.content-right-othe-bottom-list:nth-child(4) li:nth-child(3) .content-right-othe-bottom-list-img {
+    /* 设置背景图片位置 */
+    background-position: -126px -175px;
+}
+
+/* #endregion内容区右边下方 结束 */
+/* #region -------内容区右边新闻区  开始--> */
+/* 内容区右边新闻区 */
+.content-right-othe-news {
+    /* 处理margin塌陷问题  溢出：隐藏；*/
+    overflow: hidden
+}
+
+/* 内容区右边新闻区div中的第一个元素  */
+.content-right-othe-news div:first-child {
+    /* 字体颜色 */
+    color: red;
+    /* 内边距 */
+    padding: 10px;
+}
+
+/* 内容区右边新闻区的div中的最后一个元素 */
+.content-right-othe-news div:last-child {
+    /* 内边距 */
+    padding: 10px;
+    /* 宽度 */
+    width: 126pox;
+    /* 不换行 */
+    word-break: keep-all;
+    /* 不换行 */
+    white-space: nowrap;
+    /* 内容超出宽度时隐藏超出部分的内容 */
+    overflow: hidden;
+    /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+    text-overflow: ellipsis;
+
+}
+
+/* #endregion -------内容区右边新闻区  结束--> */
+/* #region -------秒杀区  开始 */
+.spike {
+    /* 外边框 */
+    margin: 40px;
+}
+
+/* 秒杀标题div样式*/
+.spike .container .spik-title {
+    /* 高度 */
+    width: 190px;
+    /* 宽度 */
+    height: 260px;
+    /* 背景颜色 */
+    background-color: rgb(239, 4, 4);
+    /* 设置鼠标指针样式为手型（要实现点击使用js实现） */
+    cursor: pointer;
+}
+
+/* 秒杀标题第一个子辈样式*/
+.spike .container .spik-title :first-child {
+    /* 内边框 */
+    padding: 30px;
+    /* 字体大小 */
+    font-size: 30px;
+    /* 字体水平居中 */
+    text-align: center;
+    /* 字体颜色 */
+    color: wheat;
+
+}
+
+/* 秒杀标题图片样式*/
+.spike .container .spik-title :nth-child(2) {
+    /* 宽度 */
+    width: 190px;
+    /* 高度 */
+    height: 80px;
+    /* 引入外部图片作为背景显示 注意：要设置height或者height 不然不生效*/
+    background-image: url("../resources静态资源/image/闪电.png");
+    /* 背景-图片不重复 */
+    background-repeat: no-repeat;
+    /* 背景-图片大小 */
+    background-size: 80px 80px;
+    /*背景-图片 居中  */
+    background-position: top center;
+}
+
+/* 秒杀标题字体样式*/
+.spike .container .spik-title :nth-child(3) {
+    /* 高度 */
+    height: 26px;
+    /* 字体大小 */
+    font-size: 14px;
+    /* 字体水平居中 */
+    text-align: center;
+}
+
+/* 秒杀标题字体样式*/
+.spike .spik-title :last-child {
+    /* 高度 */
+    height: 30px;
+    /* 字体大小 */
+    font-size: 14px;
+    /* 字体水平居中 */
+    text-align: center;
+}
+
+/* 秒杀的商品 第2,3,4,5个元素 */
+.spike .spik-list {
+    /* 宽度 */
+    width: 200px;
+    /* 高度 */
+    height: 260px;
+    /* background-color: rgb(255, 220, 220); */
+    /* 防止溢出问题 */
+    overflow: hidden;
+    /* 设置鼠标指针样式为手型（要实现点击使用js实现） */
+    cursor: pointer;
+}
+
+/* 秒杀的商品的图片样式 统一样式全部spik-list元素中的第一个元素 */
+.spike .container .spik-list :nth-child(1) {
+    /* 高度 */
+    height: 140px;
+    /* 外边框 （请在父元素中设置overflow: hidden;防止溢出问题）*/
+    margin: 30px;
+    /* 背景-图片不重复 */
+    background-repeat: no-repeat;
+    /* 背景-图片大小 */
+    background-size: 140px 140px;
+    /* 背景-图片 水平居中*/
+    background-position: top center;
+}
+
+/* 秒杀的商品图片 */
+.spike .container .spik-list:nth-child(2) div:nth-child(1) {
+    /* 引入外部图片作为背景显示 注意：要设置height或者height 不然不生效*/
+    background-image: url("../resources静态资源/image/秒杀1.jpg");
+}
+
+/* 秒杀的商品图片 */
+.spike .container .spik-list:nth-child(3) div:nth-child(1) {
+    /* 引入外部图片作为背景显示 注意：要设置height或者height 不然不生效*/
+    background-image: url("../resources静态资源/image/秒杀2.jpg");
+
+}
+
+/* 秒杀的商品图片 */
+.spike .container .spik-list:nth-child(4) div:nth-child(1) {
+    /* 引入外部图片作为背景显示 注意：要设置height或者height 不然不生效*/
+    background-image: url("../resources静态资源/image/秒杀3.jpg");
+}
+
+/* 秒杀的商品图片 */
+.spike .container .spik-list:nth-child(5) div:nth-child(1) {
+    /* 引入外部图片作为背景显示 注意：要设置height或者height 不然不生效*/
+    background-image: url("../resources静态资源/image/秒杀4.jpg");
+}
+
+/* 秒杀的商品 商品名称统一样式 */
+.spike .container .spik-list :nth-child(2) {
+    /* 高度 */
+    height: 18px;
+    /* 内边框 */
+    padding: 10px;
+    /* background-color: rgb(255, 0, 25); */
+    /* 不换行 */
+    word-break: keep-all;
+    /* 不换行 */
+    white-space: nowrap;
+    /* 内容超出宽度时隐藏超出部分的内容 */
+    overflow: hidden;
+    /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+    text-overflow: ellipsis;
+
+}
+
+/* 秒杀的商品 钱统商品价一样式 */
+.spike .container .spik-list :nth-child(3) {
+    /* 高度 */
+    height: 24px;
+    /* background-color: chartreuse; */
+    /* 字体居中 */
+    text-align: center;
+}
+
+/* 包邮的图片 */
+.spike .container .spik-shipping .spik-list-img {
+    /* 宽度 */
+    width: 200px;
+    /* 高度 */
+    height: 260px;
+    /* 引入外部图片作为背景显示 注意：要设置height或者height 不然不生效*/
+    background-image: url("../resources静态资源/image/包邮.png");
+    /* 背景-图片大小 */
+    background-size: 200px 260px;
+}
+/* #endregion -------秒杀区  结束始 */
+/*  */

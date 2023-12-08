@@ -1,0 +1,108 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A04_盒子模型边框_border</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .div1 {
+            /* 设置边框厚度 */
+            border-width: 20px;
+            /* 设置边框样式 实线 */
+            border-style: solid;
+            /* 设置边框样式 实线 */
+            /* 设置边框颜色 */
+            border-color: chartreuse;
+            /* 设置边框颜色 */
+            /* 组合写法 */
+            border: 10px solid red;
+            /* 固定内容区大小content-box   默认的 */
+            box-sizing: content-box;
+
+        }
+
+        .div2 {
+            /* 设置上边框厚度 */
+            border-top-width: 10px;
+            /* 设置上边框样式 */
+            border-top-style: dashed;
+            /* 设置上边框颜色 */
+            border-top-color: chartreuse;
+
+            /* 设置下边框厚度 */
+            border-bottom-width: 20px;
+            /* 设置下边框样式 */
+            border-bottom-style: inset;
+            /* 设置下边框颜色 */
+            border-bottom-color: rgb(111, 0, 255);
+
+            /* 设置左边框厚度 */
+            border-left-width: 30px;
+            /* 设置左边框样式 */
+            border-left-style: double;
+            /* 设置左边框颜色 */
+            border-left-color: rgb(255, 115, 0);
+
+            /* 设置右边框厚度 */
+            border-right-width: 40px;
+            /* 设置右边框样式 */
+            border-right-style: groove;
+            /* 设置右边框颜色 */
+            border-right-color: rgb(255, 0, 0);
+            /* 固定内容区大小content-box   默认的 */
+            box-sizing: content-box;
+
+        }
+
+        .div3 {
+            /* 设置上边框 组合写法（ 厚度 样式 颜色）*/
+            border-top: 10px dashed rgb(255, 149, 0);
+            /* 设置下边框 组合写法（ 厚度 样式 颜色）*/
+            border-bottom: 20px double rgb(0, 255, 136);
+            /* 设置左边框 组合写法（ 厚度 样式 颜色）*/
+            border-left: 30px groove rgb(25, 0, 255);
+            /* 设置右边框 组合写法（ 厚度 样式 颜色）*/
+            border-right: 40px solid rgb(255, 0, 38);
+            /* 固定内容区大小content-box   默认的 */
+            box-sizing: content-box;
+
+
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="div1">设置边框普通写法和组合写法</div>
+    <hr>
+    <div class="div2">设置边框定位写法</div>
+    <hr>
+    <div class="div3">设置边框定位组合写法</div>
+
+
+
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

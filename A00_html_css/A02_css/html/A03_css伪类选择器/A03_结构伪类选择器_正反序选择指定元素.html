@@ -1,0 +1,91 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A03_结构伪类选择器_正反序选择指定元素 </title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 外部样式 -->
+    <!-- <link rel="stylesheet" href="#"> -->
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        /* 
+            选择指定索引位置：5 
+            选择指定索引为偶数：2n  或者even
+            选择指定索引为基数：2n+1  或者odd
+            选择索引前n个：-n+5  或者
+        例子: 3n+1
+            3*0+1=4
+            3*1+1=7
+            3*2+1=10
+            3*3+1=13
+            
+        */
+        /* 选择ul元素中是全部子辈元素 指定选中索引 正序（注意：计算的是全部子辈元素）*/
+        ul>li:nth-child(2n) {
+            background-color: aqua;
+        }
+        /* 选择ul元素中是全部子辈元素 指定选中索引 反序（注意：计算的是全部子辈元素）*/
+        ul>li:nth-last-child(2n+1) {
+            background-color: rgb(255, 0, 13);
+        }
+
+
+        /* 选择ul元素中是全部子辈元素 指定选中索引 正序 （注意：计算的是全部子辈同类型元素）*/
+        ol>li:nth-of-type(2n) {
+            background-color: aqua;
+        } 
+         /* 选择ul元素中是全部子辈元素 指定选中索引 反序 （注意：计算的是全部子辈同类型元素）*/
+         ol>li:nth-last-of-type(2n+1) {
+            background-color: rgb(255, 225, 0);
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+    </ul>
+    <hr>
+    <ol>
+        <samp>samp</samp>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <samp>samp</samp>
+    </ol>
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+</body>
+
+</html>

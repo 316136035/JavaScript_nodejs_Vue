@@ -1,0 +1,76 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+           <script src="../resources静态资源/js/html5shiv.min.js"></script>
+        <![endif]-->
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A01_html标准结构</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        aside {
+            /* 开启固定定位（参考的是视图位置） */
+            position: fixed;
+            top: 300px;
+            right: 1000px;
+
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <header>整个页面，或部分区域的头部</header>
+    <!-- 主导航区 -->
+    <nav>
+        <a href="">京东</a>
+        <a href="">淘宝</a>
+        <a href="">天猫</a>
+        <a href="">百度</a>
+    </nav>
+    <!--  文章、帖子、杂志、新闻、博客、评论等-->
+    <article>
+        <!-- 侧边栏 -->
+        <aside>
+            <ul>
+                <li> <a href="">侧边栏1</a> </li>
+                <li> <a href="">侧边栏2</a> </li>
+                <li> <a href="">侧边栏3</a> </li>
+                <li> <a href="">侧边栏4</a> </li>
+            </ul>
+        </aside>
+        <!--页面中的某段文字，或文章中的某段文字 (里面文字通常里面会包含标题)。  -->
+        <section>
+            <header>子头部</header>
+            <div>
+                文章包括各种文体的著作、作品，如诗歌、戏剧、小说、科学论文，记叙文、议论文、说明文、应用文等等。“千古文章未尽才”“文章千古事”“文章憎命达”“板凳要坐十年冷、文章不写一字空”“积句而成章，积章而成篇”“言出为论，下笔成章”等，都是现在所说的文章的意思。更广义的文章，也包含“学问”“奥秘”等意思，如“洞明世事皆学问，人情练达即文章”就是。
+            </div>
+        </section>
+        <!--页面中的某段文字，或文章中的某段文字 (里面文字通常里面会包含标题)。  -->
+        <section>
+            <header>子头部</header>
+            <div>
+                文章包括各种文体的著作、作品，如诗歌、戏剧、小说、科学论文，记叙文、议论文、说明文、应用文等等。“千古文章未尽才”“文章千古事”“文章憎命达”“板凳要坐十年冷、文章不写一字空”“积句而成章，积章而成篇”“言出为论，下笔成章”等，都是现在所说的文章的意思。更广义的文章，也包含“学问”“奥秘”等意思，如“洞明世事皆学问，人情练达即文章”就是。
+            </div>
+        </section>
+
+    </article>
+
+
+    <footer> 整个页面，或部分区域的底部 </footer>
+    <script type="text/javascript" src="#">    /*javascript代码  */</script>
+</body>
+
+</html>

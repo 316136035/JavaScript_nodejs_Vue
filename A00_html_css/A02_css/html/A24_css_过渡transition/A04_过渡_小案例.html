@@ -1,0 +1,108 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A04_过渡_小案例</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        /* 父类 */
+        .father {
+            /* 宽度 */
+            width: 591px;
+            /* 高度 */
+            height: 364px;
+            /* 开启相对定位 */
+            position: relative;
+            /*溢出：隐藏；  */
+            overflow: hidden;
+
+        }
+
+        .father img {
+            /*过渡_复合写法： 要过渡的属性 过渡持续时间   过渡方式 */
+            transition: all 5s ease;
+        }
+
+        .mask {
+            /* 宽度 */
+            width: 591px;
+            /* 高度 */
+            height: 364px;
+            /* 边框 */
+            background-color: black;
+            /* 字体颜色 */
+            color: aliceblue;
+            /* 开启绝对定位（请在父类开启相对定位） */
+            position: absolute;
+            /* 绝对定位 上 */
+            top: 0;
+            /* 绝对定位 右*/
+            left: 0;
+            /* 字体大小 */
+            font-size: 50px;
+            /* 字体水平居中*/
+            text-align: center;
+            /* 字体垂直居中*/
+            line-height: 364px;
+            /* 字体加粗 */
+            font-weight: bolder;
+            /* 透明度 */
+            opacity: 0;
+            /*过渡_复合写法： 要过渡的属性 过渡持续时间   过渡方式 */
+            transition: all 5s ease;
+            /* 鼠标样式 */
+            cursor: pointer;
+
+        }
+
+        /*鼠标悬停在父类时候 选中mask */
+        .father:hover .mask {
+            /* 透明度 */
+            opacity: 0.5;
+
+        }
+
+        /*鼠标悬停在父类时候 选中img */
+        .father:hover img {
+            /* 变换_组合写法_ 位移translate_ 缩放scale_ Z轴旋转rotate  统一按照自身的参数来计算（按顺序实现）*/
+            transform: scale(1.6) rotateZ(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <img src="../resources静态资源/img/视频封面.png" alt="">
+        <div class="mask">A04_过渡_小案例 </div>
+
+    </div>
+
+
+
+
+    <!-- 引入三方依赖包 -->
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+</body>
+
+</html>

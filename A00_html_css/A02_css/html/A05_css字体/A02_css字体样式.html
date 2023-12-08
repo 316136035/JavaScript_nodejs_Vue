@@ -1,0 +1,54 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A02_css字体样式</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        /*设置字体楷体，雅黑体,宋体  依次匹配当前面用过电脑没有这种字体就匹配下一个字体*/
+        .taoshenjai1{
+         font-family: 'KaiTi', 'YaHei';
+        }
+         /*设置字体楷体，雅黑体,宋体  依次匹配当前面用过电脑没有这种字体就匹配下一个字体 
+         字体分类 一般用于收尾
+         衬线字体：serif 
+         非衬线字体： sans-serif 
+         */
+        .taoshenjai2{
+            font-family: 'KaiTi', 'YaHei','sans-serif';
+        }
+
+
+    </style>
+</head>
+
+<body>
+    
+ 
+        <div class="taoshenjai1">淘神价1</div>
+        <div class="taoshenjai2">淘神价2</div>
+        <div class="taoshenjai3">淘神价3</div>
+        <div class="taoshenjai4">淘神价4</div>
+        <div class="taoshenjai5">淘神价5</div>
+        <div>继承下来的样式</div>
+
+
+
+
+
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

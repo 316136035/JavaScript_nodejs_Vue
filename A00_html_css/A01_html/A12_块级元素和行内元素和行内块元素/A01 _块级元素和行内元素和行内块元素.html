@@ -1,0 +1,110 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+               <script src="../resources静态资源/js/html5shiv.min.js"></script>
+            <![endif]-->
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
+    <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A01 _块元素和行内元素和行内块元素</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        h1 {
+            /* 设置字体大小 */
+            font-size: 30px;
+            /* 设置行高 */
+            line-height: 10px;
+            /* 设置字体颜色 */
+            color: brown;
+
+        }
+
+        span {
+            color: red;
+            font-weight: bolder;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h1>元素和行内元素和行内块元素区别</h1>
+        <h1>块元素特点：</h1>
+        <!-- 列表的项 -->
+        <ol>
+            <li>在页面中<span>独占一行</span>不会与任何元素共用一行，是从上到下排列的。</li>
+            <li>默认宽度: <span>撑满父元素</span></li>
+            <li>默认高度: 由内容撑开</li>
+            <li>块元素中可以写块元素和行内元素等等</li>
+            <li><span>可以通过css 设置宽高</span> </li>
+            <h1>块元素标签</h1>
+            <li>1.主体结构标签:&lt;html&gt; &lt;body&gt;</li>
+            <li>2.排版标签::&lt;h1-h6&gt; &lt;hr&gt; &lt;p&gt; &lt;pre&gt; &lt;div&gt</li>
+            <li>3.列表标签: &lt;ul&gt &lt;ol&gt &lt;li&gt &lt;dl&gt &lt;dt&gt &lt;dd&gt</li>
+            <li>4.表格相关标签: &lt;tabled&gt; &lt;tbodyd&gt; &lt;thread&gt; &lt;tfootd&gt; &lt;tr&gt; &lt;captiond&gt;</li>
+            <li>5.表单相关标签: &lt;form&gt; &lt;option&gt;</li>
+
+            <ol>
+    </div>
+    <div>
+        <h1>行内元素特点：</h1>
+        <!-- 列表的项 -->
+        <ol>
+            <li>在页面中<span>不独占一行</span>，一行中不能容纳下的行内元素，会在下一行继续从左到右排列。</li>
+            <li>默认宽度 <span>由内容撑开</span></li>
+            <li>默认高度:由内容撑开</li>
+            <li>行内元素中可以写行内元素不能写块元素</li>
+            <li>无法通过 CSS 设置宽高。</li>
+            <h1>行内元素标签</h1>
+            <li>文本标签: &lt;br&gt; &lt;em&gt; &lt;strong&gt; &lt;sup&gt; &lt;sub&gt; &lt;del&gt; &lt;ins&gt; &lt;ins&gt;
+            </li>
+            <li>&lt;a&gt;与 &lt;label&gt;
+
+            </li>
+            <ol>
+
+    </div>
+    <div>
+        <h1>行内块元素：</h1>
+        <!-- 列表的项 -->
+        <ol>
+            <li>在页面中<span>不独占一行</span>，一行中不能容纳下的行内元素，会在下一行继续从左到右排列。</li>
+            <li>默认宽度: <span>由内容撑开</span></li>
+            <li>默认高度:由内容撑开。</li>
+            <li>？？？？？？？</li>
+            <li><span>可以通过css 设置宽高</span></li>
+            <h1>行内块元素标签</h1>
+            <li>图片:&lt;img&gt;</li>
+            <li>单元格:&lt;td&gt; lt;th&gt;</li>
+            <li>表单控件: &lt;input&gt;&lt;textarea&gt; &lt;select&gt; &lt;button&gt;</li>
+            <li>框架标签: &lt;iframe&gt;</li>
+            <ol>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A02_@media媒体设备视图查询</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/css/reset.css">
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        div {
+            width: 800px;
+            height: 800px;
+
+
+            font-size: 20px;
+
+        }
+
+        /* 媒体查询
+        all	表示所有的媒体设备
+        aural	（听觉的，听的）表示语音和音频合成器（听觉设备）
+        braille	（用盲文写的）表示盲人用点字法触觉回馈设备
+        embossed	表示盲人用点字法打印机
+        handheld	表示小型手持设备，如手机、平板电脑
+        print	表示打印机
+        projection	表示投影设备
+        screen	表示电脑显示器
+        tty	表示使用固定密度字母栅格的媒体，比如打字机或终端设备
+        tv	表示电视机类型的设备  */
+
+
+        /* 当屏幕的视口小于:800px就改变宽度width/高度height: */
+        @media (max-width:800px) {
+            div {
+                /* 视图宽度 */
+                background-color: chartreuse;
+
+
+            }
+
+        }
+
+        /* 当屏幕的视口大于:800px就改变宽度width/高度height: */
+        @media (min-width:800px) {
+            div {
+                /* 视图宽度 */
+                background-color: rgb(255, 0, 25);
+
+
+            }
+
+        }
+
+        /* 当屏幕设备等于？？？px */
+        @media(device-width:1200px) {
+
+            div {
+                /* 线性颜色渐变 颜色可以无限添加 （to 终点位置, 位置） */
+                background-image: linear-gradient(to right top, red, yellow, green);
+            }
+
+
+        }
+
+        /* 视口的方向 屏幕的横向 */
+        
+        @media screen and (orientation: landscape) {
+            div {
+                flex-direction: row;
+            }
+        }
+        /* 视口的方向 屏幕的纵向 */
+        @media screen and (orientation: portrait) {
+            div {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div>
+        <h1> 媒体查询 @media</h1>
+        <p>all 表示所有的媒体设备</p>
+        <p> aural （听觉的，听的）表示语音和音频合成器（听觉设备）</p>
+        <p>braille （用盲文写的）表示盲人用点字法触觉回馈设备</p>
+        <p>embossed 表示盲人用点字法打印机</p>
+        <p>print 表示打印机</p>
+        <p>projection 表示投影设备</p>
+        <p>screen 表示电脑显示器</p>
+        <p>tty 表示使用固定密度字母栅格的媒体，比如打字机或终端设备</p>
+        <p> tv 表示电视机类型的设备</p>
+    </div>
+    <!-- 引入三方依赖包 -->
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+</body>
+
+</html>

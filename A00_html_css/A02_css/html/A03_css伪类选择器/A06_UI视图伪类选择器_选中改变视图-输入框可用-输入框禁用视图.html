@@ -1,0 +1,54 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A06_UI视图选择器_选中改变视图-输入框可用-输入框禁用视图 </title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 外部样式 -->
+    <!-- <link rel="stylesheet" href="#"> -->
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        /* 当选中的时候就改变UI视图 */
+        input:checked {
+            width: 20px;
+            height: 20px;
+            /* 部分样式不能修改 */
+        }
+
+        /* 当输入框可以输入的视图 */
+        input:enabled {
+            width: 200px;
+            height: 20px;
+            background-color: rgb(6, 227, 50);
+        }
+
+
+        /* 当输入框禁用输入的视图  */
+        input:disabled {
+            width: 200px;
+            height: 20px;
+            background-color: darkslategray;
+        }
+    </style>
+
+</head>
+
+<body>
+    多选框：<input type="checkbox" value="">
+    单选框<input type="radio" name="radio">
+    <input type="radio" name="radio">
+    <hr>
+    <input type="" name="" id="">
+    <input type="" name="" id="" disabled>
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

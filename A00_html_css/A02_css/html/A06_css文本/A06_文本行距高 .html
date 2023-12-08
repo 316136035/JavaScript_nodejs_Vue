@@ -1,0 +1,85 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A06_文本行距高 </title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .div1 {
+            /* 设置字体像素值 */
+            font-size: 20px;
+            /* 背景颜色 */
+            background-color: brown;
+            /* 设置文本行高为默认  第一种写法*/
+            line-height: normal;
+        }
+
+        .div2 {
+            /* 设置字体像素值 第一种写法 */
+            font-size: 20px;
+            /* 背景颜色 */
+            background-color: rgb(42, 165, 83);
+            /* 设置文本行高像素值 */
+            line-height: 40px;
+        }
+
+        .div3 {
+            /* 设置字体像素值 */
+            font-size: 20px;
+            /* 背景颜色 */
+            background-color: rgb(14, 8, 205);
+            /* 设置文本行高数字 行高等于字体大小px*2  第三种写法*/
+            line-height: 2.5;
+        }
+
+        .div4 {
+            /* 设置字体像素值 */
+            font-size: 20px;
+            /* 背景颜色 */
+            background-color: rgb(222, 214, 6);
+            /* 设置文本行高数字 行高等于字体大小的百分比  第四种写法*/
+            line-height: 400%;
+        }
+
+        .head {
+            color: crimson;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="div1">联想ThinkBook 16p 英特尔酷睿i9 16英寸高性能轻薄创作本 i9-13900H 32G 1T RTX4060 3.2K 165Hz</div>
+    <div class="div2">联想ThinkBook 16p 英特尔酷睿i9 16英寸高性能轻薄创作本 i9-13900H 32G 1T RTX4060 3.2K 165Hz</div>
+    <div class="div3">联想ThinkBook 16p 英特尔酷睿i9 16英寸高性能轻薄创作本 i9-13900H 32G 1T RTX4060 3.2K 165Hz</div>
+    <div class="div4">联想ThinkBook 16p 英特尔酷睿i9 16英寸高性能轻薄创作本 i9-13900H 32G 1T RTX4060 3.2K 165Hz</div>
+
+    <div>
+        <div class="head">行高注意事项</div>
+        <div>1. line-height 过小会怎样? -- 文字产生重叠，且最小值是，不能为负数。 </div>
+        <div>2.line-height 是可以继承的，且为了能更好的呈现文字，最好写数值</div>
+        <div>3.line-height和 height 是什么关系? #设置了 height ，那么高度就是 height 的值 #不设置 height 的时候，会根据 ine-height 计算高度</div>
+        <div class="head">应用场景:</div>
+        <div>1.对于多行文字: 控制行与行之间的距离。 </div>
+        <div>2.对于单行文字: 让 height 等于 line-height，可以实现文字垂直居中。备注:由于字体设计原因，靠上述办法实现的居中，并不是绝对的垂直居中></div>
+  </div>
+
+
+
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

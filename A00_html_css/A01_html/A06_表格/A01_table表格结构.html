@@ -1,0 +1,76 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码-->
+        <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+        <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+        <!--[if lt ie g]>
+           <script src="../resources静态资源/js/html5shiv.min.js"></script>
+        <![endif]-->
+        <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
+        <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+        <title>A01_表格</title><!-- 设置网站图标调用一个外部的图片文件 -->
+        <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+        <!-- 调用一个外部的CSS样式文件 -->
+        <link rel="stylesheet" href="#">
+</head>
+
+<body>
+        <div> <!--table表格         border="表格边框"          width="表格宽度"         height="表格高度"         cellspacing="单元格之间的距离"         cellpadding="边框与其内容之间的空白距离"-->
+                <table border="1" width="500" height="300" cellspacing="0" cellpadding="5"> <!-- caption表格标题 -->
+                        <caption>表格标题</caption>
+                        <!-- thead 表格头部              height="高度"              align="表格行的内容对齐方式right/left/center/justify/char"             valign="表格行中内容的垂直对齐方式top/middle/bottom/baseline"         -->
+                        <thead height="50" align="center" valign="middle"> <!-- 表格头部行 -->
+                                <tr> <!-- 表格头部列 -->
+                                        <th>姓名</td>
+                                        <th>性别</td>
+                                        <th>年龄</td>
+                                        <th>地址</td>
+                                </tr>
+                        </thead>
+                        <!-- tbody 表格主体             height="高度"              align="表格行的内容对齐方式right/left/center/justify/char"             valign="表格行中内容的垂直对齐方式top/middle/bottom/baseline"          -->
+                        <tbody height="300" align="left" valign="middle">
+                                <!-- tr表格主体行             height="高度"              align="表格行的内容对齐方式right/left/center/justify/char"             valign="表格行中内容的垂直对齐方式top/middle/bottom/baseline"            -->
+                                <tr height="10" align="left" valign="middle">
+                                        <!-- td表格主体列和th一样的用法                width="宽度"                 height="高度"                align="表格行的内容对齐方式right/left/center/justify/char"                 valign="表格行中内容的垂直对齐方式top/middle/bottom/baseline"                -->
+                                        <td width="100" height="50">张三</td>
+                                        <td>男</td>
+                                        <td>18</td>
+                                        <td>广东省</td>
+                                </tr>
+                                <tr> <!-- 表格主体列 -->
+                                        <td>李四</td>
+                                        <td>女</td>
+                                        <td>20</td>
+                                        <td>江西省</td>
+                                </tr>
+                                <tr> <!-- 表格主体列 -->
+                                        <td>王五</td>
+                                        <td>男</td>
+                                        <td>21</td>
+                                        <td>河北省</td>
+                                </tr>
+                                <tr> <!-- 表格主体列 -->
+                                        <td>桀骜</td>
+                                        <td>女</td>
+                                        <td>15</td>
+                                        <td>广东省</td>
+                                </tr>
+                        </tbody>
+                        <!-- tfoot表格脚注（底部）          height="宽度"              align="表格行的内容对齐方式right/left/center/justify/char"             valign="表格行中内容的垂直对齐方式top/middle/bottom/baseline"         -->
+                        <tfoot height="50" align="center" valign="middle">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>共计 4人</td>
+                        </tfoot>
+                </table>
+        </div>
+</body>
+
+</html>

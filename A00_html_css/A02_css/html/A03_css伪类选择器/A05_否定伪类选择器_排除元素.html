@@ -1,0 +1,48 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A05_否定伪类选择器_排除元素 </title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 外部样式 -->
+    <!-- <link rel="stylesheet" href="#"> -->
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        /*选择ul元素中是全部li元素，但排除属性为 class="false"*/
+        ol>li:not(.false){
+            color: blueviolet;
+        }
+          /*选择ul元素中是全部li元素，但排除属性为  title="title"*/
+          /* ol>li:not([ title="title"]){
+            color: blueviolet;
+        } */
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li title="title">7</li>
+        <li class="false">8</li>
+        <li class="false">9</li>
+    </ol>
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+</body>
+
+</html>

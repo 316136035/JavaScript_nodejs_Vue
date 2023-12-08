@@ -1,0 +1,92 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A09_文本换行</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .pre {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            /*文本按原文显示 空格 换行 也会按原文显示  文本会溢出  */
+            white-space: pre;
+        }
+
+        .pre-wrap {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            /*文本按原文显示 空格 换行 也会按原文显示  文本会溢出  */
+            white-space: pre-wrap;
+        }
+
+        .pre-line {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            /*文本按原文显示 空格 换行 也会按原文显示  文本会溢出  */
+            white-space: pre-line;
+        }
+        .nowrap{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            /* 强制不换行 */
+            white-space:nowrap
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="pre">
+        pre 文本按原文显示
+        空格
+
+        换行 也会按原文显示 文本会溢出
+    </div>
+
+
+    <div class="pre-wrap">
+        pre-wrap
+
+
+        文本按原文显示 空格 换行 也会按原文显示 文本会自动换行
+    </div>
+    <div class="pre-line">
+        pre-line 按原文 显示
+        文本按原文显示 删除每一行的前后空格 不删除换行 文本会自动换行
+    </div>
+    <div class="nowrap">
+        强制不换行
+        强制不换行
+        强制不换行
+        强制不换行
+        强制不换行
+        强制不换行
+        强制不换行
+        强制不换行 
+    </div>
+
+
+
+
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

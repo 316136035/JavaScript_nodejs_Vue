@@ -1,0 +1,81 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>开启文本编辑_可拖动元素</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .contenteditable {
+            width: 800px;
+            height: 400px;
+        }
+
+        .draggable {
+            width: 400px;
+            height: 400px;
+            background-color: brown;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 开启文本编辑 -->
+    <div contenteditable="true" class="contenteditable">
+        contenteditable
+        全局属性 contenteditable 是一个枚举属性，表示元素是否可被用户编辑。如果可以，浏览器会修改元素的组件以允许编辑。
+    </div>
+    <div class="progress"></div>
+    <!-- 可拖动元素 ondragend停止拖动(event事件对象)-->
+    <div draggable="true" class="draggable" id="draggableElement" ondragend="stop(event)"> </div>
+
+    <script>
+        const draggableElement = document.getElementById('draggableElement');
+        let startX, startY;
+
+        // 拖动开始时候的监听
+        draggableElement.addEventListener('dragstart', (e) => {
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        // 拖动时候的监听
+        draggableElement.addEventListener('drag', (e) => {
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+
+            console.log('X:', deltaX, 'Y:', deltaY);
+
+        });
+        // ondragend停止拖动(event事件对象)-
+        function stop(e){
+            console.log("停止拖动:"+e.x+"   "+e.y)
+        }
+
+
+    </script>
+
+</body>
+
+</html>

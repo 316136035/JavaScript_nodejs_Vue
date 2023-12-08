@@ -1,0 +1,73 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A01_css列表样式类型</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+
+        ul{
+            
+            /*  列表符号样式： （只能用于ul-ol-li.）
+            none没有显示项目标记
+            disc实心圆（默认值）
+            decimal数字*/
+            list-style-type:decimal;
+            /* 列表符号位置：（只能用于ul-ol-li.）
+                inside里面
+                outside外部
+                calc()计算（）
+                inherit继承
+                initial最初的
+                unseti 未设置
+                var() 变量（）*/
+            list-style-position:inside;
+
+            /* 自定义符号样式 （只能用于ul-ol-li.）*/
+            list-style-image: url("../../../resource资源文件/img/favicon.ico");
+
+            /* 列表符号样式复合写法  没有数量、顺序的要求 （只能用于ul-ol-li.）*/
+            list-style: decimal inside url("../../../resource资源文件/img/favicon.ico");
+
+        }
+        li{
+            background-color: chartreuse;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>无序列表</div>
+        <ul>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+
+        </ul>
+    </div>
+
+
+
+
+
+
+<!-- 
+    <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

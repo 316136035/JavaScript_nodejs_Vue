@@ -1,0 +1,46 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A02_hex-hexa三原色-透明度html </title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 外部样式 -->
+    <!-- <link rel="stylesheet" href="#"> -->
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+
+
+        /* 16进制写法（#红、绿、蓝）  1~9~a~f 小到大  最小值00 最小值FF  每一位数字的取值范围是: 8 ~ f，即: (8，1，2，3，4，5，6，7，8，9，a，b，c，d，e，f)*/
+        .div4 {
+            height: 100px;
+            width: 100px;
+            background-color: #f0A9B6;
+
+        }
+
+        /* 16进制写法（#红、绿、蓝、透明度）  1~9~a~f 小到大  最小值00 最小值FF   每一位数字的取值范围是: 8 ~ f，即: (8，1，2，3，4，5，6，7，8，9，a，b，c，d，e，f) */
+        .div5 {
+            height: 100px;
+            width: 100px;
+            background-color: #f0A9B6aa;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="div4">4</div>
+    <div class="div5">5</div>
+        <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

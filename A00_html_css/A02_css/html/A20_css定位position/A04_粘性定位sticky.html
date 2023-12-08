@@ -1,0 +1,96 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A04_粘性定位sticky</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .header {
+            height: 100px;
+            background-color: rgb(255, 0, 55);
+            /* 设置字体大小 */
+            font-size: 80px;
+            /* 设置字体居中 */
+            text-align: center;
+        }
+
+        .sticky {
+            background-color: rgb(0, 255, 38);
+            /* 开启粘性定位 */
+            position: sticky;
+            /* 开启的位置 */
+            top: 0px;
+        }
+
+        .content {
+            height: 200px;
+            /*   auto   溢出自动显示 */
+            overflow: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header">
+        表头
+    </div>
+
+
+    <div class="content">
+        <div class="item">
+            <div class="sticky">A</div>
+            <div>A1</div>
+            <div>A2</div>
+            <div>A3</div>
+            <div>A4</div>
+            <div>A5</div>
+        </div>
+        <div class="item">
+            <div class="sticky">B</div>
+            <div>B1</div>
+            <div>B</div>
+            <div>B3</div>
+            <div>B4</div>
+            <div>B5</div>
+        </div>
+        <div class="item">
+            <div class="sticky">C</div>
+            <div>C1</div>
+            <div>C2</div>
+            <div>C3</div>
+            <div>C4</div>
+            <div>C5</div>
+        </div>
+
+
+
+    </div>
+    <div>
+        <h3> 如何设置为粘性定位</h3>
+        <div>
+            给元素设置 position:stick 即可实现粘性定位,可以使用 left .四个属性调整位置，不过最常用的是 top 值。
+        </div>
+        <h3>粘性定位的参考点</h3>
+        <div>
+            离它最近的一个拥有“滚动机制”的祖先元素，即便这个祖先不是最近的真实可滚动祖先。
+        </div>
+        <h3>粘性定位元素的特点</h3>
+        <div>1.不会脱离文档流，它是一种专门用于窗口滚动时的新的定位方式</div>
+        <div>2.最常用的值是 top 值。</div>
+        <div>3.粘性定位和浮动可以同时设置，但不推荐这样做</div>
+        <div>4.粘性定位的元素，也能通过 margin 调整位置，但不推荐这样做</div>
+        <div>粘性定位和相对定位的特点基本一致，不同的是: 粘性定位可以在元素到达某个位置时将其固定</div>
+    </div>
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

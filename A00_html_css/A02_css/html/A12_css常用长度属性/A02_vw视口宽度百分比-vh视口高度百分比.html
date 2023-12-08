@@ -1,0 +1,79 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A01_css块级元素和行内元素和行内块元素显示模式</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .div {
+            /* 长度 第一种写法px*/
+            height: 100px;
+            /* 父元素font-size */
+            font-size: 20px;
+        }
+
+        .vw{
+            /* 我是长度单位:vw 按视口宽度的百分比 */
+            width: 50vw;
+            height: 10vvw;
+            background-color: rgb(255, 0, 25);
+            /* 居中 */
+            margin:0 auto;
+            }
+
+            .vh{
+            /* 我是长度单位:vh 按视口高度的百分比 */
+            width: 50vh;
+            height: 10vh;
+            background-color: rgb(72, 0, 255);
+            /* 居中 */
+            margin:0 auto;
+            }
+
+            .vw{
+            /* 我是长度单位:vw 按视口宽度的百分比 */
+            width: 50vw;
+            height: 10vvw;
+            background-color: rgb(255, 0, 25);
+            /* 居中 */
+            margin:0 auto;
+            }
+
+            .vmax-vmin{
+            /* 我是长度单位:vh 按视口高度的百分比 */
+            width: 50vmax;
+            height: 50vmin;
+            background-color: rgb(255, 0, 102);
+            /* 居中 */
+            margin:0 auto;
+            }
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <div class="div">
+     
+        <div class="vw"> 我是长度单位:vw 按视口宽度的百分比</div>
+        <div class="vh"> 我是长度单位:vw 按视口高度的百分比</div>
+        <div class="vmax-vmin"> 我是长度单位vmax/vmin取视视口（宽度/口高度）的（最大/最小）值的百分比</div>
+    </div>
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

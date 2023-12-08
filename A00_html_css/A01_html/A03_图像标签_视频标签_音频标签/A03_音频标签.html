@@ -1,0 +1,95 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+           <script src="../resources静态资源/js/html5shiv.min.js"></script>
+        <![endif]-->
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
+    <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A03_音频标签</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .mask {
+            background-color: rgba(225, 6, 6, 0.335);
+              /* 固定定位 */
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .dialog-box {
+            /* 绝对定位 */
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            background-color: chartreuse;
+            font-size: 20px;
+            line-height: 200px;
+        }
+
+        .dialog-box span {
+            /* 边框 */
+            border: 1px solid black;
+            /* 鼠标可以点击的样式 */
+            cursor: pointer;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 视频标签   
+        controls 视频进度变
+        muted 静音
+        autoplay 页面加载自动播放（配置muted静音也不能使用） 不配置muted静音的话就看浏览器的媒体参与度
+        loop 循环播放
+        preload="xxx" （视频预加载 auto自动，metadata预加载基础，none不预加载 ）
+    
+    -->
+    <audio src="../resources静态资源/mp4/雨的印记 (钢琴版纯音乐).ogg" controls id="audio"></audio>
+    <div class="mask" id="mask">
+        <div class="dialog-box">
+            <span>点我登录</span>
+            <!-- 点击事件 -->
+            <span onclick="justlisteny()">随便听听</span>
+        </div>
+
+
+
+    </div>
+    <!-- js代码 -->
+    <script>
+        // 方法
+        function justlisteny() {
+            // 播放
+            audio.play();
+            // 隐藏样式
+            mask.style.display = 'none'
+
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

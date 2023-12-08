@@ -1,0 +1,45 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A01_使用css的三种方式</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 使用CSS方式二（内部样式） -->
+    <style type="text/css">
+        .class1 {
+            /* 高度 */
+            height: 30px;
+            /* 宽度 */
+            width: 30%;
+            /* 背景颜色 */
+            background-color: powderblue;
+            /* 字体大小 */
+            font-size: 20px;
+
+        }
+    </style>
+    <!-- 使用CSS方式三（外部样式）
+    href代表引入文本.css  type代表类型 - rel代表样式--->
+    <link href="../../css/A01_使用css的三种方式.css"  rel="stylesheet">
+</head>
+
+
+<body>
+    <!-- 使用CSS方式一（行内样式）-->
+    <div style="color: chartreuse;height:20px;width: 20%; background-color:royalblue; font-size: 10px;"> 使用CSS方式一（行内样式）</div>
+    <!-- 使用CSS方式二（内部样式） -->
+    <div class="class1"> 使用CSS方式二（内部样式）</div>
+      <!-- 使用CSS方式三（外部样式） -->
+    <div id="id1"> 使用CSS方式三（外部样式）</div>
+      <!-- 使用CSS方式三（外部样式）设置图片大小 -->
+   <img src="../resources静态资源/img/1.gif" alt="描述，当图片不存在的时候，给出的提示">
+       <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+</body>
+
+</html>

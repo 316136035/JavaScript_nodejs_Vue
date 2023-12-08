@@ -1,0 +1,36 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+           <script src="../resources静态资源/js/html5shiv.min.js"></script>
+        <![endif]--><!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
+    <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A01_超链接标签</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+</head>
+
+<body><!-- 超链接标签 跳转有页面 （浏览器可以直接打开的）--><a href="https:www.w3school.com.cn/" target="_blank">w3school新的页签打开</a> <br><a
+        href="https:www.w3school.com.cn/" target="_self">w3school当前页签打开</a> <br><a href="../A01基础标签/A01_html标准结构.html"
+        target="_blank">A01_html标准结构--新的页签打开</a> <br><a href="../../resource资源文件/img/A01_图标标签.jpg"
+        target="_blank">跳转图片--新的页签打开</a> <br><a href="../../resource资源文件/img/1.gif" target="_blank">跳转gif图片--新的页签打开</a>
+    <br><a href="../../resource资源文件/mp4/1.mp4" target="_blank">跳转视频--新的页签打开</a> <br><a
+        href="../../resource资源文件/pdf/1.pdf" target="_blank">pdf文档--新的页签打开</a> <br><!-- 设置为下载链接 download="文件名"--> <a
+        href="../../resource资源文件/zip/apache-maven-3.6.3-bin.zip" download="apache-maven-3.6.3-bin.zip"
+        target="_blank">download属性下载-</a> <br> <!-- 调用javascript代码 弹窗 --> <a
+        href="javascript:alert('调用javascript代码');">调用javascript代码</a>
+    <hr><!-- 定义一个锚点给 A02_a 标签锚点.html使用-->
+    <p id="id锚点"></p>
+
+</body>
+
+</html>

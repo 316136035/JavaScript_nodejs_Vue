@@ -1,0 +1,121 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A03_浮动小练习html</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .div {
+            width: 600px;
+            height: 200px;
+
+            background-color: cadetblue;
+            border: 1px solid black;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(160, 95, 101);
+            margin: 10px;
+        }
+
+        .KLM,
+        .NOP {
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+            border: 1px solid black;
+        }
+
+        .N {
+            width: 50px;
+            height: 80px;
+
+        }
+
+        .A {
+            /* 设置为右方浮动 */
+            float: right;
+        }
+
+        .E {
+            /* 设置为左方浮动，后面的的文本后移动 */
+            float: left;
+        }
+
+        /* 多个选择器 */
+        .H,
+        .I,
+        .J {
+            /* 设置为左方浮动left/右方浮动right;*/
+            float: left;
+        }
+
+        .K,
+        .L,
+        .M {
+            /* 设置为左方浮动left/右方浮动right; 当父元素宽度不够就自动适配浮动*/
+            float: left;
+        }
+
+        .N,
+        .O,
+        .P {
+            /* 设置为左方浮动left/右方浮动right; 当父元素宽度不够就自动适配浮动*/
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="div">
+        <div class="box A">A</div>
+        <div class="box B">B</div>
+        <div class="box C">C</div>
+
+    </div>
+    <hr>
+    <div class="div">
+        <div class="box E">E</div>
+        <div class="box F">F</div>
+        <div class="box G">G</div>
+    </div>
+    <hr>
+    <div class="div">
+
+        <div class="box H">H</div>
+        <div class="box I">I</div>
+        <div class="box J">J</div>
+    </div>
+    <hr>
+    <div class="KLM">
+        <div class="box K ">K</div>
+        <div class="box L">L</div>
+        <div class="box M">M</div>
+
+    </div>
+    <hr>
+    <div class="NOP">
+        <div class="box N">N</div>
+        <div class="box O">O</div>
+        <div class="box P">P</div>
+
+    </div>
+
+
+
+
+     <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

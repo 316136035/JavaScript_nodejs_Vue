@@ -1,0 +1,71 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A04_多列布局-图片</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="../A21_css布局/reset.css">
+</head>
+<style>
+    .outer {
+        /* 复合写法  要设置图片宽度*/
+        /* columns: 5 200px; */
+        columns: 5;
+        
+
+    }
+
+    img {
+        /* 图片高度是每一列的100% */
+        width: 100%;
+    }
+
+    img:hover {
+        /* 盒子外阴影（水平方向，垂直方向，阴影模糊程度 ，阴影外延值，阴影颜色） */
+        box-shadow: 0px 0px 5px 2px red;
+        /* 鼠标样式 */
+        cursor: pointer;
+        /* 2D变换 位移  缩放*/
+        transform: translate(0px, -1px) scale(1.01)
+
+    }
+</style>
+
+<body>
+
+    <div class="outer">
+        <img src="../resources静态资源/img/多列布局/1.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/2.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/3.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/4.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/5.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/6.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/7.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/8.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/9.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/10.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/1.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/1.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/2.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/3.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/4.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/5.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/6.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/7.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/8.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/9.jpg" alt="">
+        <img src="../resources静态资源/img/多列布局/10.jpg" alt="">
+    </div>
+
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A03_动画完整写法</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .outer {
+            width: 1000px;
+            height: 100px;
+            /* 边框 */
+            border: 1px solid black;
+        }
+
+        /*定义动画 （动画名字）*/
+        @keyframes identifier {
+
+            /* 动画开始的第一帧 */
+            0% {
+                transform: translateX(0);
+                background-color: black;
+            }
+
+            /* 动画开始的第X帧 */
+            50% {
+                /* 背景颜色 */
+                background-color: rgb(0, 255, 145);
+
+            }
+
+            /* 动画结束的最后一帧 */
+            100% {
+                /* 2D变换 位移 旋转 缩放*/
+                transform: translateX(900px) rotateZ(180deg) scale(0.8);
+                /* 圆形 */
+                border-radius: 50%;
+                /* 背景颜色 */
+                background-color: red;
+
+            }
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            /* 背景颜色 */
+            background-color: aquamarine;
+            /* 应用动画 */
+            animation-name: identifier;
+            /* 动画持续时间 */
+            animation-duration: 5s;
+            /* 动画延迟时间 */
+            animation-delay: 1s;
+            /* 控制动画效果 快-慢  和过渡的参数一样*/
+            animation-timing-function: linear;
+            /* 控制动画播放次数infinite一直循环  可以填数字*/
+            animation-iteration-count: infinite;
+            /* 动画的方向  
+            normal 正常  
+            reverse 翻转  
+            alternate 交叉 开始 -->终点  终点-->开始 
+            alternate-reverse 交叉  翻转    终点-->开始  开始 -->终点*/
+            animation-direction: alternate;
+            /* 当动画停止时 动画的帧  
+            backwards   第一帧
+            forwards    最后一帧*/
+            animation-fill-mode: forwards;
+        }
+
+        /* 获取 outer元素鼠标悬停时 获取inner元素*/
+        .outer:hover .inner {
+            cursor: pointer;
+            /* 控制动画状态  paused停止 */
+            animation-play-state: paused;
+        }
+
+        /* 获取 outer元素鼠标离开悬停时 获取inner元素*/
+        .outer:hover-o .inner {
+            /* 控制动画状态  forwards开始 */
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <!-- 引入三方依赖包 -->
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+</body>
+
+</html>

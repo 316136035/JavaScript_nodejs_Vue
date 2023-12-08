@@ -1,0 +1,63 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A03_文本_上划线-中划线-下划线</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .div1 {
+            /* 组合写法 设置上划线（上/下/中划线 线样式 线颜色） */
+            text-decoration: overline dotted red;
+        }
+
+        .div2 {
+            /* 设置中划线（中划线 线样式 线颜色） */
+            text-decoration: line-through wavy rgb(255, 0, 8);
+        } 
+
+        .div3 {
+            /* 设置下划线（下划线 线样式 线颜色） */
+
+            text-decoration: underline double green
+        }
+
+        /* 去掉划线，普通标签默认没有线 除了a标签/in标签s/del标签 */
+
+        a {
+            /* 去掉划线 */
+            text-decoration: none
+        }
+    
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <div class="div1">淘神价1</div>
+        <div class="div2">淘神价2</div>
+        <div class="div3">淘神价3</div>
+        <div class="div4">淘神价4</div>
+        <div class="div5">淘神价5</div>
+        <div class="div6">淘神价6</div>
+        <div class="div7">淘神价7</div>
+        <a href="">链接</a>
+        <ins>默认下划线</ins>
+        <del>默认中划线</del>
+      
+
+    </div>
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

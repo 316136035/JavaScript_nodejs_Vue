@@ -1,0 +1,142 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A02_过渡_高级使用</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .father {
+            /* 边框 */
+            border: 1px solid black;
+        }
+
+        .box {
+            /* 宽度 */
+            width: 400px;
+            /* 高度 */
+            height: 2 0x;
+            /* 外边距上 */
+            margin-top: 5px;
+              /* 边框 */
+            border: 1px solid red;
+            /* 开启过渡（能过渡的额全部过渡） 一般写在非事件对象中 */
+            transition-property: all;
+            /* 设置过渡持续时间 */
+            transition-duration: 5s;
+            /* 过渡的延迟 */
+            /* transition-delay: 1s; */
+
+
+        }
+
+        /*鼠标悬停在父类时候 选中全部类是box */
+        .father:hover .box {
+             /* 宽度 */
+            width: 1190px;
+        }
+
+        .box1 {
+            background-color: aqua;
+            /*  平滑过渡ease ： 慢→快→慢 */
+            transition-timing-function: ease;
+        }
+
+        .box2 {
+            background-color: rgb(0, 255, 102);
+            /* 匀速过渡linear： 匀速→匀速→匀速 */
+            transition-timing-function: linear;
+        }
+
+        .box3 {
+            background-color: rgb(255, 136, 0);
+            /* 过渡ease-in： 慢→快 */
+            transition-timing-function: ease-in;
+        }
+
+        .box4 {
+            /* 过渡ease-out： 快→慢 */
+            transition-timing-function: ease-out;
+            background-color: rgb(255, 0, 60);
+        }
+
+        .box5 {
+            /* 过渡ease-in-out：慢→快→慢 */
+            transition-timing-function: ease-in-out;
+            background-color: rgb(93, 0, 255);
+        }
+
+        .box6 {
+            /*  过渡step-start：直接完成过渡*/
+            transition-timing-function: step-start;
+            background-color: rgb(0, 4, 255);
+
+        }
+
+        .box7 {
+            /*  过渡step-end：过渡时间到点，直接完成过渡 */
+            transition-timing-function: step-end;
+            background-color: rgb(183, 255, 0);
+
+        }
+
+        .box8 {
+            /*  过渡steps：分段进行 end默认 start延迟*/
+            transition-timing-function: steps(20, end);
+            /* transition-timing-function: steps(20,start); */
+            background-color: rgb(0, 255, 166);
+
+        }
+
+        .box9 {
+            /* 过渡 贝塞尔曲线——cubic-bezier */
+            background-color: rgb(115, 0, 255);
+            transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1)
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="box box1">平滑过渡ease ： 慢→快→慢 </div>
+        <div class="box box2">匀速过渡linear： 匀速→匀速→匀速</div>
+        <div class="box box3">过渡ease-in： 慢→快</div>
+        <div class="box box4">过渡ease-out： 快→慢</div>
+        <div class="box box5">过渡 ease-in-out：慢→快→慢</div>
+        <div class="box box6">过渡step-start：直接完成过渡</div>
+        <div class="box box7">过渡step-end：过渡时间到点，直接完成过渡</div>
+        <div class="box box8">过渡steps：分段进行 end默认 start延迟</div>
+        <div class="box box9">过渡cubic-bezier： 贝塞尔曲线 </div>
+
+    </div>
+
+
+
+
+    <!-- 引入三方依赖包 -->
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+</body>
+
+</html>

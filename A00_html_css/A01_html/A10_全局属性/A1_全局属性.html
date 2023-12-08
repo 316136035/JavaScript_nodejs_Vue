@@ -1,0 +1,56 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+               <script src="../resources静态资源/js/html5shiv.min.js"></script>
+            <![endif]--><!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
+    <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A1_全局属性</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        /* css样式 */
+        .class1 {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1>id</h1> 给标签指定唯一标识 <br> 注意: id 是不能重复的作用: 可以让 labe1标签与表单控件相关联;也可以与 CSS、JavaScript <br> 配合使用。注意: 不能在以下 HTML
+            元素中使用: &lt;head &gt;/ &lt;html &gt;/ &lt;meta &gt;/ &lt;script &gt;/ &lt;style &gt; / &lt;title &gt;
+        </div>
+        <div>
+            <h1>classe属</h1> 给标签指定类名，随后通过 CSS 就可以给标签设置样式
+        </div>
+        <div>
+            <h1>title属性</h1> title给标签设置一个文字提示，一般超链接和图片用得比较多（鼠标停在焦点时候给出提示） <a href="#" title="鼠标停在焦点时候给出提示">焦点</a>
+        </div>
+        <div dir="rtl">
+            <h1>dir属性</h1> 内容的方向，值: ltr、 rtl。 dir 注意:不能在以下 HTML 元素中使用: &lt;chead&gt; &lt;html&gt; &lt;meta&gt;
+            &lt;script&gt; &lt;style&gt; &lt;title>
+        </div>
+        <div>
+            <h1>lang属性</h1> 注意:不能在以下 HTML 元素中使用: &lt;chead&gt; &lt;html&gt; &lt;meta&gt; &lt;script&gt; &lt;style&gt;
+            &lt;title>
+        </div>
+        <div class="class1">class1</div>
+        <div style="color: brown;">class2</div>
+        <div><a href="https:developer.mozilla.org/zh-CN/">其他全局属性</a></div>
+
+    </div>
+    <script>     javascript代码</script>
+</body>
+
+</html>

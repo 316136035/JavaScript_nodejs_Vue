@@ -1,0 +1,57 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+           <script src="../resources静态资源/js/html5shiv.min.js"></script>
+        <![endif]-->
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
+    <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A02_不常用格式化标签.</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+</head>
+
+<body>
+    <p><!-- cite作品标题(书籍电视节目、绘画、雕塑) -->这首 <cite>《听悲伤的情歌》非常好听</cite> </p>
+    <p><!-- dfn特殊术语，或专属名词 --><dfn>耗子尾汁</dfn>，是网络流行语，意思同:<dfn>好自为之</dfn> </p>
+    <p><!-- del/ins删除的文本[与] 插入的文本 --> 京 东 价￥<del>35.90</del> 企业价￥<ins>34.00</ins></p>
+    <p><!-- sub下标文字[与] sup上标文字 -->水的化学方程式是:H<sub>2</sub>8的三次方是这么写的: 8<sup>3</sup></p>
+    <p><!-- code一段代码标签 --><code>  function(){}</code></p>
+    <p><!-- samp样本文本 -->手机提示：<samp>支付宝到账10万元！</samp></p>
+    <p><!-- kbd键盘文本，表示文本是通过键盘输入的，经常用在与计算机相关的手册中 -->键盘文本: <kbd>ctrl+c</kbd></p>
+    <p><!-- abbr title="*"缩写，最好配合上 title 属性（下划线，提示描述） --> <abbr title="英雄联盟">LOL</abbr></p>
+    <p> 你是年少的欢喜，这句话反序： <!-- bdo更改文本方向 要配合 dir 属性，可选值: tr (默认值) 、 rt1 --><bdo dir="rtl">你是年少的欢喜</bdo><br> 你是年少的欢喜，这句话正序：
+        <!-- bdo更改文本方向 要配合 dir 属性，可选值: tr (默认值) 、 rt1 --><bdo dir="ltr">你是年少的欢喜</bdo>
+    </p>
+    <p><!-- var标记为变量 应与 code 标签一起使用 --><code>let<var>a</var>=1</code></p>
+    <p><!-- small附属细则，例如: 包括版权、法律文本。-- 很少使用 --><small>经营证照|(京)网械平台备字(2018)第00003号|营业执照</small></p>
+    <p><!-- b摘要中的关键字、评论中的产品名称。 --><b>富安娜枕头很舒服，看评论有异味，我使用是没有味道</b></p>
+    <p><!-- i本意是:人物的思想活动、所说的话等等 现在多用于:呈现字体图标 (后面要讲的内容)。--><i>字体图标</i></p>
+    <p><!-- u与正常内容有反差文本，例如: 错的单词、不合适的描述等 --><u>hoole</u></p>
+    <p><!-- q短引用 -- 很少使用 -->屈原曾经说过:<q>路漫漫其修远兮，吾将上下而求索</q></p>
+    <p> 有一首歌： <!-- blockquote长引用 -- 很少使用*块级元素 -->
+    <blockquote> 后来 我总算学会了如何去爱，可惜你早已远去消失在人海，后来终于在眼泪中明白，有些人一旦错过就不再，栀子花白花瓣，落在我蓝色百褶裙上 </blockquote>
+    </p>
+    <p><!-- address地址信息*块级元素 --> 地址信息：
+    <address>广东广州市南沙区榄核镇南沙区榄核镇下坭村幼儿园</address>
+    </p>
+    <p> <time>2003/7/12</time></p>
+    <!-- 文本拼音标签ruby配合rt使用-->
+    <ruby>
+        <span>你好啊！</span>
+        <rt>nǐ hǎo ā ！</rt>
+    </ruby>
+    <!-- mark文本标记标签 -->
+    <div>Lorem ipsum dolor,<mark> sit amet consectetur adipisicing elit</mark>. Nostrum voluptas nam voluptatibus fugiat eos corrupti esse ea, accusamus odio fugit ad nisi blanditiis animi voluptatem quibusdam velit libero magni consequuntur.</div>
+
+</body>
+
+</html>

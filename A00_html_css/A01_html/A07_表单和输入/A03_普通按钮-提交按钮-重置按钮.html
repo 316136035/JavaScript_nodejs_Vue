@@ -1,0 +1,48 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+           <script src="../resources静态资源/js/html5shiv.min.js"></script>
+        <![endif]-->
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
+    <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A03_表单_普通按钮-提交按钮-重置按钮</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+</head>
+
+<body>
+    <div> <!--form表单  action="请求地址"    method="请求方式"-->
+        <form action="#" method="get">
+            <div> <!--输入框 type="文本类型" name="服务器取值用key" id="用着js"  value="默认值" maxlength="限制字符最大值"--> 账号： <input
+                    type="text" name="username" id="" value="请求输入密码" maxlength="18"> <br>
+                密码：<!--输入框 type="密码类型" name="服务器取值用key" id="用着js"--> <input type="password" name="passwor" id=""> <br>
+            </div>
+            <div> <!-- 单选框  type="radio" name="组"    name="用于服务器取值key"--> 单选框： <input type="radio" name="gender"
+                    value="0" checked="ture">男 <input type="radio" name="gender" value="1">女
+            </div>
+            <div>
+                <!--  多选框  type="radio" name="组" name="用于服务器取值key" checked="ture"默认选中--> 多选框： <input type="checkbox"
+                    name="hobby" value="basketball" checked="ture">篮球 <input type="checkbox" name="hobby" value="smokes"
+                    checked="ture">抽烟 <input type="checkbox" name="hobby" value="drive">开车 <input type="checkbox"
+                    name="hobby" value="running">跑步 <input type="checkbox" name="hobby" value="game">游戏
+            </div>
+            <div> <!--普通按钮 这种按钮不会提交表单--> <button type="button">普通按钮 这种按钮不会提交表单</button> <!--提交按钮1-->
+                <button>提交按钮1</button> <!--提交按钮2--> <input type="submit" value="提交按钮2"> <!--重置按钮--> <input type="reset"
+                    value="重置按钮">
+            </div>
+
+
+        </form>
+    </div>
+</body>
+
+</html>

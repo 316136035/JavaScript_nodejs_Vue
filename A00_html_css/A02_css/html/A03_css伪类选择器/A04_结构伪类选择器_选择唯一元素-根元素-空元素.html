@@ -1,0 +1,59 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A04_结构伪类选择器_选择唯一元素-根元素-空元素 </title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 外部样式 -->
+    <!-- <link rel="stylesheet" href="#"> -->
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        /* 选择samp元素是独个元素 指定选中索引 正序（注意：计算的是兄弟元素只能有独个元素）*/
+        samp:only-child {
+            color: blueviolet;
+        }
+
+        /* 选择samp元素是独个元素 指定选中索引 正序（注意：计算的是兄弟元素可以有多个不同类型的，只能有独个samp元素）*/
+        samp:only-of-type {
+            color: rgb(43, 226, 141);
+        }
+
+        /* 选择根元素 就是整个html */
+        :root {
+            background-color: rgb(255, 225, 0);
+        }
+
+        /* 选择空的元素 */
+        .div:empty {
+            width: 100%;
+            height: 400px;
+            background-color: crimson;
+        }
+
+</style>
+
+</head>
+
+<body>
+    <div>
+        <samp>选择唯一元素</samp>
+    </div>
+    <div>
+        <samp>同类型选择唯一元素</samp>
+        <p>干扰行</p>
+        <p>干扰行</p>
+        <p>干扰行</p>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+</body>
+
+</html>

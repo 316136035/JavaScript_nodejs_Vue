@@ -1,0 +1,219 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A01_布局常用命名</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="../A21_css布局/reset.css">
+</head>
+<style>
+    .type-arean {
+        position: relative;
+    }
+
+    .topbar {
+        width: 1200px;
+        height: 20px;
+
+        /* 设置背景颜色 */
+        background-color: rgb(200, 255, 127);
+        /* 开启绝对定位 */
+        position: absolute;
+        /* 绝对定位 水平方向 */
+        left: 0;
+        right: 0;
+        /* 设置为自动 实现居中 */
+        margin: auto;
+        /* 设置字体居中 */
+        text-align: center;
+
+
+    }
+
+    .header {
+        width: 1200px;
+        height: 40px;
+
+        /* 设置背景颜色 */
+        background-color: rgb(255, 127, 191);
+        /* 开启绝对定位 */
+        position: absolute;
+        /* 绝对定位 水平方向 */
+        left: 0;
+        right: 0;
+        top: 20px;
+        /* 设置为自动 实现居中 */
+        margin: auto;
+        /* 设置字体居中 */
+        text-align: center;
+
+
+
+    }
+
+    .search {
+        width: 1200px;
+        height: 25px;
+
+        /* 设置背景颜色 */
+        background-color: rgb(127, 255, 244);
+        /* 开启绝对定位 */
+        position: absolute;
+        /* 绝对定位 水平方向 */
+        left: 0;
+        right: 0;
+        top: 60px;
+        /* 设置为自动 实现居中 */
+        margin: auto;
+        /* 设置字体居左 */
+        text-align: left;
+    }
+
+    .nav {
+        width: 1200px;
+        height: 20px;
+
+        /* 设置背景颜色 */
+        background-color: rgb(255, 127, 168);
+        /* 开启绝对定位 */
+        position: absolute;
+        /* 绝对定位 水平方向 */
+        left: 0;
+        right: 0;
+        top: 85px;
+        /* 设置为自动 实现居中 */
+        margin: auto;
+        /* 设置字体居中 */
+        text-align: center;
+    }
+
+
+    .content {
+        width: 1200px;
+        height: 600px;
+
+        /* 设置背景颜色 */
+        background-color: rgb(127, 255, 136);
+        /* 开启绝对定位 */
+        position: absolute;
+        /* 绝对定位 水平方向 */
+        left: 0;
+        right: 0;
+        top: 105px;
+        /* 设置为自动 实现居中 */
+        margin: auto;
+        /* 设置字体居中 */
+        text-align: center;
+    }
+
+    .leftasid {
+        width: 200px;
+        height: 600px;
+
+        /* 设置背景颜色 */
+        background-color: rgb(168, 127, 255);
+        /* 开启绝对定位 */
+        position: absolute;
+        /* 绝对定位 水平方向 */
+        left: 0;
+        /* 设置为自动 实现居中 */
+        margin: auto;
+        /* 设置字体居中 */
+        text-align: center;
+    }
+
+       
+    .central-content {
+        width: 1000px;
+        height: 600px;
+        /* 设置背景颜色 */
+        background-color: rgb(208, 255, 127);
+        position: absolute;
+        right: 0;
+         /* 设置字体居中 */
+         text-align:left;
+
+
+
+    }
+
+    .footer {
+        width: 1200px;
+        height: 200px;
+        /* 设置背景颜色 */
+        background-color: rgb(255, 127, 155);
+        position: absolute;
+        /* 绝对定位 水平方向 */
+        left: 0;
+        right: 0;
+
+        top: 705px;
+        bottom: 0;
+        /* 设置为自动 实现居中 */
+        margin: auto;
+        /* 设置字体居左 */
+        text-align: left;
+        /* 设置字体居中 */
+        text-align: center;
+    }
+
+ 
+  
+  
+</style>
+
+<body>
+
+    <div class="type-arean">
+        <div class="topbar">
+            <div>顶部导航条</div>
+        </div>
+        <div class="header">
+            <div>页头</div>
+        </div>
+        <div class="search">
+            <span>搜索框</span> <input type="text" name="text" id="">
+        </div>
+
+        <div class="nav">
+            <div>导航区</div>
+        </div>
+
+        <div class="content">
+
+            <div class="leftasid">
+                <div> 则边栏</div>
+            </div>
+            <div class="central-content">
+                <div>中部</div>
+                <h1>常用布局命名</h1>
+                <div>顶部导航条 &nbsp &nbsp topbar</div>
+                <div>页头 &nbsp &nbsp page-header/header</div>
+                <div>导航  &nbsp &nbsp nav/navigator/ navbar</div>
+                <div>搜索框 &nbsp &nbsp search/search-box</div>
+                <div>横幅、广告、宣传图 &nbsp &nbsp banner</div>
+                <div>主要内容 &nbsp &nbsp content/main</div>
+                <div>侧边栏 &nbsp &nbsp aside/sidebar</div>
+                <div> 底部 &nbsp &nbsp footer/page-footer</div>
+
+            </div>
+
+
+        </div>
+        <div class="footer">
+            <div> 底部</div>
+        </div>
+
+    </div>
+
+    <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

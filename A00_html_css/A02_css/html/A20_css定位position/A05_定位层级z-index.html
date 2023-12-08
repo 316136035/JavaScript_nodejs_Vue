@@ -1,0 +1,125 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8"><!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字"><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
+    <title>A05_定位层级</title><!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .content {
+            /* 设置高度 */
+            height: 350px;
+            /* 设置背景颜色 */
+            background-color: coral;
+            /* 内边距 */
+            padding: 20px;
+            /* 开启相对定位 */
+            position: relative;
+            /*开启定位元素层级 数字越大权限越大 */
+            z-index: 2;
+
+        }
+
+        .content div {
+            /* 设置宽度 */
+            width: 200px;
+            /* 设置高度 */
+            height: 200px;
+
+        }
+
+        .ordinary {
+            /* 设置背景颜色 */
+            background-color: aqua;
+            /* 普通元素不能使用层级 */
+        }
+
+        .relatively {
+            /* 设置背景颜色 */
+            background-color: rgb(255, 0, 72);
+            /* 开启相对定位 */
+            position: relative;
+            /* 相对定位 左 */
+            left: 50px;
+            /* 相对定位 上 */
+            top: -170px;
+
+
+        }
+
+        .absolute {
+            /* 设置背景颜色 */
+            background-color: rgb(0, 255, 123);
+            /* 开启绝对定位 */
+            position: absolute;
+            /* 绝对定位 左  */
+            left: 100px;
+            /* 绝对定位 上 */
+            top: 100px;
+            /*开启定位元素层级 数字越大权限越大 */
+            z-index: 10;
+
+
+        }
+
+        .fixed {
+            /* 设置背景颜色 */
+            background-color: rgb(145, 255, 0);
+            /* 开启固定定位（参考的是视图位置） */
+            position: fixed;
+            /* 固定定位 左 */
+            left: 150px;
+            /* 固定定位 上 */
+            top: 150px;
+            /*开启定位元素层级 数字越大权限越大 */
+            z-index: 9;
+
+        }
+
+        .divfixed {
+            width: 200px;
+            height: 200px;
+            /* 设置背景颜色 */
+            background-color: rgb(0, 21, 255);
+            /* 开启绝对定位 */
+            position: absolute;
+            /* 绝对定位 左  */
+            left: 120px;
+            /* 绝对定位 上 */
+            top: 250px;
+            /*开启定位元素层级 数字越大权限越大 */
+            z-index: 10;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="content">
+        <div class="ordinary">普通元素</div>
+        <div class="relatively">相对定位元素</div>
+        <div class="absolute">绝对定位元素</div>
+        <div class="fixed">固定定位元素</div>
+    </div>
+    <div class="divfixed">外绝对定位元素</div>
+    <div>
+        <h3>定位层级</h3>
+        <div>1.定位元素的显示层级比普通元素高，无论什么定位，显示层级都是一样的.</div>
+        <div>2.如果位置发生重叠，默认情况是: 后面的元素，会显示在前面元素之上。</div>
+        <div>3.可以通过 css 属性 z-index 调整定位元素的显示层级</div>
+        <div>4.z-index 的属性值是数字，没有单位，值越大显示层级越高。</div>
+        <div>5.只有定位的元素设置 z-index 才有效</div>
+        <div>6.如果 z-index 值大的元素，依然没有覆盖掉 z-index 值小的元素，那么请检查其包含块的层级.</div>
+    </div>
+
+      <!-- <script type="text/javascript" src="#">  /*javascript代码  */</script> -->
+
+</body>
+
+</html>

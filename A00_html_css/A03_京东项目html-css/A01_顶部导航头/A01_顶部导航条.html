@@ -1,0 +1,64 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A01_顶部导航条</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/image/网站图标.ico" type="image/x-icon" /><!-- 调用一个外部的CSS样式文件 -->
+    <!-- 清除css默认样式 -->
+    <link rel="stylesheet" href="../resources静态资源/reset.css">
+    <!-- 引入css样式 -->
+    <link rel="stylesheet" href="./A01_顶部导航条.css">
+
+</head>
+
+<body>
+    <!-- 顶部导航条 -->
+    <div class="top">
+        <!--版心  清楚浮动的影响-->
+        <div class="container clear-both">
+            <!-- 左侧欢迎词 -->
+            <div class="top-welcome float-left">欢迎来到淘神价官网</div>
+            <!-- 右侧导航区 -->
+            <div class="navigation float-right">
+                <!--导航区实例  -->
+                <ul class="top-navigation-items">
+                    <!-- 登录/注册 -->
+                    <li class="login-register">
+                        <a href="#">你好，请登录</a>
+                        <a href="#">免费注册</a>
+                    </li>
+                    <li><a href="#">我的订单</a></li>
+                    <li><a href="#">我的京东</a></li>
+                    <li><a href="#">企业采购</a></li>
+                    <li><a href="#">商家服务</a></li>
+                    <li><a href="#">网站导航</a></li>
+                    <li><a href="#">手机京东</a></li>
+                    <li><a href="#">网站无障碍</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+ 
+    <script src="" async defer></script>
+</body>
+
+</html>

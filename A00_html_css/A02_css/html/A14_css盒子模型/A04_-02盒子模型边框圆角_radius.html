@@ -1,0 +1,75 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head><!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A04_-02盒子模型边框圆角html</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!--内部样式（css选择器使用内部样式显示）-->
+    <style>
+        .radius {
+            width: 200px;
+            height: 200px;
+            background-color: chartreuse;
+            border: 1px solid red;
+            font-size: 12px;
+            text-align: center;
+            line-height: 200px;
+
+
+        }
+
+        .radius1 {
+            /* 圆角 4个方位一样 */
+            border-radius: 10px;
+        }
+
+        .radius2 {
+            /* 圆角等于边框大小/2就是圆  */
+            border-radius: 100px;
+        }
+
+        .radius3 {
+            /* 圆角分别： 左上 */
+            border-top-left-radius: 10px;
+            /* 圆角分别：  右上 */
+            border-top-right-radius: 20px;
+            /* 圆角分别： 右下 */
+            border-bottom-right-radius: 40px;
+            /* 圆角分别： 左下 */
+            border-bottom-left-radius: 60px;
+
+
+        }
+
+        /* 边框4角复合写法 */
+        .radius4 {
+            /* 圆角分别： 左上 右上 右下 左下 */
+            border-radius: 20px 40px 60px 80px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="radius radius1">border-radius: 10px;</div>
+    <div class="radius radius2">border-radius: 200px;</div>
+    <div class="radius radius3">圆角分别写法 </div>
+    <div class="radius radius4">边框4角复合写法： 左上 右上 右下 左下 </div>
+
+<!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A07_3D变换_背部可见性 </title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <style>
+        .img {
+            width: 400px;
+            height: 400px;
+            /* 引入背景图 */
+            background-image: url("../resources静态资源/img/三维视图.png");
+            /* 已宽度/高度的最小值等比例缩放 （最优方案 ）*/
+            background-size: cover;
+        }
+
+        .outer {
+            /* 宽度 */
+            width: 200px;
+            /* 高度 */
+            height: 200px;
+            /* 边框 */
+            border: 1px solid rgb(219, 8, 8);
+            /* 居中 */
+            margin: 0 auto;
+            /* 外边距 上 */
+            margin-top: 50px;
+            /* 背景颜色 */
+            background-color: transparent;
+            /* 开启3D空间（注意：在父类中开启） */
+            transform-style: preserve-3d;
+            /* 设置景深 近大远小  之前要开启3D 空间*/
+            perspective: 500px;
+            /* 设置视图位置 */
+            perspective-origin:101px 101px;
+        }
+
+        .inner1 {
+             /* 宽度 */
+             width: 200px;
+             /* 高度 */
+            height: 200px;
+             /* 边框 */
+            border: 1px solid rgb(5, 5, 238);
+             /* 背景颜色 */
+            background-color: rgba(152, 13, 13, 0.426);
+             /* 旋转 */
+            transform: rotateY(45deg);
+            /* 设置背部不可见 隐藏 */
+            backface-visibility:hidden
+         
+         }
+
+      
+
+    </style>
+
+</head>
+
+<body>
+    <div class="img"></div>
+    <div class="outer">
+        <div class="inner1">inner内面1</div>
+    </div>
+
+
+
+
+
+    <!-- <script type="text/javascript" src="#">    /*javascript代码  */</script> -->
+</body>
+
+</html>
