@@ -19,6 +19,7 @@ const server = http.createServer(
         //绑定data方法 回调函数
         request.on('data', (data) => {
             body += data.toString();
+             response.end(body)
         })
         //绑定end方法 回调函数
         request.on('end', () => {
@@ -33,6 +34,6 @@ const server = http.createServer(
     })
 //服务器--->监听服务  HTTP协议默认端口是80。HTTPS协议的默认端口是443，HTTP服务开发常用端口有3000，8080， 8090,9000等
 //(端口, 域名，函数）
-server.listen(80,'taoshenjia.vip', () => {
-    console.log("服务器启动成功.. http://127.0.0.1/:80")
+server.listen(3000,'taoshenjia.vip', () => {
+    console.log("服务器启动成功.. http://taoshenjia.vip/:3000")
 })
