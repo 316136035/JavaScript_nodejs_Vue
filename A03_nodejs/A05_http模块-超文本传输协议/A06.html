@@ -1,65 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        td {padding: 20px  40PX;}
-        table,td {border-collapse: aqua;  }
-        table tr:nth-child(odd){ background-color: rgb(197, 194, 15);}
-        table tr:nth-child(even){ background-color: rgb(42, 165, 114);}
+        .container div :nth-child(2) {
+            width: 400px;
+            background-color: rgba(181, 76, 76, 0.219);
+        }
+        .container div :nth-child(3) {
+            width: 40px;
+            background-color: rgba(181, 76, 76, 0.219);
+        }
     </style>
- 
+    
+
 
 </head>
-<body >
-    <table border="1">
-        <tr>
-            <td>A</td>
-            <td>B</td>
-            <td>C</td>
-            <td>D</td>
-        </tr>
-        <tr>
-            <td>E</td>
-            <td>F</td>
-            <td>G</td>
-            <td>H</td>
-        </tr>
-        <tr>
-            <td>I</td>
-            <td>J</td>
-            <td>K</td>
-            <td>L</td>
-        </tr>
-        <tr>
-            <td>M</td>
-            <td>N</td>
-            <td>O</td>
-            <td>P</td>
-        </tr>
+
+<body>
+     <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+    <script type="text/javascript">
+        // 在页面加载完毕后执行的代码
+        window.onload = function () {
+            document.querySelector('.container').addEventListener('click', function (e) {
+              console.log(e.target.tagName);
+              if(e.target.tagName==='BUTTON'){
+                console.log(e.target.parentNode);
+              }
+            });
+        };
+
+    </script>
+
+    <div class="container">
+        <div class="item_get">
+            <label for="get">GET</label>
+            <input type="text" id="get" name="getname" placeholder="地址">
+            <input type="text" id="get" placeholder="端口"  value="3000">
+            <button>测试</button>
+        </div>
+        <div class="item_post">
+            <label for="post">post</label>
+            <input type="text" id="post" name="postname" placeholder="地址">
+            <input type="text" id="post" placeholder="端口" value="3000">
+            <button>测试</button>
+        </div>
+        <div class="item_put">
+            <label for="put">PUT</label>
+            <input type="text" id="put" name="putname" placeholder="地址">
+            <input type="text" id="put" placeholder="端口"  value="3000">
+            <button>测试</button>
+        </div>
+        <div class="item_delete">
+            <label for="get">DELETE</label>
+            <input type="text" id="delete" name="deletename" placeholder="地址">
+            <input type="text" id="delete" placeholder="端口" value="3000">
+            <button>测试</button>
+        </div>
+        <div class="item_head">
+            <label for="get">HEAD</label>
+            <input type="text" id="head" name="headname" placeholder="地址">
+            <input type="text" id="head"  placeholder="端口"  value="3000">
+            <button>测试</button>
+        </div>
+        <div class="item_options">
+            <label for="options">OPTIONS</label>
+            <input type="text" id="options" name="optionsname" placeholder="地址">
+            <input type="text" id="options" placeholder="端口"  value="3000">
+            <button>测试</button>
+        </div>
+        <div class="item_connect">
+            <label for="connect">CONNECT</label>
+            <input type="text" id="connect" name="connectname" placeholder="地址">
+            <input type="text" id="connect"  placeholder="端口"  value="3000">
+            <button>测试</button>
+        </div>
+        <div class="item_trace">
+            <label for="trace">TRACE</label>
+            <input type="text" id="trace" name="tracename" placeholder="地址">
+            <input type="text" id="trace"  placeholder="端口"  value="3000">
+            <button>测试</button>
+        </div>
+    </div>
+    <div class="show">显示</div>
 
 
 
-    </table>
 
-    
 </body>
 
-<script>
-    //获取全部td标签
-    let tds=  document.querySelectorAll('td')
-    //遍历td标签
-    tds.forEach((item)=>{
-        //td 标签绑定点击事件
-      item.onclick=function(){
-        //变更本td的样式
-          this.style.background="red"
-      }
-    })
 
 
-  </script>
 </html>
