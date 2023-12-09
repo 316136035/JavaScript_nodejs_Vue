@@ -15,13 +15,13 @@ const server = http.createServer(
         // 用于在请求接收到数据时执行回调函数。当请求接收到响应的数据时，会触发 'data' 事件
         request.on('data', (data) => {
             body += data.toString();//将请求体数据添加到变量中
-            // response.end(body)//响应给浏览器
+          
         })
         //用于在请求结束时执行回调函数。当请求结束时，通常指响应已经完全接收，并且服务器没有发送任何额外的数据时，会触发 'end' 事件。
         request.on('end', () => {
-            console.log( '获取请求体:',body)
+            console.log( 'end函数:')
             //响应给浏览器
-            response.end('响应成功...')
+            response.end('响应成功..........')
         })
       
 

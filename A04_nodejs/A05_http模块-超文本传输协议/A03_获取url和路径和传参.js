@@ -3,11 +3,10 @@ const http = require('http')
 //导入url解释模块 （nodejs只带不用安装）
 const url = require('url')
 ///创建http服务器
-const server = http.createServer((request, response) => {
-    ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
-    response.setHeader('content-Type', 'text/html;charset=utf-8;')
-    //用url模块解释url
-    let urlparse = url.parse(request.url)
+const server = http.createServer((request, response) => {  ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
+    response.setHeader('content-Type', 'text/html;charset=utf-8;')//设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
+    let urlparse = url.parse(request.url) // url.parse()方法把url解析成一个对象
+    console.log('url对象:',urlparse)
     //用url模块解释url  第2个参数是true key_value就为对象
     let urlparsetrue = url.parse(request.url, true)
     //获取url中的路径
