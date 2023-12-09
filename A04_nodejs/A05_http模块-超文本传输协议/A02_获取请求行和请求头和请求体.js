@@ -4,26 +4,20 @@ const http = require('http')
 const server = http.createServer(
     //请求对象，响应对象
     (request, response) => {
-          ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
-          response.setHeader('content-Type', 'text/html;charset=utf-8;')
-        //获取请求方式
-        console.log('获取请求方式',request.method)
-        //获取请求路径和key：value：
-        console.log('获取请求路径和key：value：：',request.url)
-        //获取http协议版本号
-        console.log('获取http协议版本号',request.httpVersion)
-        //获取全部请求头
-        console.log('获取全部请求头',request.headers)
-        //获取部分请求头
-        console.log('获取部分请求头',request.headers.accept)
-        //获取请求体
-        let body = '';
-        //绑定data方法 回调函数
+          response.setHeader('content-Type', 'text/html;charset=utf-8;')//设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
+        console.log('获取请求方式',request.method)//获取请求方式
+        console.log('获取请求路径和key:value:',request.url)//获取请求路径和key：value：
+        console.log('获取http协议版本号',request.httpVersion)//获取http协议版本号
+        console.log('获取全部请求头',request.headers)//获取全部请求头
+        console.log('获取ip地址和端口',request.headers.host)//获取ip地址和端口
+        console.log('获取部分请求头',request.headers.accept)//获取部分请求头
+        let body = '';//定义一个变量 用于接收请求体
+        // 用于在请求接收到数据时执行回调函数。当请求接收到响应的数据时，会触发 'data' 事件
         request.on('data', (data) => {
-            body += data.toString();
-             response.end(body)
+            body += data.toString();//将请求体数据添加到变量中
+            // response.end(body)//响应给浏览器
         })
-        //绑定end方法 回调函数
+        //用于在请求结束时执行回调函数。当请求结束时，通常指响应已经完全接收，并且服务器没有发送任何额外的数据时，会触发 'end' 事件。
         request.on('end', () => {
             console.log( '获取请求体:',body)
             //响应给浏览器
