@@ -6,7 +6,7 @@ const server = http.createServer((request, response) => {
     response.statusCode = 201
     //设置响应状态码描述
     response.statusMessage = 'ok'
-    //设置响应头 浏览器可以接收类型
+    ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
     response.setHeader('content-Type', 'text/html;charset=utf-8;')
     //一般在这里写入响应体就不会在end中写入响应体
     response.write('服务器启动成功.........')

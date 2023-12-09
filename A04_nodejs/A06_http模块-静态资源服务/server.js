@@ -13,7 +13,7 @@ const server = http.createServer((request, response) => {
     fs.readFile(url, (err, data) => {
         // err 错误对象  成功的话 err为null
         if (err) {
-            //设置响应头 浏览器可以接收类型
+            ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
             response.setHeader('content-Type', 'text/html;charset=utf-8;')
             //设置状态码， 
             response.statusCode = 500

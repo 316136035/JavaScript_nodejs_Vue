@@ -4,7 +4,7 @@ const http = require('http')
 const server = http.createServer(
     //请求对象，响应对象
     (request, response) => {
-        ////设置响应头  设置浏览器可以接收类型
+        ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
         response.setHeader('content-Type', 'text/hmtl;charset=utf-8;')
         //响应给浏览器
         response.end("响应成功......")

@@ -4,7 +4,7 @@ const http = require('http')
 const url = require('url')
 ///创建http服务器
 const server = http.createServer((request, response) => {
-    ////设置响应头  设置浏览器可以接收类型
+    ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
     response.setHeader('content-Type', 'text/html;charset=utf-8;')
     //只用url模块解释url
     let urlparse = url.parse(request.url)

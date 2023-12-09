@@ -2,7 +2,7 @@
 const http = require('http')
 //创建http服务器
 const server = http.createServer((request, response) => {
-    ////设置响应头 设置浏览器可以接收类型
+   ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
     response.setHeader('content-Type', 'text/html;charset=utf-8;')
     //结构赋值方式 获取请求类型
     let { method } = request

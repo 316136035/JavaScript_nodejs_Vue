@@ -51,7 +51,7 @@ const server = http.createServer((request, response) => {
     if (type) {
         //判断是否为html页面 是就添加字符
         if(extname1==='html'){
-                 //设置响应头 浏览器可以接收类型(处理中文乱码文件 'charset=utf-8')
+               ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
             response.setHeader('content-Type', type+';charset=utf-8;')
         }else{
             response.setHeader('content-Type', type)

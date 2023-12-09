@@ -27,7 +27,7 @@ const server = http.createServer(
             //响应给浏览器
             response.end(body)
         })
-        //设置浏览器可以接收类型
+        ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
         response.setHeader('content-Type', 'text/html;charset=utf-8;')
 
 

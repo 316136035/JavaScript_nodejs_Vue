@@ -2,7 +2,7 @@ const http = require('http')//导入http模块 （nodejs只带不用安装）
 const fs = require('fs')//导入fs文件模块 （nodejs只带不用安装）
 //创建http服务器
 const server = http.createServer((request, response) => {
-    //设置响应头 浏览器可以接收类型
+    ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
     response.setHeader('content-Type', 'text/html;charset=utf-8;')
     //异步读取 （路径，(失败回调+成功回调)=>{}）
     fs.readFile(__dirname + '/A06.html', (err, data) => {
