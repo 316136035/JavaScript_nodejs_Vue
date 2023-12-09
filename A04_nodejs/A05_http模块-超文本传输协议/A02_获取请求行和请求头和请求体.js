@@ -8,8 +8,8 @@ const server = http.createServer(
           response.setHeader('content-Type', 'text/html;charset=utf-8;')
         //获取请求方式
         console.log('获取请求方式',request.method)
-        //获取请求路径+key——value
-        console.log('取请求路径+key——value',request.url)
+        //获取请求路径和key：value：
+        console.log('获取请求路径和key：value：：',request.url)
         //获取http协议版本号
         console.log('获取http协议版本号',request.httpVersion)
         //获取全部请求头
@@ -36,5 +36,5 @@ const server = http.createServer(
 //服务器--->监听服务  HTTP协议默认端口是80。HTTPS协议的默认端口是443，HTTP服务开发常用端口有3000，8080， 8090,9000等
 //(端口, 域名，函数）
 server.listen(3000,'127.0.0.1', () => {
-    console.log("服务器启动成功 3000 端口， http://127.0.0.1:3000")
+    console.log("服务器启动成功 3000 端口， http://127.0.0.1:3000/A02?key=value")
 })
