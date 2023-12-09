@@ -13,5 +13,5 @@ const server = http.createServer(
 //服务器--->监听服务  HTTP协议默认端口是80。HTTPS协议的默认端口是443，HTTP服务开发常用端口有3000，8080， 8090,9000等  
 //(端口, 域名，函数）
 server.listen(3000, '127.0.0.1',() => {
-    console.log("服务器启动成功..")
+    console.log("服务器启动成功 3000 端口， http://127.0.0.1:3000")
 })

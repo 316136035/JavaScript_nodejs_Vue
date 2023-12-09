@@ -4,6 +4,8 @@ const http = require('http')
 const server = http.createServer(
     //请求对象，响应对象
     (request, response) => {
+          ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
+          response.setHeader('content-Type', 'text/html;charset=utf-8;')
         //获取请求方式
         console.log('获取请求方式',request.method)
         //获取请求路径+key——value
@@ -25,15 +27,14 @@ const server = http.createServer(
         request.on('end', () => {
             console.log( '获取请求体:',body)
             //响应给浏览器
-            response.end(body)
+            response.end('响应成功...')
         })
-        ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
-        response.setHeader('content-Type', 'text/html;charset=utf-8;')
+      
 
 
     })
 //服务器--->监听服务  HTTP协议默认端口是80。HTTPS协议的默认端口是443，HTTP服务开发常用端口有3000，8080， 8090,9000等
 //(端口, 域名，函数）
 server.listen(3000,'127.0.0.1', () => {
-    console.log("服务器启动成功.. http://127.0.0.1/:3000")
+    console.log("服务器启动成功 3000 端口， http://127.0.0.1:3000")
 })
