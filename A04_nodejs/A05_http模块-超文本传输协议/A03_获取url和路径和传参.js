@@ -8,7 +8,7 @@ const server = http.createServer((request, response) => {  ////设置响应头  
     let urlparse = url.parse(request.url) // url.parse()方法把url解析成一个对象
     console.log('url.parse()函数获取url对象:', urlparse)
     //用url模块解释url  方法1  第2个参数是true query参数会变成对象
-    let urlparsetrue = url.parse(request.url, true)
+     url.parse(request.url, true)
     console.log('url.parse()函数获取url中的路径:', urlparse.pathname)//获取url中的路径
     console.log('url.parse()函数获取url中的参数:',  urlparse.query)//获取url中的参数（对象）
 
