@@ -6,9 +6,9 @@ const url = require('url')
 const server = http.createServer((request, response) => {
     ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
     response.setHeader('content-Type', 'text/html;charset=utf-8;')
-    //只用url模块解释url
+    //用url模块解释url
     let urlparse = url.parse(request.url)
-    //只用url模块解释url  第2个参数是true key_value就为对象
+    //用url模块解释url  第2个参数是true key_value就为对象
     let urlparsetrue = url.parse(request.url, true)
     //获取url中的路径
     console.log(urlparse.pathname)
