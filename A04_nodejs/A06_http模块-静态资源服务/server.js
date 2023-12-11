@@ -7,7 +7,7 @@ const server = http.createServer((request, response) => {
 
     //定义响应类型
     let types = { html: 'text/html;charset=utf-8;', css: 'text/css', js: 'text/javascript', png: 'image/png', jpg: 'image/jpeg', ico: 'image/ico', gif: 'image/gif', mp4: 'video/mp4', mp3: 'audio/mpeg', json: 'application/json' };
-    //页面加载的html和css文件路径和js路径  所以要使用路径来处理返回的文件
+    //页面加载的html和css文件路径和js路径  所以要动态变更的文件路径
     let url = new URL(request.url, "http://127.0.0.1:80")
     //结构赋值方式 获取请求路径
     let { pathname } = url;

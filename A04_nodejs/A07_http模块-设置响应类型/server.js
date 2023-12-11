@@ -1,9 +1,9 @@
 const http = require('http');//导入http文件模块 （nodejs只带不用安装）
 const fs = require('fs');//导入fs文件模块 （nodejs只带不用安装）
 const path = require('path');//导入path路径模块 （nodejs只带不用安装）
-    //定义响应类型
-    let types = { html: 'text/html;charset=utf-8;', css: 'text/css', js: 'text/javascript', png: 'image/png', jpg: 'image/jpeg', ico: 'image/ico', gif: 'image/gif', mp4: 'video/mp4', mp3: 'audio/mpeg', json: 'application/json' };
-  
+//定义响应类型
+let types = { html: 'text/html;charset=utf-8;', css: 'text/css', js: 'text/javascript', png: 'image/png', jpg: 'image/jpeg', ico: 'image/ico', gif: 'image/gif', mp4: 'video/mp4', mp3: 'audio/mpeg', json: 'application/json' };
+
 
 const server = http.createServer((request, response) => {
     //设置响应头 浏览器可以接收类型
@@ -13,7 +13,7 @@ const server = http.createServer((request, response) => {
     let { pathname } = new URL(request.url, "http://127.0.0.1:80")
     //拼接文件路径（获取上一级路径）
     let root = __dirname + '/../';
-    ///拼接文件路径（当前目录）
+     //页面加载的html和css文件路径和js路径  所以要动态变更的文件路径
     let url = root + 'A07_http模块-设置响应类型/page' + pathname;
     console.log('root+url:', url);
     //异步读取 （路径，(失败回调+成功回调)=>{}）
