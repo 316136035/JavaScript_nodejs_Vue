@@ -5,7 +5,7 @@ const server = http.createServer((request, response) => {
     response.setHeader('content-Type', 'text/html;charset=utf-8;')
     //静态资源是指 内容长时间不发生改变的资源，例如图片，视频，CSS 文件，JS文件，HTML文件，字体文件等
 
-    //页面加载的html和css文件路径和js'路径 在同一个目录 所以要使用路径来处理返回的文件
+    //页面加载的html和css文件路径和js路径  所以要使用路径来处理返回的文件
     //结构赋值方式 获取请求路径
     let { pathname } = new URL(request.url, "http://127.0.0.1:80")
     //拼接文件路径（获取上一级路径）
