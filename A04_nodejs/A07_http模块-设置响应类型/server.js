@@ -12,7 +12,7 @@ const server = http.createServer((request, response) => {
     //结构赋值方式 获取请求路径
     let { pathname } = new URL(request.url, "http://127.0.0.1:80")
     //拼接文件路径（获取上一级路径）
-    let root = __dirname + '/../';
+    let root = __dirname+'/' + '../';
      //页面加载的html和css文件路径和js路径  所以要动态变更的文件路径
     let url = root + 'A07_http模块-设置响应类型/static' + pathname;
     console.log('root+url:', url);

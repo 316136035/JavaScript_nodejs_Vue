@@ -11,8 +11,8 @@ const server = http.createServer((request, response) => {
     let url = new URL(request.url, "http://127.0.0.1:80")
     //结构赋值方式 获取请求路径
     let { pathname } = url;
-    //拼接文件路径（获取上一级路径）
-    let root = __dirname + '/../';
+    //拼接文件路径（'../'获取上一级路径）
+    let root = __dirname+'/' + '../';
     ///拼接文件路径（当前目录）
     let urlall = root + 'A06_http模块-静态资源服务/static' + pathname;
     // console.log('root+url:', url);
