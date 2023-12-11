@@ -15,21 +15,21 @@ let mimes = {
 
 
 const server = http.createServer((request, response) => {
-    
+    //设置响应头 浏览器可以接收类型
+    response.setHeader('content-Type', 'text/html;charset=utf-8;')
 
     //结构赋值方式 获取请求路径
     let { pathname } = new URL(request.url, "http://127.0.0.1:80")
     //拼接文件路径（获取上一级路径）
     let root = __dirname + '/../';
     ///拼接文件路径（当前目录）
-    let url = root + 'A05_http模块-静态资源服务/page' + pathname;
-
+    let url = root + 'A07_http模块-设置响应类型/page' + pathname;
+    console.log('root+url:', url);
     //异步读取 （路径，(失败回调+成功回调)=>{}）
     fs.readFile(url, (err, data) => {
         // err 错误对象  成功的话 err为null
         if (err) {
-            //设置响应头 浏览器可以接收类型
-            response.setHeader('content-Type', 'text/html;charset=utf-8;')
+
             //设置状态码， 
             response.statusCode = 500
             //设置错误信息
@@ -50,13 +50,13 @@ const server = http.createServer((request, response) => {
     //判断请求的类型是否为存在
     if (type) {
         //判断是否为html页面 是就添加字符
-        if(extname1==='html'){
-               ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
-            response.setHeader('content-Type', type+';charset=utf-8;')
-        }else{
+        if (extname1 === 'html') {
+            ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
+            response.setHeader('content-Type', type + ';charset=utf-8;')
+        } else {
             response.setHeader('content-Type', type)
         }
-      
+
     } else {
         //设置响应头 对于未知的资源类型，可以选择 application/octet-stream类型，浏览器在遇到该类型的响应时，会对响应体内容进行独立存储，也就是我们常见的下载效果
         response.setHeader('content-Type', 'application/octet-stream')
