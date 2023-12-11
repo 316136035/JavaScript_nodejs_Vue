@@ -5,21 +5,19 @@ const url = require('url')
 ///创建http服务器
 const server = http.createServer((request, response) => {  ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
     response.setHeader('content-Type', 'text/html;charset=utf-8;')//设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
-    let urlparse = url.parse(request.url) // url.parse()方法把url解析成一个对象
-    console.log('url.parse()函数获取url对象:', urlparse)
+   
     //用url模块解释url  方法1  第2个参数是true query参数会变成对象
-     url.parse(request.url, true)
+    let urlparse = url.parse(request.url, true)
     console.log('url.parse()函数获取url中的路径:', urlparse.pathname)//获取url中的路径
     console.log('url.parse()函数获取url中的参数:',  urlparse.query)//获取url中的参数（对象）
+    console.log('url.parse()函数获取url中的参数的值:',  urlparse.query.key1)//获取url中的参数（对象）
+
 
     //模块解释url  方法2  ('/路径？key=value'，后面这个参数就是补全URL用的)
     const newurl = new URL(request.url, 'http://127.0.0.1')
-    //打印完整的url
-    console.log(newurl)
-    //获取路径
-    console.log(newurl.pathname)
-    //通过key获取value
-    console.log(newurl.searchParams.get('key'))
+    console.log('URL;',newurl)  //打印完整的url
+    console.log('URL;',newurl.pathname) //获取路径
+    console.log('URL;',newurl.searchParams.get('key2'))   //通过key获取value
 
 
     response.end("响应成功...")
