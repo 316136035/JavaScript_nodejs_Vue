@@ -1,6 +1,3 @@
-
-
-
 const table_Element = document.querySelector('table');
 //事件委托
 table_Element.addEventListener('mouseover', function (e) {
