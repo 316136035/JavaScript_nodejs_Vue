@@ -1,18 +1,9 @@
 const http = require('http');//导入http文件模块 （nodejs只带不用安装）
 const fs = require('fs');//导入fs文件模块 （nodejs只带不用安装）
 const path = require('path');//导入path路径模块 （nodejs只带不用安装）
-let mimes = {
-    html: 'text/html',
-    css: 'text/css',
-    js: 'text/javascript',
-    png: 'image/png',
-    jpg: 'image/jpeg',
-    gif: 'image/gif',
-    mp4: 'video/mp4',
-    mp3: 'audio/mpeg',
-    json: 'application/json'
-};
-
+  //定义响应类型
+  let types = { html: 'text/html;charset=utf-8;', css: 'text/css', js: 'text/javascript', png: 'image/png', jpg: 'image/jpeg', ico: 'image/ico', gif: 'image/gif', mp4: 'video/mp4', mp3: 'audio/mpeg', json: 'application/json' };
+   
 
 const server = http.createServer((request, response) => {
     //设置响应头 浏览器可以接收类型
@@ -46,13 +37,13 @@ const server = http.createServer((request, response) => {
                                      */
 
             switch (err.code) {
-                case 'ENOENT':
+                case 'ENOENT':   //
                     //设置状态码， 
                     response.statusCode = 404
                     //设置错误信息
                     response.end('读取文件失败..ENOENT（没有这样的文件或目录）')
                     break;
-                case 'ETIMEDOUT':
+                case 'ETIMEDOUT':  
                     //设置状态码， 
                     response.statusCode = 404
                     //设置错误信息
@@ -91,7 +82,7 @@ const server = http.createServer((request, response) => {
     //截取扩展名
     let extname1 = extname.slice(1)
     //通过文件扩展名获取请求的类型，
-    let type = mimes[extname1]
+    let type =  types[extname1]
     //判断请求的类型是否为存在
     if (type) {
         //判断是否为html页面 是就添加字符

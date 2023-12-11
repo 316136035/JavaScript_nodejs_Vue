@@ -111,11 +111,6 @@ const Actions = {
 
         },
 
-
-
-
-     
-
         get_money() {
 
             //带着cookies请求请到引包处配置axios.defaults.withCredentials = true; //配置可以使用cookies请求
