@@ -14,7 +14,7 @@ const server = http.createServer((request, response) => {
     //拼接文件路径（获取上一级路径）
     let root = __dirname + '/../';
     ///拼接文件路径（当前目录）
-    let urlall = root + 'A06_http模块-静态资源服务/page' + pathname;
+    let urlall = root + 'A06_http模块-静态资源服务/static' + pathname;
     // console.log('root+url:', url);
     //异步读取 （路径，(失败回调+成功回调)=>{}）
     fs.readFile(urlall, (err, data) => {
