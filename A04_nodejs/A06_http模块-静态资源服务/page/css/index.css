@@ -1,4 +1,12 @@
+td {
+  width: 100px;
+  height: 20px;
+}
 
-table tr:nth-child(odd){ background-color: rgb(197, 194, 15);}
-table tr:nth-child(even){ background-color: rgb(42, 165, 114);}
+table tr:nth-child(odd) {
+  background-color: rgb(197, 194, 15);
+}
 
+table tr:nth-child(even) {
+  background-color: rgb(42, 165, 114);
+}
