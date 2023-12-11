@@ -13,8 +13,8 @@ const server = http.createServer((request, response) => {  ////设置响应头  
     console.log('url.parse()函数获取url中的参数的值:',  urlparse.query.key1)//获取url中的参数（对象）
 
 
-    //模块解释url  方法2  ('/路径？key=value'，后面这个参数就是补全URL用的)
-    const newurl = new URL(request.url, 'http://127.0.0.1')
+    //模块解释url  方法2  (当url中没有域名的时候和端口的时候，需要补全URL，后面这个参数就是补全URL用的)
+    const newurl = new URL(request.url, 'http://127.0.0.1:3000')
     console.log('URL;',newurl)  //打印完整的url
     console.log('URL;',newurl.pathname) //获取路径
     console.log('URL;',newurl.searchParams.get('key2'))   //通过key获取value
