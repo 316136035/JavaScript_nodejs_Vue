@@ -3,7 +3,7 @@ const http = require('http')
 //创建http服务器
 const server = http.createServer((request, response) => {
     //设置响应状态码
-    response.statusCode = 201
+    response.statusCode = 200;
     //设置响应状态码描述
     response.statusMessage = 'ok'
     ////设置响应头  设置浏览器可以接收类型，  设置编码（防止乱码）
@@ -12,7 +12,7 @@ const server = http.createServer((request, response) => {
     response.write('服务器启动成功.........')
     response.write('        一般在这里写入响应体就不会在end中写入响应体')
     //响应
-    response.end()
+    response.end();
 
 })
 //服务器--->监听服务  HTTP协议默认端口是80。HTTPS协议的默认端口是443，HTTP服务开发常用端口有3000，8080， 8090,9000等
