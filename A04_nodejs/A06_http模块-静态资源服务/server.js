@@ -5,9 +5,10 @@ const server = http.createServer((request, response) => {
     //结构赋值方式 获取请求路径
     let { pathname } = new URL(request.url, "http://127.0.0.1:80")
     //拼接文件路径（获取上一级路径）
-    let root = __dirname + '/../';
+    let root = __dirname +'/../';
+    console.log(root);
     ///拼接文件路径（当前目录）
-    let url = root + 'A05_http模块-静态资源服务/page' + pathname;
+    let url = root + 'A06_http模块-静态资源服务/page' + pathname;
     console.log('root+url:', url)
     //异步读取 （路径，(失败回调+成功回调)=>{}）
     fs.readFile(url, (err, data) => {
@@ -24,6 +25,6 @@ const server = http.createServer((request, response) => {
         response.end(data)
     })
 })
-server.listen(80, () => {
+server.listen(80,'127.0.0.1', () => {
     console.log("服务器启动成功.. http://127.0.0.1:80/index.html")
 })
