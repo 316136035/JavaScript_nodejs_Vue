@@ -1,4 +1,4 @@
-//导入js模块 当不写文件后缀名优先引入js后缀 
+//导入js模块 当不写文件后缀名优先引入js后缀 （会自动向上查找）
 const functions=require('./module.js')
 //调用模块中的函数
 functions.functionA()
