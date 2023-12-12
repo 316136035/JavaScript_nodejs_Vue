@@ -13,6 +13,7 @@ const obj = {
 }
 //创建属性
 const A='AAAAAA'
+
 //暴露函数
 module.exports = {
     //暴露函数
