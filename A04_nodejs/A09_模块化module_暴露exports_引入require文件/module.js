@@ -26,4 +26,8 @@ module.exports = {
     A:A
 }
 
-
+//还有这种暴露方式
+// exports.functionA = functionA;
+// exports.functionB = functionB;
+// exports.obj=obj;
+// exports.A=A;
