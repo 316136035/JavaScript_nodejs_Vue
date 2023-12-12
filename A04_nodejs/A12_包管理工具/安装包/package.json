@@ -1,0 +1,14 @@
+{
+  "name": "taoshenjia",
+  "version": "1.0.0",
+  "description": "'包的安装'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "316136035",
+  "license": "ISC",
+  "dependencies": {
+    "math": "^0.0.3"
+  }
+}
