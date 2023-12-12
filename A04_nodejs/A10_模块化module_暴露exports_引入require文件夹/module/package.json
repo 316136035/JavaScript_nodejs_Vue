@@ -1,6 +1,12 @@
-
 {
-
-    "main": "./app.js"  
-    
+  "name": "项目名称", 
+  "version": "项目版本号",
+  "description": "项目描述",
+  "main": "index.js", 
+ "keywords": ["与项目相关的关键词1", "与项目相关的关键词2"],
+  "author": "项目作者",
+  "license": "项目的许可证",
+  "dependencies": {
+    "express": "项目的依赖关系，指定项目中使用的外部模块和它们的版本"
+  }
 }
