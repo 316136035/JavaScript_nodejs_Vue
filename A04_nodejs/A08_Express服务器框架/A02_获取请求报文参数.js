@@ -43,7 +43,7 @@ server.listen(80, "127.0.0.1",() => {
     console.log('服务器已经启动...')
     console.log('请求地址...','http://127.0.0.1:80/get1?key1=value1')
     console.log('请求地址...','http://127.0.0.1:80/get2?key2=value2')
-    console.log('请求地址...','http://127.0.0.1:80/8888.thml')
+     console.log('请求地址...','http://127.0.0.1:80/get1?key1=value1')
     console.log('请求地址...','http://127.0.0.1:80/post')
     console.log('请求地址...','http://127.0.0.1:80')
     console.log('请求地址...','http://127.0.0.1:80/匹配上面不成功的路径全部')
