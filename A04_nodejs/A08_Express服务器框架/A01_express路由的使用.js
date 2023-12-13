@@ -2,6 +2,10 @@
 const express = require('express')
 //创建应用对象
 const server = express();
+//创建路由 (匹配 ip+端口)
+server.get('/', (request, response) => {
+    response.send("主页")
+})
 //创建get路由
 server.get('/get', (request, response) => {
     response.send('get')
@@ -10,10 +14,7 @@ server.get('/get', (request, response) => {
 server.post('/post', (request, response) => {
     response.send('post')
 })
-//创建路由 (匹配 ip+端口)
-server.get('/', (request, response) => {
-    response.send("主页")
-})
+
 //创建路由 (匹配上面不成功的路径全部)
 server.all('*', (request, response) => {
     response.send("404")

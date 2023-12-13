@@ -22,6 +22,10 @@ server.get('/get2', (request, response) => {
     console.log('部分请求头:', request.get('user-agent'))
     response.send('express模块方法获取请求报文参数')
 })
+//创建路由 (匹配 ip+端口)
+server.get('/', (request, response) => {
+    response.send("主页")
+})
 //创建post路由
 server.post('/post', (request, response) => {
     response.send('post')
