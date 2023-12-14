@@ -5,7 +5,7 @@ const server = express();
  
 // 全局中间件（每次请求都会执行这个函数）
 function global_middleware(req, res,next) {
-  console.log('全局中间件',req.ip)
+  console.log('全局中间件:',req.url,req.ip)
   next();//放行
    
 }
