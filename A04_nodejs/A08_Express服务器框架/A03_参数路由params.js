@@ -12,13 +12,20 @@ server.get('/user/:id.html', (req, res) => {
 
   let { id } = paramsobject;//对象_解构 获取id参数
   let { persons } = jsonObject;//对象_解构 获取persons参数
+  
 
   //find方法还可以用于遍历对象数组  返回布尔值 布尔值是符合条件的第一个的对象
   let person = persons.find((item) => {
     if (item.id == Number(id)) {
       return true;
     }
-  })
+  });
+  //判断是否找到该用户
+  if(!person){
+    res.statusCode = 404;
+    res.send('没有找到该用户');
+    return
+  }
   res.send(`<div>${person.id}</div>
             <div>${person.name}</div>
             <div>${person.id}</div>
