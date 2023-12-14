@@ -17,7 +17,8 @@ server.get('/home', (req, res) => {
 });
 // 路由
 server.all('*', (req, res) => {
-  res.send ('*')
+  res.statusCode = 404;
+  res.send ('404')
 
 });
 // 监听端口
