@@ -19,7 +19,10 @@ server.get('/user/:id.html', (req, res) => {
       return true;
     }
   })
-  res.send(person);//渲染页面
+  res.send(`<div>${person.id}</div>
+            <div>${person.name}</div>
+            <div>${person.id}</div>
+            <div>${person.age}</div>`);//渲染页面
 
 })
 // 监听端口
