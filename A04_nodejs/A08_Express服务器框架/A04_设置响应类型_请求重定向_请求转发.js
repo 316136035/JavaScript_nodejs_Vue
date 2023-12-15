@@ -13,7 +13,7 @@ server.get('/download', (req, res) => {
     res.statusCode = 200;//设置状态码
     res.set('Content-Disposition', 'attachment; filename=filename.mp4') ;//设置为下载类型的响应头类型
     //响应文件
-    res.sendFile(__dirname + '/publi公共目录/1.mp4');//渲染页面  express服务器框架会自动设置响应头类型
+    res.sendFile(__dirname + '/publi/1.mp4');//渲染页面  express服务器框架会自动设置响应头类型
 
 
 });
@@ -56,6 +56,6 @@ server.listen(3000,'127.0.0.1',()=>{
     console.log('服务器启动成功 http://127.0.0.1:3000/download');
     console.log('服务器启动成功 http://127.0.0.1:3000/json');
     console.log('服务器启动成功 http://127.0.0.1:3000/redirect');
-    console.log('服务器启动成功 http://127.0.0.1:3000/redirect_index');
+
 
 });
