@@ -1,6 +1,8 @@
+//引入express服务器框架
 const  express=require ('express');
+//创建服务器
 const server=express();
-//静态资源中间件(会自动匹配public目录下的index.html文件并自动匹配响应类型)
+//use调用静态资源中间件(会自动匹配public目录下的index.html文件并自动匹配响应类型)
 server.use(express.static(__dirname+'/public'));
 server.get('/',(req,res)=>{
     res.send("响应成功..")
