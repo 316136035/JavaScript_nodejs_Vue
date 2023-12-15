@@ -1,6 +1,6 @@
+// 引入express服务器框架
 const express = require('express');
-const fs= require('fs');
-
+// 创建服务器
 const server = express();
 
 //路由设置 设置响应头类型
