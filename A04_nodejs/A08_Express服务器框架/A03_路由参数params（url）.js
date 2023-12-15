@@ -1,7 +1,7 @@
 // 引入express服务器框架
 const express = require('express');
 // 引入json文件
-const jsonObject = require(__dirname+'/publi/A03_参数路由params.json');
+const jsonObject = require(__dirname+'/public/A03_参数路由params.json');
 
 // 创建服务器
 const server = express();

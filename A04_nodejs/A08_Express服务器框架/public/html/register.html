@@ -1,0 +1,327 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+  <!--规定 HTML 文档的字符编码  兼用性-->
+  <meta charset="UTF-8">
+  <!-- 针对IE浏览器的一个兼容性设置-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+  <meta name="renderer" content="webkit">
+
+  <!-- 让低版本浏览器认识H5 的语义化标签 -->
+  <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+  <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+  <meta name="description" content="网页描述文字">
+  <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 头标题 -->
+  <title>A02_用户注册页面</title>
+  <!-- 设置网站图标调用一个外部的图片文件 -->
+  <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
+  <!-- 清除css默认样式 -->
+  <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+  <!-- 调用一个外部的CSS样式文件 -->
+  <link rel="stylesheet" href="#">
+  <!-- 引入外部js文件 不能和内部js一样使用-->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+
+    form {
+      width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #666666;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 50%;
+      padding: 10px;
+      border-radius: 3px;
+      border: 1px solid #cccccc;
+      margin-bottom: 20px;
+      text-align: center;
+
+
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #ffffff;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .get_code {
+      position: relative;
+      left: -100px;
+      cursor: pointer;
+      font-size: 12px;
+
+
+    }
+
+    [type="submit"] {
+      width: 50%;
+
+    }
+
+    .correct {
+      font-size: 15px;
+      color: green;
+
+    }
+
+    .error {
+      font-size: 10px;
+      color: red;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <script type="text/javascript">
+    // 页面加载完成后执行
+    window.onload = function () {
+      const form_Eelement = document.querySelector('form');
+      const username_Eelement = document.querySelector('#username');
+      const password_Eelement = document.querySelector('#password');
+      const confirm_password_Eelement = document.querySelector('#confirm_password');
+      const phone_number_Eelement = document.querySelector('#phone_number');
+      const sms_code_Eelement = document.querySelector('#sms_code');
+      const consent_Eelement = document.querySelector('#consent');
+      const submit_Eelement = document.querySelector('[type="submit"]');
+      const get_code_Eelement = document.querySelector('.get_code');
+      // 点击获取验证码定义变量（避免点击多次）
+      let flag = true;
+      //定义对象存放验证方法
+      const verify = {
+        //用户名（鼠标离开时验证方法）
+        username_verify: () => {
+          let username = username_Eelement.value;//获取用户名
+          regExp = /^[a-z 0-9_]{8,16}$/i;//正则表达式
+          //1.判断用户名是否符合正则表达式 2.判断用户名是否已经存在
+          if (regExp.test(username) && localStorage.getItem(`${username}`) === null) {
+            console.log(localStorage.getItem(`${username}`) === null);
+            username_Eelement.nextElementSibling.innerText = '用户名可用！';// 1.获取容器元素的下一个元素2.给密码添加提示信息
+            username_Eelement.nextElementSibling.className = `correct`;//通过类名添加样式
+
+            return true
+          } else {
+            //用户名不符合正则表达式
+            username_Eelement.nextElementSibling.innerText = '用户名只能由数字、字母、下划线组成，且长度在8-16之间';// 1.获取容器元素的下一个元素2.给密码添加提示信息
+            username_Eelement.nextElementSibling.className = `error`;//通过类名添加样式
+
+            return false
+          }
+
+        },
+        //密码（鼠标离开时验证方法）
+        password_verify: () => {
+          regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?.&]{8,}$/;//正则表达式
+          if (!regExp.test(password_Eelement.value)) {
+            password_Eelement.nextElementSibling.innerText = ' 密码必须包含大小写字母,数字和特殊字符,且长度在8-16之间';;// 1.获取容器元素的下一个元素2.给密码添加提示信息
+            password_Eelement.nextElementSibling.className = `error`;//通过类名添加样式
+            return false
+          } else {
+            password_Eelement.nextElementSibling.innerText = '密码可用！';;// 1.获取容器元素的下一个元素2.给密码添加提示信息
+            password_Eelement.nextElementSibling.className = `correct`;//通过类名添加样式
+            return true
+
+          }
+        },
+        //确认密码（鼠标离开时验证方法）
+        confirm_password_verify: () => {
+          regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?.&]{8,}$/;
+          //判断两次输入的密码是否一致或者用户名不符合正则表达式
+          if (password_Eelement.value !== confirm_password_Eelement.value || !regExp.test(password_Eelement.value)) {
+            confirm_password_Eelement.nextElementSibling.innerText = '两次输入的密码不一致或者不符合要求';// 1.获取容器元素的下一个元素2.给密码添加提示信息
+            confirm_password_Eelement.nextElementSibling.className = `error`//通过类名添加样式
+            return false
+          } else {
+            confirm_password_Eelement.nextElementSibling.innerText = '密码一致';// 1.获取容器元素的下一个元素2.给密码添加提示信息
+            confirm_password_Eelement.nextElementSibling.className = `correct`;//通过类名添加样式
+            return true
+          }
+        },
+        //手机号（鼠标离开时验证方法）
+        phone_number_verify: () => {
+          regexp = /^(13[0-9]|14[57]|15[0-3,5-9]|16[25678]|17[0678]|18[0-9]|19[89])\d{8}$/;//手机号验证正则表达式
+          //判断手机号是否符合正则表达式
+          if (!regexp.test(phone_number_Eelement.value)) {
+            phone_number_Eelement.nextElementSibling.innerText = '手机号码格式不正确';// 1.获取容器元素的下一个元素 2.给容器元素添加提示信息
+            phone_number_Eelement.nextElementSibling.className = `error`;//通过类名添加样式
+            return false
+          } else {
+            phone_number_Eelement.nextElementSibling.innerText = '手机号码可用！';// 1.获取容器元素的下一个元素 2.给容器元素添加提示信息
+            phone_number_Eelement.nextElementSibling.className = `correct`;;//通过类名添加样式
+            return true
+
+          }
+        },
+        //短信验证码（鼠标离开时验证方法）
+        sms_code_verify: () => {
+          regexp = /^\d{6}$/;
+          if (!regexp.test(sms_code_Eelement.value)) {
+            sms_code_Eelement.nextElementSibling.innerText = '短信验证码格式不正确';// 1.获取容器元素的下一个元素 2.给容器元素添加提示信息
+            sms_code_Eelement.nextElementSibling.className = `error`;//通过类名添加样式
+            return false
+          } else {
+            sms_code_Eelement.nextElementSibling.innerText = '短信验证码可用！';// 1.获取容器元素的下一个元素 2.给容器元素添加提示信息
+            sms_code_Eelement.nextElementSibling.className = `correct`;//通过类名添加样式
+            return true
+          }
+
+        },
+        get_code: (e) => {
+          // 阻止表单默认事件
+          e.preventDefault();
+          // 定义一个倒计时变量
+          let num = 60;
+          // 判断（避免点击多次）
+          if (flag) {
+            flag = false;// 点击后设置为false
+            // 定义一个定时器
+            const timer = setInterval(function () {
+              if (num <= 0) {
+                clearInterval(timer);// 清除定时器
+                get_code_Eelement.innerText = '获取验证码';// 重新设置按钮文字
+                flag = true;// 重新设置点击状态
+              } else {
+                get_code_Eelement.innerText = num + '秒后重新获取';// 设置倒计时文字
+                num--;
+              }
+            }, 1000)
+          }
+
+
+
+
+        }
+
+
+
+
+      }
+      //定义对象存放本地存储的方法
+      const local_storage = {
+        getSelection: (e) => {
+          return localStorage.getItem('username') === e.e
+        },
+
+
+      }
+      //用户名验证（鼠标离开时验证事件）调用verify对象中的方法
+      username_Eelement.addEventListener('change', verify.username_verify);
+      //密码验证（鼠标离开时验证事件）调用verify对象中的方法
+      password_Eelement.addEventListener('change', verify.password_verify);
+      //确认密码验证（鼠标离开时验证事件）调用verify对象中的方法
+      confirm_password_Eelement.addEventListener('change', verify.confirm_password_verify);
+      //手机号验证（鼠标离开时验证事件）调用verify对象中的方法
+      phone_number_Eelement.addEventListener('change', verify.phone_number_verify);
+      //短信验证码验证（鼠标离开时验证事件）调用verify对象中的方法
+      sms_code_Eelement.addEventListener('change', verify.sms_code_verify);
+      //获取验证码按钮（鼠标离开时验证事件 传入事件对象 调用verify对象中的方法）
+      get_code_Eelement.addEventListener('click', (e) => { verify.get_code(e) })
+
+      form_Eelement.addEventListener('submit', function (e) {
+        //判断是否满足验证条件
+        if (!(verify.username_verify() && verify.password_verify() && verify.confirm_password_verify() && verify.phone_number_verify() && verify.sms_code_verify() && consent_Eelement.checked)) {
+          e.preventDefault();//阻止表单默认事件
+          alert('注册失败');
+        } else {
+          e.preventDefault();//阻止表单默认事件
+          //获取表单数据作为对象
+          const taoshenjia = {
+            username: username_Eelement.value,
+            password: password_Eelement.value,
+          }
+          //将对象存储到本地 localStorage.setItem('key',value) 2.对象转字符串JSON.stringify(taoshenjia)
+          localStorage.setItem('taoshenjia', JSON.stringify(taoshenjia));
+          location.href = './A01_主页.html';    //跳转到主页
+        }
+
+      })
+
+
+    };
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+  <h1>用户注册</h1>
+  <form class='form' action="#" method="POST">
+    <div> <input type="text" id="username" name="username" placeholder="请输入用户名">
+      <span class="verify_username"></span>
+    </div>
+
+    <div>
+      <input type="password" id="password" name="password" placeholder="请输入密码">
+      <span class="verify_password"></span>
+    </div>
+    <div>
+      <input type="password" id="confirm_password" name="confirm_password" placeholder="请再次输入密码">
+      <span class="verify_confirm_password"></span>
+    </div>
+
+    <div>
+      <input type="text" placeholder="请输入手机号码" id="phone_number" name="phone_number">
+      <span class="verify_phone_number"></span>
+    </div>
+
+    <div><input type="text" placeholder="请输入短信验证码" id="sms_code" name="sms_code"> <a href="" class="get_code">获取验证码</a>
+      <span class="verify_sms_code"></span> <br>
+    </div>
+    <div> <input type="checkbox" id="consent" name="consent">已阅读并同意<a href="">用户服务协议</a></div>
+
+    <div><input type="submit" value="下一步"></div>
+
+
+
+
+
+  </form>
+
+
+
+</body>
+
+</html>
