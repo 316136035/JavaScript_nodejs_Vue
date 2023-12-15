@@ -1,7 +1,7 @@
 // 引入express服务器框架
 const express = require('express');
 // 引入json文件
-const jsonObject = require('./publi公共目录/A03_参数路由params.json');
+const jsonObject = require(__dirname+'/public/A03_参数路由params.json');
 
 // 创建服务器
 const server = express();
@@ -17,6 +17,7 @@ server.get('/user/:id.html', (req, res) => {
     }
   })
   res.send(person);//渲染页面
+
 })
 // 监听端口
 server.listen(3000, '127.0.0.1', () => {
