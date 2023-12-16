@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 主页</title>
+</head>
+<body>
+  <div> Get请求到http://127.0.0.1:3000/text <a href="/text">text</a></div>
+  <div> Get请求到http://127.0.0.1:3000/json <a href="/json">json</a></div>
+  <div>
+    post请求到http://127.0.0.1:3000/post 
+    <form action="/text" method="post">
+      <input type="text" name="name">
+      <input type="submit" value="提交">
+    </form>
+  </div>
+  
+</body>
+</html>
