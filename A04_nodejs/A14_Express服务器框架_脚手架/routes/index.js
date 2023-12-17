@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express');//引入express模块 服务器框架
+var router = express.Router(); //获取路由实例对象
 
-/* GET home page. */
+/* 主页路由*/
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express' });//
 });
-
+// 暴露路由模块
 module.exports = router;
