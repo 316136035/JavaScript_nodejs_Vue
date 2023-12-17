@@ -5,7 +5,7 @@ const server = express();//创建服务器
 //use调用静态资源中间件(会自动匹配public目录下的文件并自动匹配响应类型)
 server.use(express.static(__dirname + '/public'));
 server.set('view engine', 'ejs');//服务设置的视图引擎是 ejs
-server.set('views', path.join(__dirname, '/views'));
+server.set('views', path.join(__dirname, '/views'));////设置应用程序的视图目录路径。
 
 
 server.get('/', (req, res) => {//get方法用来处理get请求
