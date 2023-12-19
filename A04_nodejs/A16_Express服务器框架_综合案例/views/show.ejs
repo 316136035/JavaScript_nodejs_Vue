@@ -15,38 +15,15 @@
   <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
   <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
-  <title>
-    <%= title %>
+  <title><%= title %>
   </title><!-- 设置网站图标调用一个外部的图片文件 -->
   <!-- <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />调用一个外部的CSS样式文件 -->
-  <link rel="stylesheet" href="/stylesheets/index.css">
+  <link rel="stylesheet" href="#">
 </head>
-
+ 
 
 <body>
-
-  <div class="container">
-    <form action="/add" method="post">
-      <label for="event">事件</label>
-      <input type="text" name="event" id="event"><br>
-      <label for="date">发生时间</label>
-      <input type="datetime-local" name="date" id="date"><br>
-      <label for="selected">支出/收入</label>
-      <select name="selected">
-        <option value="-1" selected="">支出</option>
-        <option value="0">收入</option> <!--value服务器的选项值 selected默认选中  -->
-      </select><br>
-      <label for="money">金额</label>
-      <input type="number" name="money" id="money"> <br>
-
-      <button>提交按钮1</button>
-
-
-
-  </div>
-
-
-  </form>
+  我是显示页面
 </body>
 
 </html>
