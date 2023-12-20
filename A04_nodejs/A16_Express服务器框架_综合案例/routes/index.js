@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
  
@@ -11,6 +12,7 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/add', function(req, res, next) {
+   console.log(req.body);
   
    res.send("hha ")
 });
