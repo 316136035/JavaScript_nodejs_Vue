@@ -18,11 +18,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));// 解析post请求体
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+console.log(__dirname);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
+//
 app.use(function(req, res, next) {
   next(createError(404));
 });

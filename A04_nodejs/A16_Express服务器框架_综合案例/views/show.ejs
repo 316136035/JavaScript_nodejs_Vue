@@ -15,28 +15,49 @@
   <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字" >  -->
   <meta name="description" content=""><!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 头标题 -->
-  <title><%= title %>
+  <title>
+    <%= title %>
   </title><!-- 设置网站图标调用一个外部的图片文件 -->
   <!-- <link rel="shortcut icon" href="../../resource资源文件/img/favicon.ico" type="image/x-icon" />调用一个外部的CSS样式文件 -->
   <link rel="stylesheet" href="/stylesheets/show.css">
 </head>
- 
+
 
 <body>
- <div class="container">
-     <!-- ejs循环遍历数组 -->
+  <div class="container">
+    <!-- ejs循环遍历数组 -->
     <% arr.forEach(function(item){ %>
       <div>
-        <div><spam>时间:</spam><%= item.date %></div>
-        <div><spam>id:</spam>  <%= item.id %></div>
-        <div><spam>事件:</spam><%= item.event %></div>
-        <div class="<%= item.selected==1?'income':'expenditure' %>" ><%= item.selected==1?'收入':'支出' %></div>
-        <div><spam>金额:</spam><%= item.money %></div>
+        <div class="<%= item.selected==1?'income':'expenditure' %>">
+          <spam>时间:</spam>
+          <%= item.date %>
+        </div>
+        <div class="flex">
+          <div>
+            <spam>id:</spam>
+            <%= item.id %>
+          </div>
+          <div>
+            <spam>事件:</spam>
+            <%= item.event %>
+          </div>
+          <div>
+            <%= item.selected==1?'收入':'支出' %>
+          </div>
+          <div>
+            <spam>金额:</spam>
+            <%= item.money %>
+          </div>
+          <div>
+            <a href="/delete?id=<%= item.id %>">删除</a>
+          </div>
 
-        
-      </div> 
-    <% }); %>
- </div>
+        </div>
+
+
+      </div>
+      <% }); %>
+  </div>
 </body>
 
 </html>

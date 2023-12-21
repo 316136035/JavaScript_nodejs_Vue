@@ -4,3 +4,12 @@
 .expenditure{
   background-color: red;
 }
+.flex{
+  border: 1px solid #0e0e0e;
+  display: flex;
+    /* 主轴的靠左 中 靠右 （主轴的方向不变）*/
+    justify-content: space-between;
+
+
+}
+
