@@ -1,6 +1,6 @@
 // 引入lowdb(Json文件操作)
 const low = require('lowdb');
-// 引入lowdb的适配器
+// 引入文件存储模块
 const FileSync = require('lowdb/adapters/FileSync');
 // 创建数据存储实例
 const adapter = new FileSync('db.json')
