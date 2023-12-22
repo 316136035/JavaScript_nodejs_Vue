@@ -9,41 +9,44 @@ const { log } = require('console');
 //新的 lowdb 数据库实例（db）。
 const db = low(adapter)
 
-
-
-
-/* GET home page. */
+/* 主页面的路由 */
 router.get('/', function (req, res, next) {
-
-  res.statusCode = 200;
+  //渲染页面模版引擎目录中的（index页面，传参）
   res.render('index', { title: '主页面' });
-
-
 });
 
-
+/* 添加信息的路由 */
 router.post('/add', function (req, res, next) {
   let str = shortid.generate();//生成短唯一标识符
+  //在json文件中添加数据
   db.get('posts').unshift(
+    //id值, req.body获取表单数据对象再参数展开 
     { id: str, ...req.body }
   ).write();
- res.render('message', { title: '信息页面', message: '添加成功', "url": '/show' });
+    //渲染页面模版引擎目录中的（message页面，传参）
+  res.render('message', { title: '信息页面', message: '添加成功', "url": '/show' });
 });
 
+/* 显示信息的路由 */
 router.get('/show', function (req, res, next) {
+  //获取数据
   let arr = db.get('posts').value();
+   //渲染页面模版引擎目录中的（message页面，传参）
   res.render('show', { title: '信息页面', arr: arr });
- 
+
 });
 
-router.get('/delete', function (req, res, next) {
-  let id = req.query.id;
-  res.send("删除成功...")
+//删除信息的路由
+router.get('/delete/:id', function (req, res, next) {
+  let id = req.params.id
+  //删除数据(会删除所有id为0的数据)返回的是删除的个数
+  db.get('posts')
+    .remove({ id: id })
+    .write();
+  let arr = db.get('posts').value();
+   //渲染页面模版引擎目录中的（message页面，传参）
+  res.render('show', { title: '信息页面', arr: arr });
 });
 
-// router.get('/delete/:id', function (req, res, next) {
-//   let id = req.params.id
-//   res.send("删除成功...")
-// });
-
+//路由模块暴露
 module.exports = router;
