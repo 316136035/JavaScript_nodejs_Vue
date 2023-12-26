@@ -1,5 +1,5 @@
 {
-  "name": "express_scaffold",
+  "name": "a18-express-mysql2",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -11,10 +11,7 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
-  },
-  "main": "app.js",
-  "author": "",
-  "license": "ISC",
-  "description": ""
+    "morgan": "~1.9.1",
+    "mysql2": "^3.6.5"
+  }
 }
