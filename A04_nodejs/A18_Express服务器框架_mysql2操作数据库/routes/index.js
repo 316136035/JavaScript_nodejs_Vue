@@ -1,23 +1,24 @@
-var express = require('express');
-var router = express.Router();
-var pool = require('../mysql/mysql2_pool');
+var express = require('express');//引入express服务器框架
+var router = express.Router();//引入路由模块
+var pool = require('../mysql/mysql2_pool');//引入数据库链接池
 
-/* GET home page. */
+/* get路由*/
 router.get('/', function(req, res, next) {
   res.render('index', { title: '插入数据页面' });
 });
-
+/* post路由*/ 
 router.post('/insert', function(req, res, next) {
-  let arr=[req.body.username,req.body.password]
-  
-  pool.query("INSERT INTO `nodejs`.`user` (`id`, `username`, `password`,`time`) VALUES (NULL,  ?, ?,CURRENT_TIMESTAMP)", arr,function(error, results){
+  //获取表单数据并赋值给arr数组
+let arr=[req.body.username,req.body.password]
+  //操作数据库插入数据
+ pool.query("INSERT INTO `nodejs`.`user` (`id`, `username`, `password`,`time`) VALUES (NULL,  ?, ?,CURRENT_TIMESTAMP)", arr,function(error, results){
     if(error){
-      console.log(error)
+      console.log(error);//异常处理
     }else{
-      console.log( results)
+      console.log( results)//打印结果
     }
   })
 
 })
-
+//暴露路由模块
 module.exports = router;
