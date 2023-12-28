@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "title": "put",
+      "author": "修改",
+      "id": 3
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
