@@ -1,5 +1,5 @@
 var pool = require('../mysql/mysql2_pool');
-// 查询数据库(测试是否链接上数据库)
+//查询数据库(测试是否链接上数据库)
 pool.query('SELECT 1', (error, results) => {
   //异常处理
   if (error) {

@@ -1,36 +1,21 @@
-#!/usr/bin/env node
+var app = require('../app');//引入app模块
+var debug = require('debug')('a14-express:server');//引入调试模块
+var http = require('http');//引入http模块
 
-/**
- * Module dependencies.
- */
-
-var app = require('../app');
-var debug = require('debug')('a14-express:server');
-var http = require('http');
-
-/**
- * Get port from environment and store in Express.
- */
-
-var port = normalizePort(process.env.PORT || '3000');
+////函数首先检查环境变量PORT是否已定义，如果已定义则使用该值，否则使用默认值'3000'。然后将计算出的值赋给变量port，并将port设置为Express应用的端口号。
+var port = normalizePort(process.env.PORT || '3000');//设置标准化的端口号
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-
+ //该函数使用http模块创建一个服务器，并将app作为参数传递给服务器。
 var server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
-
+//监听端口
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on('error', onError);;//当发生"error"事件时，会调用"onError"函数
+server.on('listening', onListening);//当发生"listening"事件时，会调用"onListening"函数。
 
 /**
- * Normalize a port into a number, string, or false.
+//函数用于将给定的端口值进行规范化。首先，将给定的值转换为整数。如果转换结果是NaN，说明给定的值是一个命名管道，直接返回该值。如果转换结果大于等于0，说明是一个有效的端口号，返回该端口号。否则，返回false表示端口号无效。
  */
 
 function normalizePort(val) {
@@ -50,7 +35,7 @@ function normalizePort(val) {
 }
 
 /**
- * Event listener for HTTP server "error" event.
+ *错误处理函数，用于处理监听端口时出现的错误。如果错误不是由于系统调用"listen"引起的，将抛出错误。如果错误是由于"listen"引起的，根据错误类型进行处理并输出相应的错误消息，最后退出进程。
  */
 
 function onError(error) {
@@ -78,7 +63,7 @@ function onError(error) {
 }
 
 /**
- * Event listener for HTTP server "listening" event.
+ * 当服务器开始监听连接时被调用。它获取服务器的地址信息并根据地址类型显示是通过管道还是端口进行连接。然后，使用debug函数在控制台输出监听的信息
  */
 
 function onListening() {

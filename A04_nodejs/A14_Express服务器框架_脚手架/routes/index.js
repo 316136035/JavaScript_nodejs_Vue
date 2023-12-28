@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express');//引入express服务器框架
+var router = express.Router();//引入路由模块
 
-/* GET home page. */
+// get路由规则
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
