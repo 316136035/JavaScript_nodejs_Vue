@@ -20,27 +20,33 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A01_插值语法{{}}</title>
+    <title>{{A03_指令语法_单双向绑定y}}</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
-   <!-- 引入vue.js -->
-   <script  type="text/javascript" src="./vue.js"> </script>
+    <!-- 引入vue.js -->
+    <script type="text/javascript" src="./vue.js"> </script>
 
 </head>
 
 <body>
-    <!-- {{}}插值语法  内面可以写js表达式 -->
-  <div id="div">{{mes}}，
-    <div >{{1+1}}</div>
-    <div >{{Date.now()}}</div>
-</div>
-   
+    <!-- {{}}插值语法 -->
+    <div id="div">
+        <div>{{msg1}} </div>
+        <!-- 单向绑定 vue对象的数据只能自动更新页面数据 可以简写:value="bind.name" -->
+        <input type="text" name="username" id="username" v-bind:value="bind.name">
+        <div>{{msg2}}</div>
+        <!-- 双向绑定 (因为v-model默认收集的就是value值)自动更新页面和vue对象的数据 可以简写：v-model="model.name" -->
+        <input type="text" name="password" id="password" v-model:value="model.name">
+
+
+
+    </div>
 
 
     <!-- 引入vue.js -->
-    <script  type="text/javascript" >
+    <script type="text/javascript">
         // 开发环境关掉提示
         Vue.config.productionTip = false;
 
@@ -48,8 +54,20 @@
         new Vue({
             el: '#div',//id选择器
             //data属性是vue实例的数据
-            data: {
-                mes: '你好啊！'
+            data() {
+                  // 多级结构 （页面取值的时候使用 对象.xxx）
+                return {
+                    msg1: "单向绑定 vue对象的数据只能自动更新页面数据",
+                    // 单级结构 （页面取值的时候使用 对象.xxx）
+                   bind: {
+                        name: "v-bind单向绑定元素输入框",
+                    },
+                    msg2: "双向绑定 (因为v-model默认收集的就是value值)自动更新页面和vue对象的数据",
+                    // 单级结构 （页面取值的时候使用 对象.xxx）
+                    model: {
+                        name: "v-bind双向绑定元素输入框",
+                    }
+                }
             }
         })
     </script>
