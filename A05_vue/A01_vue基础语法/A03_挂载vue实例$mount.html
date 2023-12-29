@@ -34,7 +34,8 @@
   <!-- 模版 -->
   <div id="app">
     <!-- {{}}插值语法 -->
-    <div>{{mes}}</div>
+    <div>{{address}}</div>
+    <div>{{name}}</div>
   </div>
 
   <!-- 引入vue.js -->
@@ -47,7 +48,9 @@
       // el: '#app',//id选择器
       //data属性是vue实例的数据
       data: {
-        mes: '你好啊！'
+        address: '广州！',
+        name:"周先生"
+
       }
     });
     //定时器
