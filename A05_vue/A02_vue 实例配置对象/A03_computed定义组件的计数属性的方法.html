@@ -70,7 +70,7 @@
             },
             //computed属性 用于编写计算属性
             computed: {
-                //定义一个计算属性的属性(模块可以直接调用)
+                //定义一个计算属性的属性(模块可以直接调用属性)
                 user_computed: {
                     /*
                      get有什么作用?当有人读取fulIName时，get就会被调用，且返回值就作为fulIName的值
@@ -86,7 +86,7 @@
                         this.user.password = spstr[1];
                     }
                 } ,
-                 //定义一个计算属性的属性(模块可以直接调用) 简写
+                 //定义一个计算属性的属性(模块可以直接调用属性) 简写
                 car_computed: 
                    function(){
                         return this.car.name + '---' + this.car.class; 
