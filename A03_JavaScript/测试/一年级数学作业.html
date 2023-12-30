@@ -1,0 +1,209 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+  <!--规定 HTML 文档的字符编码  兼用性-->
+  <meta charset="UTF-8">
+  <!-- 针对IE浏览器的一个兼容性设置-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+  <meta name="renderer" content="webkit">
+
+  <!-- 让低版本浏览器认识H5 的语义化标签 -->
+  <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+  <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+  <meta name="description" content="网页描述文字">
+  <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 头标题 -->
+  <title>周钰婷作业</title>
+  <!-- 设置网站图标调用一个外部的图片文件 -->
+  <!-- <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
+  <!-- 清除css默认样式 -->
+  <!-- <link rel="stylesheet" href="../../resources静态资源/css/reset.css"> -->
+  <!-- 调用一个外部的CSS样式文件 -->
+  <link rel="stylesheet" href="#">
+  <!-- 引入外部js文件 不能和内部js一样使用-->
+  <!-- <script src="../resources静态资源/js/A01_三种js代码编写方式.js"></script> -->
+
+
+  <style>
+    #div {
+      width: 800px;
+      height: 500px;
+      /* 居中 */
+      margin: 0 auto;
+      /* 将改当前元素变成伸缩容器 ，
+            缩容器下面的全部子背元素会变成伸缩项目（仅对子背元素有影响）
+            1.仅伸缩容器的子元素成为了伸缩项目，孙子元素、重孙子元素等后代，不是伸缩项目。
+            2.无论原来是哪种元素(块、行内块、行内) ，一旦成为了伸缩项目，全都会“块状化”.*/
+      display: flex;
+      /* 主轴的方向：
+             row  水平正常方向 左→右 （默认）
+             row-reverse 水平反转 右→左 
+             column 垂直正常方向 上→下 
+             column-reverse 垂直正常方向 下→上*/
+      /* 换行方式 
+            nowrap 不换行（默认）
+            wrap 换行（注意：要使用对齐方式）
+            wrap-reverse 反向换行（注意：要使用对齐方式）
+            */
+      /* 复合写法:主轴方向-换行方式 */
+      flex-flow: row wrap;
+      /* 侧轴对齐方向 侧轴的起点位置整行垂直排序 （默认主轴的方向不变）*/
+      /* align-content: flex-start; */
+      /* 侧轴对齐方向 侧轴的结束位置整行垂直排序 （默认主轴的方向不变）*/
+      /* align-content: flex-end; */
+      /* 侧轴对齐方向 侧轴的中间位置整行垂直排序 （默认主轴的方向不变）*/
+      /* 侧轴对齐方向 侧轴靠左 中 靠右 */
+      align-content: space-between;
+      /* align-content: center; */
+      /* 侧轴对齐方向 侧轴空左→空*2 →中→空*2→右空 （主轴的方向不变） */
+      /* align-content: space-around; */
+      /* 轴对齐方向  侧轴均匀排列每个元素每个元素之间的间隔相等 （主轴的方向不变） */
+      /* align-content: space-evenly; */
+      /* 侧轴对齐方式 拉伸对齐 （默认）
+                当全部伸缩项目没有给高度就是生效
+                会拉伸到和拉伸容器一样的高度（默认主轴的方向不变*）*/
+      /* align-content: stretch; */
+    }
+
+    #null {
+      height: 200px;
+    }
+
+    #answer {
+      width: 800px;
+
+      /* 居中 */
+      margin: 0 auto;
+      /* 将改当前元素变成伸缩容器 ，
+            缩容器下面的全部子背元素会变成伸缩项目（仅对子背元素有影响）
+            1.仅伸缩容器的子元素成为了伸缩项目，孙子元素、重孙子元素等后代，不是伸缩项目。
+            2.无论原来是哪种元素(块、行内块、行内) ，一旦成为了伸缩项目，全都会“块状化”.*/
+      display: flex;
+      /* 主轴的方向：
+             row  水平正常方向 左→右 （默认）
+             row-reverse 水平反转 右→左 
+             column 垂直正常方向 上→下 
+             column-reverse 垂直正常方向 下→上*/
+      /* 换行方式 
+            nowrap 不换行（默认）
+            wrap 换行（注意：要使用对齐方式）
+            wrap-reverse 反向换行（注意：要使用对齐方式）
+            */
+      /* 复合写法:主轴方向-换行方式 */
+      flex-flow: row wrap;
+      /* 侧轴对齐方向 侧轴的起点位置整行垂直排序 （默认主轴的方向不变）*/
+      /* align-content: flex-start; */
+      /* 侧轴对齐方向 侧轴的结束位置整行垂直排序 （默认主轴的方向不变）*/
+      /* align-content: flex-end; */
+      /* 侧轴对齐方向 侧轴的中间位置整行垂直排序 （默认主轴的方向不变）*/
+      /* 侧轴对齐方向 侧轴靠左 中 靠右 */
+      align-content: space-between;
+      /* align-content: center; */
+      /* 侧轴对齐方向 侧轴空左→空*2 →中→空*2→右空 （主轴的方向不变） */
+      /* align-content: space-around; */
+      /* 轴对齐方向  侧轴均匀排列每个元素每个元素之间的间隔相等 （主轴的方向不变） */
+      /* align-content: space-evenly; */
+      /* 侧轴对齐方式 拉伸对齐 （默认）
+                当全部伸缩项目没有给高度就是生效
+                会拉伸到和拉伸容器一样的高度（默认主轴的方向不变*）*/
+      /* align-content: stretch; */
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
+  <script type="text/javascript">
+    // 在页面加载完毕后才会执行的代码
+    window.onload = function () {
+
+      const div = document.querySelector("#div");
+      const answer = document.querySelector("#answer");
+
+      let index = 0;
+      let end = 100;
+      let strhtml = '';
+      let arr = [];
+      let Answer = [];
+
+      for (index; index < end; index++) {
+
+
+        const num1 = Math.floor(Math.random() * 50) + 1;
+        const num2 = Math.floor(Math.random() * 50) + 1;
+
+        if ((num1 + num2) <= 50) {
+          str = num1.toString() + "+" + num2.toString() + "=(_______)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+          arr.push(`<spam>${str}</spam>`)
+          Answer.push(`<spam>${num1 + num2}</spam>` + "&nbsp;&nbsp;")
+
+        }
+        if (arr.length >= 50) {
+          console.log(arr.length, Answer.length);
+          div.innerHTML = arr.join("");
+          answer.innerHTML = Answer.join("");
+          break;
+        }
+
+        if ((num1 - num2) > 0) {
+          str = num1.toString() + "-" + num2.toString() + "=(_______)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+          arr.push(`<spam>${str}</spam>`)
+          Answer.push(`<spam>${num1 - num2}</spam>` + "&nbsp;&nbsp;")
+        }
+        if (arr.length >= 50) {
+          console.log(arr.length, Answer.length);
+          div.innerHTML = arr.join("");
+          answer.innerHTML = Answer.join("");
+          break;
+        }
+        if (num2 - num1 > 0) {
+
+          str = num2.toString() + "-" + num1.toString() + "=(_______)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+          // strhtml += `<spam>${str}</spam>`
+          arr.push(`<spam>${str}</spam>`)
+          Answer.push(`<spam>${num2 - num1}</spam>` + "&nbsp;&nbsp;")
+        }
+        if (arr.length >= 50) {
+          console.log(arr.length, Answer.length);
+          div.innerHTML = arr.join("");
+          answer.innerHTML = Answer;
+          break;
+        }
+
+      }
+
+
+
+
+
+
+    }
+
+
+
+
+  </script>
+
+
+  <div id="div">
+
+
+  </div>
+
+  <div id="null"></div>
+  <div id="answer"></div>
+</body>
+
+</html>
