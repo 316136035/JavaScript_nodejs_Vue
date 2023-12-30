@@ -37,9 +37,9 @@
         <input type="password" name="password" v-model="user.password">
         <!-- 计算属性 -->
         <div>{{user_computed}}</div>
-     
 
-         <div>{{ car_computed}}</div>
+
+        <div>{{car_computed}}</div>
     </div>
 
 
@@ -59,9 +59,9 @@
                         password: 'admin',
                     }
                     ,
-                    car:{
-                        name:'宝马',
-                        class:'宝马5系',
+                    car: {
+                        name: '宝马',
+                        class: '宝马5系',
                     }
 
                 }
@@ -85,15 +85,15 @@
                         this.user.username = spstr[0];
                         this.user.password = spstr[1];
                     }
-                } ,
-                 //定义一个计算属性的属性(模块可以直接调用属性) 简写
-                car_computed: 
-                   function(){
-                        return this.car.name + '---' + this.car.class; 
+                },
+                //定义一个计算属性的属性(模块可以直接调用属性) 简写
+                car_computed: function() {
+                        return this.car.name + '---' + this.car.class;
                     }
                 
 
-                
+
+
 
 
 
