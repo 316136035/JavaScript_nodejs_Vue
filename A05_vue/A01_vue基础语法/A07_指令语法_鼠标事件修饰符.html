@@ -17,7 +17,7 @@
 5.self: 只有event.target是当前操作的元素是才触发事件;
 6.passive: 事件的默认行为立即执行，无需等待事件回调执行完毕 -->
 	<div id="root">
-		<!--@click.prevent="方法名"阻止默认行为：取消事件的默认动作（阻止了href默认跳转事件）-->
+		<!--@click.prevent="方法名"阻止默认行为：取消事件的默认动作（阻止了href默认跳转事件） 可以连用多个修饰符-->
 		<div class="title">事件修饰符</div>
 		<div class="click_prevent">@click.prevent="方法名"阻止默认行为：取消事件的默认动作（阻止了href默认跳转事件）
 			<a href="https://item.jd.com/100036913106.html" @click.prevent="click_prevent">京东</a>
@@ -62,12 +62,12 @@
 
 				},
 				click_stop(e) {
-					// event.stopPropagation()//	阻止阻止事件冒泡
+					// event.stopPropagation()//	阻止事件冒泡
 					alert("@click.stop阻止事件冒泡")
 
 				},
 				click_once(e) {
-					// event.oncePropagation()//	阻止默认行为：取消事件的默认动作（阻止了href默认跳转事件）
+					// event.oncePropagation()//	阻止事件冒泡只能触发一次
 					alert("click_once事件只能触发一次")
 
 
@@ -131,7 +131,7 @@
 		}
 
 		ul {
-			
+
 			height: 100px;
 			background-color: crimson;
 			/* 溢出的时候出现滚动条 */
@@ -140,7 +140,7 @@
 		}
 
 		li {
-		
+
 			height: 20px;
 			background-color: green;
 
