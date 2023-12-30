@@ -33,12 +33,7 @@
 <body>
     <!-- /模版 -->
     <div class="div">
-        <input type="text" name="username" v-model="user.username">
-        <input type="password" name="password" v-model="user.password">
-        <!-- 计算属性 -->
-        <div>{{user_computed}}</div>
-        <!-- 计算属性 -->
-        <div>{{car_computed}}</div>
+   
     </div>
 
 
@@ -47,57 +42,6 @@
     <script type="text/javascript">
         // 开发环境关掉提示
         Vue.config.productionTip = false;
-
-        const vm = new Vue({
-            el: '.div',//id选择器
-            //data属性 用于编写数据
-            data() {
-                return {
-                    user: {
-                        username: '316136035',
-                        password: 'admin',
-                    }
-                    ,
-                    car: {
-                        name: '宝马',
-                        class: '宝马5系',
-                    }
-
-                }
-
-
-            },
-            //computed属性 用于编写计算属性
-            computed: {
-                //定义一个计算属性的属性(模块可以直接调用属性)
-                user_computed: {
-                    /*
-                     get有什么作用?当有人读取user_computed时，get就会被调用，且返回值就作为user_computed的值
-                     get什么时候调用? 
-                     1.初次读取user_computed时,2.computed方法有缓存3.所依赖的数据发生变化时缓存也会刷新缓存。
-                    */
-                    get() {
-                        return this.user.username + '---' + this.user.password;
-                    },
-                    set(newusername_newpassword) {
-                        let spstr = newusername_newpassword.split('-');
-                        this.user.username = spstr[0];
-                        this.user.password = spstr[1];
-                    }
-                },
-                //定义一个计算属性的属性(模块可以直接调用属性) 简写
-                car_computed: function () {
-                    return this.car.name + '---' + this.car.class;
-                }
-
-
-
-
-
-
-
-            }
-        })
 
     </script>
 
