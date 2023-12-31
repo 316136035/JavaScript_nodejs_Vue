@@ -20,11 +20,11 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A09_指令语法_绑定class_绑定style</title>
+    <title>A09_指令语法_绑定class操作_e</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
     <!-- 调用一个外部的CSS样式文件 -->
-    <link rel="stylesheet" href="#">
+    <link href="./A09_指令语法_绑定class操作.css" type="text/css" rel="stylesheet" />
     <!-- 引入vue.js -->
     <script type="text/javascript" src="./vue.js"> </script>
 
@@ -33,13 +33,14 @@
 <body>
     <!--模版-->
     <div id="div">
-        <div>
-            <div>{{data_class}}</div>
-            <div v-bind:class="" ></div>   
+        <div id="div1"  v-bind:class="data_class">
+            <div>{{data_class.mes}}</div>
+            <div v-bind:class=""></div>
+            <button>点击我动态更新颜色</button>
         </div>
-        
-       
-      
+
+
+
 
     </div>
 
@@ -54,14 +55,12 @@
             data() {
                 // 多级结构 （页面取值的时候使用 对象.xxx）
                 return {
-                    data_class:{
-                        mes:"class属性绑定",
-                      
-                    
+                    data_class: {
+                        mes: "class属性绑定",
 
-                    } ,
-                    data_style:{
-                        mes:"style属性绑定"
+
+
+
                     }
 
 
@@ -69,10 +68,19 @@
                 }
             },
             methods: {
-               click1(){
-                class_colors: ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Pink", "Brown", "Gray", "Black", "White"];
-                this.data_class.mes = class_colors[Math.floor(Math.random() * class_colors.length)];
-               },
+                click1() {
+                    class_colors: ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Pink", "Brown", "Gray", "Black", "White"];
+                    getRandomNumber(0,  class_colors.length)
+                },
+
+
+
+             getRandomNumber(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
 
 
             },
