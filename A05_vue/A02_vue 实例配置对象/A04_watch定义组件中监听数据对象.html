@@ -72,7 +72,7 @@
                     this.weather.isHost = !this.weather.isHost
                 }
             },
-            //用于计算属性
+            //用于计算属性 computed方法有缓存（当依赖发生改变就刷新缓存）
             computed: {
                 /*info有什么作用?当有人读取info时，info就会被调用，且返回值就作为info的值
                    get什么时候调用? 

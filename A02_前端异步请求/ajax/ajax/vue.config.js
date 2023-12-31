@@ -21,7 +21,7 @@ module.exports = defineConfig({
           Referer: `https://item.jd.com/`,
           Host: "api.m.jd.com",
           Origin: `https://item.jd.com`,
-          Referer: `https"://item.jd.com/`,
+         
         
         },
       
