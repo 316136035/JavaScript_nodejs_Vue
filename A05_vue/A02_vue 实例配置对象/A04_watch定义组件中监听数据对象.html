@@ -89,7 +89,7 @@
                 "weather": {
                     immediate: true,   //初始化的时候调用
                     deep: true, //开启深度监听
-                    // 要监听的属性发现改变就会调用这个 handler方法
+                    // 要监听的属性发现改变就会调用这个 handler方法  (修改对象中的属性时，对象的地址是不变的)
                     handler(newValue) {
                         console.log("属性的新值：", newValue)
                     }
