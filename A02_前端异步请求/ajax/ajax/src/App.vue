@@ -23,8 +23,8 @@ import A05_请求超时和网络异常处理 from "./components/A05_请求超时
 import A06_请求取消 from "./components/A06_请求取消.vue";
 import A07_请求重复问题处理 from "./components/A07_请求重复问题处理.vue";
 import A08_jquery发送ajax请求 from "./components/A08_jquery发送ajax请求和JSON.vue";
-import A09_axios发送请求 from "./components/A09_axios发送跨越请求.vue";
-import A10_fetch发送请求 from "./components/A10_fetch发送跨越请求.vue";
+import A09_axios发送跨越请求 from "./components/A09_axios发送跨越请求.vue";
+import A10_fetch发送跨越请求 from "./components/A10_fetch发送跨越请求.vue";
 import A11_jquery处理跨越问题 from "./components/A11_jquery处理跨越问题.vue";
 export default {
   name: "App",
@@ -37,8 +37,8 @@ export default {
     A06_请求取消,
     A07_请求重复问题处理,
     A08_jquery发送ajax请求,
-    A09_axios发送请求,
-    A10_fetch发送请求,
+    A09_axios发送跨越请求,
+    A10_fetch发送跨越请求,
     A11_jquery处理跨越问题
   },
 };
