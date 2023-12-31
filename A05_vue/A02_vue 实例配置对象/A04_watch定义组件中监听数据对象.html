@@ -33,10 +33,16 @@
 <body>
     <!-- /模版 -->
     <div id="div">
-        <div><span>{{weather.address}} </span>
+        <div>
+            <!-- {{}}插值语法 获取数据 -->
+            <span>{{weather.address}} </span>
+            <!-- {{}}插值语法 调用计算属性中的方法 -->
             <span>{{info}}</span>
         </div>
-        <div><button v-on:click="switch_weather">切换天气</button></div>
+        <div>
+            <!-- v-on:click 事件绑定 methods中的方法  -->
+            <button v-on:click="switch_weather">切换天气</button>
+        </div>
     </div>
 
 
@@ -45,10 +51,9 @@
     <script type="text/javascript">
         // 开发环境关掉提示
         Vue.config.productionTip = false;
-
-        new Vue({
-            el: '#div',
-
+        // 定义一个vue实例 (配置对象)
+        const vm = new Vue({
+            el: '#div',//选择器
             //data属性是vue实例的数据 由Vue管理的函数，定不要写箭头函数，一且写了箭头函数 this就不再是Vue实例了。
             data() {
                 // 多级结构 （页面取值的时候使用 对象.xxx）
@@ -58,33 +63,74 @@
                         isHost: true,//用于切换
 
                     }
-
                 }
             },
-
-
             //用于定义函数
             methods: {
                 switch_weather() {
-
+                    // 取反值
                     this.weather.isHost = !this.weather.isHost
                 }
-
-
             },
             //用于计算属性
             computed: {
+                /*info有什么作用?当有人读取info时，info就会被调用，且返回值就作为info的值
+                   get什么时候调用? 
+                   1.初次读info时,2.computed方法有缓存3.所依赖的数据发生变化时缓存也会刷新缓存。
+                  */
                 info() {
                     return this.weather.isHost ? "天气真好" : '倾盆大雨'
                 }
-
             },
             //用于监听数据对象
             watch: {
 
+                //监视对象
+                "weather": {
+                    immediate: true,   //初始化的时候调用
+                    deep: true, //开启深度监听
+                    // 要监听的属性发现改变就会调用这个 handler方法
+                    handler(newValue) {
+                        console.log("属性的新值：", newValue)
+                    }
+                },
+                //监视属性
+                "weather.isHost": {
+                    // immediate: true,   //初始化的时候调用
+                    deep: true, //开启深度监听
+                    // 要监听的属性发现改变就会调用这个 handler方法
+                    handler(newValue, oldValue) {
+                        console.log("weather.isHost属性的新值:" + newValue, "weather.isHost属性的旧值:" + oldValue)
+                    }
+                },
+                //监视方法
+                "info": {
+                    // immediate: true,   //初始化的时候调用
+                    deep: true, //开启深度监听
+                    // 要监听的属性发现改变就会调用这个 handler方法
+                    handler(newValue, oldValue) {
+                        console.log("info方法的新值:" + newValue, "info方法属性的旧值:" + oldValue)
+                    }
+                },
+                //(监听简单的写法 不要初始化的时候调用，开启深度监听，才能使用)
+                "info"(newValue, oldValue) {
+                    console.log("监听简单的写法:" + newValue, "监听简单的写法:" + oldValue)
+                }
+
 
             }
+
+        });
+        // 全局监听的对象属性  要监听多层结构属性名
+        vm.$watch("weather.isHost", {
+            immediate: true, //初始化的时候调用
+            deep: true, //开启深度监听
+            // 要监听的属性发现改变就会调用这个 handler方法
+            handler(newValue, oldValue) {
+                console.log("全局监听的对象属性新值" + newValue, "全局监听的对象属性旧值" + oldValue)
+            }
         })
+
 
     </script>
 
