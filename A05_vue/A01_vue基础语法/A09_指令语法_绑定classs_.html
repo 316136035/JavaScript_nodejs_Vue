@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A08_指令语法_键盘事件_键盘修饰符</title>
+    <title>A09_指令语法_绑定class_绑定style</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
     <!-- 调用一个外部的CSS样式文件 -->
@@ -33,28 +33,14 @@
 <body>
     <!--模版-->
     <div id="div">
-        <!-- 
-1.键盘事件修饰符
-             @keyup当输入框发生改变就会触发事件   
-		回车  => @keyup.enter当输入框按下回车键才会触发事件 
-		删除  =>  @keyup.delete (捕获"删除”和“退格”键)
-		退出 =>  @keyup.esc
-		空格 =>  @keyup.space
-		换行 =>  @keydown.tab （不适合用keyup事件 适合用于keydown键盘按下事件）
-		上 =>  @keyup.up
-		下 =>  @keyup.down
-		左 =>  @keyup.left
-		右 =>  @keyup.right
-2.Vue未提供别名的按键，可以使用按键原始的key值去绑定，但注意要转为kebab-case (短横线命名
-3.系统修饰键 (用法特殊) : ctr1、alt、shift、metaT(1).配合keyup使用: 按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发(2).配合keydown使用: 正常触发事件。
-4.也可以使用keycode去指定具体的按键 (不推荐)
-5.Vue.config.keyCodes.自定义键名 = 键码，可以去定制按键别名
-    
-    
-    -->
-        <!-- @keyup.enter="事件名称"输入框按下回车键才会触发事件  -->
-        <input type="text" id="text" @keyup="keyup1" value="当键盘按下时">
-        <input type="text" id="text" @keyup.enter="keyup2" value="当键盘回车按下时">
+        <div>
+            <div>{{data_class}}</div>
+            <div v-bind:class="" ></div>   
+        </div>
+        
+       
+      
+
     </div>
 
     <script type="text/javascript">
@@ -68,22 +54,30 @@
             data() {
                 // 多级结构 （页面取值的时候使用 对象.xxx）
                 return {
+                    data_class:{
+                        mes:"class属性绑定",
+                      
+                    
+
+                    } ,
+                    data_style:{
+                        mes:"style属性绑定"
+                    }
+
 
 
                 }
             },
             methods: {
-                /* 当输入框按下回车键才会触发事件  */
-                keyup1(e) {
-                    console.log(e.target.value)//获取输入框的值
-                    console.log(e.key)//获取键盘值按下的值
-                },
+               click1(){
+                class_colors: ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Pink", "Brown", "Gray", "Black", "White"];
+                this.data_class.mes = class_colors[Math.floor(Math.random() * class_colors.length)];
+               },
 
-                keyup2(e) {
-                    console.log(e.target.value)//获取输入框的值
-                    console.log(e.key)//获取键盘值按下的值
-                },
-            }
+
+            },
+          
+            
         })
     </script>
 
