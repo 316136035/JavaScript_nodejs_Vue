@@ -25,22 +25,26 @@
     <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
-   <!-- 引入vue.js -->
-   <script type="text/javascript" src="../vue.js"> </script>
+    <!-- 引入vue.js -->
+    <script type="text/javascript" src="../vue.js"> </script>
 
 </head>
 
 <body>
     <!-- 模版 -->
-   <template id="root">
+    <div id="root">
+        <!-- <div>v-show 只能使用一个当等于false时控制器会显示（经常改变使用这个）</div> -->
+        <div v-show="ture">显示/隐藏{{id}}</div>
+        <div v-show="false">显示/隐藏{{id}}</div>
 
 
 
-   </template>
+
+    </div>
 
 
     <!-- 引入vue.js -->
-    <script  type="text/javascript" >
+    <script type="text/javascript">
         // 开发环境关掉提示
         Vue.config.productionTip = false;
 
@@ -48,9 +52,11 @@
         new Vue({
             el: '#root',//id选择器
             //data属性是vue实例的数据
-            data(){return{
-                package
-            }}
+            data() {
+                return {
+                   id:"************"
+                }
+            }
         })
     </script>
 
