@@ -20,31 +20,29 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A10_指令语法_绑定style操作</title>
+    <title>A02_指令语法_单双向绑定 v-bind_v-model</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <!-- 引入vue.js -->
-    <script type="text/javascript" src="./vue.js"> </script>
+    <script type="text/javascript" src="../vue.js"> </script>
 
 </head>
 
 <body>
-    <!-- 模版 -->
+    <!--模版-->
     <div id="div">
-
-        <!-- 绑定style 属性为对象 简写：:style="data_style" -->
-        <div v-bind:style="data_style"></div>{{mes}}
-
-        <!-- 绑定style 属性为数组 数组里面是对象 -->
-        <!-- <div v-bind:style="[对象A，对象A]"></div>{{mes}} -->
+        <div>{{msg1}} </div>
+        <!-- 单向绑定 vue对象的数据只能自动更新页面数据 可以简写:value="bind.name" -->
+        <input type="text" name="username" id="username" v-bind:value="bind.name">
+        <div>{{msg2}}</div>
+        <!-- 双向绑定 (因为v-model默认收集的就是value值)自动更新页面和vue对象的数据 可以简写：v-model="model.name" -->
+        <input type="text" name="password" id="password" v-model:value="model.name">
     </div>
 
 
-
-    </div>
-
+    <!-- 引入vue.js -->
     <script type="text/javascript">
         // 开发环境关掉提示
         Vue.config.productionTip = false;
@@ -52,16 +50,19 @@
         // 定义一个vue实例 (配置对象)
         new Vue({
             el: '#div',//id选择器
-            //data属性是vue实例的数据
-            data() {
+            //data属性是vue实例的数据 由Vue管理的函数，定不要写箭头函数，一且写了箭头函数 this就不再是Vue实例了。
+            data (){
+                // 多级结构 （页面取值的时候使用 对象.xxx）
                 return {
-                    mes: '绑定style 属性为对象',
-                    data_style: {
-                        width: '100px',//样式
-                        height: '100px',//样式
-                        color: 'red',//样式
-                        fontSize: '20px',//样式
-                        backgroundColor: 'Indigo' //多个单词使用驼峰模式
+                    msg1: "单向绑定 vue对象的数据只能自动更新页面数据",
+                    // 单级结构 （页面取值的时候使用 对象.xxx）
+                    bind: {
+                        name: "v-bind单向绑定元素输入框",
+                    },
+                    msg2: "双向绑定 (因为v-model默认收集的就是value值)自动更新页面和vue对象的数据",
+                    // 单级结构 （页面取值的时候使用 对象.xxx）
+                    model: {
+                        name: "v-bind双向绑定元素输入框",
                     }
                 }
             }
