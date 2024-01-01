@@ -36,12 +36,12 @@
         <!--绑定class单个属性  -->
         <div class="single_attributes" v-bind:class="data_class.class">
             <div>{{data_class.mes1}}</div>
-            <!-- 绑定单击事件(不传参数写法) 简写:@click="show_click2" -->
+            <!-- 绑定单击事件(不传参数写法) 简写:@click="show_click2"  适用于类名不确定 需要动态指定-->
             <button v-on:click="methods_click1">点击我动态更新颜色</button>
         </div>
 
         <div>
-            <!--绑定class多个属性 参数为数组  -->
+            <!--绑定class多个属性 参数为数组 简写： :class="data_class.arr_class" 适用于个数不确定，类名不确定 -->
             <div class="multiple_attributes" v-bind:class="data_class.arr_class">
                 <div>{{data_class.mes2}}</div>
             </div>
@@ -58,7 +58,7 @@
         </div>
 
         <div>
-            <!-- 绑定class 参数为对象 -->
+            <!-- 绑定class 参数为对象  简写： :class="data_class.obj_class 适用于类名确定，个数确定   动态确定用或者不用-->
             <div   v-bind:class="data_class.obj_class">
                 <div>{{data_class.mes4}}</div>
             </div>
