@@ -64,7 +64,8 @@
         width: 800px;
         height: 100px;
         left: 100px;
-        top: 40px;
+        top: 10px;
+        border-radius: 10px;
       
 }
 
@@ -72,7 +73,7 @@
         font-size: 40px;
 }
 .background-color {
-        background-color: brown;
+        background-color: rgb(12, 67, 218);
 }
 .border-radius{
         border-radius: 10px;    
