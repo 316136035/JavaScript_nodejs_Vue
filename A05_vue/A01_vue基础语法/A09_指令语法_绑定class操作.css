@@ -1,11 +1,79 @@
-#div{
-   
+/*单个属性的css */
+.single_attributes {
+
         width: 800px;
         height: 100px;
-        background-color: chartreuse;
-        position: relative;
         left: 100px;
         top: 10px;
-    
+        border-radius: 10px;
+
 }
 
+/* "Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Pink", "Brown", "Gray", "Black", "White" */
+
+.Red {
+        background-color: red;
+}
+
+.Orange {
+        background-color: orange;
+}
+
+.Yellow {
+        background-color: yellow;
+}
+
+.Green {
+        background-color: Green;
+}
+
+.Blue {
+        background-color: Blue;
+}
+
+.Indigo {
+        background-color: Indigo;
+}
+
+.Pink {
+        background-color: Pink;
+}
+
+.Violet {
+        background-color: Violet;
+}
+
+.Brown {
+        background-color: Brown;
+}
+
+.Gray {
+        background-color: Gray;
+}
+
+.Black {
+        background-color: black;
+}
+
+.White {
+        background-color: white;
+}
+
+/* 多个属性的css */
+.multiple_attributes {
+        width: 800px;
+        height: 100px;
+        left: 100px;
+        top: 40px;
+      
+}
+
+.font-size {
+        font-size: 40px;
+}
+.background-color {
+        background-color: brown;
+}
+.border-radius{
+        border-radius: 10px;    
+}

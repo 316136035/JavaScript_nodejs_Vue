@@ -33,61 +33,65 @@
 <body>
     <!--模版-->
     <div id="div">
-        <div id="div1"  v-bind:class="data_class">
-            <div>{{data_class.mes}}</div>
-            <div v-bind:class=""></div>
-            <button>点击我动态更新颜色</button>
+        <!--绑定class单个属性  -->
+        <div class="single_attributes" v-bind:class="data_class.class">
+            <div>{{data_class.mes1}}</div>
+            <!-- 绑定单击事件(不传参数写法) 简写:@click="show_click2" -->
+            <button v-on:click="methods_click1">点击我动态更新颜色</button>
         </div>
 
+        <div>
+            <!--绑定class多个属性 参数为数组  -->
+            <div class="multiple_attributes" v-bind:class="data_class.arr_class">
+                <div>{{data_class.mes2}}</div>
+            </div>
+
+            <script type="text/javascript">
+                // 开发环境关掉提示
+                Vue.config.productionTip = false;
+                // 定义一个vue实例 (配置对象)
+                const vm = new Vue({
+                    el: '#div',//id选择器
+                    //data属性是vue实例的数据 由Vue管理的函数，定不要写箭头函数，一且写了箭头函数 this就不再是Vue实例了。
+                    data() {
+                        // 多级结构 （页面取值的时候使用 对象.xxx）
+                        return {
+                            // 单级结构 （页面取值的时候使用 对象.xxx）
+                            data_class: {
+                                mes1: "单个class属性绑定",
+                                class: "Red",
+                                mes2: "多个class属性绑定",
+                                arr_class: ["font-size", "background-color", "border-radius"]
+                            }
 
 
 
-    </div>
-
-    <script type="text/javascript">
-        // 开发环境关掉提示
-        Vue.config.productionTip = false;
-
-        // 定义一个vue实例 (配置对象)
-        new Vue({
-            el: '#div',//id选择器
-            //data属性是vue实例的数据 由Vue管理的函数，定不要写箭头函数，一且写了箭头函数 this就不再是Vue实例了。
-            data() {
-                // 多级结构 （页面取值的时候使用 对象.xxx）
-                return {
-                    data_class: {
-                        mes: "class属性绑定",
+                        }
+                    },
+                    //methods属性  用于编写方法
+                    methods: {
+                        // 定义一个方法
+                        methods_click1() {
+                            let class_arr = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Pink", "Brown", "Gray", "Black", "White"];
+                            let i = this.getRandomNumber(0, class_arr.length);//获取一个随机数
+                            this.data_class.class = class_arr[i];//随机获取一个颜色
+                        },
 
 
-
-
-                    }
+                        //定义一个获取随机数的方法
+                        getRandomNumber(min, max) {
+                            min = Math.ceil(min);
+                            max = Math.floor(max);
+                            return Math.floor(Math.random() * (max - min + 1)) + min;
+                        }
 
 
 
-                }
-            },
-            methods: {
-                click1() {
-                    class_colors: ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Pink", "Brown", "Gray", "Black", "White"];
-                    getRandomNumber(0,  class_colors.length)
-                },
+                    },
 
 
-
-             getRandomNumber(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-
-
-            },
-          
-            
-        })
-    </script>
+                })
+            </script>
 
 </body>
 
