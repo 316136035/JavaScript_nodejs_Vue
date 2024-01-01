@@ -1,0 +1,146 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A03_v-for列表渲染</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入vue.js -->
+    <script type="text/javascript" src="../vue.js"> </script>
+
+</head>
+
+<body>
+	<div id="root"> <br>
+		<!-- v-model="textname"双向绑定 -->
+		<div><input type="text" placeholder="名字查询" v-model="textname"> </div>
+		<div>{{textname}}</div>
+
+		<!-- v-model="textmoney"双向绑定 -->
+		<div><input type="text" placeholder="差价查询" v-model="textmoney"> </div>
+		<table>
+			<!--表头 默认居中-->
+			<caption>财务报表</caption>
+			<tr>
+				<td>编号</td>
+				<td>sku</td>
+				<td>名字</td>
+				<td>价钱</td>
+				<td>企业价格</td>
+				<td>索引</td>
+			</tr>
+			<!-- v-for="(对象,索引) in 数组【】"
+				 ：key="XXXX" 调用的虚拟DOM对比算法 key的值要唯一（加了key效率高）-->
+			<tr v-for="(item,i) in chajds" :key="item.sku">
+				<td>{{++i}}</td>
+				<td>{{item.sku}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.money}}</td>
+				<td>{{item.enterprisemoney}}</td>
+                <td>{{item.sku}}</td>
+			</tr>
+		</table>
+
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#root",
+			data() {
+				return {
+					textname: "",
+					textmoney: "",
+					jds: [{
+						sku: "100020468927",
+						name: "华为智选 优畅享50 Plus 5G全网通120Hz高刷",
+						money: "1169.00",
+						enterprisemoney: "1000.00"
+					},
+					{
+						sku: "100035295081",
+						name: "HUAWEI Mate 50 直屏旗舰 超光变XMAGE影像 ",
+						money: "4669.00",
+						enterprisemoney: "1300.00"
+					},
+					{
+						sku: "1862562",
+						name: "鲁花 食用油 低芥酸特香菜籽油 5L 物理压榨（新老包装随机发放）",
+						money: "99.00",
+						enterprisemoney: "80.00"
+					},
+					{
+						sku: "100042692647",
+						name: "AppleiPhone苹果12 (A2404) 256GB黑色 全网通5G Apple",
+						money: " 4949.00",
+						enterprisemoney: "4000.00"
+					},
+					{
+						sku: "100025493506",
+						name: "华为智慧屏 SE 75英寸 超薄全面屏 4K超高清MEMC智能液晶护眼电视机8K解码 2GB+16GB 以旧换新HD75DESA",
+						money: "3799.00",
+						enterprisemoney: "3000"
+					}
+
+					],
+					chajds: [],
+				}
+			},
+			// 监听的对象 (可以实现异步)
+			watch: {
+				// 要监听的属性名 要监听多层结构属性名 
+				"textname": {
+					immediate: true,   //初始化的时候调用
+					// deep: true, //开启深度监听
+					// 要监听的属性发现改变就会调用这个 handler方法
+					handler(newValue, oldValue) {
+						console.log("属性的新值" + newValue, "属性的旧值" + oldValue)
+						this.chajds = this.jds.filter((jd) => {
+							// 数组过滤 返回一个数据//
+							return (jd.name.indexOf(newValue))>=0
+						})
+					}
+
+				},
+				// 要监听的属性名 要监听多层结构属性名 
+				"textmoney": {
+					immediate: true,   //初始化的时候调用
+					// deep: true, //开启深度监听
+					// 要监听的属性发现改变就会调用这个 handler方法
+					handler(newValue, oldValue) {
+						console.log("属性的新值" + newValue, "属性的旧值" + oldValue)
+						//  数组过滤 返回一个数据
+						this.chajds = this.jds.filter((jd) => {
+							return jd.money - jd.enterprisemoney > newValue
+						})
+					}
+
+				},
+
+			},
+
+		})
+	</script>
+
+</body>
+
+
+</html>
