@@ -48,6 +48,7 @@
 				<td>企业价格</td>
 				<td>索引</td>
 			</tr>
+			<!-- 遍历指定次数   v-for="(a,b) in 遍历次数 :key=b"-->  
 			<!-- v-for="(对象,索引) in 数组【】"  :key="XXXX" 调用的虚拟DOM对比算法 key的值要唯一（加了key效率高）-->
 			<tr v-for="(item,i) in chajds "  :key="item.sku">
 				<td>{{++i}}</td>
