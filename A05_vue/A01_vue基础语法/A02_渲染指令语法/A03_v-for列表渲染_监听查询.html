@@ -51,7 +51,7 @@
 				<td>索引</td>
 			</tr>
 			<!-- 遍历指定次数   v-for="(a,b) in 遍历次数 :key=b"-->
-			<!-- v-for="(对象,索引) in 数组【】"  :key="XXXX"  :key属性来设置每个元素的唯一标识(效率高，使用了虚拟BOM对比算法) 必须使用sku来设置唯一标识-->
+			<!-- v-for="(对象,索引) in 数组【】"  :key="XXXX"  :key属性来设置每个元素的唯一标识(使用了虚拟BOM对比算法，提高效率) 必须使用sku来设置唯一标识-->
 			<tr v-for="(item,i) in chajds " :key="item.sku">  
 				<td>{{++i}}</td>
 				<td>{{item.sku}}</td>
