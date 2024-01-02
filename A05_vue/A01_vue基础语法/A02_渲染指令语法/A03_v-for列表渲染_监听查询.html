@@ -26,7 +26,7 @@
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <!-- 引入vue.js -->
-    <script type="text/javascript" src="../vue.js"> </script>
+    <script type="text/javascript" src="../../js文件/vue.js"> </script>
 
 </head>
 
@@ -34,8 +34,7 @@
 	<div id="root"> <br>
 		<!-- v-model="textname"双向绑定 -->
 		<div><input type="text" placeholder="名字查询" v-model="textname"> </div>
-		<div>{{textname}}</div>
-
+	
 		<!-- v-model="textmoney"双向绑定 -->
 		<div><input type="text" placeholder="差价查询" v-model="textmoney"> </div>
 		<table>
@@ -56,7 +55,7 @@
 				<td>{{item.name}}</td>
 				<td>{{item.money}}</td>
 				<td>{{item.enterprisemoney}}</td>
-                <td>{{item.sku}}</td>
+        <td>{{item.sku}}</td>
 			</tr>
 		</table>
 

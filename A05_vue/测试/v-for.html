@@ -22,23 +22,48 @@
     <!-- 头标题 -->
     <title>A04_js_常量_const</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
-    <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" />
+    <!-- <link rel="shortcut icon" href="../../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
     <!-- 清除css默认样式 -->
-    <link rel="stylesheet" href="../../resources静态资源/css/reset.css">
+    <!-- <link rel="stylesheet" href="../../resources静态资源/css/reset.css"> -->
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
     <!-- 引入外部js文件 不能和内部js一样使用-->
     <script src="../js文件/vue.js"></script>
-    <style>
-       
-    </style>
+    <div>
+        <div id="root">
+            <ul>
+                <li v-for="(item, index) in items" :key="index" >
+                    {{  index}}
+                    {{item}}
+                    {{key}}
+                </li>
+            </ul>
+        </div>
+    </div>
+   
 
 </head>
 
 <body>
    <!-- 处理页面加载顺序（上→下）所以javascript通常反正下面   不能和外部引入一起使用-->
     <script type="text/javascript">
- 
+        window.onload = function () {
+
+            new Vue({
+                el:'#root',
+
+                data(){
+                    return {
+                        items: ['a', 'b', 'c']
+                    }
+                },
+            
+            
+            })
+           
+
+        
+        }
 
 
     </script>
