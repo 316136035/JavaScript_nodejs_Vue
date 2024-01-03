@@ -1,0 +1,179 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+	<!--规定 HTML 文档的字符编码  兼用性-->
+	<meta charset="UTF-8">
+	<!-- 针对IE浏览器的一个兼容性设置-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+	<meta name="renderer" content="webkit">
+
+	<!-- 让低版本浏览器认识H5 的语义化标签 -->
+	<!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+	<!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+	<meta name="description" content="网页描述文字">
+	<!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- 头标题 -->
+	<title>A05_v-for列表渲染_computed过滤排序</title>
+	<!-- 设置网站图标调用一个外部的图片文件 -->
+	<!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
+	<!-- 调用一个外部的CSS样式文件 -->
+	<link rel="stylesheet" href="#">
+	<!-- 引入vue.js -->
+	<script type="text/javascript" src="../../js文件/vue.js"> </script>
+
+</head>
+
+<body>
+	<!-- 模版 -->
+	<div id="root">
+
+		<div>
+			<!-- 下拉选择框 绑定改变事件(事件对象) -->
+			<select v-on:change="change_select($event)">
+				<!-- v-for="(对象,索引) in 数组【】"  :key="XXXX"  :key属性来设置每个元素的唯一标识(使用了虚拟BOM对比算法，提高效率) 必须使用sku来设置唯一标识 :value="item.id 设置元素的value值 -->
+				<option v-for="(item,i) in options" :key="item.option_name" :value="item.id">{{item.option_name}}</option>
+			</select>
+		</div>
+	<table>
+			<!--表头 默认居中-->
+			<caption>财务报表</caption>
+			<tr>
+				<td>编号</td>
+				<td>sku</td>
+				<td>名字</td>
+				<td>价钱</td>
+				<td>企业价格</td>
+				<td>索引</td>
+			</tr>
+			<!-- 遍历指定次数   v-for="(a,b) in 遍历次数 :key=b"-->
+			<!-- v-for="(对象,索引) in 数组【】"  :key="XXXX"  :key属性来设置每个元素的唯一标识(使用了虚拟BOM对比算法，提高效率) 必须使用sku来设置唯一标识-->
+			<tr v-for="(item,i) in  return_new_array" :key="item.sku">
+				<td>{{++i}}</td>
+				<td>{{item.sku}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.money}}</td>
+				<td>{{item.enterprisemoney}}</td>
+				<td>{{item.sku}}</td>
+			</tr>
+		</table>
+
+	</div>
+	<script type="text/javascript">
+		// 开发环境关掉提示
+		Vue.config.productionTip = false;
+		// 定义一个vue实例 (配置对象)
+		var vm = new Vue({
+			el: "#root",//id选择器
+			data() {
+				return {
+					options: [{ option_name: "默认", id: 0 }, { option_name: "正序", id: 1 }, { option_name: "反序", id: -1 }], //排序选项
+					sort_id: 0,//排序选项
+					//数据
+					jds: [{
+						sku: "100020468927",
+						name: "华为智选 优畅享50 Plus 5G全网通120Hz高刷",
+						money: "1169.00",
+						enterprisemoney: "1000.00"
+					},
+					{
+						sku: "100035295081",
+						name: "HUAWEI Mate 50 直屏旗舰 超光变XMAGE影像 ",
+						money: "4669.00",
+						enterprisemoney: "1300.00"
+					},
+					{
+						sku: "2862563",
+						name: "鲁花 食用油 低芥酸特香菜籽油 5L 物理压榨（新老包装随机发放）",
+						money: "99.00",
+						enterprisemoney: "80.00"
+					},
+					{
+						sku: "1862562",
+						name: "AppleiPhone苹果12 (A2404) 256GB黑色 全网通5G Apple",
+						money: " 4949.00",
+						enterprisemoney: "4000.00"
+					},
+					{
+						sku: "100025493506",
+						name: "华为智慧屏 SE 75英寸 超薄全面屏 4K超高清MEMC智能液晶护眼电视机8K解码 2GB+16GB 以旧换新HD75DESA",
+						money: "3799.00",
+						enterprisemoney: "3000"
+					}
+
+					],
+
+				}
+			}, methods: {
+				change_select(e) {
+					this.sort_id = e.target.value
+				}
+			},
+
+			computed: {
+
+				//定义一个计算属性的属性(模块可以直接调用属性)
+				return_new_array: {
+					/*
+					 get有什么作用?当有人读取return_textname_new_array时，get就会被调用，且返回值就作为return_textname_new_array的值
+					 get什么时候调用? 
+					 1.初次读取return_textname_new_array时,2.computed方法有缓存3.所依赖的数据发生变化时缓存也会刷新缓存。
+					*/
+
+
+					get() {
+						//判断 sort_id: 0,排序选项
+						if (this.sort_id == 0) {
+							console.log("方法第一次运行：", typeof this.sort_id, "	", this.sort_id)
+							return this.jds
+						}
+
+						//判断 sort_id: 0,排序选项
+						if (this.sort_id != 0) {
+							console.log("方法第二次运行：", typeof this.sort_id, "	", this.sort_id)
+							//  判断过滤 (前和后比较)
+							return this.jds.sort((jd1, jd2) => {
+								console.log("sort_id??=", this.sort_id)
+								// 注意是使用==(小坑)数据定义为数字但是===比较为false 
+								return this.sort_id == -1 ? jd2.sku - jd1.sku : jd1.sku - jd2.sku;
+							})
+
+							/* 
+													if (this.selected == 1) {
+														console.log("selected1", this.selected)
+														arr.sort((jd1, jd2) => {
+															return jd1.money - jd2.money
+														})
+													}
+													if (this.selected == 2) {
+														console.log("selected2", this.selected)
+														arr.sort((jd1, jd2) => {
+															return jd2.money - jd1.money
+														})
+													}
+							 */
+						}
+					}
+
+				},
+
+
+
+
+
+
+
+			}
+		})
+	</script>
+
+</body>
+
+
+</html>
