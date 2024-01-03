@@ -41,7 +41,7 @@
 				<option v-for="(item,i) in options" :key="item.option_name" :value="item.id">{{item.option_name}}</option>
 			</select>
 		</div>
-	<table>
+		<table>
 			<!--表头 默认居中-->
 			<caption>财务报表</caption>
 			<tr>
@@ -110,12 +110,14 @@
 					],
 
 				}
-			}, methods: {
+			},
+			//methods属性  用于编写方法
+			methods: {
 				change_select(e) {
 					this.sort_id = e.target.value
 				}
 			},
-
+			//computed属性 用于编写计算属性
 			computed: {
 
 				//定义一个计算属性的属性(模块可以直接调用属性)
@@ -125,8 +127,6 @@
 					 get什么时候调用? 
 					 1.初次读取return_textname_new_array时,2.computed方法有缓存3.所依赖的数据发生变化时缓存也会刷新缓存。
 					*/
-
-
 					get() {
 						//判断 sort_id: 0,排序选项
 						if (this.sort_id == 0) {
@@ -137,10 +137,11 @@
 						//判断 sort_id: 0,排序选项
 						if (this.sort_id != 0) {
 							console.log("方法第二次运行：", typeof this.sort_id, "	", this.sort_id)
-							//  判断过滤 (前和后比较)
+							//  判断过滤 (前和后比较,返回数组) 
 							return this.jds.sort((jd1, jd2) => {
 								console.log("sort_id??=", this.sort_id)
 								// 注意是使用==(小坑)数据定义为数字但是===比较为false 
+								// 返回 正序 1 反序 -1
 								return this.sort_id == -1 ? jd2.sku - jd1.sku : jd1.sku - jd2.sku;
 							})
 

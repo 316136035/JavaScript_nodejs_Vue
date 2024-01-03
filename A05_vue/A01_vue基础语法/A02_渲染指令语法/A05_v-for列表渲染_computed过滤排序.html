@@ -110,7 +110,9 @@
 					],
 
 				}
-			}, methods: {
+			}, 
+			  //methods属性  用于编写方法
+			methods: {
 				change_select(e) {
 					this.sort_id = e.target.value
 				}
@@ -141,6 +143,7 @@
 							return this.jds.sort((jd1, jd2) => {
 								console.log("sort_id??=", this.sort_id)
 								// 注意是使用==(小坑)数据定义为数字但是===比较为false 
+								// 返回 正序 1 反序 -1
 								return this.sort_id == -1 ? jd2.sku - jd1.sku : jd1.sku - jd2.sku;
 							})
 
