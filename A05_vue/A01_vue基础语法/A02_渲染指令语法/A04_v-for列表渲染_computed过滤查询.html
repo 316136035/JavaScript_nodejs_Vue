@@ -52,7 +52,7 @@
 			</tr>
 			<!-- 遍历指定次数   v-for="(a,b) in 遍历次数 :key=b"-->
 			<!-- v-for="(对象,索引) in 数组【】"  :key="XXXX"  :key属性来设置每个元素的唯一标识(使用了虚拟BOM对比算法，提高效率) 必须使用sku来设置唯一标识-->
-			<tr v-for="(item,i) in  return_new_array" :key="item.sku">
+			<tr v-for="(item,i) in   return_textname_new_array" :key="item.sku">
 				<td>{{++i}}</td>
 				<td>{{item.sku}}</td>
 				<td>{{item.name}}</td>
@@ -111,19 +111,23 @@
 			},
 
 			computed: {
-		
-				 //定义一个计算属性的属性(模块可以直接调用属性)
-				 return_textname_new_array: {
-                    /*
-                     get有什么作用?当有人读取user_computed时，get就会被调用，且返回值就作为user_computed的值
-                     get什么时候调用? 
-                     1.初次读取user_computed时,2.computed方法有缓存3.所依赖的数据发生变化时缓存也会刷新缓存。
-                    */
-                   get() {
-                        return this.jds;
-                    }
-                   
-                },
+
+				//定义一个计算属性的属性(模块可以直接调用属性)
+				return_textname_new_array: {
+					/*
+					 get有什么作用?当有人读取return_textname_new_array时，get就会被调用，且返回值就作为return_textname_new_array的值
+					 get什么时候调用? 
+					 1.初次读取return_textname_new_array时,2.computed方法有缓存3.所依赖的数据发生变化时缓存也会刷新缓存。
+					*/
+					get() {
+						//return_textname_new_arra的数据会被缓存起来
+						return 	this.jds.filter((jd) => {
+						//  字符串的indexOf()方法返回字符串中第一个匹配项的索引，如果没有匹配项则返回-1
+							return (jd.name.indexOf(this.textname)) >= 0
+						})
+					}
+
+				},
 
 
 
