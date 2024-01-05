@@ -25,20 +25,43 @@
     <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
-    <script src="../../js文件/vue.js"></script>
+    <!-- 引入vue.js -->
+    <script type="text/javascript" src="../../js文件/vue.js"> </script>
+
 </head>
 
 <body>
 
-    <script type="text/javascript">
+    <div id="root">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" v-model="preson.name">
+        <label for="age">年龄：</label>
+        <input type="text" id="age" v-model="preson.age">
+         <button v-on:click="person_addHobby">添加</button>
+        <div>姓名：{{preson.name}}</div>
+        <div>年龄：{{preson.age}}</div>
+        <div>爱好：{{preson.hobby}}</div>
+
+    </div>
+
+    <script >
 
         new Vue({
+            el:'#root',
             data() {
                 return {
                     preson:{
                         name:'张三',
                         age:18,
                     }
+                }
+            },
+            methods: {
+                person_addHobby() {
+                    // 响应式添加对象属性(this就会是vm实例) 
+                    //也可以使用Vue.set(this.preson,'hobby','篮球') 
+                    //注意：只能在中的对象中操作，不能直接操作data
+                    this.$set(this.preson,'hobby','篮球')
                 }
             },
 
