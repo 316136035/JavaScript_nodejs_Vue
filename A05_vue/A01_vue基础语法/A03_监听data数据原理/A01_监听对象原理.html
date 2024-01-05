@@ -1,0 +1,71 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A01_html标准结构</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        let data = {
+            name: '张三',
+            age: 18,
+        };
+        //创建一个监视的实例对象，用于监听data数据
+        const obs = new Observer(data);
+        console.log(obs);
+        function Observer(object) {
+            //获取data对象的所有属性名
+            const keys = Object.keys(object);
+            //遍历object对象的所有属性名
+            keys.forEach((key) => {
+                //为Observer对象添加一个属性key
+                Object.defineProperty(this, key, {
+                    // enumerable: true, //控制属性是否可以遍历，默认值是false
+                    // writable: true, //控制属性是否可以被修改，默认值是false
+                    // configurable: true, //控制属性是否可以被删除，默认值是false
+                    //当有人获取*值的时候这个 get() 方法就会被调用
+                    get() {
+                        return data_object[key];
+                    },
+                    // 当有人设置*r值的时候这个 set(value)方法就会被调用
+                    set(newValue) {
+                        log('设置了' + key + '的值为' + newValue,`被改了，我要去解析模板，生成虚拟DOM.....我要开始忙了`);
+                        data_object[key]=newValue
+                      
+                    }
+                })
+
+            })
+        } 
+    </script>
+</body>
+
+</html>
+</script>
+</body>
+
+</html>
