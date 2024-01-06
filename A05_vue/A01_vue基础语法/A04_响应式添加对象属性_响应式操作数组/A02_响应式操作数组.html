@@ -1,0 +1,84 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+    
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A02_响应式操作数组</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入vue.js -->
+    <script type="text/javascript" src="../../js文件/vue.js"> </script>
+
+</head>
+
+<body>
+
+    <div id="root">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" v-model="preson.name">
+        <label for="age">年龄：</label>
+        <input type="text" id="age" v-model="preson.age">
+        <button v-on:click="person_addHobby">添加</button>
+        <div>姓名：{{preson.name}}</div>
+        <div>年龄：{{preson.age}}</div>
+        <div>爱好：{{preson.hobby}}</div>
+
+    </div>
+
+    <script>
+        // 开发环境关掉提示
+        Vue.config.productionTip = false;
+        // 定义一个vue实例 (配置对象)
+        new Vue({
+            el: '#root',
+            data() {
+                return {
+                    preson: {
+                        name: '张三',
+                        age: 18,
+                    }
+                }
+            },
+            methods: {
+                person_addHobby() {
+                    // 响应式添加对象属性(this就会是vm实例) 
+                    //也可以使用Vue.set(this.preson,'hobby','篮球') 
+                    //注意：只能在中的对象中操作，不能直接操作data，如果修改对象中的数据，vue做的响应式的加工，直接修改就可以
+                
+                    this.$set(this.preson, 'hobby', '篮球')
+                }
+            },
+
+
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
+</script>
+</body>
+
+</html>
