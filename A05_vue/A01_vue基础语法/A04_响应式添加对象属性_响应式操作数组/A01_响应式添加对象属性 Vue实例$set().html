@@ -62,7 +62,8 @@
                 person_addHobby() {
                     // 响应式添加对象属性(this就会是vm实例) 
                     //也可以使用Vue.set(this.preson,'hobby','篮球') 
-                    //注意：只能在中的对象中操作，不能直接操作data
+                    //注意：只能在中的对象中操作，不能直接操作data，如果修改对象中的数据，vue做的响应式的加工，直接修改就可以
+                
                     this.$set(this.preson, 'hobby', '篮球')
                 }
             },
