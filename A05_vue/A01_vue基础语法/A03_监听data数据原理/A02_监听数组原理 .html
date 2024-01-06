@@ -12,7 +12,7 @@
 
     <!-- 让低版本浏览器认识H5 的语义化标签 -->
     <!--[if lt ie g]>
-    
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
     <![endif]-->
 
     <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
@@ -20,58 +20,46 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A01_响应式添加对象属性 Vue实例$set()</title>
+    <title>A02_监听数组原理 .html</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
     <!-- 调用一个外部的CSS样式文件 -->
     <link rel="stylesheet" href="#">
-    <!-- 引入vue.js -->
     <script type="text/javascript" src="../../js文件/vue.js"> </script>
-
 </head>
 
 <body>
-
+    <!-- 模版 -->
     <div id="root">
-        <label for="name">姓名：</label>
-        <input type="text" id="name" v-model="preson.name">
-        <label for="age">年龄：</label>
-        <input type="text" id="age" v-model="preson.age">
-        <button v-on:click="person_addHobby">添加</button>
-        <div>姓名：{{preson.name}}</div>
-        <div>年龄：{{preson.age}}</div>
-        <div>爱好：{{preson.hobby}}</div>
-
+        <button v-on:click="test">测试vue监听数组的原理</button>
+        <ul>
+            <li v-for="item in arr" :key="item">{{item}}</li>
+        </ul>
     </div>
 
-    <script>
-        // 开发环境关掉提示
-        Vue.config.productionTip = false;
+    <script type="text/javascript">
+      
         // 定义一个vue实例 (配置对象)
-        new Vue({
-            el: '#root',
+     const  vm=   new Vue({
+            el: '#root',//id选择器
+            //data属性是vue实例的数据 由Vue管理的函数，定不要写箭头函数，一且写了箭头函数 this就不再是Vue实例了。
             data() {
                 return {
-                    preson: {
-                        name: '张三',
-                        age: 18,
-                    }
+                    arr:['A','B','C','D']
                 }
             },
+            //methods属性是vue实例的方法 用于编写方法
             methods: {
-                person_addHobby() {
-                    // 响应式添加对象属性(this就会是vm实例) 
-                    //也可以使用Vue.set(this.preson,'hobby','篮球') 
-                    //注意：只能在中的对象中操作，不能直接操作data
-                    this.$set(this.preson, 'hobby', '篮球')
+                test(){
+                    //这样vue是监听不到数组的改变无法响响应式渲染页面（请查看：A04_响应式添加对象属性_响应式操作数组的目录）
+                    this.arr[0]="测试"
                 }
-            },
+             
 
 
+            }
         })
-
-
-
+           
 
     </script>
 </body>
