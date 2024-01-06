@@ -33,14 +33,8 @@
 <body>
 
     <div id="root">
-        <label for="name">姓名：</label>
-        <input type="text" id="name" v-model="preson.name">
-        <label for="age">年龄：</label>
-        <input type="text" id="age" v-model="preson.age">
-        <button v-on:click="person_addHobby">添加</button>
-        <div>姓名：{{preson.name}}</div>
-        <div>年龄：{{preson.age}}</div>
-        <div>爱好：{{preson.hobby}}</div>
+        
+     
 
     </div>
 
@@ -52,10 +46,8 @@
             el: '#root',
             data() {
                 return {
-                    preson: {
-                        name: '张三',
-                        age: 18,
-                    }
+                    arr:['A','B','C','D']
+                         
                 }
             },
             methods: {
