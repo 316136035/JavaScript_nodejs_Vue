@@ -33,7 +33,7 @@
 <body>
 
     <div id="root">
-        <form v-on:click="click">
+        <form >
 
           
 
@@ -53,19 +53,19 @@
             </div>
 
             <div> 
-                <label for="area">地址：</label>
+                <label for="area">爱好：</label>
                 <input type="checkbox" id="area" value="1" v-model="form.hobby">篮球
                 <input type="checkbox" id="area" value="2" v-model="form.hobby">足球
                 <input type="checkbox" id="area" value="3" v-model="form.hobby">乓球
                 
             </div>
             <div>
-                <label for="hobby">爱好：</label>
-                <select name="" id="" v-model="form.hobby">
-                    <option value="1">篮球</option>
-                    <option value="2">足球</option>
-                    <option value="3">乓球</option>
-                </select>
+                <label for="area">地址：</label>
+                <select name="" id="" v-model="form.area">
+                    <option value="1">广东</option>
+                    <option value="2">北京</option>
+                    <option value="3">上海</option>
+                </select>  
             </div>
             <div>
                  <div><label for="">简介：</label></div>
@@ -91,7 +91,7 @@
                         gender: 1,
                         hobby:[1,2,3],
                         textarea:'',
-                        area:["guangd "]
+                        area:"",
 
                     }
                 }
