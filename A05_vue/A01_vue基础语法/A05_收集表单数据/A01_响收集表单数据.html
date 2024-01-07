@@ -1,0 +1,99 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+    <!--规定 HTML 文档的字符编码  兼用性-->
+    <meta charset="UTF-8">
+    <!-- 针对IE浏览器的一个兼容性设置-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+    <meta name="renderer" content="webkit">
+
+    <!-- 让低版本浏览器认识H5 的语义化标签 -->
+    <!--[if lt ie g]>
+    
+    <![endif]-->
+
+    <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+    <meta name="description" content="网页描述文字">
+    <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 头标题 -->
+    <title>A01_响收集表单数据</title>
+    <!-- 设置网站图标调用一个外部的图片文件 -->
+    <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
+    <!-- 调用一个外部的CSS样式文件 -->
+    <link rel="stylesheet" href="#">
+    <!-- 引入vue.js -->
+    <script type="text/javascript" src="../../js文件/vue.js"> </script>
+
+</head>
+
+<body>
+
+    <div id="root">
+        <form>
+
+            <div> <label for="usermane">用户名：</label>
+                <input type="text" id="usermane" v-model="form.username">
+            </div>
+
+            <div> <label for="password">密码：</label>
+                <input type="text" id="password" v-model="form.username">
+            </div>
+
+            <div>
+                <label for="man">男</label>
+                <input type="radio" name="gender" id="man" value="1" v-model="form.gender">
+                <label for="girl">女</label>
+                <input type="radio" name="gender" id='girl' value="0" v-model="form.gender">
+            </div>
+
+            <div> 
+                <label for="hobby">爱好：</label>
+                <input type="checkbox" id="hobby" value="1" v-model="form.hobby">篮球
+                <input type="checkbox" id="hobby" value="2" v-model="form.hobby">足球
+                <input type="checkbox" id="hobby" value="3" v-model="form.hobby">乓球
+                
+            </div>
+    </div>
+    </form>
+
+    </div>
+
+    <script>
+        // 开发环境关掉提示
+        Vue.config.productionTip = false;
+        // 定义一个vue实例 (配置对象)
+        new Vue({
+            el: '#root',
+            data() {
+                return {
+                    form: {
+                        usermane: '',
+                        password: '',
+                        gender: 1,
+                        hobby:[]
+
+                    }
+                }
+            },
+            methods: {
+
+            },
+
+
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
+</script>
+</body>
+
+</html>
