@@ -33,14 +33,16 @@
 <body>
 
     <div id="root">
-        <form>
+        <form v-on:click="click">
+
+          
 
             <div> <label for="usermane">用户名：</label>
                 <input type="text" id="usermane" v-model="form.username">
             </div>
 
             <div> <label for="password">密码：</label>
-                <input type="text" id="password" v-model="form.username">
+                <input type="text" id="password" v-model="form.password">
             </div>
 
             <div>
@@ -51,12 +53,25 @@
             </div>
 
             <div> 
-                <label for="hobby">爱好：</label>
-                <input type="checkbox" id="hobby" value="1" v-model="form.hobby">篮球
-                <input type="checkbox" id="hobby" value="2" v-model="form.hobby">足球
-                <input type="checkbox" id="hobby" value="3" v-model="form.hobby">乓球
+                <label for="area">地址：</label>
+                <input type="checkbox" id="area" value="1" v-model="form.hobby">篮球
+                <input type="checkbox" id="area" value="2" v-model="form.hobby">足球
+                <input type="checkbox" id="area" value="3" v-model="form.hobby">乓球
                 
             </div>
+            <div>
+                <label for="hobby">爱好：</label>
+                <select name="" id="" v-model="form.hobby">
+                    <option value="1">篮球</option>
+                    <option value="2">足球</option>
+                    <option value="3">乓球</option>
+                </select>
+            </div>
+            <div>
+                 <div><label for="">简介：</label></div>
+                <textarea name="" id="" cols="30" rows="10" v-model="form.textarea"></textarea>
+            </div>
+            <div><button>提交</button></div>
     </div>
     </form>
 
@@ -74,7 +89,9 @@
                         usermane: '',
                         password: '',
                         gender: 1,
-                        hobby:[]
+                        hobby:[1,2,3],
+                        textarea:'',
+                        area:["guangd "]
 
                     }
                 }
