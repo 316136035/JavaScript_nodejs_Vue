@@ -12,7 +12,7 @@
 
     <!-- 让低版本浏览器认识H5 的语义化标签 -->
     <!--[if lt ie g]>
-    
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
     <![endif]-->
 
     <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
@@ -20,7 +20,7 @@
     <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 头标题 -->
-    <title>A01_响收集表单数据</title>
+    <title>A03_指令语法 _收集表单数据v-model</title>
     <!-- 设置网站图标调用一个外部的图片文件 -->
     <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
     <!-- 调用一个外部的CSS样式文件 -->
@@ -28,89 +28,43 @@
     <!-- 引入vue.js -->
     <script type="text/javascript" src="../../js文件/vue.js"> </script>
 
+
 </head>
 
 <body>
+    <!--模版-->
+    <div id="div">
 
-    <div id="root">
-        <form >
+        <div>
+            <label for="username">用户名</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div>
+           <input type="radio" name="gender" id="">
+        </div>
 
-          
-
-            <div> <label for="usermane">用户名：</label>
-                <input type="text" id="usermane" v-model="form.username">
-            </div>
-
-            <div> <label for="password">密码：</label>
-                <input type="text" id="password" v-model="form.password">
-            </div>
-
-            <div>
-                <label for="man">男</label>
-                <input type="radio" name="gender" id="man" value="1" v-model="form.gender">
-                <label for="girl">女</label>
-                <input type="radio" name="gender" id='girl' value="0" v-model="form.gender">
-            </div>
-
-            <div> 
-                <label for="area">爱好：</label>
-                <input type="checkbox" id="area" value="1" v-model="form.hobby">篮球
-                <input type="checkbox" id="area" value="2" v-model="form.hobby">足球
-                <input type="checkbox" id="area" value="3" v-model="form.hobby">乓球
-                
-            </div>
-            <div>
-                <label for="area">地址：</label>
-                <select name="" id="" v-model="form.area">
-                    <option value="1">广东</option>
-                    <option value="2">北京</option>
-                    <option value="3">上海</option>
-                </select>  
-            </div>
-            <div>
-                 <div><label for="">简介：</label></div>
-                <textarea name="" id="" cols="30" rows="10" v-model="form.textarea"></textarea>
-            </div>
-            <div><button>提交</button></div>
-    </div>
-    </form>
-
+      
     </div>
 
-    <script>
+
+    <!-- 引入vue.js -->
+    <script type="text/javascript">
         // 开发环境关掉提示
         Vue.config.productionTip = false;
+
         // 定义一个vue实例 (配置对象)
         new Vue({
-            el: '#root',
-            data() {
+            el: '#div',//id选择器
+            //data属性是vue实例的数据 由Vue管理的函数，定不要写箭头函数，一且写了箭头函数 this就不再是Vue实例了。
+            data (){
+                // 多级结构 （页面取值的时候使用 对象.xxx）
                 return {
-                    form: {
-                        usermane: '',
-                        password: '',
-                        gender: 1,
-                        hobby:[1,2,3],
-                        textarea:'',
-                        area:"",
-
-                    }
+                  
                 }
-            },
-            methods: {
-
-            },
-
-
+            }
         })
-
-
-
-
     </script>
-</body>
 
-</html>
-</script>
 </body>
 
 </html>
