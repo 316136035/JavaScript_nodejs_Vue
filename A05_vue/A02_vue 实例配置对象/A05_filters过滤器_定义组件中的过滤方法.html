@@ -36,46 +36,64 @@
   <!-- /模版 -->
   <div id="root">
     <div>
-      <!-- {{时间戳| 过滤器方法名}} -->
+      <!-- {{参数| 过滤器方法名}} -->
       <div>现在时间：{{ new Date|dataTimeformat}}</div>
-      <!-- {{时间戳| 过滤器方法名（传参）}}-->
+      <!-- {{参数| 过滤器方法名（传参）}}-->
       <div>现在时间：{{ new Date|dataTimeformat("YYYY-MM-DD---HH:mm:ss/SSS")}}</div>
-      <!-- {{时间戳| 过滤器方法名（传参）|过滤器方法名（传参）}} -->
+      <!-- {{参数| 过滤器方法名（传参）|过滤器方法名（传参）}} -->
       <!-- 传参后 先调用过滤器方法dataTime（参数）后调用split方法(参数为  dataTimeformat返回值) -->
       <div>现在时间：{{ new Date|dataTimeformat("YYYY-MM-DD---HH:mm:ss/SSS")|split()}}</div>
-
-
     </div>
+
+    <div>
+      <!-- （参数|全；局过滤器） -->
+      <div>全局过滤器：{{str|split}}</div>
+  
   </div>
 
-    
+
+  </div>
 
 
-     <script type="text/javascript">
-          new Vue({
-            el: "#root", //选择器
-            // 过滤器
-            filters: {
-                // 过滤器的方法,str为默认参数
-                dataTimeformat(date, str = "YYYY-MM-DD----HH:mm:ss") {
-                    // 格式化时间（要引入moment.min.js文件）
-                    return moment(date).format(str)
-                },
-                // // 过滤器的方法
-                split(value) {
-                    // 字符串截取
-                    return (value.split("---")[0])
-
-                }
-
-            }
-          })
-       
-     </script>
-   
 
 
- 
+  <script type="text/javascript">
+    new Vue({
+      el: "#root", //选择器
+      data() {
+        return {
+          str:'2024-01-09---17:00:16/347'
+      
+        }
+      },
+      // 过滤器
+      filters: {
+        // 过滤器的方法,str为默认参数
+        dataTimeformat(date, str = "YYYY-MM-DD----HH:mm:ss") {
+          // 格式化时间（要引入moment.min.js文件）
+          return moment(date).format(str)
+        },
+        // // 过滤器的方法
+        split(value) {
+          // 字符串截取
+          return (value.split("---")[0])
+
+        }
+
+      }
+    })
+
+    // 全局过滤器
+    Vue.filter("split", function (value) {
+      // 字符串截取
+      return (value.split("---")[0])
+    })
+
+  </script>
+
+
+
+
 
 </body>
 
