@@ -119,12 +119,12 @@ trim:输入首尾空格过滤 -->
                 // 多级结构 （页面取值的时候使用 对象.xxx）
                 return {
                     form: {
-                        username: '',  //输入框的值 默认收集是字符串
+                        username: '',  //输入框的值 默认收集是字符串 value值
                         age: 0,  //输入框的值 默认收集是字符串 可以在元素中设置为数字
-                        gender: 'man', //单选框的默认选择
+                        gender: 'man', //单选框的默认选择value值
                         hobby: ['run', 'movie'], //多选框必须配置数组，跑步和看电影默认选中
-                        city: "guangzhou",//下拉框的默认值
-                        textarea: '',//文本框的值
+                        city: "guangzhou",//下拉框的默认值value值
+                        textarea: '',//文本框的值value值
                         agree: false,//是否同意《用户协议》 单个多选框中没有选中就是false选中就是ture
                     }
 
