@@ -36,13 +36,13 @@
   <!-- /模版 -->
   <div id="root">
     <div>
-      <!-- {{参数| 过滤器方法名}} -->
-      <div>现在时间：{{ new Date| dataTime}}</div>
-      <!-- {{参数| 过滤器方法名（传参）}} ataTim-->
-      <div>现在时间：{{ new Date|dataTime("YYYY-MM-DD---HH:mm:ss/SSS")}}</div>
-      <!-- {{参数| 过滤器方法名（传参）|过滤器方法名（传参）}} -->
-      <!-- 传参后 先调用过滤器方法dataTime（参数）|后调用split方法(参数为dataTime返回值) -->
-      <div>现在时间：{{ new Date| dataTime("YYYY-MM-DD---HH:mm:ss/SSS")|split()}}</div>
+      <!-- {{时间戳| 过滤器方法名}} -->
+      <div>现在时间：{{ new Date|dataTimeformat}}</div>
+      <!-- {{时间戳| 过滤器方法名（传参）}}-->
+      <div>现在时间：{{ new Date|dataTimeformat("YYYY-MM-DD---HH:mm:ss/SSS")}}</div>
+      <!-- {{时间戳| 过滤器方法名（传参）|过滤器方法名（传参）}} -->
+      <!-- 传参后 先调用过滤器方法dataTime（参数）后调用split方法(参数为  dataTimeformat返回值) -->
+      <div>现在时间：{{ new Date|dataTimeformat("YYYY-MM-DD---HH:mm:ss/SSS")|split()}}</div>
 
 
     </div>
@@ -57,7 +57,7 @@
             // 过滤器
             filters: {
                 // 过滤器的方法,str为默认参数
-                dataTime(date, str = "YYYY-MM-DD----HH:mm:ss") {
+                dataTimeformat(date, str = "YYYY-MM-DD----HH:mm:ss") {
                     // 格式化时间（要引入moment.min.js文件）
                     return moment(date).format(str)
                 },
