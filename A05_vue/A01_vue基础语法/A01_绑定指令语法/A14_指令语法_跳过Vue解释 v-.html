@@ -28,8 +28,8 @@
     <!-- 引入vue.js -->
     <script type="text/javascript" src="../../js文件/vue.js"> </script>
     <style>
-    
-      
+
+
     </style>
 
 </head>
@@ -37,9 +37,7 @@
 <body>
     <!-- 模版 -->
     <div id="div">
-      
-        <div v-pre>跳过vue解释，用于没有指令语法和插值语法的元素</div>
-
+        <div v-pre>跳过vue解释，用于没有指令语法和插值语法的元素{{Number}} 这样是错误的</div>
     </div>
 
     <script type="text/javascript">
@@ -49,7 +47,13 @@
         // 定义一个vue实例 (配置对象)
         new Vue({
             el: '#div',//id选择器
-           
+            //data属性是vue实例的数据
+            data() {
+                return {
+                    Number: 1
+
+                }
+            }
         })
     </script>
 
