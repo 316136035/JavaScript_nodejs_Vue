@@ -39,9 +39,10 @@
 
             <div>
                 <label for="username">用户名</label>
-                <!-- v-model指令双向绑定 -->
-                <input type="text" name="username" id="username" v-model="form.username">
+                <!-- v-model指令双向绑定 trim是修饰符 去除前后的空格-->
+                <input type="text" name="username" id="username" v-model.trim="form.username">
                 <label for="age">年龄</label>
+                  <!-- v-model指令双向绑定 v-model.number 中的number是修饰符 -->
                 <input type="number" name="" id="age" v-model.number="form.age">
             </div>
             <div>
