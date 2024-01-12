@@ -20,7 +20,7 @@
   <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- 头标题 -->
-  <title>A05_filters过滤器_定义组件中的过滤方法</title>
+  <title>A07_mounted挂载_运行一次_</title>
   <!-- 设置网站图标调用一个外部的图片文件 -->
   <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
   <!-- 调用一个外部的CSS样式文件 -->
@@ -33,64 +33,38 @@
 </head>
 
 <body>
-  <!-- /模版 -->
-  <div id="root">
-    <div>
-      <!-- {{参数| 过滤器方法名}} -->
-      <div>现在时间：{{ new Date|dataTimeformat}}</div>
-      <!-- {{参数| 过滤器方法名（传参）}}-->
-      <div>现在时间：{{ new Date|dataTimeformat("YYYY-MM-DD---HH:mm:ss/SSS")}}</div>
-      <!-- {{参数| 过滤器方法名（传参）|过滤器方法名（传参）}} -->
-      <!-- 传参后 先调用过滤器方法dataTime（参数）后调用split方法(参数为  dataTimeformat返回值) -->
-      <div>现在时间：{{ new Date|dataTimeformat("YYYY-MM-DD---HH:mm:ss/SSS")|split()}}</div>
-    </div>
-
-    <div>
-      <!-- （参数|全；局过滤器） -->
-      <div>全局过滤器：{{str|split}}</div>
-  
+  <!-- 模版 -->
+  <div id="root1">
+    <!-- 绑定style 属性为对象 简写：:style="{opacity:data_style}" -->
+    <div v-bind:style="{opacity:data_style}">我是透明度为{{data_style}}的文本</div>
   </div>
-
-
-  </div>
-
-
-
-
   <script type="text/javascript">
-     // 开发环境关掉提示
-     Vue.config.productionTip = false;
+    // 开发环境关掉提示
+    Vue.config.productionTip = false;
     new Vue({
-      el: "#root", //选择器
+      el: "#root1", //选择器
       data() {
         return {
-          str:'2024-01-09---17:00:16/347'
-      
+          data_style: 0.1,
         }
       },
-      // 过滤器
-      filters: {
-        // 过滤器的方法,str为默认参数
-        dataTimeformat(date, str = "YYYY-MM-DD----HH:mm:ss") {
-          // 格式化时间（要引入moment.min.js文件）
-          return moment(date).format(str)
-        },
-        // // 过滤器的方法
-        split(value) {
-          // 字符串截取
-          return (value.split("---")[0])
+      //Vue完成模板的解析并把初始的真实DOM元素放入页面后(挂载完毕)， 该钩子函数会被调用。
+      mounted() {
+        setInterval(() => {
+          this.data_style -= 0.01;
+          console.log(this.data_style);
+          if (this.data_style < 0) {
+            this.data_style = 1;
+          }
 
-        }
+        }, 10);
 
-      }
+      },
+
     })
 
-    
-    // 全局过滤器
-    Vue.filter("split", function (value) {
-      // 字符串截取
-      return (value.split("---")[0])
-    })
+
+
 
   </script>
 
