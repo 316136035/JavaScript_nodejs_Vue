@@ -35,7 +35,7 @@
 <body>
   <!-- 模版 -->
   <div id="root1">
-    <!-- 绑定style 属性为对象 简写：:style="{opacity:data_style}" opacity是css的样式  -->
+    <!-- 绑定style 属性为对象 简写：:style="{opacity:data_style}" opacity是css的样式属性  -->
     <div v-bind:style="{opacity:data_style}">我是透明度为{{data_style}}的文本</div> 
   </div>
   <script type="text/javascript">
@@ -50,7 +50,9 @@
       },
       //Vue完成模板的解析并把初始的真实DOM元素放入页面后(挂载完毕)， 该钩子函数会被调用。
       mounted() {
-        setInterval(() => {
+        console.log("挂载完毕调用_");
+        // 定时器
+        setInterval(() => {     
           this.data_style -= 0.01;
           console.log(this.data_style);
           if (this.data_style < 0) {
