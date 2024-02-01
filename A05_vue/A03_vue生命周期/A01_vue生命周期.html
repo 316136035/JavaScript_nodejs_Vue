@@ -35,7 +35,7 @@
 <body>
   <!-- 模版 -->
   <div id="root">
- 
+
   </div>
   <script type="text/javascript">
     // 开发环境关掉提示
@@ -43,12 +43,13 @@
     new Vue({
       el: "#root", //选择器
       // 模版
-      template:`<div>
+      template: `<div>
                   <button v-on:click="accumulate">点击+1</button>
                   <samp> {{Number}}</samp>
-                  <samp>我是模版！！！！！</samp>
+                  <samp>我是模版！！！！！</samp> </br>
+                  <button v-on:click="destroy">销毁VM</button>
                 </div>`,
-   
+
       //创建前(此时: 无法通过vm访问到data中的数据、methods中的方法。)
       beforeCreate() {
         console.log("创建前：beforeCreate ", this);
@@ -75,9 +76,28 @@
           this.Number++;
 
         }
-
-
+        , destroy() {
+          //销毁vm的函数
+          this.$destroy();
+        }
       },
+      //更新前 此时:数据是新的，但页面是旧的，即:页面尚未和数据保持同步。
+      beforeUpdate() {
+        console.log("更新前：beforeUpdate", this);
+      },
+      //更新后 此时:数据是新的，页面也是新的，即:页面和数据同步了。
+      updated() {
+        console.log("更新后：updated", this);
+      },
+      //vm销毁前 此时:vm中所有的:data、methods、指令等等，都处于可用状态，马上要执行销毁过程一般在此阶段:关闭定时器、取消订阅消息、解绑自定义事件等收尾操作
+      beforeDestroy() {
+        console.log("销毁前：beforeDestroy", this);
+      },
+      //vm销毁后  
+      destroyed() {
+        console.log("销毁后：destroyed", this);
+      },
+
       //data属性是vue实例的数据 由Vue管理的函数，定不要写箭头函数，一且写了箭头函数 this就不再是Vue实例了。
       data() {
         return {
