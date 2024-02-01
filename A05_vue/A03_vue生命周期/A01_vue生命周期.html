@@ -35,24 +35,47 @@
 <body>
   <!-- 模版 -->
   <div id="root">
-    <button v-on:click="accumulate">点击+1</button>
-    <samp> {{Number}}</samp>
+ 
   </div>
   <script type="text/javascript">
     // 开发环境关掉提示
     Vue.config.productionTip = false;
     new Vue({
       el: "#root", //选择器
+      // 模版
+      template:`<div>
+                  <button v-on:click="accumulate">点击+1</button>
+                  <samp> {{Number}}</samp>
+                  <samp>我是模版！！！！！</samp>
+                </div>`,
+   
       //创建前(此时: 无法通过vm访问到data中的数据、methods中的方法。)
       beforeCreate() {
-        console.log("beforeCreate", this);
+        console.log("创建前：beforeCreate ", this);
         // debugger;
-
       },
       //创建后(此时: 可以通过vm访问到data中的数据、methods中配置的方法)
       created() {
-        console.log("created", this);
-       debugger;
+        console.log("创建后：created", this);
+        //  debugger;
+      },
+      //挂载前 1.页面呈现的是未经Vue编译的DOM结构。2.所有对DOM的操作，最终都不奏效。
+      beforeMount() {
+        console.log("挂载前：beforeMount ", this);
+        // debugger;
+      },
+      //挂载后 1.页面呈现的是经过Vue编译的DOM结构。2.所有对DOM的操作，最终奏效（尽可能避免操作doc）3.至此初始化过程结束，一般在此进行:开启定时器、发送网络请求、订阅消息、绑定自定义事件、等初始化操作。
+      mounted() {
+        console.log("挂载后：mounted", this);
+        // debugger
+      },
+      //methods属性  用于编写方法
+      methods: {
+        accumulate() {
+          this.Number++;
+
+        }
+
 
       },
       //data属性是vue实例的数据 由Vue管理的函数，定不要写箭头函数，一且写了箭头函数 this就不再是Vue实例了。
@@ -61,15 +84,7 @@
           Number: 0,
         }
       },
-      //methods属性  用于编写方法
-      methods: {
-        accumulate() {
-          this.Number++;
-      
-        }
 
-
-      },
 
 
     })
