@@ -66,7 +66,7 @@
         // 定时器（在vm中存放了一个定时器对象 ）
         this.timer = setInterval(() => {
           this.data_style.opacity -= 0.01;
-          console.log(this.data_style.opacity);
+          // console.log(this.data_style.opacity);
           if (this.data_style.opacity < 0) {
             this.data_style.opacity = 1;
           }
@@ -82,8 +82,15 @@
           clearInterval(this.timer);//清除定时器
         }
       },
+      //Vue实例销毁前调用该钩子函数
+      beforeDestroy() {
+        console.log("销毁前调用_");
+        clearInterval(this.timer);//清除定时器
+        debugger
+      },
+      },
 
-    })
+    )
 
 
 
