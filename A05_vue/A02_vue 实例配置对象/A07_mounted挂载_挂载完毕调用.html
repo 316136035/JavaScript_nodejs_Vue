@@ -36,10 +36,10 @@
   <!-- 模版 -->
   <div id="root1">
     <!-- 绑定style 属性为参数 简写：:style="{opacity:data_style.opacity}" opacity是css的样式属性  -->
-  <!--   绑定style 属性为对象 简写：:style="data_style"" -->
-    <div v-bind:style="data_style">我是透明度为{{data_style.opacity}}的文本</div> 
+    <!--   绑定style 属性为对象 简写：:style="data_style"" -->
+    <div v-bind:style="data_style">我是透明度为{{data_style.opacity}}的文本</div>
     <div><button v-on:click="clear_Timer">停止定时器</button></div>
-   
+
   </div>
   <script type="text/javascript">
     // 开发环境关掉提示
@@ -49,35 +49,36 @@
       data() {
         return {
           data_style: {
-                        width: '100%',//样式
-                        height: '300px',//样式
-                        color: 'red',//样式
-                        fontSize: '50px',//样式
-                        backgroundColor: 'Indigo' ,//多个单词使用驼峰模式
-                        opacity: 1 //样式
-                    }
-          
+            width: '100%',//样式
+            height: '300px',//样式
+            color: 'red',//样式
+            fontSize: '50px',//样式
+            backgroundColor: 'Indigo',//多个单词使用驼峰模式
+            opacity: 1 //样式
+          }
+
         }
       },
       //Vue完成模板的解析并把初始的真实DOM元素放入页面后(挂载完毕)， 该钩子函数会被调用。
       mounted() {
         console.log("挂载完毕调用_");
-       // 定时器（在vm中存放了一个定时器对象 ）
-      this.timer=  setInterval(() => {     
-          this.data_style. opacity -= 0.01;
-          console.log(this.data_style. opacity);
-          if (this.data_style. opacity < 0) {
-            this.data_style. opacity = 1;
+        // 定时器（在vm中存放了一个定时器对象 ）
+        this.timer = setInterval(() => {
+          this.data_style.opacity -= 0.01;
+          console.log(this.data_style.opacity);
+          if (this.data_style.opacity < 0) {
+            this.data_style.opacity = 1;
           }
 
         }, 10);
-       
+
 
       },
+      //methods属性  用于编写方法  
       methods: {
-        clear_Timer(){
-          clearInterval(this.timer);
-          console.log("清除定时器");
+        //清除定时器
+        clear_Timer() {
+          clearInterval(this.timer);//清除定时器
         }
       },
 
