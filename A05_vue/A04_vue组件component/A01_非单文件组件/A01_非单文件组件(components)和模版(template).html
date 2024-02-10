@@ -79,11 +79,13 @@
         "onclick"() { alert(this.animal.name) }
       }
     })
+    //全局注册组件（'组件名'，组件）（少用）
+    Vue.component( animal, animal);
     // 定义一个vue实例 (配置对象)
     new Vue({
       el: "#app",//选择器
       components: { //注册组件
-        person: person,  //注册组件（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写）
+        person: person,  //注册组件（'组件名'，组件）（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写）
         animal: animal
 
       }
