@@ -1,0 +1,104 @@
+<!DOCTYPE html> <!-- 文档声明 html-5 -->
+<html lang="zh-CN"> <!-- 设置页面语言  中文简体 -->
+<!-- 表头 -->
+
+<head>
+  <!--规定 HTML 文档的字符编码  兼用性-->
+  <meta charset="UTF-8">
+  <!-- 针对IE浏览器的一个兼容性设置-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--优先使用 webkit ( Chromium ) 内核进行染，针对36@等壳览器-->
+  <meta name="renderer" content="webkit">
+
+  <!-- 让低版本浏览器认识H5 的语义化标签 -->
+  <!--[if lt ie g]>
+       <script src="../resources静态资源/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+  <!--< Meta Name=" description（网站内容描述）" Content="网页描述文字"   兼用性>  -->
+  <meta name="description" content="网页描述文字">
+  <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 头标题 -->
+  <title>A01_非单文件组件(components)和模版(template)</title>
+  <!-- 设置网站图标调用一个外部的图片文件 -->
+  <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
+  <!-- 调用一个外部的CSS样式文件 -->
+  <link rel="stylesheet" href="#">
+  <!-- 引入vue.js -->
+  <script type="text/javascript" src="../../js文件/vue.js"> </script>
+  <!-- 引入moment.js  用于格式化日期 -->
+  <!-- <script type="text/javascript" src="../js文件/moment.min.js"> </script> -->
+
+</head>
+
+<body>
+  <div>组件的使用：
+    <div>1.定义一个局部组件: Vue.extend({})</div>
+    <div>2.component{}注册组件,在new Vue下面注册组件</div>
+    <div>3.使用组件,在html中使用组件</div>
+  </div>
+  <hr>
+  <!-- 模版 -->
+  <div id="app">
+    <person></person>
+    <hr>
+    <animal></animal>
+  </div>
+  <script type="text/javascript">
+    // 开发环境关掉提示
+    Vue.config.productionTip = false;
+    //  定义一个局部组件(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
+    const person = Vue.extend({
+      // 定义一个模板
+      template:
+        `<div>
+                <div>{{user.name}}</div>
+                <div>{{user.age}}</div>
+                <button @click="onclick">点击</button>
+                </div>` ,
+      // 回调函数
+      data() { return { user: { name: "组件一", age: 19 } } },
+      // 方法
+      methods: {
+        "onclick"() { alert(this.user.name) }
+      }
+    });
+    //  定义一个局部组件(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
+    const animal = Vue.extend({
+      // 定义一个模板
+      template:
+        `<div>
+                <div>{{animal.name}}</div>
+             <button @click="onclick">点击</button>
+                </div>` ,
+      // 回调函数
+      data() { return { animal: { name: "组件二" } } },
+      // 方法
+      methods: {
+        "onclick"() { alert(this.animal.name) }
+      }
+    })
+    // 定义一个vue实例 (配置对象)
+    new Vue({
+      el: "#app",//选择器
+      components: { //注册组件
+        person: person,  //注册组件（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写）
+        animal: animal
+
+      }
+
+
+
+    })
+
+
+  </script>
+
+
+
+
+
+</body>
+
+</html>
