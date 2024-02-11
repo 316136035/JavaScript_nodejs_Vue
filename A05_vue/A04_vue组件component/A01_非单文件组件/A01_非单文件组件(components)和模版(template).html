@@ -41,15 +41,15 @@
   <hr>
   <!-- 模版 -->
   <div id="app">
-    <!--  -->
-    <person></person>   
+    <!-- 3.使用组件 -->
+    <person></person>
     <hr>
     <animal></animal>
   </div>
   <script type="text/javascript">
     // 开发环境关掉提示
     Vue.config.productionTip = false;
-    //  定义一个局部组件(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
+    //  1.定义一个局部组件(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
     const person = Vue.extend({
       // 定义一个模板
       template:
@@ -57,7 +57,9 @@
                 <div>{{user.name}}</div>
                 <div>{{user.age}}</div>
                 <button @click="onclick">点击显示组件名</button>
-                </div>` ,
+          </div>` ,
+      //自定义组件名称
+      name: "custom",
       // 回调函数
       data() { return { user: { name: "组件一", age: 19 } } },
       // 方法
@@ -70,9 +72,9 @@
       // 定义一个模板
       template:
         `<div>
-                <div>{{animal.name}}</div>
-             <button @click="onclick">点击显示组件名</button>
-                </div>` ,
+            <div>{{animal.name}}</div>
+            <button @click="onclick">点击显示组件名</button>
+          </div>` ,
       // 回调函数
       data() { return { animal: { name: "组件二" } } },
       // 方法
@@ -81,11 +83,11 @@
       }
     })
     //全局注册组件（'组件名'，组件）（少用）
-    Vue.component( animal, animal);
+    // Vue.component( animal, animal);
     // 定义一个vue实例 (配置对象)
     new Vue({
       el: "#app",//选择器
-      components: { //注册组件
+      components: { //2.注册组件
         person: person,  //注册组件（'组件名'，组件）（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写，可以简写：person）
         animal: animal
 
