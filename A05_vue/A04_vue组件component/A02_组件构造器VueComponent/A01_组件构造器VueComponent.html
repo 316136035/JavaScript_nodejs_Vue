@@ -54,8 +54,6 @@
     <!-- 使用组件 -->
     <component1></component1>
     <component2></component2>
-
-
     <!-- <myComponent2></myComponent2> -->
   </div>
   <script type="text/javascript">
@@ -63,14 +61,24 @@
     Vue.config.productionTip = false;
     //  定义一个局部组件(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
     const component1 = Vue.extend({
+      //模板
+      template: `<div> 
+                    <div>{{msg}}</div> 
+                   <button @click="onclick">点击</button>  
+                 </div>`,
       //数据
       data() {
         return {
           msg: "组件一"
         }
       },
-      //模板
-      template: `<div>{{msg}}</div>`
+      methods: {
+        onclick() {
+          alert(this.msg)
+        }
+      },
+
+
     })
     console.log('组件一', component1);
 
@@ -82,6 +90,7 @@
           msg: "组件二"
         }
       },
+
       //模板
       template: `<div>{{msg}}</div>`
     })
