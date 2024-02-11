@@ -20,7 +20,7 @@
   <!-- Edge 模式通知 Windows Internet Explorer 以最高级别的可用模式显示内容   兼用性-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- 头标题 -->
-  <title>A01_非单文件组件(components)和模版(template)</title>
+  <title>A02_非单文件组件的嵌套</title>
   <!-- 设置网站图标调用一个外部的图片文件 -->
   <!-- <link rel="shortcut icon" href="../resources静态资源/img/favicon.ico" type="image/x-icon" /> -->
   <!-- 调用一个外部的CSS样式文件 -->
@@ -33,88 +33,96 @@
 </head>
 
 <body>
-  <div>组件的使用：
-    <div>1.定义一个局部组件: Vue.extend({})</div>
-    <div>2.component{}注册组件,在new Vue下面注册组件</div>
-    <div>3.使用组件,在html中使用组件</div>
-  </div>
-  <hr>
+
   <!-- 模版 -->
   <div id="app">
     <!-- 3.使用组件 -->
-    <person></person>
-    <hr>
-    <animal></animal>
-    <hr>
-    <abbreviation></abbreviation>
+    <app></app>
+
   </div>
   <script type="text/javascript">
     // 开发环境关掉提示
     Vue.config.productionTip = false;
-    //  1.定义一个局部组件(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
-    const person = Vue.extend({
-      // 定义一个模板
+    //  1.定义一个局部组件（子组件）(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
+    const student = Vue.extend({
       template:
         `<div>
-                <div>{{user.name}}</div>
-                <div>{{user.age}}</div>
-                <button @click="onclick">点击显示组件名</button>
+                <div>{{student.name}}</div>
+                <div>{{student.age}}</div>
+           
           </div>` ,
       //自定义组件名称，在开发者工具中呈现的名字
-      name: "custom",
+      name: "student",
       // 回调函数
-      data() { return { user: { name: "组件一", age: 19 } } },
-      // 方法
-      methods: {
-        "onclick"() { alert(this.user.name) }
-      }
-    });
-    //  定义一个局部组件(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
-    const animal = Vue.extend({
-      // 定义一个模板
-      template:
-        `<div>
-            <div>{{animal.name}}</div>
-            <button @click="onclick">点击显示组件名</button>
-          </div>` ,
-      // 回调函数
-      data() { return { animal: { name: "组件二" } } },
-      // 方法
-      methods: {
-        "onclick"() { alert(this.animal.name) }
-      }
+      data() { return { student: { name: "淘神价", age: 19 } } },
     })
 
-    // 定义一个局部组件简写方式 内部还是调用的Vue.extend({})
-    const abbreviation= {
+    //  1.定义一个局部组件（父组件）(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
+    const school = Vue.extend({
       // 定义一个模板
       template:
         `<div>
-            <div>{{animal.name}}</div>
-            <button @click="onclick">点击显示组件名</button>
+                <div>{{school.name}}</div>
+                <div>{{school.address}}</div>
+                  <--使用子组件-->
+                <student></student>
           </div>` ,
+      //自定义组件名称，在开发者工具中呈现的名字
+      name: "school",
       // 回调函数
-      data() { return { animal: { name: "组件简写方式" } } },
+      data() { return { school: { name: "淘神价", address: "广州" } } },
       // 方法
       methods: {
-        "onclick"() { alert(this.animal.name) }
+        "onclick"() { alert(this.school.address) }
+      },
+      //注册子组件（'组件名'，组件）（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写，可以简写）
+      components: {
+        student: student
       }
-    }
+    });
 
-    //全局注册组件（'组件名'，组件）（少用）
-    // Vue.component( animal, animal);
+    //  1.定义一个局部组件（消息）(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
+    const msg = Vue.extend({
+      // 定义一个模板
+      template: `<div>{{msg}}</div>`,
+      data() {
+        return {
+          msg: "欢迎来到淘神价vip"
+        }
+      }
+    })
+    //  1.定义一个局部组件（管理全部组件）
+    const app = Vue.extend({
+      // 定义一个模板 （使用子组件）
+      template:
+        `<div>
+                <msg></msg>  
+                <school></school>
+          </div>` ,
+      //注册组件（'组件名'，组件）（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写，可以简写）
+      components: {
+        school: school,
+        msg: msg
+      },
+
+    })
+
     // 定义一个vue实例 (配置对象)
     new Vue({
       el: "#app",//选择器
       components: { //2.注册组件
-        person: person,  //注册组件（'组件名'，组件）（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写，可以简写：person）
-        animal: animal,
-        abbreviation: abbreviation
+        app: app,  //注册组件（'组件名'，组件）（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写，可以简写：person）
+
       }
     })
 
 
   </script>
+
+
+
+
+
 
 
 
