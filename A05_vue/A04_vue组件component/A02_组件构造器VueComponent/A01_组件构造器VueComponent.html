@@ -28,18 +28,76 @@
   <!-- 引入vue.js -->
   <script type="text/javascript" src="../../js文件/vue.js"> </script>
   <!-- 引入moment.js  用于格式化日期 -->
-    <!-- <script type="text/javascript" src="../js文件/moment.min.js"> </script> -->
+  <!-- <script type="text/javascript" src="../js文件/moment.min.js"> </script> -->
 </head>
 
 <body>
   <!-- 模版 -->
-  <div id="root">
+  <div id="app">
 
+
+    <div>
+      <div>组件构造器VueComponent</div>
+      <ul>
+        <li>组件本质是一个名为Vuecomponent的构造函数，且不是程序员定义的，是Vue.extend生成的</li>
+        <li>我们只需要使用组件，Vue解析时会帮我们创建组件的实例对象，即Vue帮我们执行的:new VueComponent(options)。</li>
+        <li>特别注意:每次调用Vue.extend，返回的都是一个全新的Vuecomponent!!!!</li>
+        <li>关于this指向------------------
+          <div>组件配置中: data函数、methods中的函数、watch中的函数、computed中的函数·它们的this均是【VueVueComponent实例对象】</div>
+          <div>new·Vue()配置中: data函数、methods中的函数、watch中的函数、computed中的所数:它们的this均是【Vue实例对象】</div>
+        </li>
+        <li>VueComponent的实例对象，以后简称vc(也可称之为:组件实例对象)。 Vue的实例对象，以后简称vm。</li>
+
+      </ul>
+
+    </div>
+    <!-- 使用组件 -->
+    <component1></component1>
+    <component2></component2>
+
+
+    <!-- <myComponent2></myComponent2> -->
   </div>
   <script type="text/javascript">
     // 开发环境关掉提示
     Vue.config.productionTip = false;
-   
+    //  定义一个局部组件(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
+    const component1 = Vue.extend({
+      //数据
+      data() {
+        return {
+          msg: "组件一"
+        }
+      },
+      //模板
+      template: `<div>{{msg}}</div>`
+    })
+    console.log('组件一', component1);
+
+    //  定义一个局部组件(除了不能使用el之外，其他都可以使用， template，data,methods,computed,watch等)
+    const component2 = Vue.extend({
+      //数据
+      data() {
+        return {
+          msg: "组件二"
+        }
+      },
+      //模板
+      template: `<div>{{msg}}</div>`
+    })
+    console.log('组件二', component2);
+
+
+    // 定义一个vue实例 (配置对象)
+    new Vue({
+      el: "#app",//选择器
+      components: { //2.注册组件
+        component1: component1,  //注册组件（'组件名'，组件）（不要用html的元素来命名 当个单词用大写开头，多个用小写中间作用-区分，在框架中用两个单词钱大写，可以简写：person）
+        component2: component2
+      }
+    })
+
+
 
 
 
