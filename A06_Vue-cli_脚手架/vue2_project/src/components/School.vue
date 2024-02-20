@@ -6,19 +6,23 @@
   </div>
 </template>
 
-
 <script>
-//暴露组件的变量和方法 等等  -->
+//暴露子组件的变量和方法 等等  -->
 export default {
   data() {
     return {
       school :{name:'淘神价vip',address:'广州'} 
     }
   },
-
 }
-</script>
 
+</script>
+<!-- css -->
 <style>
+.school-name{
+  font-size: 40px;
+  color: red;
+}
+
 
 </style>
