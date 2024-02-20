@@ -1,20 +1,19 @@
 <!-- 模版 -->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <School></School>
   </div>
 </template>
 
 <script>
 // 引入组件
-import HelloWorld from './components/HelloWorld.vue'
-// 暴露组件
+import School from './components/School.vue'
+///暴露主组件的变量和方法 等等  -->
 export default {
   name: 'App',//自定义组件名称
   // 注册组件
   components: {
-    HelloWorld: HelloWorld 
+    School: School
   }
 }
 </script>

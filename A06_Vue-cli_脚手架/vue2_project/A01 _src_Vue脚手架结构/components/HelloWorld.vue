@@ -7,7 +7,7 @@
 </template>
 
 <script>
-// 暴露组件
+//暴露组件的变量和方法 等等  -->
 export default {
   name: 'HelloWorld',
   props: {
