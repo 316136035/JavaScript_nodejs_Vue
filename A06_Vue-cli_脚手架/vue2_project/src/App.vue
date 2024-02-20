@@ -1,7 +1,7 @@
 <!-- 模版 -->
 <template>
   <div id="app">
-    <!-- 创建组件 并传入参数 -->
+    <!-- 创建组件 并传入参数    :符号为表达-->
     <Student :name="'淘神价vip'" :age="18" :gender="'男'" ></Student>
  </div>
 </template>

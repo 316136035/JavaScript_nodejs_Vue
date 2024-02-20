@@ -1,7 +1,7 @@
 <!-- 学校信息模版 -->
 <template>
   <div class="Student">
-    <div class="Student-name">{{ name }}</div>
+    <div class="Student-name">{{  myname  }}</div>
     <div class="Student-age">{{ age+1 }}</div>
     <div class="Student-address">{{ gender }}</div>
   </div>
@@ -10,7 +10,11 @@
 <script>
 //暴露子组件的变量和方法 等等  -->
 export default {
-  /**声明接受数据三种写法*/
+  data() {
+    return { myname :this.name //传入的参数赋值给 myname
+    }
+  },
+  /**声明接受数据三种写法 传入的参数不建议修改  备注: props是只读的，Vue底层会监测你对props的修改，如果进行了修改，就会发出警告，若业务需求确实需要修改，那么请复制props的内容到data中一份，然后去修改data中的数据。*/
   /*1.简单写法 */
   props: ["name", "age", "gender"],
   /*2.声明接受的同时对数据进行类型限制*/
