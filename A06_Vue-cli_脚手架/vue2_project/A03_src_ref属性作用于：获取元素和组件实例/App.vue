@@ -32,14 +32,14 @@ export default {
   // 定义方法
   methods: {
     getelement() {
-      console.log(this.$refs.h1); //获取Doc元素
+      console.log(this.$refs.h1);
        
     },
     getSchoolComponent() {
-      console.log(this.$refs.school);//获取组件实例
+      console.log(this.$refs.school);
     },
     getSchoolelement() {
-      console.log(document.getElementById('school'));//获取组件元素
+      console.log(document.getElementById('school'));
     }
 
 
