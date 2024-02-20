@@ -1,28 +1,20 @@
 <!-- 模版 -->
 <template>
   <div id="app">
-    <h1 v-text="msg" ref="h1"></h1>
- 
-    <button v-on:click="getelement">获取元素</button>
-
-    <School ref="school"></School>
-    <button v-on:click="getSchoolComponent">获取school组件</button>
-
-    <School id="school"></School>
-    <button v-on:click=" getSchoolelement">获取school组件元素</button>
-
-  </div>
+    <!-- 创建组件 并传入参数 -->
+    <Student :name="'淘神价vip'" :age="18" :gender="'男'" ></Student>
+ </div>
 </template>
 
 <script>
 // 引入组件
-import School from './components/School.vue'
+import Student from './components/Student.vue'
 ///暴露主组件的变量和方法 等等  -->
 export default {
   name: 'App',//自定义组件名称
   // 注册组件
   components: {
-    School: School
+    Student: Student
   },
   data() {
     return {
@@ -30,20 +22,7 @@ export default {
     }
   },
   // 定义方法
-  methods: {
-    getelement() {
-      console.log(this.$refs.h1); //获取Doc元素
-       
-    },
-    getSchoolComponent() {
-      console.log(this.$refs.school);//获取组件实例
-    },
-    getSchoolelement() {
-      console.log(document.getElementById('school'));//获取组件元素
-    }
-
-
-  }
+  methods: { }
   }
 
 </script>
