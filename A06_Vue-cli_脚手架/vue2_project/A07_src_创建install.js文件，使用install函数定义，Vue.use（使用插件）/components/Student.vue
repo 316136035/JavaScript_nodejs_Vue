@@ -6,7 +6,7 @@
     <!-- 使用自定义插件中的自定义指令 -->
     <div><input type="text" v-focus:value="student.name"></div>
      <!-- 使用Vue原型对象中的方法 -->
-     <div><button v-on:click=this.work() >使用Vue原型对象中的方</button></div>
+     <div><button v-on:click="click" >使用Vue原型对象中的方</button></div>
 
   </div>
 </template>
@@ -18,11 +18,11 @@ export default {
   data() {
     return { student: { name: "淘神价---vip", address: "广州" } };
   },
-  // methods :{
-  //   click() {
-  //     this.work()
-  //   }
-  // }
+  methods :{
+    click() {
+      this.work()
+    }
+  }
 
 };
 </script>
