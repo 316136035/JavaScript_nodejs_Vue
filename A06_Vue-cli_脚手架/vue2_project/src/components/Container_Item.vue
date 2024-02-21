@@ -1,6 +1,6 @@
 <!-- 模版 -->
 <template>
-<div>{{  msg }}</div>
+<div>{{  item }}</div>
 </template>
 <script>
 //暴露主组件的变量和方法 等等  -->
@@ -11,6 +11,9 @@ export default {
       msg: '我是对象'
     }
   },
+  props: {
+    item: String
+  }
 
 }
 </script>

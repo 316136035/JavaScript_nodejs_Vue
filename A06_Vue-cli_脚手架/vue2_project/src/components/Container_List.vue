@@ -16,7 +16,7 @@ components: {
     Container_Item: Container_Item,
   },
   data() {
-    return {};
+    return{ list : ['阅读', '编程', '画画', '音乐', '旅行']} ;
   },
 };
 </script>
