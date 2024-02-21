@@ -16,7 +16,7 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- scoped代表只能在当前组件使用的css样式 -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
