@@ -1,22 +1,29 @@
 <!-- 学校信息模版 -->
 <template>
   <div class="Student">
-    <div id="msg">msg</div>
-    <div class="Student-name">{{ student.name }}</div>
-    <div class="Student-address">{{ student.address }}</div>
-    <button v-on:click="sleep">看看他在干嘛</button>
+    <!-- （|）管道符使用自定义插件过滤器 -->
+    <div class="Student-name">{{ student.name| split}}</div>
+    <!-- 使用自定义插件中的自定义指令 -->
+    <div><input type="text" v-focus:value="student.name"></div>
+     <!-- 使用Vue原型对象中的方法 -->
+     <div><button v-on:click="click" >使用Vue原型对象中的方</button></div>
+
   </div>
 </template>
 
 <script>
-//引入混合的函数数据 等等  -->
-import { mixin1, data1 } from "../mixin.js";
+
 //暴露子组件的变量和方法 等等  -->
 export default {
   data() {
-    return { student: { name: "淘神价vip", address: "广州" } };
+    return { student: { name: "淘神价---vip", address: "广州" } };
   },
-  mixins: [mixin1, data1], //使用混合
+  methods :{
+    click() {
+      this.work()
+    }
+  }
+
 };
 </script>
 <!-- css -->
