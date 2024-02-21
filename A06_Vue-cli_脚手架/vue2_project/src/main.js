@@ -6,10 +6,6 @@ import Vue from 'vue'
 import App from './App.vue'
 // 开发环境关掉提示
 Vue.config.productionTip = false
-//引入插件
-import install from './install.js'
-//安装插件
-Vue.use(install)
 //创建一个Vue实例
 new Vue({
 
