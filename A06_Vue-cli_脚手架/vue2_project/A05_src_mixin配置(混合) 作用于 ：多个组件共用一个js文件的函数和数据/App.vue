@@ -12,6 +12,7 @@
 // 引入组件
 import Student from './components/Student.vue'
 import work from './components/Work.vue'
+
 ///暴露主组件的变量和方法 等等  -->
 export default {
   name: 'App',//自定义组件名称
