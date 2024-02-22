@@ -1,9 +1,22 @@
 <!-- 模版 -->
 <template>
-  <div id="container-list">
+  <table id="container-list">
+    <caption>标题</caption>
+        <!-- 标表头 -->
+        <tr>
+            <th>序号</th>
+            <th>商品名称</th>
+            <th>现价</th>
+            <th>选择</th>
+        </tr>
+
     <!-- 使用子组件 -->
-    <Container_Item> </Container_Item>
-  </div>
+    <Container_Item 
+    v-for="(item, index) in list" :key="index"
+    :item="item"
+    :changecheckbox="changecheckbox"
+ > </Container_Item>
+  </table>
 </template>
 <script>
 // 引入子组件
@@ -15,16 +28,37 @@ export default {
 components: {
     Container_Item: Container_Item,
   },
-  data() {
-    return{ list : ['阅读', '编程', '画画', '音乐', '旅行']} ;
+   /*声明接受的同时对数据进行类型限制*/
+  props: {
+    list: Array,
+    changecheckbox:Function
   },
+  
 };
 </script>
 
 <style scoped>
 #container-list {
-  /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
-  border: solid 2px rgb(98, 100, 0);
+            /* 视图宽度 */
+            width: calc(100%);
+            /* 设置标题位置 
+            top 头部
+            bottom 尾部*/
+            caption-side: top;
+            /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+            border: solid 1px rgb(33, 0, 100);
+            /* 设置表单列宽  auto 自动的  fixed固定的*/
+            table-layout: auto;
+            /* 设置单元格之间的边框距离（前提不能使用合并单元格之间的边框） */
+            /* border-spacing: 0px; */
+            /*  合并单元格之间的边框 （设置单元格之间的边框距离就不生效了）*/
+            border-collapse: collapse;
+            /* 隐藏没有内容的单元格 （前提不能使用合并单元格之间的边框*/
+            empty-cells: hide;
 }
+th {
+ /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
+  border: solid 1px rgb(255, 1, 94);
+ }
 </style>
 

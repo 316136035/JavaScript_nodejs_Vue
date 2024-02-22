@@ -1,13 +1,18 @@
 <!-- 模版 -->
 <template>
   <div id="app">
-    <Header></Header>
+    <!-- 头部组件 把方法传给子组件 -->
+    <Header :additem="additem"></Header>
     <hr />
-    <Container_List></Container_List>
+    <!-- 列表组件 把数据传给子组件 -->
+    <Container_List :list="list"  :changecheckbox="changecheckbox" ></Container_List>
     <hr />
     <Footer></Footer>
   </div>
+
+
 </template>
+
 
 <script>
 // 引入组件
@@ -22,6 +27,45 @@ export default {
     Header: Header,
     Container_List: Container_List,
     Footer: Footer,
+  },
+  // 定义方法
+  methods:{
+    //定义追加对象到list数组的方法 （模版把函数传到Header组件中调用 ）
+    additem(item){this.list.push(item)},
+   
+    changecheckbox(id){
+      this.list.forEach((item)=>{
+        if(item.id==id){
+          item.check=!item.check
+        }
+      })
+    }
+  },
+  // 定义数据
+  data() {
+    return {
+      list: [
+        {
+          id: 1,
+          name: "得力(deli)6色荧光笔套装 考试复习彩色醒目标记笔 手帐可用水性记号笔6支/盒DL-S624",
+          price: 25,
+          check:true
+
+        },
+        {
+          id: 2,
+          name: "百草味 东北松子500g 坚果量贩手剥开口原味干果每日坚果礼物送礼",
+          price: 74.,
+          check:false
+        },
+        {
+          id: 3,
+          name: "名爵（MEJUE）厨房水槽304不锈钢龙头洗菜池洗碗盆一体式台下盆淘菜水池槽",
+          price: 139,
+          check:true
+        },
+      ],
+    };
   },
 };
 </script>
