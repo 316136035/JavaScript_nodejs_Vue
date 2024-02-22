@@ -30,9 +30,10 @@ components: {
   },
    /*声明接受的同时对数据进行类型限制*/
   props: {
-    list: Array,
-    changecheckbox:Function
+    list: Array, //接受父组件传过来的数组
+    changecheckbox:Function//接受父组件传过来的方法
   },
+
   
 };
 </script>

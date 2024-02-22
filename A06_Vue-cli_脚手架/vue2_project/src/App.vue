@@ -4,7 +4,9 @@
     <!-- 头部组件 把方法传给子组件 -->
     <Header :additem="additem"></Header>
     <hr />
-    <!-- 列表组件 把数据传给子组件 -->
+    <!-- 列表组件  
+      :list="list"把list数据传给Container_List组件    
+      :changecheckbox="changecheckbox"把函数changecheckbox传给Container_List组件 -->
     <Container_List :list="list"  :changecheckbox="changecheckbox" ></Container_List>
     <hr />
     <Footer></Footer>
