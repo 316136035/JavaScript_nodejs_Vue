@@ -15,8 +15,15 @@
     ></Container_List>
     <hr />
     <!-- 列表组件  
-      :list="list"把list数据传给Container_List组件     -->
-    <Footer :list="list" :select_All_none="select_All_none"></Footer>
+      :list="list"把list数据传给Footer组件  
+      :select_All_none="select_All_none" 把select_All_none函数传给Footer组件  
+      :DeleteCheckboxAll="DeleteCheckboxAll" 把DeleteCheckboxAll函数传给Footer组件  
+       -->
+    <Footer
+     :list="list" 
+     :select_All_none="select_All_none" 
+     :DeleteCheckboxAll="DeleteCheckboxAll">
+    </Footer>
   </div>
 </template>
 
@@ -63,7 +70,15 @@ export default {
       this.list.forEach((item) => {
         item.check = check;
       });
-    }
+      //定义方法删除选中状态的方法（模版把函数传到Container_Item组件中调用 ））
+      
+    },
+    //定义一个删除选中的方法（模版把函数传到Footer组件中调用），
+    DeleteCheckboxAll() {
+      this.list = this.list.filter((item) => {
+        return !item.check;
+      });
+    },
   },
   
   // 定义数据

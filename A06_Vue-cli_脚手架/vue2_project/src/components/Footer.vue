@@ -12,6 +12,7 @@
     <span>共{{ totalitem }}件商品/</span>
     <!-- 显示选中的商品数量 -->
     <span>选择了 {{ selecteditems }} 件商品</span>
+    <button v-on:click="deletecheckboxall">删除选中</button >
   </div>
 </template>
 
@@ -22,6 +23,7 @@ export default {
   props: {
     list: Array,
     select_All_none: Function,
+    DeleteCheckboxAll: Function,
   },
   // 1.初次读取时就运行,2.computed方法有缓存3.所依赖的数据发生变化时缓存也会刷新缓存。
   computed: {
@@ -49,7 +51,14 @@ export default {
       this.select_All_none(check);
       }
     },
+   
   },
+  methods: {
+      deletecheckboxall() {
+        //调用父组件的方法
+        this.DeleteCheckboxAll();
+      },
+    },
 
 };
 </script>
@@ -58,5 +67,9 @@ export default {
 #footer {
   /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
   border: solid 2px rgb(0, 97, 100);
+}
+button {
+  position: absolute;
+  right: 0; /* 靠近容器右侧 */
 }
 </style>
