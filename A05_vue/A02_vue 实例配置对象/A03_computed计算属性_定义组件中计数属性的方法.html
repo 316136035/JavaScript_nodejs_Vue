@@ -79,6 +79,7 @@
                     get() {
                         return this.user.username + '---' + this.user.password;
                     },
+                    //set有什么作用?当有人写入user_computed时，set就会被调用，且将写入的值作为参数传入
                     set(newusername_newpassword) {
                         let spstr = newusername_newpassword.split('-');
                         this.user.username = spstr[0];

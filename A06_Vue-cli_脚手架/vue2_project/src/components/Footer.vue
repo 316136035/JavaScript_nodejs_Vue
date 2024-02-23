@@ -5,8 +5,8 @@
     <!-- 显示全选框  :checked="isAllchecked"判断是否全部选中 -->
     <input
       type="checkbox"
-      :checked="isAllchecked"
-      v-on:change="selectAll_or_none"
+       v-model="isAllchecked"
+     
     />
     <!-- 显示全部商品数量 -->
     <span>共{{ totalitem }}件商品/</span>
@@ -36,19 +36,21 @@ export default {
         return pre + (item.check ? 1 : 0);
       }, 0);
     },
-    //计算是否全部选中是的话就返回true 否则返回false
-    isAllchecked() {
-      //判断是否全部选中
+    //计算是否全部选中并处理全选和全不选
+    isAllchecked: {
+      //当有人读取 isAllchecked时，get就会被调用，且返回值就作为isAllchecked的值 
+      get(){
+         //计算是否全部选中是的话就返回true 否则返回false
       return this.selecteditems === this.totalitem && this.totalitem > 0;
+      },
+       //set有什么作用?当有人写入user_computed时，set就会被调用，且将写入的值作为参数传入
+      set(check){
+             //调用父类方法处理全选或者全不选
+      this.select_All_none(check);
+      }
     },
   },
-  methods: {
-    //定义方法改变全选状态的方法
-    selectAll_or_none(e) {
-      //调用父类方法处理全选或者全不选
-      this.select_All_none(e.target.checked);
-    },
-  },
+
 };
 </script>
 
