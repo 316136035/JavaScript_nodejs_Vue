@@ -1,13 +1,17 @@
 <!-- 模版 -->
 <template>
-  <div id="footer">
-    <div>
-      <input type="checkbox" />
-      <!-- 显示全部商品数量 -->
-      <span>共{{ totalitem }}件商品/</span>
-      <!-- 显示选中的商品数量 -->
-      <span>选择了 {{ selecteditems }} 件商品</span>
-    </div>
+  <!--_v-show显示和隐藏 当totalitem为大于0时显示，小于0时不显示  -->
+  <div id="footer" v-show="totalitem">
+    <!-- 显示全选框  :checked="isAllchecked"判断是否全部选中 -->
+    <input
+      type="checkbox"
+      :checked="isAllchecked"
+      v-on:change="selectAll_or_none"
+    />
+    <!-- 显示全部商品数量 -->
+    <span>共{{ totalitem }}件商品/</span>
+    <!-- 显示选中的商品数量 -->
+    <span>选择了 {{ selecteditems }} 件商品</span>
   </div>
 </template>
 
@@ -17,7 +21,9 @@ export default {
   name: "Footer",
   props: {
     list: Array,
+    select_All_none: Function,
   },
+  // 1.初次读取时就运行,2.computed方法有缓存3.所依赖的数据发生变化时缓存也会刷新缓存。
   computed: {
     //计算全部商品数量
     totalitem() {
@@ -29,6 +35,18 @@ export default {
       return this.list.reduce((pre, item) => {
         return pre + (item.check ? 1 : 0);
       }, 0);
+    },
+    //计算是否全部选中是的话就返回true 否则返回false
+    isAllchecked() {
+      //判断是否全部选中
+      return this.selecteditems === this.totalitem && this.totalitem > 0;
+    },
+  },
+  methods: {
+    //定义方法改变全选状态的方法
+    selectAll_or_none(e) {
+      //调用父类方法处理全选或者全不选
+      this.select_All_none(e.target.checked);
     },
   },
 };

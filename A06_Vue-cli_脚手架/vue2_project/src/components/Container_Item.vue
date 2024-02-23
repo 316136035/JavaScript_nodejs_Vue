@@ -50,7 +50,7 @@ export default {
 /* :last-child 最后一个子元素的样式 */
 #del  {
   /* 隐藏最后一个子元素的样式 */
-  visibility: hidden
+  opacity: 0;
 }
 /* :hover鼠标指针浮动在其上时的样式 */
 #item:hover {
@@ -59,6 +59,6 @@ export default {
 /* :hover 鼠标指针浮动在其上时的样式 */
 #item:hover :last-child {
   /* 显示最后一个子元素的样式*/
-  visibility: visible;
+  opacity: 1;
 }
 </style>

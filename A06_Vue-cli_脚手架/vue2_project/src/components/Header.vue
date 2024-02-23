@@ -19,9 +19,13 @@ export default {
   props: ["additem"],
   methods: {
     createitem() {
-  //判断输入框的字符串是否为undefined/null/""  当一个为空就返回
-      if (this.id<0&&this.name===""&&this.name===undefined&&this.name===null&&this.price<0)
-       return; //返回
+   //判断输入框的字符串是否为undefined/null/""  当一个为空就返回
+   if (
+        typeof this.name === "undefined" ||
+        this.name == null ||
+        this.name === ""
+      )
+        return;
       //创建对象
        const item={id:Date.now(),name:this.name,price:this.price,check:this.check}
        //调用父组件传过来的方法
