@@ -1,8 +1,7 @@
 <!-- 模版 -->
 <template>
   <div id="header">
-    <label for="id">序号:</label>
-    <input id="id" type="number" v-model="id" />
+
     <label for="name">名称:</label>
     <input id="name" type="text" v-model="name" />
     <label for="price">价格:</label>
@@ -24,7 +23,7 @@ export default {
       if (this.id<0&&this.name===""&&this.name===undefined&&this.name===null&&this.price<0)
        return; //返回
       //创建对象
-       const item={id:this.id,name:this.name,price:this.price,checkbox:this.checkbox}
+       const item={id:Date.now(),name:this.name,price:this.price,check:this.check}
        //调用父组件传过来的方法
        this.additem(item)
       
@@ -34,10 +33,9 @@ export default {
   //定义数据 双向绑定
   data() {
     return {
-      id: 0,
       name: "",
       price: 0,
-      check:false
+      check: false,
     };
   },
 };

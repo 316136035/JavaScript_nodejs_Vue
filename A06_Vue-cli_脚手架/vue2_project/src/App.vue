@@ -6,10 +6,16 @@
     <hr />
     <!-- 列表组件  
       :list="list"把list数据传给Container_List组件    
-      :changecheckbox="changecheckbox"把函数changecheckbox传给Container_List组件 -->
-    <Container_List :list="list"  :changecheckbox="changecheckbox" ></Container_List>
+      :changecheckbox="changecheckbox"把函数changecheckbox传给Container_List组件再传到Container_Item组件中调用 
+      :delitem="delitem""把函数changecheckbox传给Container_List组件再传到Container_Item组件中调用 -->
+    <Container_List 
+    :list="list"  
+    :changecheckbox="changecheckbox" 
+    :delitem="delitem"></Container_List>
     <hr />
-    <Footer></Footer>
+    <!-- 列表组件  
+      :list="list"把list数据传给Container_List组件     -->
+    <Footer :list="list"  ></Footer>
   </div>
 
 
@@ -32,16 +38,27 @@ export default {
   },
   // 定义方法
   methods:{
+
     //定义追加对象到list数组的方法 （模版把函数传到Header组件中调用 ）
     additem(item){this.list.push(item)},
-   
+
+    //定义方法改变checkbox选中状态的方法（模版把函数传到Container_List组件中再传到Container_Item组件中调用 ））
     changecheckbox(id){
+      console.log(id);
+      //遍历list数组
       this.list.forEach((item)=>{
-        if(item.id==id){
-          item.check=!item.check
-        }
+       
+        //判断id是否等于当前遍历对象的id
+        if (item.id === id) item.check = !item.check;
       })
-    }
+    },
+
+    //定义方法删除对象的方法（模版把函数传到Container_Item组件中调用 ））
+    delitem(id){
+      //使用过滤器实现（return 返回新的数据，赋值给list数组）
+      this.list= this.list.filter((item)=>{ return item.id!=id})
+    
+    },
   },
   // 定义数据
   data() {
@@ -75,7 +92,7 @@ export default {
 <!-- css样式 -->
 <style scoped>
 #app {
-  text-align: center;
+
   /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
   border: solid 2px rgb(100, 0, 0);
 }

@@ -1,9 +1,6 @@
 <!-- 模版 -->
 <template>
-  <tr id="item" ref="item" v-on:mouseover="get_focus">
-    <td>{{ item.id }}</td>
-    <td>{{ item.name }}</td>
-    <td>{{ item.price }}</td>
+  <tr id="item">
     <!--   :checked="item.check" false为不选中，ture为选中
             v-on:change="ischeckbox(item.id)" 绑定改变事件(参数为对象的id属性) -->
     <td>
@@ -14,9 +11,11 @@
         v-on:change="ischeckbox(item.id)"
       />
     </td>
+    <td>{{ item.id }}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.price }}</td>
     <!-- v-modle="item.check"  这种方法不要用（双向绑定类对象属性，uve是检测外层的对象使用不报错能当双向绑定类对象就会出错） -->
-
-    <td id="del"><button>删除</button></td>
+    <td id="del"><button v-on:click="deletelitem(item.id)">删除</button></td>
   </tr>
 </template>
 <script>
@@ -27,30 +26,39 @@ export default {
   props: {
     item: Object, //接受父组件传过来的对象
     changecheckbox: Function, //接受父组件传过来的方法
+    delitem: Function, //接受父组件传过来的方法
   },
   methods: {
     //点击选择框触发的方法
     ischeckbox(id) {
       //调用父组件的方法
       this.changecheckbox(id);
+    
     },
-      get_focus() {
-  
+    //点击删除按钮触发的方法
+    deletelitem(id) {
+      if(confirm("确认删除？")){
+            //调用父组件的方法
+      this.delitem(id);
+      }
     },
   },
 };
 </script>
 
 <style scoped>
-th,
-td {
-  /* 边框样式组合写法 (边框样式,边框宽度,边框颜色) （通用边框属性）*/
-  border: solid 1px rgb(81, 1, 255);
+/* :last-child 最后一个子元素的样式 */
+#del  {
+  /* 隐藏最后一个子元素的样式 */
+  visibility: hidden
 }
-/* #del {
-  background-color: red;
-  border-radius: 5px;
-  visibility: hidden;
-  display: none;
-} */
+/* :hover鼠标指针浮动在其上时的样式 */
+#item:hover {
+  background-color: rgba(4, 167, 88, 0.43);
+}
+/* :hover 鼠标指针浮动在其上时的样式 */
+#item:hover :last-child {
+  /* 显示最后一个子元素的样式*/
+  visibility: visible;
+}
 </style>
