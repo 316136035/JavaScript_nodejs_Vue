@@ -1,113 +1,52 @@
 <!-- 模版 -->
 <template>
   <div id="app">
-    <!-- 头部组件 把方法传给子组件 -->
-    <Header :additem="additem"></Header>
+    <!--子组件
+     子组件  v-on:getStudentsName_click绑定自定义事件为(父组件函数) ,(getStudentsName_click作用在子组件身上)  
+     once代表只能触发一次，简单写法-->
+    <Students v-on:getStudentsName_click.once="getStudentsName"></Students>
     <hr />
-    <!-- 列表组件  
-      :list="list"把list数据传给Container_List组件    
-      :changecheckbox="changecheckbox"把函数changecheckbox传给Container_List组件再传到Container_Item组件中调用 
-      :delitem="delitem""把函数changecheckbox传给Container_List组件再传到Container_Item组件中调用 -->
-    <Container_List
-      :list="list"
-      :changecheckbox="changecheckbox"
-      :delitem="delitem"
-    ></Container_List>
-    <hr />
-    <!-- 列表组件  
-      :list="list"把list数据传给Footer组件  
-      :select_All_none="select_All_none" 把select_All_none函数传给Footer组件  
-      :DeleteCheckboxAll="DeleteCheckboxAll" 把DeleteCheckboxAll函数传给Footer组件  
-       -->
-    <Footer
-      :list="list"
-      :select_All_none="select_All_none"
-      :DeleteCheckboxAll="DeleteCheckboxAll"
-    >
-    </Footer>
+    <!--子组件 
+    把Students组件存放在ref容器中 （复杂写法）
+    子组件使用原生绑定事件 @click.nativ 绑定了整个div -->
+    <Students ref="stu" ></Students>
   </div>
 </template>
 
 
 <script>
 // 引入组件
-import Header from "./components/Header.vue";
-import Container_List from "./components/Container_List.vue";
-import Footer from "./components/Footer.vue";
+import Students from "./components/Students.vue";
+
 //暴露主组件的变量和方法 等等  -->
 export default {
   name: "App", //自定义组件名称
   // 注册组件
   components: {
-    Header: Header,
-    Container_List: Container_List,
-    Footer: Footer,
+    Students: Students,
   },
-  // 定义方法
-  methods: {
-    //定义追加对象到list数组的方法 （模版把函数传到Header组件中调用 ）
-    additem(item) {
-      this.list.push(item);
-    },
-
-    //定义方法改变checkbox选中状态的方法（模版把函数传到Container_List组件中再传到Container_Item组件中调用 ））
-    changecheckbox(id) {
-      //遍历list数组
-      this.list.forEach((item) => {
-        //判断id是否等于当前遍历对象的id
-        if (item.id === id) item.check = !item.check;
-      });
-    },
-
-    //定义方法删除对象的方法（模版把函数传到Container_Item组件中调用 ））
-    delitem(id) {
-      //使用过滤器实现（return 返回新的数据，赋值给list数组）
-      this.list = this.list.filter((item) => {
-        return item.id != id;
-      });
-    },
-    //定义方法改变全选状态的方法（模版把函数传到Footer组件中调用 ））
-    select_All_none(check) {
-      this.list.forEach((item) => {
-        item.check = check;
-      });
-      //定义方法删除选中状态的方法（模版把函数传到Container_Item组件中调用 ））
-    },
-    //定义一个删除选中的方法（模版把函数传到Footer组件中调用），
-    DeleteCheckboxAll() {
-      this.list = this.list.filter((item) => {
-        return !item.check;
-      });
-    },
-  },
-
-  // 定义数据
   data() {
     return {
-      list: [],
+      student: {},
     };
   },
-  //初始化
-  //当组件挂载后调用
-  mounted() {
-    //获取本地存储数据
-    const list = window.localStorage.getItem("list");
-    if (list != null) {
-      //替换数据
-      this.list = JSON.parse(list);
+  methods: {
+    //父组件函数 （简单写法）
+    getStudentsName(student) {
+      this.student = student; //把子组件传过来的对象赋值给父组件的student对象
+      console.log(JSON.stringify(student));
+    },
+    show(){
+      alert("我是App组件的show()方法")
     }
   },
-  // 监听数据
-  watch: {
-    //监视数组对象
-    list: {
-     // immediate: true, //初始化的时候调用
-      deep: true, //开启深度监听
-      // 要监听的属性发现改变就会调用这个 handler方法  (修改对象中的属性时，对象的地址是不变的)
-      handler(newValue) {
-        window.localStorage.setItem("list", JSON.stringify(newValue));
-      },
-    },
+  //挂载完毕后调用函数（复杂写法）
+  mounted() {
+    //3秒后再执行函数
+    setTimeout(() => {
+      this.$refs.stu.$on("getStudentsName_click", this.getStudentsName);//单击事件 (当函数写在组件中时，普通函数this指向的是组件对象，使用的时候注意使用箭头函数)
+      // this.$refs.stu.$oncw("getStudentsName_click", this.getStudentsName);//单击事件只能执行一次
+    }, 1000);
   },
 };
 </script>
