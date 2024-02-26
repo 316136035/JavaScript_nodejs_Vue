@@ -1,19 +1,25 @@
 <!-- 模版 -->
 <template>
   <div id="app">
-   
+    <LocalStorage></LocalStorage>
+    <hr>
+    <SessionStorage></SessionStorage>
   </div>
 </template>
 
 
 <script>
 // 引入组件
+import LocalStorage from './components/LocalStorage.vue';
+import SessionStorage from "./components/SessionStorage.vue";
 
 //暴露主组件的变量和方法 等等  -->
 export default {
   name: "App", //自定义组件名称
   // 注册组件
   components: {
+    LocalStorage:LocalStorage,
+    SessionStorage:SessionStorage
  
   },
   
