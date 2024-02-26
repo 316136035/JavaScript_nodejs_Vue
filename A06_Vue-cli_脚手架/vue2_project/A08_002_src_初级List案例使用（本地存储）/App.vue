@@ -20,9 +20,10 @@
       :DeleteCheckboxAll="DeleteCheckboxAll" 把DeleteCheckboxAll函数传给Footer组件  
        -->
     <Footer
-     :list="list" 
-     :select_All_none="select_All_none" 
-     :DeleteCheckboxAll="DeleteCheckboxAll">
+      :list="list"
+      :select_All_none="select_All_none"
+      :DeleteCheckboxAll="DeleteCheckboxAll"
+    >
     </Footer>
   </div>
 </template>
@@ -66,12 +67,11 @@ export default {
       });
     },
     //定义方法改变全选状态的方法（模版把函数传到Footer组件中调用 ））
-    select_All_none(check){
+    select_All_none(check) {
       this.list.forEach((item) => {
         item.check = check;
       });
       //定义方法删除选中状态的方法（模版把函数传到Container_Item组件中调用 ））
-      
     },
     //定义一个删除选中的方法（模版把函数传到Footer组件中调用），
     DeleteCheckboxAll() {
@@ -80,31 +80,34 @@ export default {
       });
     },
   },
-  
+
   // 定义数据
   data() {
     return {
-      list: [
-        {
-          id: 1,
-          name: "得力(deli)6色荧光笔套装 考试复习彩色醒目标记笔 手帐可用水性记号笔6支/盒DL-S624",
-          price: 25,
-          check: true,
-        },
-        {
-          id: 2,
-          name: "百草味 东北松子500g 坚果量贩手剥开口原味干果每日坚果礼物送礼",
-          price: 74,
-          check: false,
-        },
-        {
-          id: 3,
-          name: "名爵（MEJUE）厨房水槽304不锈钢龙头洗菜池洗碗盆一体式台下盆淘菜水池槽",
-          price: 139,
-          check: true,
-        },
-      ],
+      list: [],
     };
+  },
+  //初始化
+  //当组件挂载后调用
+  mounted() {
+    //获取本地存储数据
+    const list = window.localStorage.getItem("list");
+    if (list != null) {
+      //替换数据
+      this.list = JSON.parse(list);
+    }
+  },
+  // 监听数据
+  watch: {
+    //监视数组对象
+    list: {
+     // immediate: true, //初始化的时候调用
+      deep: true, //开启深度监听
+      // 要监听的属性发现改变就会调用这个 handler方法  (修改对象中的属性时，对象的地址是不变的)
+      handler(newValue) {
+        window.localStorage.setItem("list", JSON.stringify(newValue));
+      },
+    },
   },
 };
 </script>
