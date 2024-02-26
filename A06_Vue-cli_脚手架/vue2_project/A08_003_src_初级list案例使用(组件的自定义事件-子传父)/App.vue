@@ -21,8 +21,8 @@
        -->
     <Footer
       :list="list"
-      :select_All_none="select_All_none"
-      :DeleteCheckboxAll="DeleteCheckboxAll"
+      v-on:select_All_none="select_All_none"
+      v-on:DeleteCheckboxAll="DeleteCheckboxAll"
     >
     </Footer>
   </div>
