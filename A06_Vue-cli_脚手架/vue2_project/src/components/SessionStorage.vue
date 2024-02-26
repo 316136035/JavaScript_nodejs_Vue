@@ -12,6 +12,7 @@
 <script>
 export default {
   name: "SessionStorage",
+  //定义函数
   methods: {
     addSessionStorage() {
       //创建数组对象

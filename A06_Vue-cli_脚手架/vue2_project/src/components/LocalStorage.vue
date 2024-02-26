@@ -12,6 +12,7 @@
 <script>
 export default {
   name: "LocalStorage",
+  //定义函数
   methods: {
     //添加数据到localStorage
     addLocalStorage() {
