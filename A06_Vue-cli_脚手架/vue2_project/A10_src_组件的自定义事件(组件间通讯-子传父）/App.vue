@@ -2,8 +2,8 @@
 <template>
   <div id="app">
     <!--子组件
-     子组件  v-on:getStudentsName_click绑定自定义事件为(父组件函数) ,(getStudentsName_click作用在子组件身上)  
-     once代表只能触发一次，简单写法-->
+      <组件名称v-on:被子组件调用的函数名="父类函数名"></组件名称>    once代表只能触发一次  简单写法
+  -->
     <Students v-on:getStudentsName_click.once="getStudentsName"></Students>
     <hr />
     <!--子组件 
