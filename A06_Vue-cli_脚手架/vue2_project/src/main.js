@@ -17,4 +17,9 @@ new Vue({
     return createElement(App)}*/
   // render函数简写（箭头函数）
   render: h => h(App),
+  beforeCreate() {
+    console.log(this)
+  },
+ 
+
 }).$mount('#app')//挂载到id为app的元素上
