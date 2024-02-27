@@ -18,7 +18,8 @@ new Vue({
   // render函数简写（箭头函数）
   render: h => h(App),
   beforeCreate() {
-    console.log(this)
+    //把Vue自身挂载到Vue原型上，方便在子组件中使用
+    Vue.prototype.$bus = this
   },
  
 
