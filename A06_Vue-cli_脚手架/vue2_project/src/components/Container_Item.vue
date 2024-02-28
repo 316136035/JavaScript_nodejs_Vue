@@ -20,6 +20,7 @@
         type="text"
         v-show="item.isedit"
         v-on:blur="blur_input(item, $event)"
+        ref="input"
       />
       <!--  v-show="!item.isedit"判断是否显示输入框 -->
       <span v-show="!item.isedit"> {{ item.name }}</span>
@@ -62,6 +63,11 @@ export default {
     reviseitem(item) {
       //修改对象的属性
       this.$set(item, "isedit", true);
+      //$nextTick方法在DOC重新渲染后执行其指定的回调
+      this.$nextTick(() => {
+        //refs获取input的ref属性，再获取输入框的焦点
+         this.$refs.input.focus();
+      });
     },
     //点击输入框离焦事件
     blur_input(item, event) {
