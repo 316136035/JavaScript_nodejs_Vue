@@ -26,7 +26,7 @@ export default {
         return;
       //创建对象
        const item={id:Date.now(),name:this.name,price:this.price,check:this.check}
-       //触发父组件的方法
+     //$emit触发vue原型上$bus绑定的additem事件,参数
         this.$bus.$emit("additem", item);
       
     },

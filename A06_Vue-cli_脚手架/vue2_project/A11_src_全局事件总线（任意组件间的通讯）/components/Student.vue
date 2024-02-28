@@ -24,7 +24,7 @@ export default {
   //定义函数
   methods: {
     getStudent() {
-      //在vue原型中的$bus触发getStudent事件,参数
+       //$emit触发vue原型上$bus绑定的getStudent事件,参数
       this.$bus.$emit("getStudent", this.student);
     },
   },
