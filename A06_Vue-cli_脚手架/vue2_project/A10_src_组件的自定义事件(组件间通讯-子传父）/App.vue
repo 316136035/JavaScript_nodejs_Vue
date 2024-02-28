@@ -44,8 +44,8 @@ export default {
   mounted() {
     //3秒后再执行函数
     setTimeout(() => {
-      this.$refs.stu.$on("getStudentsName_click", this.getStudentsName);//单击事件 (当函数写在组件中时，普通函数this指向的是组件对象，使用的时候注意使用箭头函数)
-      // this.$refs.stu.$oncw("getStudentsName_click", this.getStudentsName);//单击事件只能执行一次
+      this.$refs.stu.$on("getStudentsName_click", this.getStudentsName);//$on绑定单击事件 (当函数写在组件中时，普通函数this指向的是组件对象，使用的时候注意使用箭头函数)
+      // this.$refs.stu.$oncw("getStudentsName_click", this.getStudentsName);//$on绑定单击事件只能执行一次
     }, 1000);
   },
 };
