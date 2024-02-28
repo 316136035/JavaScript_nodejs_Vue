@@ -18,7 +18,7 @@ new Vue({
   // render函数简写（箭头函数）
   render: h => h(App),
   
-  //此时: 无法通过vm访问到data中的数据、methods中的方法。
+  //vue创建前
   beforeCreate() {
     //将Vue实例的$bus属性设置为当前实例本身，方便在子组件中使用
     Vue.prototype.$bus = this;

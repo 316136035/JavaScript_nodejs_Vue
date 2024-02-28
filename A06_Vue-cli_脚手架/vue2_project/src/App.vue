@@ -1,17 +1,15 @@
 <!-- 模版 -->
 <template>
   <div id="app">
-    <!-- 头部组件    <组件名称v-on:被子组件调用的函数名="父类函数名"></组件名称>    once代表只能触发一次  简单写法  -->
+    <!-- 头部组件   -->
     <Header></Header>
     <hr />
     <!-- 列表组件  
       :list="list"把list数据传给Container_List组件    
-      :changecheckbox="changecheckbox"把函数changecheckbox传给Container_List组件再传到Container_Item组件中调用 
-      :delitem="delitem""把函数changecheckbox传给Container_List组件再传到Container_Item组件中调用 -->
+    -->
     <Container_List
       :list="list"
-      :changecheckbox="changecheckbox"
-      :delitem="delitem"
+   
     ></Container_List>
     <hr />
     <!-- 列表组件  
@@ -45,12 +43,12 @@ export default {
   },
   // 定义方法
   methods: {
-    //定义追加对象到list数组的方法 （任意组件间通讯）
+    //定义追加对象到list数组的方法 （任意组件间通讯，定义给Header组件中调用 ）
     additem(item) {
       this.list.push(item);
     },
 
-    //定义方法改变checkbox选中状态的方法（模版把函数传到Container_List组件中再传到Container_Item组件中调用 ））
+    //定义方法改变checkbox选中状态的方法（任意组件间通讯，定义给Container_Item组件中调用 ）
     changecheckbox(id) {
       //遍历list数组
       this.list.forEach((item) => {
@@ -59,7 +57,7 @@ export default {
       });
     },
 
-    //定义方法删除对象的方法（模版把函数传到Container_Item组件中调用 ））
+    //定义方法删除对象的方法（任意组件间通讯，定义给Container_Item组件中调用）
     delitem(id) {
       //使用过滤器实现（return 返回新的数据，赋值给list数组）
       this.list = this.list.filter((item) => {
@@ -92,6 +90,8 @@ export default {
   mounted() {
     //在VUE的原型上的$bus(事件总线)中绑定additem函数
     this.$bus.$on("additem", this.additem);
+    this.$bus.$on("changecheckbox",this.changecheckbox)
+    this.$bus.$on("delitem",this.delitem)
 
     //获取本地存储数据
     const list = window.localStorage.getItem("list");
@@ -112,6 +112,11 @@ export default {
       },
     },
   },
+  //销毁前
+  beforeDestroy(){
+    //销毁前把全局事件总线方法关闭
+    this.$bus.$off("additem")
+   }
 };
 </script>
 

@@ -25,21 +25,18 @@ export default {
   /*声明接受的同时对数据进行类型限制*/
   props: {
     item: Object, //接受父组件传过来的对象
-    changecheckbox: Function, //接受父组件传过来的方法
-    delitem: Function, //接受父组件传过来的方法
   },
   methods: {
     //点击选择框触发的方法
     ischeckbox(id) {
-      //调用父组件的方法
-      this.changecheckbox(id);
-    
+      //在vue原型中的$bus触发getStudent事件,参数
+      this.$bus.$emit("changecheckbox", id);
     },
     //点击删除按钮触发的方法
     deletelitem(id) {
-      if(confirm("确认删除？")){
-            //调用父组件的方法
-      this.delitem(id);
+      if (confirm("确认删除？")) {
+        //在vue原型中的$bus触发getStudent事件,参数
+        this.$bus.$emit("delitem", id);
       }
     },
   },
@@ -48,7 +45,7 @@ export default {
 
 <style scoped>
 /* :last-child 最后一个子元素的样式 */
-#del  {
+#del {
   /* 隐藏最后一个子元素的样式 */
   opacity: 0;
 }

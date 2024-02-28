@@ -28,11 +28,7 @@ export default {
       this.$bus.$emit("getStudent", this.student);
     },
   },
-  //销毁前
-  beforeDestroy(){
-    //销毁前把全局事件总线方法关闭
-    this.$bus.$off("getStudent")
-   }
+ 
 };
 </script>
 

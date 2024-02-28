@@ -28,6 +28,11 @@ export default {
   //在VUE的原型上的$bus(事件总线)中绑定一个函数
     this.$bus.$on("getStudent", this.getStudent);
   },
+   //销毁前
+   beforeDestroy(){
+    //销毁前把全局事件总线方法关闭
+    this.$bus.$off("getStudent")
+   }
 };
 </script>
 

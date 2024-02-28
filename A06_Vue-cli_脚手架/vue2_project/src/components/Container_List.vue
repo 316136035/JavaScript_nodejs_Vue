@@ -16,15 +16,13 @@
     <!-- 使用子组件
      v-for="(item, index) in list" :key="index" 遍历数组 
      :item="item" 把每一个对象传给Container_Item  
-     :changecheckbox="changecheckbox" 把父组件的方法传给Container_Item组件
+   
      :delitem="delitem" 把父组件的方法传给Container_Item组件 -->
     <Container_Item
       v-for="(item, index) in list"
       :key="index"
       :item="item"
-      :changecheckbox="changecheckbox"
-      :delitem="delitem"
-    >
+ >
     </Container_Item>
   </table>
 </template>
@@ -41,8 +39,6 @@ export default {
   /*声明接受的同时对数据进行类型限制*/
   props: {
     list: Array, //接受父组件传过来的数组
-    changecheckbox: Function, //接受父组件传过来的方法
-    delitem: Function, //接受父组件传过来的方法
   },
 };
 </script>
