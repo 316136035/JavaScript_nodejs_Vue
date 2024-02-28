@@ -7,22 +7,14 @@
     <!-- 列表组件  
       :list="list"把list数据传给Container_List组件    
     -->
-    <Container_List
-      :list="list"
-   
-    ></Container_List>
+    <Container_List :list="list"></Container_List>
     <hr />
     <!-- 列表组件  
       :list="list"把list数据传给Footer组件  
-      :select_All_none="select_All_none" 把select_All_none函数传给Footer组件  
-      :DeleteCheckboxAll="DeleteCheckboxAll" 把DeleteCheckboxAll函数传给Footer组件  
+    
+    
        -->
-    <Footer
-      :list="list"
-      v-on:select_All_none="select_All_none"
-      v-on:DeleteCheckboxAll="DeleteCheckboxAll"
-    >
-    </Footer>
+    <Footer :list="list"> </Footer>
   </div>
 </template>
 
@@ -64,14 +56,14 @@ export default {
         return item.id != id;
       });
     },
-    //定义方法改变全选状态的方法（模版把函数传到Footer组件中调用 ））
+    //定义方法改变全选状态的方法（任意组件间通讯，定义给Footer组件中调用 ））
     select_All_none(check) {
       this.list.forEach((item) => {
         item.check = check;
       });
       //定义方法删除选中状态的方法（模版把函数传到Container_Item组件中调用 ））
     },
-    //定义一个删除选中的方法（模版把函数传到Footer组件中调用），
+    //定义一个删除选中的方法（任意组件间通讯定义给到Footer组件中调用），
     DeleteCheckboxAll() {
       this.list = this.list.filter((item) => {
         return !item.check;
@@ -90,8 +82,14 @@ export default {
   mounted() {
     //在VUE的原型上的$bus(事件总线)中绑定additem函数
     this.$bus.$on("additem", this.additem);
-    this.$bus.$on("changecheckbox",this.changecheckbox)
-    this.$bus.$on("delitem",this.delitem)
+    //在VUE的原型上的$bus(事件总线)中绑定changecheckbox函数
+    this.$bus.$on("changecheckbox", this.changecheckbox);
+    //在VUE的原型上的$bus(事件总线)中绑定delitem函数
+    this.$bus.$on("delitem", this.delitem);
+    //在VUE的原型上的$bus(事件总线)中绑定select_All_none函数
+    this.$bus.$on("select_All_none", this.select_All_none);
+    //在VUE的原型上的$bus(事件总线)中绑定DeleteCheckboxAll函数
+    this.$bus.$on("DeleteCheckboxAll", this.DeleteCheckboxAll);
 
     //获取本地存储数据
     const list = window.localStorage.getItem("list");
@@ -113,10 +111,15 @@ export default {
     },
   },
   //销毁前
-  beforeDestroy(){
+  beforeDestroy() {
     //销毁前把全局事件总线方法关闭
-    this.$bus.$off("additem")
-   }
+    this.$bus.$off("additem");
+    this.$bus.$off("changecheckbox");
+    this.$bus.$off("delitem");
+    this.$bus.$off("select_All_none");
+    this.$bus.$off("DeleteCheckboxAll");
+ 
+  },
 };
 </script>
 

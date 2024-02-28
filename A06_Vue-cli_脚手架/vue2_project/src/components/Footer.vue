@@ -41,15 +41,15 @@ export default {
       },
       //set有什么作用?当有人写入user_computed时，set就会被调用，且将写入的值作为参数传入
       set(check) {
-        //触发父组件的方法
-        this.$emit("select_All_none", check);
+        //在vue原型中的$bus触发select_All_none事件,参数
+        this.$bus.$emit("select_All_none", check);
       },
     },
   },
   methods: {
     deletecheckboxall() {
-       //触发父组件的方法
-      this.$emit("DeleteCheckboxAll");
+      //在vue原型中的$bus触发DeleteCheckboxAll事件,参数
+      this.$bus.$emit("DeleteCheckboxAll");
     },
   },
 };

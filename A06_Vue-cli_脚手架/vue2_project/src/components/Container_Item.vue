@@ -29,13 +29,13 @@ export default {
   methods: {
     //点击选择框触发的方法
     ischeckbox(id) {
-      //在vue原型中的$bus触发getStudent事件,参数
+      //在vue原型中的$bus触发changecheckbox事件,参数
       this.$bus.$emit("changecheckbox", id);
     },
     //点击删除按钮触发的方法
     deletelitem(id) {
       if (confirm("确认删除？")) {
-        //在vue原型中的$bus触发getStudent事件,参数
+        //在vue原型中的$bus触发delitem事件,参数
         this.$bus.$emit("delitem", id);
       }
     },
