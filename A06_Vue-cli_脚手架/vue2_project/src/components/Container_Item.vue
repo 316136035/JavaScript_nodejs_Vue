@@ -12,11 +12,29 @@
       />
     </td>
     <td>{{ item.id }}</td>
-    <td>{{ item.name }}</td>
+    <td>
+      <!--  
+         v-show="item.isedit"判断是否显示输入框
+         v-on:blur="blur_input(item, $event) 绑定blur事件（参数为对象和事件对象） -->
+      <input
+        type="text"
+        v-show="item.isedit"
+        v-on:blur="blur_input(item, $event)"
+      />
+      <!--  v-show="!item.isedit"判断是否显示输入框 -->
+      <span v-show="!item.isedit"> {{ item.name }}</span>
+    </td>
     <td>{{ item.price }}</td>
     <!-- v-modle="item.check"  这种方法不要用（双向绑定类对象属性，uve是检测外层的对象使用不报错能当双向绑定类对象就会出错） -->
-    <td id="revise"><button v-on:click="reviseitem(item.id)">修改</button></td>
-    <td id="del"><button v-on:click="deletelitem(item.id)">删除</button></td>
+    <td id="revise">
+      <!-- v-show="!item.isedit"判断是否显示button
+       v-on:click="reviseitem(item)" 绑定click事件（参数为对象）  -->
+      <button v-show="!item.isedit" v-on:click="reviseitem(item)">修改</button>
+    </td>
+    <td id="del">
+      <!-- v-on:click="deletelitem(item.id)" 绑定click事件（参数为对象的id属性） -->
+      <button v-on:click="deletelitem(item.id)">删除</button>
+    </td>
   </tr>
 </template>
 <script>
@@ -36,9 +54,20 @@ export default {
     //点击删除按钮触发的方法
     deletelitem(id) {
       if (confirm("确认删除？")) {
-     //$emit触发vue原型上$bus绑定的delitem事件,参数
+        //$emit触发vue原型上$bus绑定的delitem事件,参数
         this.$bus.$emit("delitem", id);
       }
+    },
+    //点击修改按钮触发的方法
+    reviseitem(item) {
+      //修改对象的属性
+      this.$set(item, "isedit", true);
+    },
+    //点击输入框离焦事件
+    blur_input(item, event) {
+      console.log(event.target.value); //获取输入框的值
+      this.$delete(item, "isedit"); //删除对象的属性
+      this.$bus.$emit("revise", item, event.target.value); //触发vue原型上$bus绑定的revise事件,参数,参数
     },
   },
 };

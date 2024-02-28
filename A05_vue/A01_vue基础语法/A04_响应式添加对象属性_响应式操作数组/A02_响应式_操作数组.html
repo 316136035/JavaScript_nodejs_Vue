@@ -42,7 +42,8 @@
         <button @click="shift">数组前面删除对象</button>
         <button @click="pop">数组后面删除对象</button>
         <button @click="splice">替换对象</button>
-        <button @click="addSet">添加属性</button>
+        <button @click="addproperty">添加属性</button>
+        <button @click="deleteproperty">删除属性</button>
         <table>
             <!--表头 默认居中-->
             <caption>人员管理</caption>
@@ -59,7 +60,7 @@
                 <td>{{++i}}</td>
                 <td>{{selected.id}}</td>
                 <td>{{selected.name}}</td>
-                <td>{{selected.set}}</td>
+                <td>{{selected.property}}</td>
 
         </table>
 
@@ -104,16 +105,16 @@
 
                 },
 
-
-
-
-                addSet() {
+                addproperty() {
                     /* 响应式 动态更新页面数据
                     Vue.set（vue容器data中的实例，“参数名”，参数值 ） 只能作用于data中的实例中的参数 */
-                    // Vue.set(this.selecteds[0], 'set', "男")
-                    this.$set(this.selecteds[0], 'set', "男")
+                    // Vue.set(this.selecteds[0], 'property', "男")
+                    this.$set(this.selecteds[0], 'property', "男")
 
 
+                },
+                deleteproperty(){
+                    this.$delete(this.selecteds[0], 'property')
                 }
 
 
