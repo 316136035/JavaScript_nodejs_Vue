@@ -2,7 +2,7 @@
 <template>
   <div id="app">
     <!-- 头部组件    <组件名称v-on:被子组件调用的函数名="父类函数名"></组件名称>    once代表只能触发一次  简单写法  -->
-    <Header  v-on:additem="additem"></Header>
+    <Header></Header>
     <hr />
     <!-- 列表组件  
       :list="list"把list数据传给Container_List组件    
@@ -45,7 +45,7 @@ export default {
   },
   // 定义方法
   methods: {
-    //定义追加对象到list数组的方法 （模版把函数传到Header组件中调用 ）
+    //定义追加对象到list数组的方法 （任意组件间通讯）
     additem(item) {
       this.list.push(item);
     },
@@ -90,6 +90,9 @@ export default {
   //初始化
   //当组件挂载后调用
   mounted() {
+    //在VUE的原型上的$bus(事件总线)中绑定additem函数
+    this.$bus.$on("additem", this.additem);
+
     //获取本地存储数据
     const list = window.localStorage.getItem("list");
     if (list != null) {
@@ -101,7 +104,7 @@ export default {
   watch: {
     //监视数组对象
     list: {
-     // immediate: true, //初始化的时候调用
+      // immediate: true, //初始化的时候调用
       deep: true, //开启深度监听
       // 要监听的属性发现改变就会调用这个 handler方法  (修改对象中的属性时，对象的地址是不变的)
       handler(newValue) {

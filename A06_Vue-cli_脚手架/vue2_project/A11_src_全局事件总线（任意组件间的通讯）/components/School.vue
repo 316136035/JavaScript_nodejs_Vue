@@ -25,7 +25,7 @@ export default {
   },
   //Vue完成模板的解析并把初始的真实DOM元素放入页面后(挂载完毕)， 该钩子函数会被调用。
   mounted() {
-    //在VUE的原型上的$bus 添加一个事件总线
+  //在VUE的原型上的$bus(事件总线)中绑定一个函数
     this.$bus.$on("getStudent", this.getStudent);
   },
 };

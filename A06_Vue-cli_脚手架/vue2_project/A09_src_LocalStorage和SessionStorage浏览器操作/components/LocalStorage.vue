@@ -31,7 +31,7 @@ export default {
       //替换数据到localStorage（user,把对象转为字符串）
       window.localStorage.setItem("user", JSON.stringify(user));
     },
-    //获取localStorage本地本地存储(获取不到数据返回null，获取到数据返回字符串)
+    //获取localStorage本地存储(获取不到数据返回null，获取到数据返回字符串)
     getLocalStorage() {
       //获取数据
       let user = window.localStorage.getItem("user");
@@ -42,11 +42,11 @@ export default {
        console.log(JSON.parse(user));
       }
     },
-    //删除localStorage本地本地存储
+    //删除localStorage本地存储
     removeLoalStorage() {
       window.localStorage.removeItem("user");
     },
-    //删除全部localStorage本地本地存储
+    //删除全部localStorage本地存储
     clearLoalStorage() {
       window.localStorage.clear();
     },

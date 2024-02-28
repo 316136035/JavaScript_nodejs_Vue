@@ -15,8 +15,7 @@
 //暴露主组件的变量和方法 等等
 export default {
   name: "Header",
-
-  methods: {
+ methods: {
     createitem() {
    //判断输入框的字符串是否为undefined/null/""  当一个为空就返回
    if (
@@ -28,7 +27,8 @@ export default {
       //创建对象
        const item={id:Date.now(),name:this.name,price:this.price,check:this.check}
        //触发父组件的方法
-      this.$emit("additem", item);
+        this.$bus.$emit("additem", item);
+      
     },
   },
   //定义数据 双向绑定

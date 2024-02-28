@@ -17,4 +17,10 @@ new Vue({
     return createElement(App)}*/
   // render函数简写（箭头函数）
   render: h => h(App),
+  //创建前
+  beforeCreate() {
+    //将Vue实例的$bus属性(事件总线)设置为当前实例本身，方便在子组件中使用
+    Vue.prototype.$bus = this;
+   },
+
 }).$mount('#app')//挂载到id为app的元素上
