@@ -6,7 +6,7 @@
     "moduleResolution": "node",
     "paths": {
       "@/*": [
-        "src/*"
+        "A08_004_src_初级list案例使用(全局事件总线 ,任意组件间的通讯)/*"
       ]
     },
     "lib": [
