@@ -9,7 +9,6 @@
     </transition>
   </div>
 </template>
-
 <script>
 //暴露组件的变量和方法 等等  -->
 export default {
@@ -21,18 +20,17 @@ export default {
   },
 };
 </script>
-
 <!-- scoped代表只能在当前组件使用的css样式 -->
 <style scoped>
 /* 默认样式 */
 #transition{
   font-size: 40px;
 }
+/* 默认样式 */
 .container {
   height: 100px;
   background-color: darkorange;
-
-  margin: 10px;
+ margin: 10px;
   transition: all 0.9s linear;
 }
 /* 过渡效果 进入的起点 */
@@ -55,6 +53,4 @@ export default {
   background-color: rgb(8, 8, 9);
   transform: translateX(-100%);
 }
-
-
 </style>
