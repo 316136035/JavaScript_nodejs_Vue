@@ -5,6 +5,8 @@
     <Animation></Animation>
     <hr>
     <Transition></Transition>
+    <hr>
+    <TransitionList></TransitionList>
   </div>
 </template>
 
@@ -12,13 +14,15 @@
 // 引入组件
 import Animation from './components/Animation.vue'
 import Transition from './components/Transition.vue'
+import TransitionList from './components/TransitionList.vue'
 // 暴露组件
 export default {
   name: 'App',//自定义组件名称
   // 注册组件
   components: {
     Animation:Animation,
-    Transition:Transition
+    Transition:Transition,
+    TransitionList:TransitionList
 
   }
 }
