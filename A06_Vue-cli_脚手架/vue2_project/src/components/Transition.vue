@@ -3,7 +3,7 @@
   <div class="hello">
      <div id="animation">动画效果实现</div>
     <button v-on:click="isshow = !isshow">显示/隐藏</button>
-    <!-- 过渡效果  自定义名称样式中要用自定义名称开头（.transitionEffect-enter-active/.transitionEffect-leave-active ） appear初始挂载开启  -->
+    <!-- 过渡效果  自定义名称样式中要用自定义名称开头（.TransitionEffect-xxx-xxx） appear初始挂载开启  -->
     <transition name="TransitionEffect" appear>
       <div class="container" v-show="isshow">动画效果</div>
     </transition>
