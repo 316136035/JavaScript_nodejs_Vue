@@ -13,7 +13,7 @@ router.get('/', function (request, res, next) {
   console.log("Referer", request.get('Referer'));
 
   res.render('index', {
-    title: 'localhost',
+    title: '127.0.0.1',
     path: request.path,
     query: request.query,
     ip: request.ip,
