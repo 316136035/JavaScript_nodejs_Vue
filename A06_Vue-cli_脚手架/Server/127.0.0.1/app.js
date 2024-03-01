@@ -8,18 +8,18 @@ var indexRouter = require('./routes/index');//引入路由模块
 var usersRouter = require('./routes/users');//引入路由模块
 
 var app = express();//初始化express框架
+
 // 启动服务器并监听指定端口
-app.listen(4000, '127.0.0.1', function () {
+app.listen(4000, '127.0.0.1',  () =>  {
   console.log('服务器启动成功 http://127.0.0.1:4000');
 });
 
 app.set('views', path.join(__dirname, 'views'));//指定视图文件所在的目录路径
 app.set('view engine', 'ejs');//指定使用的视图引擎类型
-
 app.use(logger('dev'));//使用日志记录器
 app.use(express.json());//使用json解析
 app.use(express.urlencoded({ extended: false }));//使用url编码
-app.use(cookieParser());//使用cookies解析
+app.use(cookieParser());//使用cookies解
 app.use(express.static(path.join(__dirname, 'public')));//设置为静态文件夹
 
 

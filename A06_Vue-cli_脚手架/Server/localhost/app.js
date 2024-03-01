@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');//引入路由模块
 
 var app = express();//初始化express框架
 // 启动服务器并监听指定端口
-app.listen(5000, function () {
+app.listen(5000, () => {
   console.log('服务器启动成功 http://localhost:5000');
 });
 

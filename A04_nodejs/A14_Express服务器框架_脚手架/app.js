@@ -8,10 +8,6 @@ var indexRouter = require('./routes/index');//引入路由模块
 var usersRouter = require('./routes/users');//引入路由模块
 
 var app = express();//初始化express框架
-// 启动服务器并监听指定端口
-app.listen(5000, function () {
-  console.log('服务器启动成功 http://127.0.0.1:5000');
-});
 
 app.set('views', path.join(__dirname, 'views'));//指定视图文件所在的目录路径
 app.set('view engine', 'ejs');//指定使用的视图引擎类型
@@ -40,6 +36,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// 启动服务器并监听指定端口
+app.listen(5000, function () {
+  console.log('服务器启动成功 http://127.0.0.1:5000');
 });
 
 //导出服务器对象

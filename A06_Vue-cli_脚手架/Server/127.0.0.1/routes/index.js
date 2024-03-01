@@ -11,6 +11,7 @@ router.get('/', function (request, res, next) {
   console.log('Host:', request.get('Host'))
   console.log("Origin", request.get('Origin'));
   console.log("Referer", request.get('Referer'));
+  console.log(request.cookies);
 
   res.render('index', {
     title: '127.0.0.1',
@@ -21,8 +22,10 @@ router.get('/', function (request, res, next) {
     Host: request.get('Host'),
     Origin: request.get('Origin'),
     Referer: request.get('Referer'),
+    cookies: JSON.stringify(request.cookies)
+ 
   });
 
 });
-
+//暴露post路由规则
 module.exports = router;
