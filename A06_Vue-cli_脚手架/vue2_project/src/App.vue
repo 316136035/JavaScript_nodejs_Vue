@@ -1,22 +1,25 @@
 <!-- 模版 -->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SingleSpanningRreques></SingleSpanningRreques>
+    <hr />
+  <MultipleSpanningRreques></MultipleSpanningRreques>
   </div>
 </template>
 
 <script>
 // 引入组件
-import HelloWorld from './components/HelloWorld.vue'
+import SingleSpanningRreques from "./components/SingleSpanningRrequest.vue";
+import MultipleSpanningRreques from "./components/MultipleSpanningRreques.vue";
 // 暴露组件
 export default {
-  name: 'App',//自定义组件名称
+  name: "App", //自定义组件名称
   // 注册组件
   components: {
-    HelloWorld: HelloWorld 
-  }
-}
+    SingleSpanningRreques: SingleSpanningRreques,
+    MultipleSpanningRreques: MultipleSpanningRreques,
+  },
+};
 </script>
 
 <!-- css样式 -->

@@ -12,7 +12,7 @@ server.get('/get', (request, response) => {
 })
 //创建post路由
 server.post('/post', (request, response) => {
-    response.send('post')
+    response.send('post')//
 })
 
 //创建路由 (匹配上面不成功的路径全部)
