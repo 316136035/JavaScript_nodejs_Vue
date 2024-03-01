@@ -38,10 +38,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// 启动服务器并监听指定端口
-app.listen(5000, function () {
-  console.log('服务器启动成功 http://127.0.0.1:5000');
-});
-
 //导出服务器对象
 module.exports = app;
