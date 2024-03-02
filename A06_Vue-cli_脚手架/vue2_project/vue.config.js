@@ -24,18 +24,17 @@ module.exports = {
   lintOnSave: false,//关闭语法检查
 
 }
-//配置代理服务器
-const { defineConfig } = require('@vue/cli-service')
-//配置跨域代理服务器（方案一）
-module.exports = defineConfig({
- transpileDependencies: true,//自动编译
-
-  //配置代理
-  devServer: {
-    //代理服务器请求真实服务器(vue组件中请求为 url: "http://localhost:8080/home",)
-    proxy: 'http://127.0.0.1:4000'
-  }
-})
+// //配置代理服务器
+// const { defineConfig } = require('@vue/cli-service')
+// //配置跨域代理服务器（方案一）
+// module.exports = defineConfig({
+//  transpileDependencies: true,//自动编译
+// //配置代理
+//   devServer: {
+//     //代理服务器请求真实服务器(vue组件中请求为 url: "http://localhost:8080/home",)
+//     proxy: 'http://127.0.0.1:4000'
+//   }
+// })
 
 
 // const { defineConfig } = require('@vue/cli-service')
