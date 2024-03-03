@@ -1,9 +1,7 @@
 var express = require('express');//引入express框架
 var cookieParser = require('cookie-parser');//引入cookies 模块 
-
-//创建应用对象
-const server = express();
-server.use(cookieParser());
+const server = express();//创建应用对象
+server.use(cookieParser());//应用cookies 模块 
 //创建路由 (匹配 ip+端口)
 server.get('/HomePage', (request, response) => {
 

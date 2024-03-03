@@ -55,6 +55,7 @@ export default {
         //成功回调函数
         .then((data) => {
           console.log(JSON.parse(data.request.responseText).headers);
+          //获取请求结果赋值给本地
           this.requestObject = JSON.parse(data.request.responseText);
         });
     },
