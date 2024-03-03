@@ -4,18 +4,18 @@
     <h1>{{ msg }}</h1>
     <div>
      
-      <div>请求url{{ requestText.url }}</div>
-      <div>请求方法{{ requestText.method }}</div>
-      <div>求路径{{ requestText.path }}</div>
-      <div>请求参数{{ requestText.params }}</div>
-      <div>请求ip{{ requestText.ip }}</div>
+      <div>请求url{{  requestObject.url }}</div>
+      <div>请求方法{{  requestObject.method }}</div>
+      <div>求路径{{  requestObject.path }}</div>
+      <div>请求参数{{  requestObject.params }}</div>
+      <div>请求ip{{  requestObject.ip }}</div>
       <hr>
       <div>请求头参数</div>
-      <div v-for="(item, index) in requestText.headers" :key="index">
+      <div v-for="(item, index) in  requestObject.headers" :key="index">
         <div>{{ item }}</div>
       </div>
-      <div>{{ requestText.cookies }}</div>
-      <div>{{ requestText.body }}</div>
+      <div>{{  requestObject.cookies }}</div>
+      <div>{{  requestObject.body }}</div>
     </div>
     <button v-on:click="span">发送跨越axios请求单个配置</button>
   </div>
@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       msg: "跨越请求处理方案一",
-      requestText: Object,
+       requestObject: Object,
     };
   },
   methods: {
@@ -46,7 +46,7 @@ export default {
         //成功回调函数
         .then((data) => {
           console.log(data.request.responseText);
-          this.requestText = JSON.parse(data.request.responseText);
+          this. requestObject = JSON.parse(data.request.responseText);
         });
     },
   },
