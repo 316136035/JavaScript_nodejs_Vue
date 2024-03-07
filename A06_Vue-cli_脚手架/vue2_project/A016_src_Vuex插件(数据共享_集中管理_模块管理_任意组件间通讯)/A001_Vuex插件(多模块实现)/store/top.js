@@ -10,11 +10,7 @@ export default {
   mutations: {},
   //定义Vuex的mutations配置对象(组件中调用,用于修改数据)
   state: {
-    top: {
-      name: ""
-      ,List_length:0
-    }
-
+     table:"淘神价.Vip"
   },
   //定义Vuex的state配置对象(存储数据)
   getters: {},

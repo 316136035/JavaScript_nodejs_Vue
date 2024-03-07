@@ -51,6 +51,11 @@ export default {
     //模板中借助mapGetters函数，映射到Vuex模版中state配置对象中的数据("模块名称",["函数名"])---------数组写法
     // ...mapGetters("container", ["filteshow"])
   },
+  watch: {
+    KeywordQuery() {
+      console.log(this.name)
+    }
+  }
  
  
 };
