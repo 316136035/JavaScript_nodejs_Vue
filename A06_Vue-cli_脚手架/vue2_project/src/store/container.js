@@ -85,10 +85,13 @@ export default {
     },
      //定义Vuex的state配置对象(存储数据)
     getters:{
-       showlist(state){
-        return state.list.filters((item)=>{
-          item.price>3000
+      filteshow(state) {
+        //过滤器
+        return state.list.filter(item => {
+          return item.price > 3000
         })
-       }
+      }
     },
    }
+
+
