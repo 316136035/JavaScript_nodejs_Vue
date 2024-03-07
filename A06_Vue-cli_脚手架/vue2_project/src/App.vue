@@ -1,19 +1,20 @@
 <!-- 模版 -->
 <template>
   <div id="app">
-      <JdPageDisplay></JdPageDisplay>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 // 引入组件
-import JdPageDisplay from './components/JdPageDisplay.vue'
+import HelloWorld from './components/HelloWorld.vue'
 // 暴露组件
 export default {
   name: 'App',//自定义组件名称
   // 注册组件
   components: {
-    JdPageDisplay: JdPageDisplay 
+    HelloWorld: HelloWorld 
   }
 }
 </script>

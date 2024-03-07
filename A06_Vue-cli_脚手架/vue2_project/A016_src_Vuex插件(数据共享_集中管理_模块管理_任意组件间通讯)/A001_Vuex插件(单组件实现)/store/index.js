@@ -4,22 +4,21 @@ Vue.use(Vuex) //使用Vuex  响应式共享的数据
 //创建并暴露store
 export default new Vuex.Store({
   namespaced: true,// 开启命名空间
-  //准备actions对象—统一响应组件中用户的动作(后台代码/异步请求)
+  //准备actions配置对象，统一响应组件中用户的动作(后台代码/异步请求)
   actions: {
-   
     deleteitem(store, value) {
       console.log(Storage);
       //使用过滤器实现（return 返回新的数据，赋值给list数组）
-      const newlist = store.state.list.filter((item) => {return item.sku != value; });
+      const newlist = store.state.list.filter((item) => { return item.sku != value; });
       store.commit('DELETEitem', newlist)//commit触发mutations配置对象中的DELETEitem方法
     }
   },
-  //准备mutations对象—统一修改state中的数据（精简的核心文件store，参数））（方法名请使用大写）
+  //准备mutations配置对象，修改state中的数据（精简的核心文件store，参数））（方法名请使用大写）
   mutations: {
-    ADDitem(store, value) {store.list.push(value) }, /**当有人触发ADDitem方法就进行修改*/
-    DELETEitem(action, value) { action.list = value}  /**当有人触发DELETEitem方法就进行修改*/
+    ADDitem(store, value) { store.list.push(value) }, /**当有人触发ADDitem方法就进行修改*/
+    DELETEitem(action, value) { action.list = value }  /**当有人触发DELETEitem方法就进行修改*/
   },
-  //准备state对象——保存具体的数据（仓库/共享数据）
+  //准备state配置对象——保存具体的数据（仓库/共享数据）
   state: {
     list: [
       {
@@ -92,15 +91,15 @@ export default new Vuex.Store({
         name: `老板（Robam）WB780DH 10套大容量嵌入式洗碗洗锅机热风烘干消杀长效循环存储一体机家用中式搁架快速洗`,
         price: 3299,
       },
-  
+
     ],
   },
-  //准备getters对象—统一加工state中的数据（等于computed 但是共享的）
+  //准备getters配置对象，统一加工state中的数据（等于computed 但是共享的）
   getters: {
-    filteshow(state) { 
-  console.log(state.list);
+    filteshow(state) {
       return state.list.filter(item => {
         return item.price > 3000
-      }) }
+      })
+    }
   }
 })

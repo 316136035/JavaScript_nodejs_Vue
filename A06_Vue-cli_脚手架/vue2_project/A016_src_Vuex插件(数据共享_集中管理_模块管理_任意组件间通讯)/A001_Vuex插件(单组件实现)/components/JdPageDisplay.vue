@@ -60,26 +60,35 @@ export default {
   },
   //计算属性
   computed: {
-     //模板中借助mapStat函数映射到state配置对象中(配置对象中的属性名,模板中的属性名 )
-    ...mapState({ list: "list" }),
-     //模板中借助mapGetters函数映射到getters配置对象中(置对象中的函数名,模板中的函数名 )
-    ...mapGetters({ filteshow: "filteshow" }),
+    //获取Vuex模版中state配置对象的数据---------初级写法
+    // list() {return this.$store.state.list;},
+    //模板中借助mapState函数，映射到Vuex模版中的state配置对象中的数据(配置对象中的属性名:模板中的属性名)---------对象写法
+    // ...mapState({ list: "list" }),
+    //模板中借助mapState函数，映射到Vuex模版中state配置对象中的数据["属性名","属性名"]---------数组写法
+    ...mapState(["list"]),
+    
+    //调用Vuex模版中getters配置对象中的filteshow方法
+    // filteshow() { return this.$store.getters.filteshow;}, ---------初级写法
+    //模板中借助mapGetters函数，映射到Vuex模版中getters配置对象中的函数(置对象中的函数名:模板中的函数名 )---------对象写法
+    //...mapGetters({ filteshow: "filteshow" }),
+    //模板中借助mapGetters函数，映射到Vuex模版中state配置对象中的数据["函数名","函数名"]---------数组写法
+     ...mapGetters(["filteshow"]),
   },
   //方法
   methods: {
-    /*    deleteitem(sku) {
-       //调用$store中的deleteitem方法
-      this.$store.dispatch("deleteitem", sku);
-     }, */
-    //模板中借助mapActions函数映射到 actions配置对象中(置对象中的函数名,模板中的函数名 )
-    ...mapActions({ deleteitem: "deleteitem" }),
-    /*   //模板中传统写法
-    ADDitem() {
-      //调用$store中的ADDitem方法 
-      this.$store.commit("ADDitem",this.item);
-   },  */
-    //模板中借助mapMutations函数映射到mutations配置对象中(置对象中的函数名,模板中的函数名 )
-    ...mapMutations({ ADDitem: "ADDitem" }),
+    //映射到Vuex模版中actions配置对象中的函数（函数名，参数）--------初级写法
+    //  deleteitem(sku) {this.$store.dispatch("deleteitem", sku);}, 
+    //模板中借助mapActions函数映射到 actions配置对象中(函数名:模板中的函数名 )---------对象写法
+    //...mapActions({ deleteitem: "deleteitem" }),
+     //模板中借助mapActions函数，映射到Vuex模版中actions配置对象中的函数["函数名","函数名"]---------数组写法
+    ...mapActions(["deleteitem"]),
+
+    //映射到Vuex模版中mutations配置对象中的函数（函数名，参数）--------初级写法
+    // ADDitem() { this.$store.commit("ADDitem",this.item);},  
+    //模板中借助mapMutations函数映射到mutations配置对象中(置对象中的函数名:模板中的函数名 )
+    // ...mapMutations({ ADDitem: "ADDitem" }),
+    //模板中借助mapMutations函数，映射到Vuex模版中mutations配置对象中的函数["函数名","函数名"]---------数组写法
+    ...mapMutations(["ADDitem"])
   },
 };
 </script>
