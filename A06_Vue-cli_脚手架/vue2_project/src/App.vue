@@ -1,20 +1,23 @@
 <!-- 模版 -->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <Head></Head> -->
+      <Top></Top>
+    <Container> </Container>
   </div>
 </template>
 
 <script>
 // 引入组件
-import HelloWorld from './components/HelloWorld.vue'
+import Container from './components/Container.vue'
+import Top from './components/Top.vue'
 // 暴露组件
 export default {
   name: 'App',//自定义组件名称
   // 注册组件
   components: {
-    HelloWorld: HelloWorld 
+    Top:Top,
+    Container: Container
   }
 }
 </script>
@@ -22,11 +25,7 @@ export default {
 <!-- css样式 -->
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+
 }
 </style>
