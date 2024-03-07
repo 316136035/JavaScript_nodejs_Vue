@@ -20,16 +20,34 @@
           <th><button v-on:click="deleteitem(item.sku)">删除</button></th>
         </tr>
       </tbody>
+      <hr>
+      <tbody class="tbody">
+        <tr v-for="(item, index) in showlist" :key="index">
+          <th>{{ index + 1 }}</th>
+          <th>{{ item.sku }}</th>
+          <th>{{ item.name }}</th>
+          <th>{{ item.price }}</th>
+          <th><button v-on:click="deleteitem(item.sku)">删除</button></th>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
 
 <script>
+import {mapState, mapActions,mapMutations, mapGetters } from 'vuex';
 export default {
   computed: {
-    list() {
-      return this.$store.state.container.list;
-    },
+    // list() {return this.$store.state.container.list; },
+    // ...mapState("container",{list:"list"})
+    ...mapState("container",["list"]),
+   
+     showlist(){
+      return his.$store.getters[container/showlist]
+
+     }
+
+
   },
 };
 </script>
