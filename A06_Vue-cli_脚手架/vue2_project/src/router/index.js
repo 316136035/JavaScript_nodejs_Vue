@@ -39,7 +39,6 @@ const Router = new VueRouter({
       name: 'Monitor',//命名组件名称
       component: monitor//使用过组件
     },
-
   ]
 })
 //默认暴露路由器
