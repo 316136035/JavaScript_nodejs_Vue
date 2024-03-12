@@ -17,3 +17,13 @@
   /* 清除浮动影响 */
   clear: both;
 }
+
+/* 版心 */
+.container {
+  /* 宽度 */
+  width: 1190px;
+  /* 居中 */
+  margin: 0 auto;
+  /* 背景颜色 */
+  background-color: rgb(124, 172, 124);
+}

@@ -35,35 +35,9 @@ export default {
 
 <!-- scoped代表只能在当前组件使用的css样式 -->
 <style scoped>
-/* --------------------基本css属性------------------ */
-/* 左浮动 */
-.float-left {
-    float: left;
-}
 
-/* 右浮动 */
-.float-right {
-    float: right;
-}
 
-/* 清除浮动影响 */
-.clear-both::after {
-    content: "";
-    /* 设置为块元素 */
-    display: block;
-    /* 清除浮动影响 */
-    clear: both;
-}
-
-/* 版心 */
-.container {
-    /* 宽度 */
-    width: 1190px;
-    /* 居中 */
-    margin: 0 auto;
-    /* 背景颜色 */
-    background-color: rgb(124, 172, 124);
-}
+/* ----------------------------导航条---------------------------------- */
 
 .top {
     /* 背景颜色 */
@@ -71,7 +45,7 @@ export default {
     /* 边距 */
     border: 1px solid #ddd;
     /* 高度 */
-    height: 40px;
+    height: 30px;
 
 }
 
@@ -85,11 +59,11 @@ export default {
 /* 左侧欢迎词 */
 .top-welcome {
     /* 字体大小 */
-    font-size: 40px;
+    font-size: 20px;
     /* 字体居中 */
     text-align: center;
     /* 行距 */
-    line-height: 40px;
+    line-height: 30px;
     /* 字符 粗体 */
     font-weight: bold;
     /*  字符颜色*/
@@ -114,16 +88,12 @@ export default {
      /* 字体居中 */
     text-align: center;
     /* 行距 */
-    line-height: 40px;
+    line-height: 30px;
     /* 边框 */
     border-right: 1px solid #999;
     /* 内边框 */
     padding-right: 10px;
-    padding-left:10px;
-  
-
-    
-  
+    padding-left: 10px;
 }
 
 /* 右侧导航区中的第一个a标签 */
