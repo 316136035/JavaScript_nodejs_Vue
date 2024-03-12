@@ -16,12 +16,12 @@ const Router = new VueRouter({
       component:  front_page, //使用过组件
       children: [
         {
-          path: 'Brand',//组件路径(二级路由)
+          path: 'brand',//组件路径(二级路由)
           name: 'Brand',//命名组件名称
           component:  Brand //使用过组件
         },
         {
-          path: 'Introduction ',//组件路径(二级路由)
+          path: 'introduction ',//组件路径(二级路由)
           name: 'Introduction ',//命名组件名称
           component:  Introduction //使用过组件
         },
