@@ -12,8 +12,7 @@ export default {
 <style>
   .bottom{
      text-align: center;
-  
-  
-  }
+     background-color: red;
+   }
 
 </style>
