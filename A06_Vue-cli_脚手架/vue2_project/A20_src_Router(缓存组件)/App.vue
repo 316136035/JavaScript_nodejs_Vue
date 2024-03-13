@@ -23,7 +23,7 @@
       </div>
     </div>
     <hr />
-    <!-- 缓存组件（跳转的时候不销毁组件） :include="[A组件,B组件]" 组件名 -->
+    <!-- 缓存组件（跳转的时候不销毁组件） :include="[A组件,B组件]" 必须是组件名 -->
     <keep-alive  :include="['Monitor']" >
       <!-- 组件跳转显示位置 -->
       <router-view class="container"></router-view>
