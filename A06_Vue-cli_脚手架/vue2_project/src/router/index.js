@@ -5,8 +5,7 @@ import login from '../page/Login.vue'
 
 //创建路由器
 const Router = new VueRouter({
-    mode :"hash",//hash模式(打包项目后可以通过浏览器直接访问（可以使用xxx包），不要使用history模式)
-    
+    mode :"history",//使用浏览器的history模式(地址栏中没有“#” 打包后面会出现404，服务器中的引入并应用 npm i connect-history-api-fallback 这个插件)  
   //多个路由配置(一级路由)
   routes: [
     {
