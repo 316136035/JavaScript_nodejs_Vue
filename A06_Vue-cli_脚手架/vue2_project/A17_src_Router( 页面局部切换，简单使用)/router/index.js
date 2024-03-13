@@ -3,7 +3,7 @@ import frontpage from '../page/FrontPage.vue'//引入首页组件（一级路由
 import monitor from '../page/Monitor.vue'//引入监控组件（一级路由）
 import frontPage_brand from '../page/FrontPage_Brand.vue'//引入品牌组件（二级路由）
 import frontPage_introduction from '../page/FrontPage_Introduction.vue'//引入介绍组件（二级路由）
-import frontPage_brand_list from '../page/FrontPage_Brand_List.vue'//引入品牌列表组件（三级路由）
+import frontPage_brand_show from '../page/FrontPage_Brand_Show.vue'//引入品牌列表组件（三级路由）
 //创建路由器
 const Router = new VueRouter({
   //多个路由配置(一级路由)
@@ -21,9 +21,9 @@ const Router = new VueRouter({
           //三级路由
           children: [
             {
-              path: 'frontPage_brand_list',//组件路径
-              name: 'FrontPage_Brand_List',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
-              component: frontPage_brand_list //使用组件
+              path: 'frontPage_brand_show',//组件路径
+              name: 'FrontPage_Brand_Show',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
+              component: frontPage_brand_show //使用组件
             },
           ]
         },

@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'FrontPage_Brand_list',
+  name: 'FrontPage_Brand_Show',
 
   mounted() {
     console.log("三级路由组件加载完成");
