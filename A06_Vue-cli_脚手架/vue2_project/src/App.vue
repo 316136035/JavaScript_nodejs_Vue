@@ -10,17 +10,25 @@
            对象写法(路径名) :to="{ path: '/frontpage' }"  
            对象写法(命令模式,路由中要:命名路由):to="{ name: 'FrontPage' }" -->
         <!-- replace属性它不会将新的路由记录添加到浏览器的历史记录栈中，相反，replace属性会触发router.replace()方法而不是router.push()方法来执行页面跳转。 -->
-        <router-link replace active-class="active" :to="{ name: 'FrontPage' }">首页</router-link>
+        <router-link active-class="active" :to="{ name: 'FrontPage' }"
+          >首页</router-link
+        >
         <!-- router-link路由路径 to="/monitor" 切换到哪个页面 
            对象写法(路径名) :to="{ path: '/monitor' }"  
            对象写法(命令模式,路由中要:命名路由):to="{ name: 'Monitor' }" -->
         <!-- replace属性它不会将新的路由记录添加到浏览器的历史记录栈中，相反，replace属性会触发router.replace()方法而不是router.push()方法来执行页面跳转。 -->
-        <router-link active-class="active" :to="{ name: 'Monitor' }">监控</router-link>
+        <router-link active-class="active" :to="{ name: 'Monitor' }"
+          >监控</router-link
+        >
       </div>
     </div>
     <hr />
-    <!-- 路由视图 -->
-    <router-view class="container"></router-view>
+    <!-- 缓存组件（跳转的时候不销毁组件） :include="[A组件,B组件]" 组件名 -->
+    <keep-alive  :include="['Monitor']" >
+      <!-- 组件跳转显示位置 -->
+      <router-view class="container"></router-view>
+    </keep-alive>
+
   </div>
 </template>
 

@@ -1,5 +1,8 @@
 <template>
-  <div>监控</div>
+  <div>
+    <div>监控</div>
+  <input type="text" >
+  </div>
 </template>
 
 <script>

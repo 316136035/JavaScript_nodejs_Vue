@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "front_page",
+  name: "FrontPage",
   components: {},
   mounted() {
     console.log("一级路由(首页)组件加载完成");
