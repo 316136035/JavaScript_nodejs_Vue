@@ -15,7 +15,7 @@ const Router = new VueRouter({
       path: '/monitor',//组件路径(一级路由)
       name: 'Monitor',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
       component: monitor,//使用组件
-      //自定义元信息对象
+      //存放路由元信息
       meta: {
         title: '监控页面'
       }
