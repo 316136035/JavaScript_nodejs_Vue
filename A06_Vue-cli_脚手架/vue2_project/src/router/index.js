@@ -23,7 +23,17 @@ const Router = new VueRouter({
             {
               path: 'frontPage_brand_show/:text',//组件路径(:text占位符用于params传参)
               name: 'FrontPage_Brand_Show',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
-              component: frontPage_brand_show //使用组件
+              component: frontPage_brand_show, //使用组件
+              //props传参 第一种对象写法 改对象的所有key-value到会以props的形式传给当前使用的组件
+              //props:{a:"A",B:"B"}
+              //props传参 第二种写法布尔类型(必借助params传参方式，会把params参数以props的形式传给当前使用的组件)
+              //props: true,
+              //props传参 第三种写法(必借助params传参方式，会把params参数以props的形式传给当前使用的组件)
+              props($route) {
+                return {
+                  text: $route.params.text
+                }
+              }
             },
           ]
         },
