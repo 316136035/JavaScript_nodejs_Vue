@@ -17,6 +17,10 @@
       prop="address"
       label="地址">
     </el-table-column>
+    <el-table-column
+      prop="discount"
+      label="折扣">
+    </el-table-column>
   </el-table>
 </template>
 
