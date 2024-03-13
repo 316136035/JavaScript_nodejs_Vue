@@ -9,6 +9,10 @@ import VueRouter from "vue-router"
 import router from "./router/index"
 //应用路由器对象
 Vue.use(VueRouter)
+import ElementUI from 'element-ui'; // 引入Element 网站快速成型工具
+import 'element-ui/lib/theme-chalk/index.css';// 引入element-ui样式
+
+Vue.use(ElementUI);
 // 开发环境关掉提示
 Vue.config.productionTip = false
 //创建vue视图模型实例（脚手架主入口）
