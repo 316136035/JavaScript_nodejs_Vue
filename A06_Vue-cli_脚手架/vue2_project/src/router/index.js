@@ -10,34 +10,34 @@ const Router = new VueRouter({
   routes: [
     {
       path: '/frontpage',//组件路径
-      name: 'FrontPage',//命名组件名称 
-      component: frontpage, //使用过组件（首页组件）
+      name: 'FrontPage',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
+      component: frontpage, //使用组件（首页组件）
       //二级路由
       children: [
         {
           path: 'frontPage_brand',//组件路径
-          name: 'FrontPage_Brand',//命名组件名称
-          component: frontPage_brand, //使用过组件
+          name: 'FrontPage_Brand',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
+          component: frontPage_brand, //使用组件
           //三级路由
           children: [
             {
               path: 'frontPage_brand_list',//组件路径
-              name: 'FrontPage_Brand_List',//命名组件名称
-              component: frontPage_brand_list //使用过组件
+              name: 'FrontPage_Brand_List',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
+              component: frontPage_brand_list //使用组件
             },
           ]
         },
         {
           path: 'frontPage_introduction',//组件路径
-          name: 'FrontPage_Introduction',//命名组件名称
-          component: frontPage_introduction //使用过组件
+          name: 'FrontPage_Introduction',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
+          component: frontPage_introduction //使用组件
         },
       ]
     },
     {
       path: '/monitor',//组件路径(一级路由)
-      name: 'Monitor',//命名组件名称
-      component: monitor//使用过组件
+      name: 'Monitor',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
+      component: monitor//使用组件
     },
   ]
 })

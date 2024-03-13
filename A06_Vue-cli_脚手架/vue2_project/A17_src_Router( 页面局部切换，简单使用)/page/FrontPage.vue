@@ -5,7 +5,7 @@
         <ul>
             <!-- router-link路由路径 to="/Front" 切换到哪个页面  可以写链接也可以写对象{path:'/Front' name:'Front'}-->
           <!-- replace属性它不会将新的路由记录添加到浏览器的历史记录栈中，相反，replace属性会触发router.replace()方法而不是router.push()方法来执行页面跳转。 -->
-          <router-link to="/frontpage/frontPage_brand">品牌</router-link>
+          <router-link to="/frontpage/frontpage_brand">品牌</router-link>
         </ul>
         <ul>
            <!-- router-link路由路径 to="/Front" 切换到哪个页面  可以写链接也可以写对象{path:'/Front' name:'Front'}-->
