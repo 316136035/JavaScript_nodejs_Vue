@@ -4,7 +4,7 @@ var path = require('path');//引入path路径操作
 var cookieParser = require('cookie-parser');////引入cookies 模块
 //引入connect-history-api-fallback（使用浏览器的history模式(地址栏中没有“#” 打包后面会出现404，服务器中的引入并应用 npm i connect-history-api-fallback 这个插件)）
 var connect = require('connect-history-api-fallback'); 
-var indexRouter = require('./routes/index');////引入路由模块
+var indexRouter = require('./routes/index');//引入路由模块
 var app = express();//初始化express框架
 app.use(connect());//使用connect-history-api-fallback
 app.use(express.json());//使用json模块
@@ -33,3 +33,4 @@ app.use(function(err, req, res, next) {
 });
 //导出服务器对象
 module.exports = app;
+	//会生成在dist目录中并把里面的css js 等文件复制到服务器的public目录中
