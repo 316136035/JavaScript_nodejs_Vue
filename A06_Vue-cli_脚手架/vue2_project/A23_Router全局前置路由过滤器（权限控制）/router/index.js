@@ -23,28 +23,8 @@ const Router = new VueRouter({
       meta: {
         title: '监控页面',
         isLogin: true //验证是否需要登录
-      },
-
-      //单个前置路由过滤器只有前置没有后置（（权限控制）（to去哪里，from来自哪里，next放行）
-      beforeEnter: ((to, from, next) => {
-        console.log("单个前置路由过滤器")
-        //获取路由的参数
-        if (to.meta.isLogin) {
-          //获取cookies判断用户是否存在
-          if (window.localStorage.getItem("token") === "admin") {
-            //放行
-            next()
-          } else {
-            //未登录，跳转登录页面
-            next({
-              path: '/login'
-            })
-          }
-        }
-      })
-
+      }
     },
-
     {
       path: '/login',//组件路径(一级路由)
       name: 'Login',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
@@ -54,6 +34,30 @@ const Router = new VueRouter({
       }
     },
   ]
+})
+//全局前置路由过滤器（权限控制）组件通过路由的，进入该组件时被调用（to去哪里，from来自哪里，next放行
+Router.beforeEach((to, from, next) => {
+    if (to.meta.isLogin) {
+      //判断当前路由是否需要登录
+      if (window.localStorage.getItem('token')=== "admin") {
+        console.log("已登录");
+        //判断用户是否登录
+        next()
+      } else {
+        //未登录，跳转登录页面
+        next({
+          path: '/login'
+        })
+      }
+    } else {
+      next()
+    }
+  next()
+})
+//全局前置路由过滤器（权限控制）组件通过路由的过滤器，，离开该组件时被调用 （to去哪里，from来自哪里）
+Router.afterEach((to, from) => {
+  //获取当前路由的元信息对象作为页面标题
+  document.title= to.meta.title||'淘神价'
 })
 
 
