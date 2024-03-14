@@ -8,7 +8,7 @@ const Router = new VueRouter({
   routes: [
    
     {
-      path: '/index',//组件路径
+      path: '/',//组件路径
       component: () => import('../page/index/Longin.vue'), //使用组件（登录页面组件）
 
 
