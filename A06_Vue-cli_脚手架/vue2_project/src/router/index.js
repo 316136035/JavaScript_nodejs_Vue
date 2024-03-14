@@ -1,5 +1,5 @@
 import VueRouter from 'vue-router' //引入vue路由插件vue-router
-import home from '../page/Home.vue'//引入首页组件（一级路由）
+import home from '../page/LeftNavigationNar/Home.vue'//引入首页组件（一级路由）
 import longin from '../page/Longin.vue'//引入首页组件（一级路由）
 
 //创建路由器
