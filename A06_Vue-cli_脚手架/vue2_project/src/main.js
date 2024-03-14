@@ -11,8 +11,17 @@ import router from "./router/index"
 Vue.use(VueRouter)
 import ElementUI from 'element-ui'; // 引入Element 网站快速成型工具
 import 'element-ui/lib/theme-chalk/index.css';// 引入element-ui样式
+Vue.use(Element);//注册element-ui
+//按需引入element-ui
+// import {Container,Aside,Header,Main,Footer} from 'element-ui'
+//注册element-ui组件
+// Vue.component(Container.name,Container)
+// Vue.component(Aside.name,Aside)
+// Vue.component(Header.name,Header)
+// Vue.component(Main.name,Main)
+// Vue.component(Footer.name,Footer)
 
-Vue.use(ElementUI);
+
 // 开发环境关掉提示
 Vue.config.productionTip = false
 //创建vue视图模型实例（脚手架主入口）
