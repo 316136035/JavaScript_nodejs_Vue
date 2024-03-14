@@ -8,7 +8,7 @@
     <el-header>Header</el-header>
     <el-main>
       <!-- 路由显示 -->
-      <!-- <router-view></router-view> -->
+      <router-view></router-view>
     </el-main>
     <el-footer>Footer</el-footer>
   </el-container>

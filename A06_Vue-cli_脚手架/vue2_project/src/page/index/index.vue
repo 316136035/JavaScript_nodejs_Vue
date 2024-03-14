@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-      页面加载
+  <div >
+     我是首页
   </div>
 </template>
 
