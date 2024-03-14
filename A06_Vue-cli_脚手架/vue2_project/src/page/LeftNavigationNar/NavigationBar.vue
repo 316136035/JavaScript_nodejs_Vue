@@ -1,19 +1,24 @@
 <template>
   <!-- 导航栏 -->
+  <!-- default-active="1" 默认选中第一个 -->
   <el-menu default-active="1">
+    <!-- 无子级选择 -->
     <el-menu-item index="1">
       <i class="el-icon-menu"></i>
       <span slot="title">导航一</span>
     </el-menu-item>
+     <!-- 无子级选择 -->
     <el-menu-item index="2" >
       <i class="el-icon-document"></i>
       <span slot="title">导航二</span>
     </el-menu-item>
+     <!-- 无子级选择 -->
     <el-menu-item index="3">
       <i class="el-icon-setting"></i>
       <span slot="title">导航三</span>
     </el-menu-item>
 
+     <!-- 有子级选择 -->
     <el-submenu index="4">
       <template slot="title">
         <i class="el-icon-location"></i>
