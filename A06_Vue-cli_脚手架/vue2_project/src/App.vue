@@ -23,6 +23,7 @@ export default {
 
 <!-- css样式 -->
 <style>
+<<<<<<< HEAD
   .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
@@ -57,5 +58,7 @@ export default {
     line-height: 320px;
   }
 
+=======
+>>>>>>> a3c18a104e28d3109a106ec31f010f990218eefe
 
 </style>
