@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-      页面加载
+  <div class="dataManagement">
+    <h1>数据管理</h1>
   </div>
 </template>
 
