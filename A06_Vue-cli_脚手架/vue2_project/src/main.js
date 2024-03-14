@@ -11,7 +11,7 @@ import router from "./router/index"
 Vue.use(VueRouter)
 import ElementUI from 'element-ui'; // 引入Element 网站快速成型工具
 import 'element-ui/lib/theme-chalk/index.css';// 引入element-ui样式
-Vue.use(Element);//注册element-ui
+Vue.use(ElementUI );//注册element-ui
 //按需引入element-ui
 // import {Container,Aside,Header,Main,Footer} from 'element-ui'
 //注册element-ui组件

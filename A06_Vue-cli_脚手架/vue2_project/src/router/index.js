@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router' //引入vue路由插件vue-router
-import basic from '../page/Basic.vue'//引入首页组件（一级路由）
-
+import home from '../page/Home.vue'//引入首页组件（一级路由）
+import longin from '../page/Longin.vue'//引入首页组件（一级路由）
 
 //创建路由器
 const Router = new VueRouter({
@@ -8,11 +8,24 @@ const Router = new VueRouter({
   //多个路由配置(一级路由)
   routes: [
     {
-      path: '/basic',//组件路径
-      name: 'Basic',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
-      component: basic, //使用组件（首页组件）
+      path: '/home',//组件路径
+      name: 'Home',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
+      component: home, //使用组件（首页组件）
+      meta: { //路由元信息
+        title: '首页' //页面标题
+      }
+     
+    } ,
+    {
+      path: '/longin',//组件路径
+      name: 'Longin',//命名组件名称(作用在路由组件中不用写路径，直接使用组件名称)
+      component: longin, //使用组件（首页组件）
+      meta: { //路由元信息
+        title: '登录页面' //页面标题
+      }
      
     }
+  
   
   ]
 })
