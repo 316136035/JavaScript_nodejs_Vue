@@ -1,15 +1,18 @@
 <!-- 模版 -->
 <template>
- <Home></Home>
+  <div id="app">
+  <Index></Index>
+  </div>
 </template>
-<script>
-import Home from "./views/Home/index.vue";
 
+<script>
+
+import Index from './views/index.vue';
 // 暴露组件
 export default {
   name: "App", //自定义组件名称
   components: {
-    Home:Home
+   Index
   },
 
   data() {
