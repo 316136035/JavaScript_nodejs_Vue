@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-     <h5>数据统计</h5>
+     <h5>信息管理</h5>
   </div>
 </template>
 

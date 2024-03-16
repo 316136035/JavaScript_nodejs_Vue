@@ -13,16 +13,28 @@ const routes = [
     path: '/home', name: 'home', component: () => import('../views/Home/index.vue'),
     children: [
       //二级路由 首页
-      {path: '/index', name: 'index',component: () => import('../views/Home/index/index.vue')},
-       //二级路由 数据管理页
-      {path: '/stats',name: 'stats',component: () => import('../views/Home/stats/index.vue')},
+      { path: '/index', name: 'index', component: () => import('../views/Home/index/index.vue') },
+      //二级路由 数据管理页
+      { path: '/stats', name: 'stats', component: () => import('../views/Home/stats/index.vue') },
+
+      //二级路由 用户管理页
+      {
+        path: '/user', name: 'user', component: () => import('../views/Home/user/index.vue'),
+        children: [
+          //三级路由 用户列表页
+          { path: '/user/role', name: 'list', component: () => import('../views/Home/user/role.vue') },
+          //三级路由 用户添加页
+          { path: '/user/statistics', name: 'add', component: () => import('../views/Home/user/statistics.vue') },]
+      },
+
       //二级路由  发票管理页
-       {path: '/invoiceManage',name: 'Invoicemanage',component: () => import('../views/Home/Invoicemanage/index.vue'),
+      {
+        path: '/invoiceManage', name: 'Invoicemanage', component: () => import('../views/Home/Invoicemanage/index.vue'),
         children: [
           //三级路由 发票开具页
-          {path: '/invoiceManage/issue',name: 'issue',component: () => import('../views/Home/Invoicemanage/issue.vue')},
-        //三级路由 发票查询页
-        {path: '/invoiceManage/inquiry',name: 'inquiry',component: () => import('../views/Home/Invoicemanage/inquiry.vue')},
+          { path: '/invoiceManage/issue', name: 'issue', component: () => import('../views/Home/Invoicemanage/issue.vue') },
+          //三级路由 发票查询页
+          { path: '/invoiceManage/inquiry', name: 'inquiry', component: () => import('../views/Home/Invoicemanage/inquiry.vue') },
         ]
       },
     ]

@@ -1,41 +1,44 @@
 <template>
   <div class="nav-menu">
-     <!--  default-active="/index"  默认激活的菜单项  router必须添加不然无法切换url-->
-    <el-menu default-active="/index" class="el-menu-vertical-demo" router>
-      <!-- 导航菜单 无子项 -->
-      <el-menu-item index="/index">
-        <i class="el-icon-setting"></i>
-        <span slot="title">主页</span>
-      </el-menu-item>
-      <!-- 导航菜单 无子项 -->
-      <el-menu-item index="/stats">
-        <i class="el-icon-setting"></i>
-        <span slot="title">信息管理</span>
-      </el-menu-item>
-      <!-- 导航菜单 有子项 -->
-      <el-submenu index="/invoiceManage">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>发票管理</span>
-        </template>
-        <el-menu-item-group>
-          <el-menu-item index="/invoiceManage/issue">发票开具</el-menu-item>
-          <el-menu-item index="/invoiceManage/inquiry">发票查询</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
-    </el-menu>
+    <!--   v-for="item in NavMenuLists" :key="item.iconUrl" 导航菜单遍历
+          :item="item" 传入item对象 -->
+    <NavItem  v-for="item in NavMenuLists" :key="item.iconUrl" :item="item" ></NavItem>
   </div>
 </template>
 
 <script>
+import NavItem from './NavItem.vue';
 export default {
   name: "NavMenu",
+  components: {
+    NavItem,
+  },
   data() {
     return {
+      // 导航菜单数据
       NavMenuLists: [
-        { index: "/index", title: "主页" },
-        { index: "/stats", title: "信息管理" },
-        { index: "/invoiceManage", title: "发票管理" },
+        { index: "/index", title: "主页", iconUrl: "el-icon-s-home" },
+        { index: "/stats", title: "信息管理", iconUrl: "el-icon-tableware" },
+        {
+          index: "/user",
+          title: "用户管理",
+          iconUrl: "el-icon-user",
+          children: [
+            { index: "/user/role", title: "用户角色", iconUrl: "el-icon-user" },
+            {index: "/user/statistics",title: "用户统计",iconUrl: "el-icon-user",
+            },
+          ],
+        },
+        {
+          index: "/invoiceManage",
+          title: "发票管理",
+          iconUrl: "el-icon-tickets",
+          children: [
+            { index: "/invoiceManage/issue", title: "发票开具", iconUrl: "el-icon-tickets" },
+            {index: "/invoiceManage/inquiry",title: "发票查询",iconUrl: "el-icon-tickets",
+            },
+          ],
+        },
       ],
     };
   },
