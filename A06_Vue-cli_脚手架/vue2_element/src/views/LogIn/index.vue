@@ -56,7 +56,7 @@ export default {
     },
     methods: {
       submitForm() {
-        this. $router
+        this. $router.push('/')
       
       },
      

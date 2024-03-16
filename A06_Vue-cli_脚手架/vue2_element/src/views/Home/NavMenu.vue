@@ -1,0 +1,34 @@
+<template>
+  <div class="nav-menu">
+    <el-menu  default-active="/index" class="el-menu-vertical-demo" router>
+      <el-menu-item index="/index">
+        <i class="el-icon-setting"></i>
+        <span slot="title">主页</span>
+      </el-menu-item>
+      <el-menu-item index="/stats">
+        <i class="el-icon-setting"></i>
+        <span slot="title">信息管理</span>
+      </el-menu-item>
+
+      <el-submenu index="/invoiceManage">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>发票管理</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="/invoiceManage/issue">发票开具</el-menu-item>
+          <el-menu-item index="/invoiceManage/inquiry">发票查询</el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
+    </el-menu>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "NavMenu",
+};
+</script>
+
+<style>
+</style>

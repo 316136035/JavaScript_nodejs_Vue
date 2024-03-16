@@ -1,7 +1,6 @@
 <template>
-  <div class="home">
-    <h5>信息列表</h5>
-    
+  <div>
+    发票开具
   </div>
 </template>
 
