@@ -4,20 +4,22 @@ import VueRouter from 'vue-router'  // 引入vue路由插件vue-router
 /* 三种引入的方式 ./ ../ @/(当前项目) */
 //安装路由插件
 Vue.use(VueRouter)
- //多个路由配置(一级路由)
+//多个路由配置(一级路由)
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component:  () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
+    redirect: '/home'
+   
   },
   {
-    path: '/about',
+    path: '/login',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import('../views/LogIn/index.vue')
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import('../views/Home/index.vue')
   }
 ]
 //创建路由器对象
