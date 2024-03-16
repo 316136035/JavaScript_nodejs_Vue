@@ -7,6 +7,9 @@ import App from './App.vue'
 import VueRouter from "vue-router"
 /*引入vue路由器对象 */
 import router from "./router/index"
+import ElementUI from 'element-ui'; // 引入Element 网站快速成型工具
+import 'element-ui/lib/theme-chalk/index.css';// 引入element-ui样式
+Vue.use(ElementUI);//注册element-ui
 //应用路由器对象
 Vue.use(VueRouter)
 // 开发环境关掉提示
