@@ -1,15 +1,18 @@
 <template>
   <div class="nav-menu">
+    <!--  default-active="/index"  默认激活的菜单项  router必须添加不然无法切换url-->
     <el-menu  default-active="/index" class="el-menu-vertical-demo" router>
+       <!-- 导航菜单 无子项 -->
       <el-menu-item index="/index">
         <i class="el-icon-setting"></i>
         <span slot="title">主页</span>
       </el-menu-item>
+       <!-- 导航菜单 无子项 -->
       <el-menu-item index="/stats">
         <i class="el-icon-setting"></i>
         <span slot="title">信息管理</span>
       </el-menu-item>
-
+      <!-- 导航菜单 有子项 -->
       <el-submenu index="/invoiceManage">
         <template slot="title">
           <i class="el-icon-location"></i>
