@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-
-
-    <!-- 路由视图 -->
+ <!-- 一级路由视图区域 -->
     <router-view/>
   </div>
 </template>
