@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'  // 引入vue路由插件vue-router
 
+/* 三种引入的方式 ./ ../ @/(当前项目) */
 //安装路由插件
 Vue.use(VueRouter)
  //多个路由配置(一级路由)

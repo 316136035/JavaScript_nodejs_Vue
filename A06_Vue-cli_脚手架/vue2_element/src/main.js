@@ -4,6 +4,9 @@ import App from './App.vue'
 import router from './router/index.js'//引入vue路由插件vue-router
 import store from './store'//导入vuex
 
+import ElementUI from 'element-ui'; // 引入Element 网站快速成型工具
+import 'element-ui/lib/theme-chalk/index.css';// 引入element-ui样式
+Vue.use(ElementUI);//注册element-ui
 Vue.config.productionTip = false //关闭提示
 //创建vue视图模型实例（脚手架主入口）
 new Vue({
