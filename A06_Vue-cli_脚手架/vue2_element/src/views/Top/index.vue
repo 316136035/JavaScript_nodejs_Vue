@@ -1,18 +1,23 @@
 <template>
   <div>
-    <!--响应式布局 -->
-    <el-row :gutter="50">
-      <el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18"
-        ><div class="bg-purple-left">
-          <!-- 头部左边 -->
-          <Left></Left></div
-      ></el-col>
-      <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-        <div class="bg-purple-right">
-          <!-- 头部右边 -->
-          <Right></Right></div
-      ></el-col>
-    </el-row>
+    <div>
+      <!--响应式布局 -->
+      <el-row :gutter="50">
+        <el-col :xs="18" :sm="18" :md="18" :lg="18" :xl="18"
+          ><div class="bg-purple-left">
+            <!-- 头部左边 -->
+            <Left></Left></div
+        ></el-col>
+        <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
+          <div class="bg-purple-right">
+            <!-- 头部右边 -->
+            <Right></Right></div
+        ></el-col>
+      </el-row>
+    </div>
+    <div>
+  <CarouselVue ></CarouselVue>
+    </div>
   </div>
 </template>
 
@@ -20,11 +25,17 @@
 // 引入组件
 import Left from "./left.vue";
 import Right from "./right.vue";
+import CarouselVue from "./carousel.vue";
 export default {
   // 注册组件
   components: {
-    Left:Left,
-    Right:Right,
+    Left: Left,
+    Right: Right,
+    CarouselVue:CarouselVue
+    
+  },
+  data() {
+    return {};
   },
 };
 </script>

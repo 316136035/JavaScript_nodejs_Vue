@@ -22,8 +22,19 @@ module.exports = {
     //subpage: 'src/subpage/main.js'
   },
   lintOnSave: false,//关闭语法检查
-
+  
 }
+
+const path = require('path');
+module.exports = {
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
+  },
+};
 // //配置代理服务器
 // const { defineConfig } = require('@vue/cli-service')
 // //配置跨域代理服务器（方案一）

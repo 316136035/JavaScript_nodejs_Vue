@@ -31,8 +31,8 @@ export default {
     },
     //判断是否是首页 （防止出现首页》首页）
     ishome(matched) {
-      console.log("isindex:", matched);
-      console.log(this.$route.path);
+      // console.log("isindex:", matched);
+      // console.log(this.$route.path);
       if (matched.length && matched[1].path === "/home") {
         this.paths = [matched[0]];
       }
