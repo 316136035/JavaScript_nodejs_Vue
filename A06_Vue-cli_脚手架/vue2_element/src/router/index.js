@@ -6,28 +6,34 @@ import VueRouter from 'vue-router'  // 引入vue路由插件vue-router
 Vue.use(VueRouter)
 //多个路由配置(一级路由)
 const routes = [
-
+  //一级路由 重定向
   { path: '/', redirect: '/home' },
-
+  //一级路由 （布局页）
   {
     path: '/index', component: () => import('../views/index.vue'),
+    //二级路由
     children: [
+      //二级路由 主页
       { path: '/home', component: () => import('../views/NavMenu/home/index.vue') },
+      //二级路由 信息管理
       { path: '/stats', component: () => import('../views/NavMenu/stats/index.vue') },
-      { path: '/invoiceManage', component: () => import('../views/NavMenu/Invoicemanage/index.vue'),
-       children: [
-        { path: '/invoiceManage/issue', component: () => import('../views/NavMenu/Invoicemanage/issue.vue') },
-        { path: '/invoiceManage/inquiry', component: () => import('../views/NavMenu/Invoicemanage/inquiry.vue') },
-       ]
+      { path: '/home', component: () => import('../views/NavMenu/home/index.vue') },
+      //二级路由 发票管理
+      {path: '/invoiceManage', component: () => import('../views/NavMenu/Invoicemanage/index.vue'),
+        //三级路由 
+        children: [
+          //三级路由  发票开具
+          { path: '/invoiceManage/issue', component: () => import('../views/NavMenu/Invoicemanage/issue.vue') },
+          //三级路由  发票查询
+          { path: '/invoiceManage/inquiry', component: () => import('../views/NavMenu/Invoicemanage/inquiry.vue') },
+        ]
       },
-  
-    ]
-    
-  },
 
-  {
-    path: '/login', component: () => import('../views/LogIn/index.vue'),
+    ]
+
   },
+ //一级路由 （登录页、注册页）
+  {path: '/login', component: () => import('../views/LogIn/index.vue'),},
 ]
 
 
