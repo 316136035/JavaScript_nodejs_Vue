@@ -21,7 +21,7 @@
         :index="item.index"    设置路由地址
         v-if="!item.children" 判断是否有子项 -->
     <!-- 导航菜单 有子项 -->
-    <el-submenu :index="index" v-if="item.children">
+    <el-submenu :index="item.index" v-if="item.children">
       <template slot="title">
         <i class="el-icon-location"></i>
         <span>{{ item.title }}</span>

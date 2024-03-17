@@ -1,7 +1,7 @@
 <template>
   <!--  default-active="/index"  默认激活的菜单项  router必须添加不然无法切换url-->
   <el-menu
-    default-active="home"
+    default-active="/home"
     class="el-menu-vertical-demo"
     text-color="#696969"
     active-text-color="#DAA520"
@@ -21,7 +21,7 @@
         :index="item.index"    设置路由地址
         v-if="!item.children" 判断是否有子项 -->
     <!-- 导航菜单 有子项 -->
-    <el-submenu :index="index" v-if="item.children">
+    <el-submenu :index="item.index" v-if="item.children">
       <template slot="title">
         <i class="el-icon-location"></i>
         <span>{{ item.title }}</span>
