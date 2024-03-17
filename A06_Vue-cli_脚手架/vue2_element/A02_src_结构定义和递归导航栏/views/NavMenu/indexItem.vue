@@ -27,11 +27,11 @@
           <span>{{ item.title }}</span>
         </template>
         <!-- 递归调用子组件  -->
-        <NavItem
+        <IndexItem
           v-for="item in item['children']"
           :key="item.index"
           :item="item"
-        ></NavItem>
+        ></IndexItem>
       </el-submenu>
     </el-menu>
   </div>
@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: "NavItem",
+  name: "IndexItem",
   props: { item: { type: Object } }, //接受父组件传值
   data() {
     return {};

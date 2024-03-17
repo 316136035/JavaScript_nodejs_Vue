@@ -1,17 +1,17 @@
 <template>
-  <div class="nav-menu">
+   <div class="nav-menu">
     <!--   v-for="item in NavMenuLists" :key="item.iconUrl" 导航菜单遍历
           :item="item" 传入item对象 -->
-    <NavItem  v-for="item in NavMenuLists" :key="item.iconUrl" :item="item" ></NavItem>
+    <IndexItem  v-for="item in NavMenuLists" :key="item.iconUrl" :item="item" ></IndexItem>
   </div>
 </template>
 
 <script>
-import NavItem from './NavItem.vue';
+import IndexItem from "./indexItem.vue"; 
 export default {
-  name: "NavMenu",
+  name: "Index",
   components: {
-    NavItem,
+    IndexItem,
   },
   data() {
     return {

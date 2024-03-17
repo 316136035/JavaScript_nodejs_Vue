@@ -1,7 +1,5 @@
 <template>
-  <div class="app">
-    首页
-  </div>
+  <h5>头部布局页</h5>
 </template>
 
 <script>
