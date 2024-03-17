@@ -1,7 +1,7 @@
 <template>
   <div class="nav-menu">
     <!--  default-active="/index"  默认激活的菜单项  router必须添加不然无法切换url-->
-    <el-menu default-active="/index" class="el-menu-vertical-demo" router>
+    <el-menu default-active="" class="el-menu-vertical-demo" router>
       <!-- 导航菜单 无子项 -->
       <!--  :index="item.index" 获取父级item对象的路径
             :key="item.iconUrl" 获取父级item对象的图标地址 
