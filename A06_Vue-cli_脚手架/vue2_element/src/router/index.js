@@ -18,18 +18,20 @@ const routes = [
       //二级路由 信息管理
       { path: '/stats', component: () => import('../views/NavMenu/stats/index.vue') },
 
-      { path: '/user', component: () => import('../views/NavMenu/user/index.vue') ,
-      //三级路由 
-      children: [
-        //三级路由  发票开具
-        { path: '/user/role', component: () => import('../views/NavMenu/user/role.vue') },
-        //三级路由  发票查询
-        { path: '/user/statistics', component: () => import('../views/NavMenu/user/statistics.vue') },
-      ]
+      //二级路由 用户管理
+      {
+        path: '/user', component: () => import('../views/NavMenu/user/index.vue'),
+        //三级路由 
+        children: [
+          //三级路由 用户角色
+          { path: '/user/role', component: () => import('../views/NavMenu/user/role.vue') },
+          //三级路由  用户统计
+          { path: '/user/statistics', component: () => import('../views/NavMenu/user/statistics.vue') },
+        ]
       },
-     
       //二级路由 发票管理
-      {path: '/invoiceManage', component: () => import('../views/NavMenu/Invoicemanage/index.vue'),
+      {
+        path: '/invoiceManage', component: () => import('../views/NavMenu/Invoicemanage/index.vue'),
         //三级路由 
         children: [
           //三级路由  发票开具
@@ -42,8 +44,8 @@ const routes = [
     ]
 
   },
- //一级路由 （登录页、注册页）
-  {path: '/login', component: () => import('../views/LogIn/index.vue'),},
+  //一级路由 （登录页、注册页）
+  { path: '/login', component: () => import('../views/LogIn/index.vue'), },
 ]
 
 

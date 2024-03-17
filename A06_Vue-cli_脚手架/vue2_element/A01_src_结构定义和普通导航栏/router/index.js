@@ -17,7 +17,17 @@ const routes = [
       { path: '/home', component: () => import('../views/NavMenu/home/index.vue') },
       //二级路由 信息管理
       { path: '/stats', component: () => import('../views/NavMenu/stats/index.vue') },
-      { path: '/home', component: () => import('../views/NavMenu/home/index.vue') },
+
+      { path: '/user', component: () => import('../views/NavMenu/user/index.vue') ,
+      //三级路由 
+      children: [
+        //三级路由  发票开具
+        { path: '/user/role', component: () => import('../views/NavMenu/user/role.vue') },
+        //三级路由  发票查询
+        { path: '/user/statistics', component: () => import('../views/NavMenu/user/statistics.vue') },
+      ]
+      },
+     
       //二级路由 发票管理
       {path: '/invoiceManage', component: () => import('../views/NavMenu/Invoicemanage/index.vue'),
         //三级路由 

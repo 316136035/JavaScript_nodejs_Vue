@@ -1,48 +1,58 @@
 <template>
-  <div class="nav-menu">
-    <!--  default-active="/index"  默认激活的菜单项  router必须添加不然无法切换url-->
-    <el-menu default-active="/home" class="el-menu-vertical-demo" router>
-      <!-- 导航菜单 无子项 -->
-      <el-menu-item index="/home">
-        <i class="el-icon-setting"></i>
-        <span slot="title">主页</span>
-      </el-menu-item>
-      <!-- 导航菜单 无子项 -->
-      <el-menu-item index="/stats">
-        <i class="el-icon-setting"></i>
-        <span slot="title">信息管理</span>
-      </el-menu-item>
-
-      <!-- 导航菜单 有子项 -->
-      <el-submenu index="/user">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>用户管理</span>
-        </template>
-        <el-menu-item-group>
-          <el-menu-item index="/user/role">用户角色</el-menu-item>
-          <el-menu-item index="/user/statistics">用户统计</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
-
-      <!-- 导航菜单 有子项 -->
-      <el-submenu index="/invoiceManage">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>发票管理</span>
-        </template>
-        <el-menu-item-group>
-          <el-menu-item index="/invoiceManage/issue">发票开具</el-menu-item>
-          <el-menu-item index="/invoiceManage/inquiry">发票查询</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
-    </el-menu>
+   <div class="nav-menu">
+    
+    <!-- App.vue 或者你用来展示导航菜单的组件 -->
+  <template>
+  <div id="app">
+    <!-- 导航菜单 组件 
+      v-for="(item) in NavMenuLists" :key="`${item.iconUrl}-${item.title}`"   遍历数组
+        :item="item" 把每一次遍历的item对象传给NavMenuItem组件 -->
+    <NavMenuItem
+      v-for="(item) in NavMenuLists"
+      :key="`${item.iconUrl}-${item.title}`"
+      :item="item"
+    ></NavMenuItem>
+  </div>
+</template>
   </div>
 </template>
 
 <script>
+import NavMenuItem from "./NavMenuItem.vue"; 
 export default {
-  name: "NavMenu",
+  name: "Index",
+  components: {
+    NavMenuItem,
+  },
+  data() {
+    return {
+      // 导航菜单数据
+      NavMenuLists: [
+        { index: "/home", title: "主页", iconUrl: "el-icon-s-home" },
+        { index: "/stats", title: "信息管理", iconUrl: "el-icon-tableware" },
+        {
+          index: "/user",
+          title: "用户管理",
+          iconUrl: "el-icon-user",
+          children: [
+            { index: "/user/role", title: "用户角色", iconUrl: "el-icon-user" },
+            {index: "/user/statistics",title: "用户统计",iconUrl: "el-icon-user",
+            },
+          ],
+        },
+        {
+          index: "/invoiceManage",
+          title: "发票管理",
+          iconUrl: "el-icon-tickets",
+          children: [
+            { index: "/invoiceManage/issue", title: "发票开具", iconUrl: "el-icon-tickets" },
+            {index: "/invoiceManage/inquiry",title: "发票查询",iconUrl: "el-icon-tickets",
+            },
+          ],
+        },
+      ],
+    };
+  },
 };
 </script>
 
