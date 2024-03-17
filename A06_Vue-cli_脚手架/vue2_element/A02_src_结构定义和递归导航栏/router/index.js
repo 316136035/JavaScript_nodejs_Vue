@@ -10,7 +10,7 @@ const routes = [
   { path: '/', redirect: '/home' },
   //一级路由 （布局页）
   {
-    path: '/index', component: () => import('../views/index.vue'),
+    path: '/home',name: 'index',meta: { title: '首页' }, component: () => import('../views/index.vue'),
     //二级路由
     children: [
       //二级路由 主页
