@@ -17,7 +17,7 @@ export default {
     return {
       // 导航菜单数据
       NavMenuLists: [
-        { index: "/index", title: "主页", iconUrl: "el-icon-s-home" },
+        { index: "/home", title: "主页", iconUrl: "el-icon-s-home" },
         { index: "/stats", title: "信息管理", iconUrl: "el-icon-tableware" },
         {
           index: "/user",
