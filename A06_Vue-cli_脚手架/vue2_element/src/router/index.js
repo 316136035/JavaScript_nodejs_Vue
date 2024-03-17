@@ -6,49 +6,34 @@ import VueRouter from 'vue-router'  // 引入vue路由插件vue-router
 Vue.use(VueRouter)
 //多个路由配置(一级路由)
 const routes = [
-  //重定向home首页
-  { path: '/', redirect: '/index' },
 
-  { //一级路由 布局页
-    path: '/home', name: 'home', component: () => import('../views/Home/index.vue'),
-    children: [
-      //二级路由 首页
-      { path: '/index', name: 'index', component: () => import('../views/Home/index/index.vue') },
-      //二级路由 数据管理页
-      { path: '/stats', name: 'stats', component: () => import('../views/Home/stats/index.vue') },
+  { path: '/', redirect: '/home' },
 
-      //二级路由 用户管理页
-      {
-        path: '/user', name: 'user', component: () => import('../views/Home/user/index.vue'),
-        children: [
-          //三级路由 用户列表页
-          { path: '/user/role', name: 'list', component: () => import('../views/Home/user/role.vue') },
-          //三级路由 用户添加页
-          { path: '/user/statistics', name: 'add', component: () => import('../views/Home/user/statistics.vue') },]
-      },
-
-      //二级路由  发票管理页
-      {
-        path: '/invoiceManage', name: 'Invoicemanage', component: () => import('../views/Home/Invoicemanage/index.vue'),
-        children: [
-          //三级路由 发票开具页
-          { path: '/invoiceManage/issue', name: 'issue', component: () => import('../views/Home/Invoicemanage/issue.vue') },
-          //三级路由 发票查询页
-          { path: '/invoiceManage/inquiry', name: 'inquiry', component: () => import('../views/Home/Invoicemanage/inquiry.vue') },
-        ]
-      },
-    ]
-
-  },
-  ////一级路由  登录页
   {
-    path: '/login',
-    name: 'about',
-    component: () => import('../views/LogIn/index.vue')
+    path: '/index', component: () => import('../views/index.vue'),
+    children: [
+      { path: '/home', component: () => import('../views/NavMenu/home/index.vue') },
+      { path: '/stats', component: () => import('../views/NavMenu/stats/index.vue') },
+      { path: '/invoiceManage', component: () => import('../views/NavMenu/Invoicemanage/index.vue'),
+       children: [
+        { path: '/invoiceManage/issue', component: () => import('../views/NavMenu/Invoicemanage/issue.vue') },
+        { path: '/invoiceManage/inquiry', component: () => import('../views/NavMenu/Invoicemanage/inquiry.vue') },
+       ]
+      },
+  
+    ]
+    
   },
 
-
+  {
+    path: '/login', component: () => import('../views/LogIn/index.vue'),
+  },
 ]
+
+
+
+
+
 //创建路由器对象
 const router = new VueRouter({
   routes
