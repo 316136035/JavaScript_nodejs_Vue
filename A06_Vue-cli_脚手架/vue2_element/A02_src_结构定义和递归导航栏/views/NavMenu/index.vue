@@ -1,17 +1,28 @@
 <template>
    <div class="nav-menu">
-    <!--   v-for="item in NavMenuLists" :key="item.iconUrl" 导航菜单遍历
-          :item="item" 传入item对象 -->
-    <IndexItem  v-for="item in NavMenuLists" :key="item.iconUrl" :item="item" ></IndexItem>
+    
+    <!-- App.vue 或者你用来展示导航菜单的组件 -->
+  <template>
+  <div id="app">
+    <!-- 导航菜单 组件 
+      v-for="(item) in NavMenuLists" :key="`${item.iconUrl}-${item.title}`"   遍历数组
+        :item="item" 把每一次遍历的item对象传给NavMenuItem组件 -->
+    <NavMenuItem
+      v-for="(item) in NavMenuLists"
+      :key="`${item.iconUrl}-${item.title}`"
+      :item="item"
+    ></NavMenuItem>
+  </div>
+</template>
   </div>
 </template>
 
 <script>
-import IndexItem from "./indexItem.vue"; 
+import NavMenuItem from "./NavMenuItem.vue"; 
 export default {
   name: "Index",
   components: {
-    IndexItem,
+    NavMenuItem,
   },
   data() {
     return {

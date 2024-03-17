@@ -22,11 +22,14 @@
 </template>
 
 <script>
+// 导入头部组件
 import TopIndex from "./Top/index.vue";
+// 导入导航栏组件
 import NavMenuIndex from "./NavMenu/index.vue";
 
 export default {
   name: "Index",
+  // 注册组件
   components: { TopIndex, NavMenuIndex },
 };
 </script>
@@ -52,7 +55,6 @@ export default {
   color: #333;
   text-align: center;
   line-height: 160px;
-  height: 800px;
 }
 
 body > .el-container {
