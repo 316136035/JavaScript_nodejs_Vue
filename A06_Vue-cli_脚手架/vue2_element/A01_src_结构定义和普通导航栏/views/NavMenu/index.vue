@@ -1,9 +1,9 @@
 <template>
   <div class="nav-menu">
     <!--  default-active="/index"  默认激活的菜单项  router必须添加不然无法切换url-->
-    <el-menu  default-active="/index" class="el-menu-vertical-demo" router>
+    <el-menu  default-active="/home" class="el-menu-vertical-demo" router>
        <!-- 导航菜单 无子项 -->
-      <el-menu-item index="/index">
+      <el-menu-item index="/home">
         <i class="el-icon-setting"></i>
         <span slot="title">主页</span>
       </el-menu-item>

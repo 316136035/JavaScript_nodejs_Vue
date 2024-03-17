@@ -1,7 +1,5 @@
 <template>
-  <div class="app">
-     <h5>用户统计</h5>
-  </div>
+  <h5>主页</h5>
 </template>
 
 <script>

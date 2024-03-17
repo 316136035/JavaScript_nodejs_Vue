@@ -1,33 +1,33 @@
 <template>
-  <div class="home">
+  <div class="index">
     <h5>布局页</h5>
     <el-container>
       <el-aside width="200px">
-        <!-- 侧边栏 -->
-        <NavMenu></NavMenu>
+        <!-- 左侧导航菜单 -->
+        <NavMenuIndex></NavMenuIndex>
       </el-aside>
       <el-container>
-        <!-- 头部 -->
-        <el-header>Header</el-header>
+        <el-header>
+          <!-- 头部区域 -->
+          <TopIndex></TopIndex>
+        </el-header>
         <el-main>
-          <!-- 二级路由视图区域 -->
+          <!-- 二级路由视图区域 主区域 -->
           <router-view></router-view>
         </el-main>
-        <!-- 页脚 -->
-        <el-footer>Footer</el-footer>
+        <el-footer>底部</el-footer>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
-import NavMenu from "./NavMenu.vue";
+import TopIndex from "./Top/index.vue";
+import NavMenuIndex from "./NavMenu/index.vue";
+
 export default {
-  components: { NavMenu },
-  name: "Home",
-  comments: {
-    NavMenu: NavMenu,
-  },
+  name: "Index",
+  components: { TopIndex, NavMenuIndex },
 };
 </script>
 

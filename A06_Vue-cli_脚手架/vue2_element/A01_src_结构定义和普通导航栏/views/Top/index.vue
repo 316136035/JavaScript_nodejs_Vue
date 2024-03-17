@@ -1,7 +1,5 @@
 <template>
-  <div class="app">
-     <h5>数据统计</h5>
-  </div>
+  <h5>头部布局页</h5>
 </template>
 
 <script>
