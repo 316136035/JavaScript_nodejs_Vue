@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import { TimePicker } from 'element-ui';
 
 export default {
   name: "StepsProgress",
