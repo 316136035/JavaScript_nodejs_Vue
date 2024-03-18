@@ -42,15 +42,15 @@ const routes = [
         ]
       },
       //二级路由 Steps步骤条_Progress进度条
-      { path: '/Steps_Progress', component: () => import('../views/NavMenu/Steps步骤条_Progress进度条/index.vue'), },
+      { path: '/Steps_Progress', name: 'Steps_Progress', meta: { title: 'Steps步骤条_Progress进度条' },component: () => import('../views/NavMenu/Steps步骤条_Progress进度条/index.vue'), },
         //二级路由 表格
       {path: '/table', component: () => import('../views/NavMenu/Table表格/index.vue'),
         //三级路由 
         children: [
           //三级路由  普通表格
-          { path: '/table/ordinaryTable', name: 'ordinaryTable', meta: { title: 'ordinaryTable' }, meta: { title: 'ordinaryTable' }, component: () => import('../views/NavMenu/Table表格/ordinaryTable.vue') },
+          { path: '/table/ordinaryTable', name: '普通表格', meta: { title: '普通表格' }, meta: { title: 'ordinaryTable' }, component: () => import('../views/NavMenu/Table表格/ordinaryTable.vue') },
           //三级路由  增查删改表格
-          { path: '/table/add_delete_modify_check_Table', name: 'add_delete_modify_check_Table', meta: { title: 'dd_delete_modify_check_Table' }, component: () => import('../views/NavMenu/Table表格/add_delete_modify_check_Table.vue') },
+          { path: '/table/add_delete_modify_check_Table', name: '增查删改表格', meta: { title: 'dd_delete_modify_check_Table' }, component: () => import('../views/NavMenu/Table表格/add_delete_modify_check_Table.vue') },
         ]
       },
 
