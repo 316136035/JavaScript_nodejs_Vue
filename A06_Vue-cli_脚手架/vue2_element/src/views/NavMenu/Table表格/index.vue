@@ -1,23 +1,64 @@
 <template>
   <el-table
     :data="tableData"
-    style="width: 100%"
-    :row-class-name="tableRowClassName"> >
-    <el-table-column prop="sku" label="SKU" width="180"> </el-table-column>
-    <el-table-column prop="name" label="商品名称" width="800">
-    </el-table-column>
-    <el-table-column prop="price" label="价格"> </el-table-column>
-    <el-table-column prop="discount" label="折扣"> </el-table-column>
+    style="width: 100% "
+    height="750"
+    :row-class-name="tableRowClassName"> 
+    <el-table-column prop="sku" label="SKU" width="120" sortable> </el-table-column>
+    <el-table-column prop="name" label="商品名称" width="900" sortable  ></el-table-column>
+    <el-table-column prop="price" label="价格" sortable> </el-table-column>
+    <el-table-column prop="discount" label="折扣" sortable> </el-table-column>
   </el-table>
 </template>
+
+
 <script>
-export default {
-  data() {
-    return {
-      tableData: [
+  export default {
+    methods: {
+      tableRowClassName({row, rowIndex}) {
+        const str="discount-"
+        switch (row.discount) {
+        case 1:
+          return  `${str}${row.discount}`;
+          break;
+        case 2:
+          return `${str}${row.discount}`;
+          break;
+        case 3:
+          return `${str}${row.discount}`;
+          break;
+        case 4:
+          return `${str}${row.discount}`;
+          break;
+        case 5:
+          return `${str}${row.discount}`;
+          break;
+        case 6:
+          return `${str}${row.discount}`;
+          break;
+        case 7:
+          return `${str}${row.discount}`;
+          break;
+        case 8:
+          return `${str}${row.discount}`;
+          break;
+        case 9:
+          return `${str}${row.discount}`;
+          break;
+        case 10:
+          return `${str}${row.discount}`;
+          break;
+        default:
+          return `0`;
+      }
+      }
+    },
+    data() {
+      return {
+        tableData: [
         {
           sku: 100027606896,
-          name: `老板（Robam) 抽油烟机探索家D3S家用油烟机三面拢烟变频烟机燃气灶烟灶套装23风量吸油烟机28D3S套装`,
+          name: `老板（Robam) 抽油烟机探索家D3S家用油烟机三面拢烟变频烟机燃气灶烟灶套装23风量吸油烟机28D3S套装老板（Robam) 抽油烟机探索家D3S家用油烟机三面拢烟变频烟机燃气灶烟灶套装23风量吸油烟机28D3S套`,
           price: 4299,
           discount: 1,
         },
@@ -160,107 +201,68 @@ export default {
           discount: 9,
         },
       ],
-    };
-  },
-  methods: {
-    // 表格行的class名
-    tableRowClassName({ row, rowIndex }) {
-      // console.log("row", row, "   ", rowIndex);
-      const str="discount-"
-      switch (row.discount) {
-        case 1:
-          return  `${str}${row.discount}`;
-          break;
-        case 2:
-          return `${str}${row.discount}`;
-          break;
-        case 3:
-          return `${str}${row.discount}`;
-          break;
-        case 4:
-          return `${str}${row.discount}`;
-          break;
-        case 5:
-          return `${str}${row.discount}`;
-          break;
-        case 6:
-          return `${str}${row.discount}`;
-          break;
-        case 7:
-          return `${str}${row.discount}`;
-          break;
-        case 8:
-          return `${str}${row.discount}`;
-          break;
-        case 9:
-          return `${str}${row.discount}`;
-          break;
-        case 10:
-          return `${str}${row.discount}`;
-          break;
-        default:
-          return `0`;
       }
-    },
-  },
-};
+    }
+  }
 </script>
 
-<style scoped>
+<style>
+
 /* 10% 折扣 */
-.discount-1 {
-  background-color: rgb(249, 3, 3); /* 深红色 */
+.el-table .discount-1 {
+  background: #870000  /* 深红色 */
 }
 
 /* 20% 折扣 */
- .discount-2 {
-  background-color: rgb(244, 51, 51); /* 红色 */
+.el-table .discount-2 {
+  background: #fb0303 /* 红色 */
 }
 
 /* 30% 折扣 */
- .discount-3 {
-  background-color: #f63104; /* 深橙色 */
+.el-table .discount-3 {
+  background: #010176/* 红色 */
 }
 
 /* 40% 折扣 */
- .discount-4 {
-  background-color: #ff5733; /* 橙色 */
+.el-table .discount-4 {
+  background:  #0202fa /* 红色 */
 }
 
 /* 50% 折扣 */
- .discount-5 {
-  background-color: #cddc39; /* 酸橙色 */
+.el-table  .discount-5 {
+  background: rgb(0, 138, 108) /* 红色 */
 }
 
 /* 60% 折扣 */
-  .discount-6 {
-  background-color: #8bc34a; /* 青柠绿 */
+.el-table .discount-6 {
+  background: rgb(51, 246, 204) /* 红色 */
 }
 
 /* 70% 折扣 */
-.discount-7 {
-  background-color: #4caf50; /* 酸橙绿 */
+.el-table .discount-7 {
+  background: rgb(134, 120, 1) /* 红色 */
 }
 
 /* 80% 折扣 */
- .discount-8 {
-  background-color: #009688; /* 深绿色 */
+.el-table .discount-8 {
+  background: rgb(249, 225, 3)  /* 红色 */
 }
 
 /* 90% 折扣 */
- .discount-9 {
-  background-color: #1976d2; /* 海军蓝 */
+.el-table .discount-9 {
+  background: rgb(247, 231, 82) /* 红色 */
 }
 
 /* 全价 */
-  .discount-10 {
-  background-color: #3f51b5; /* 深蓝色 */
+.el-table .discount-10 {
+  background:rgb(241, 237, 202) /* 红色 */
 }
 
-/* 鼠标悬停时候 */
-.hover{
-  background-color: #e8e9ef00; /* 深蓝色 */
-  height: 30px;
+.el-table__row>.el-table__cell {
+  line-height:"10px";
+  height: 20px;
 }
 
 </style>
+
+
