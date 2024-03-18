@@ -5,13 +5,13 @@
   <el-table
     :data="tableData"
     style="width: 100%"
-   
     :row-class-name="tableRowClassName"
   >
     <!-- 表格列 
    prop="sku" 每个对象的属性  
    label="SKU" 标题
-   sortable  排序-->
+   sortable  排序
+   type="index"  :index="indexMethod" 表格序号-->
     <el-table-column
       prop="sku"
       label="SKU"
