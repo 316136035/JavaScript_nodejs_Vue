@@ -63,18 +63,12 @@ export default {
   },
   },
   mounted() {
-    this.timer=  setInterval(() => {
+    setInterval(() => {
          if(this. percentage>=100){this. percentage=0};
         this. percentage++
         console.log(this. percentage);
       }, 200)
   },
-   //Vue实例销毁前调用该钩子函数
-   beforeDestroy() {
-        console.log("销毁前调用_");
-        clearInterval(this.timer);//清除定时器
-        debugger
-      },
 };
 </script>
 

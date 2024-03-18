@@ -43,7 +43,6 @@ const routes = [
       },
       //二级路由 Steps步骤条_Progress进度条
       { path: '/Steps_Progress', component: () => import('../views/NavMenu/Steps步骤条_Progress进度条/index.vue'), },
-      { path: '/table', component: () => import('../views/NavMenu/Table表格/index.vue'), },
 
 
     ]
