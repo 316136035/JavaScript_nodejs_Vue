@@ -51,7 +51,12 @@ export default {
           ],
         },
         { index: "/Steps_Progress", title: "步骤条_进度条", iconUrl: "el-icon-tableware" },
-        { index: "/table", title: "Table表格", iconUrl: "el-icon-tableware" },
+        { index: "/table", title: "Table表格", iconUrl: "el-icon-tableware",
+        children: [
+            { index: "/table/ordinaryTable", title: "普通表格", iconUrl: "el-icon-tickets" },
+            {index: "/table/add_delete_modify_check_Table",title: "增查删改表格",iconUrl: "el-icon-tickets",
+            },
+          ],},
       ],
     };
   },
