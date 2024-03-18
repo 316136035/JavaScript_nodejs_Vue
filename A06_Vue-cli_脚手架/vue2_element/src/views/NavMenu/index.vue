@@ -50,6 +50,7 @@ export default {
             },
           ],
         },
+        { index: "/Steps_Progress", title: "步骤条_进度条", iconUrl: "el-icon-tableware" },
       ],
     };
   },

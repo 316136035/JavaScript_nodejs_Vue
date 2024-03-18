@@ -7,7 +7,7 @@
         <NavMenuIndex></NavMenuIndex>
       </el-aside>
       <el-container>
-        <el-header style="height: 180px;">
+        <el-header style="height: 120px;">
           <!-- 头部区域 -->
           <TopIndex></TopIndex>
         </el-header>

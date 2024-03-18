@@ -18,7 +18,7 @@ const routes = [
       { path: '/home',name: 'home',meta: { title: '首页' }, component: () => import('../views/NavMenu/home/index.vue') },
       //二级路由 信息管理
       { path: '/stats',name: 'stats',meta: { title: '信息管理' },  component: () => import('../views/NavMenu/stats/index.vue') },
-
+  
       //二级路由 用户管理
       {
         path: '/user',name: 'user', meta: { title: '用户管理' }, component: () => import('../views/NavMenu/user/index.vue'),
@@ -41,10 +41,15 @@ const routes = [
           { path: '/invoiceManage/inquiry',name: 'inquiry', meta: { title: '发票查询' }, component: () => import('../views/NavMenu/Invoicemanage/inquiry.vue') },
         ]
       },
+      //二级路由 Steps步骤条_Progress进度条
+      { path: '/Steps_Progress', component: () => import('../views/NavMenu/Steps步骤条_Progress进度条/index.vue'), },
+
 
     ]
 
   },
+ 
+   
   //一级路由 （登录页、注册页）
   { path: '/login', component: () => import('../views/LogIn/index.vue'), },
 ]
