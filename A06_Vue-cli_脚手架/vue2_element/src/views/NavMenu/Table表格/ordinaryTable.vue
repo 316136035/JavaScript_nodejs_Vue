@@ -442,23 +442,9 @@ export default {
 .el-popover__reference span {
   background-color: #f8f4f400;
   border: 0px;
+  color: white !important;
 }
-.el-carousel__item h3 {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 200px;
-    margin: 0;
-  }
-  
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-  
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
-  .cell{
+ .cell{
     /* 内边距  !important优先使用*/
     padding: 10px  !important;;
     /* 宽度 !important优先使用*/
@@ -478,6 +464,8 @@ export default {
     padding-top: 0px!important;
     padding-right: 0px!important;
     padding-bottom: 0px!important;
+  
+  
 
 }
 
