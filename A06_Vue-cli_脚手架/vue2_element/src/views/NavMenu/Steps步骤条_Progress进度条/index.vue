@@ -2,6 +2,7 @@
   <div>
     <div>
       <div>Steps 步骤条</div>
+      <!-- :active="active" 选中的步骤 -->
       <el-steps :active="active"> </el-steps>
       <el-steps :space="200" :active="active">
         <el-step
@@ -16,6 +17,7 @@
     </div>
     <div>
       <div>Progress 进度条</div>
+      <!-- :percentage="percentage"  进度百分比 -->
       <el-progress :percentage="percentage" ></el-progress>
 
     </div>
