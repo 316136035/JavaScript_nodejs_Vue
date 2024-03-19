@@ -40,17 +40,6 @@ export default {
 </script>
 
 <style>
-.el-row {
-  height: 60px;
-  line-height: 0px;
-}
-.el-breadcrumb {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
 
-.bg-purple-left {
-  text-align: left;
-  background-color: #d3dce6;
-}
 </style>
+

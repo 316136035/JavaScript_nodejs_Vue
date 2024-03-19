@@ -57,28 +57,9 @@ export default {
   line-height: 16px;
   padding: 0 10px;
   height: calc(100vh - 260px);
-   /* 不换行 */
-   word-break: keep-all;
-    /* 不换行 */
-    white-space: nowrap;
-    /* 内容超出宽度时隐藏超出部分的内容 */
-    overflow: hidden;
-    /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
-    text-overflow: ellipsis; 
 
 
 }
 
-body > .el-container {
-  margin-bottom: 40px;
-}
 
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
-}
 </style>
