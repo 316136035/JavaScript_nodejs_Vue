@@ -57,6 +57,8 @@ export default {
             {index: "/table/add_delete_modify_check_Table",title: "增查删改表格",iconUrl: "el-icon-tickets",
             },
           ],},
+
+        { index: "/cascader", title: "Cascader级联选择器", iconUrl: "el-icon-s-home" },
       ],
     };
   },

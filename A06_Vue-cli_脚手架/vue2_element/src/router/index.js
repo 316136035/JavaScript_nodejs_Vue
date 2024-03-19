@@ -43,7 +43,7 @@ const routes = [
       },
       //二级路由 Steps步骤条_Progress进度条
       { path: '/Steps_Progress', name: 'Steps_Progress', meta: { title: 'Steps步骤条_Progress进度条' },component: () => import('../views/NavMenu/Steps步骤条_Progress进度条/index.vue'), },
-        //二级路由 表格
+        //二级路由 Table表格
       {path: '/table', component: () => import('../views/NavMenu/Table表格/index.vue'),
         //三级路由 
         children: [
@@ -55,6 +55,8 @@ const routes = [
       },
 
 
+      //二级路由 （Cascader 级联选择器）
+      { path: '/cascader',name:"cascader", meta: { title: 'Cascader 级联选择器' },component: () => import('../views/NavMenu/Cascader级联选择器/index.vue'), },
     ]
 
   },
