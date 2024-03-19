@@ -31,6 +31,8 @@ const routes = [
           { path: '/Table/add_delete_modify_Table', name: '增删改表单', meta: { title: '增删改表单' }, component: () => import('../views/NavMenu/Table表单/增删改表单/index.vue') },
         ]
       },
+        //二级路由
+      { path: '/Cascader', name: 'Cascader', meta: { title: '级联选择器页(地址选择)' }, component: () => import('../views/NavMenu/Cascader级联选择器(地址选择)/index.vue') },
 
     ]
   },

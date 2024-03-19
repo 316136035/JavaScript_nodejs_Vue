@@ -67,6 +67,11 @@ export default {
            
           ],
         },
+        {
+          index: "/Cascader",
+          title: "级联选择器（地址选择）",
+          iconUrl: "el-icon-s-home",
+        },
       ],
     };
   },

@@ -70,6 +70,31 @@ module.exports = defineConfig({
           Cookie: `__jdu=16822235340841718632670; `
         }
       },
+      "/getAddress":{
+        target: "https://fts.jd.com",//代理服务器请求真实服务器地址
+        pathRewrite: { "^/getAddress": "" },
+        secure: false,           //如果是https接口，需要配置这个参数 
+        changeOrigin: true,  // 如果接口跨域，需要进行这个参数配置
+        headers:{
+          Host: 'fts.jd.com',
+          Connection: 'keep-alive',
+          'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"',
+          'sec-ch-ua-mobile': '?0',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36',
+          'sec-ch-ua-platform': '"Windows"',
+          Accept: '*/*',
+          'Sec-Fetch-Site': 'same-site',
+          'Sec-Fetch-Mode': 'no-cors',
+          'Sec-Fetch-Dest': 'script',
+          Referer: 'https://item.jd.com/',
+          'Accept-Encoding': 'gzip, deflate, br',
+          'Accept-Language': 'zh-CN,zh;q=0.9'
+        }
+
+
+
+
+      }
     }
   }
 })

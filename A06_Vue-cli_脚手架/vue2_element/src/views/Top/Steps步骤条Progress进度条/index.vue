@@ -66,7 +66,7 @@ export default {
     this.timer=  setInterval(() => {
          if(this. percentage>=100){this. percentage=0};
         this. percentage++
-        console.log(this. percentage);
+        // console.log(this. percentage);
       }, 200)
   },
    //Vue实例销毁前调用该钩子函数
