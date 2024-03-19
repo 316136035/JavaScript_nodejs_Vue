@@ -1,16 +1,21 @@
 <template>
-  <div class="block">
-  <span class="demonstration">默认 click 触发子菜单</span>
-  <el-cascader
-    v-model="value"
-    :options="options"
-    @change="handleChange"></el-cascader>
-</div>
+ 
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'Cascader',
+  mothods: {
+    
+  },
+  mounted() {
+    axios.get('https://fts.jd.com/area/get?fid=4744').then(res => {
+        console.log(res)
+     
+      })
+    
+  },
 
 }
 </script>
