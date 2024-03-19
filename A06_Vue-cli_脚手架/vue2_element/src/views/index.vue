@@ -1,7 +1,9 @@
 <template>
   <el-container>
     <!-- 上下布局 -->
-    <el-header><TopIndex></TopIndex></el-header>
+    <el-header>
+      <TopIndex></TopIndex>
+    </el-header>
     <el-main><Carousel></Carousel></el-main>
     <el-footer><StepsProgress></StepsProgress></el-footer>
     <!-- 左右布局 -->
@@ -18,17 +20,16 @@
   </el-container>
 </template>
 <script>
-import TopIndex from "./Top/top-top/index.vue"
-import Carousel from "./Top/top-middle/carousel.vue";
-import StepsProgress  from"./Top/Steps步骤条Progress进度条/index.vue"
-import  ContaineIndex from "./NavMenu/index.vue";
+import TopIndex from "./Top/面包屑导航条/index.vue";
+import Carousel from "./Top/carousel走马灯/carousel.vue";
+import StepsProgress from "./Top/Steps步骤条Progress进度条/index.vue";
+import ContaineIndex from "./NavMenu/index.vue";
 export default {
   components: {
-    TopIndex:TopIndex,
-  Carousel: Carousel,
-    StepsProgress:StepsProgress,
-    ContaineIndex:ContaineIndex,
-
+    TopIndex: TopIndex,
+    Carousel: Carousel,
+    StepsProgress: StepsProgress,
+    ContaineIndex: ContaineIndex,
   },
 };
 </script>
@@ -47,6 +48,7 @@ export default {
 /* 布局头部的底部 */
 .el-footer {
   background: goldenrod;
+  height: 180px !important;;
 }
 /*下方>右左布局> */
 .el-aside {

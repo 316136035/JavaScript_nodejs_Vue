@@ -10,35 +10,31 @@ const routes = [
   { path: '/', redirect: '/home' },
   //一级路由 （布局页）
   {
-    path: '/home',name: 'index',meta: { title: '首页' }, component: () => import('../views/index.vue'),
+    path: '/home', name: 'index', meta: { title: '首页' }, component: () => import('../views/index.vue'),
     children: [
       //二级路由
-      { path: '/home', name: '/home',meta: { title: '首页' },component: () => import('../views/NavMenu/home/index.vue') },
-       //二级路由
-       { path: '/Breadcrumb', name: 'Breadcrum面包屑导航条',meta: { title: 'Breadcrum面包屑导航条' } ,component: () => import('../views/NavMenu/Breadcrumb面包屑导航条/index.vue') },
-    //二级路由
-    { path: '/Carousel', name: 'Carousel走马灯',meta: { title: 'Carousel走马灯' } , component: () => import('../views/NavMenu/Carousel走马灯/index.vue') },
-   //二级路由
-    { path: '/StepsProgress', name: 'Steps步骤条_Progress进度条', meta: { title: 'Steps步骤条_Progress进度条' } ,component: () => import('../views/NavMenu/Steps步骤条_Progress进度条/index.vue') },
-     //二级路由
-     { path: '/Table', name: 'Table表单',meta: { title: 'Table表单' } , component: () => import('../views/NavMenu/Table表单/index.vue'),
-    //三级路由
-    children: [
-      //三级路由
-     { path: '/Table/ordinaryTable', name: '普通表单',meta: { title: '普通表单' } , component: () => import('../views/NavMenu/Table表单/普通表单/index.vue') },
-       //三级路由
-       { path: '/Table/add_delete_modify_Table', name: '增删改表单', meta: { title: '增删改表单' } ,component: () => import('../views/NavMenu/Table表单/增删改表单/index.vue') },
+      { path: '/home', name: '/home', meta: { title: '首页' }, component: () => import('../views/NavMenu/home/index.vue') },
+      //二级路由
+      { path: '/Breadcrumb', name: 'Breadcrum面包屑导航条', meta: { title: 'Breadcrum面包屑导航条' }, component: () => import('../views/NavMenu/Breadcrumb面包屑导航条/index.vue') },
+      //二级路由
+      { path: '/Carousel', name: 'Carousel走马灯', meta: { title: 'Carousel走马灯' }, component: () => import('../views/NavMenu/Carousel走马灯/index.vue') },
+      //二级路由
+      { path: '/StepsProgress', name: 'Steps步骤条_Progress进度条', meta: { title: 'Steps步骤条_Progress进度条' }, component: () => import('../views/NavMenu/Steps步骤条_Progress进度条/index.vue') },
+      //二级路由
+      {
+        path: '/Table', name: 'Table表单', meta: { title: 'Table表单' }, component: () => import('../views/NavMenu/Table表单/index.vue'),
+        //三级路由
+        children: [
+          //三级路由
+          { path: '/Table/ordinaryTable', name: '普通表单', meta: { title: '普通表单' }, component: () => import('../views/NavMenu/Table表单/普通表单/index.vue') },
+          //三级路由
+          { path: '/Table/add_delete_modify_Table', name: '增删改表单', meta: { title: '增删改表单' }, component: () => import('../views/NavMenu/Table表单/增删改表单/index.vue') },
+        ]
+      },
+
     ]
-    
-    
-    
-    },
-   
-   
-   
-      ] 
- },
- //一级路由 （登录页、注册页）
+  },
+  //一级路由 （登录页、注册页）
   // {path: '/login', component: () => import('../views/LogIn/index.vue'),},
 ]
 

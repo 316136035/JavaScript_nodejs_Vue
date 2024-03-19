@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <div>Steps 步骤条</div>
+    <div class="steps">
+   
       <!-- :active="active" 选中的步骤 -->
       <el-steps :active="active"> </el-steps>
       <el-steps :space="200" :active="active">
@@ -16,7 +16,7 @@
       <el-button style="margin-top: 12px" @click="space">下一步</el-button>
     </div>
     <div>
-      <div>Progress 进度条</div>
+   
       <!-- :percentage="percentage"  进度百分比 -->
       <el-progress :percentage="percentage" ></el-progress>
 
@@ -79,4 +79,7 @@ export default {
 </script>
 
 <style>
+.el-steps{
+ display: block;
+}
 </style>
