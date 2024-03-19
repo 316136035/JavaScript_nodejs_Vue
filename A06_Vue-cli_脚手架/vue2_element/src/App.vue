@@ -6,9 +6,14 @@
 </template>
 
 <script>
-
+// .导入布局组件
+import Index from './views/index.vue'
 export default {
   name:"App",
+  components: {
+    Index: Index
+
+  }
 
 
 }

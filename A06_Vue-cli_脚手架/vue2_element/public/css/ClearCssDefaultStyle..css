@@ -1,0 +1,43 @@
+/* 
+** 清除默认样式 ** 
+*/
+/* 清除所有元素的内外边距和列表样式 */
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 如果需要针对具体元素清除更详细的默认样式，可以继续添加相应规则 */
+
+/*
+** 清除浮动影响 ** 
+*/
+.clearfix::after { /* 使用伪元素清除浮动 */
+  content: ""; /* 必须有内容，但内容可以为空字符串 */
+  display: block; /* 将伪元素显示为块级元素 */
+  clear: both; /* 清除两侧浮动 */
+  height: 0; /* 隐藏此元素 */
+  overflow: hidden; /* 隐藏超出部分，防止内容意外显示 */
+}
+
+/* 使用方式：
+<div class="clearfix">
+  <!-- 在这里放置浮动的元素 -->
+</div>
+
+*/
+
+/*
+** 定义左浮动和右浮动样式 ** 
+*/
+.float-left { /* 左浮动样式 */
+  float: left; /* 元素向左浮动 */
+  align-items: center;
+}
+
+.float-right { /* 右浮动样式 */
+  float: right; /* 元素向右浮动 */
+  align-items: center;
+}
+

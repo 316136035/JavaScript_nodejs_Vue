@@ -1,5 +1,6 @@
 <template>
-  <div>Steps步骤条_Progress进度条</div>
+  <div class="add_delete_modify_Table">
+  </div>
 </template>
 
 <script>

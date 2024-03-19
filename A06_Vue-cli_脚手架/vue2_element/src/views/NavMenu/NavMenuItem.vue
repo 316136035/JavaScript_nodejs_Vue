@@ -1,7 +1,7 @@
 <template>
   <!--  default-active="/index"  默认激活的菜单项  router必须添加不然无法切换url-->
   <el-menu
-    default-active="/home"
+    default-active="home"
     class="el-menu-vertical-demo"
     text-color="#696969"
     active-text-color="#DAA520"

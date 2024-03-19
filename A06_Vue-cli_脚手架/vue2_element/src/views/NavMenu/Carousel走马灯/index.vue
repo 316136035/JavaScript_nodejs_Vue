@@ -1,5 +1,5 @@
 <template>
-  <div>Steps步骤条_Progress进度条</div>
+  <div>Carousel走马灯</div>
 </template>
 
 <script>

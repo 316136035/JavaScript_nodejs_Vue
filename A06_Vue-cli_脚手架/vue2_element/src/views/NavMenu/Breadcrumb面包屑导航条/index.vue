@@ -1,5 +1,7 @@
 <template>
-  <div>Steps步骤条_Progress进度条</div>
+   <div>
+    面包屑导航条
+   </div>
 </template>
 
 <script>

@@ -10,60 +10,36 @@ const routes = [
   { path: '/', redirect: '/home' },
   //一级路由 （布局页）
   {
-    path: '/home', name: 'index', meta: { title: '首页' }, component: () => import('../views/index.vue'),
-    // redirect: '/home' ,
-    //二级路由
+    path: '/home',name: 'index',meta: { title: '首页' }, component: () => import('../views/index.vue'),
     children: [
-      //二级路由 主页
-      { path: '/home', name: 'home', meta: { title: '首页' }, component: () => import('../views/NavMenu/home/index.vue') },
-      //二级路由 信息管理
-      { path: '/stats', name: 'stats', meta: { title: '信息管理' }, component: () => import('../views/NavMenu/stats/index.vue') },
-
-      //二级路由 用户管理
-      {
-        path: '/user', name: 'user', meta: { title: '用户管理' }, component: () => import('../views/NavMenu/user/index.vue'),
-        //三级路由 
-        children: [
-          //三级路由 用户角色
-          { path: '/user/role', name: 'role', meta: { title: '用户角色' }, component: () => import('../views/NavMenu/user/role.vue') },
-          //三级路由  用户统计
-          { path: '/user/statistics', name: 'statistics', meta: { title: '用户统计' }, component: () => import('../views/NavMenu/user/statistics.vue') },
-        ]
-      },
-      //二级路由 发票管理
-      {
-        path: '/invoiceManage', name: 'invoiceManage', meta: { title: '发票管理' }, component: () => import('../views/NavMenu/Invoicemanage/index.vue'),
-        //三级路由 
-        children: [
-          //三级路由  发票开具
-          { path: '/invoiceManage/issue', name: 'issue', meta: { title: '发票开具' }, meta: { title: '发票开具' }, component: () => import('../views/NavMenu/Invoicemanage/issue.vue') },
-          //三级路由  发票查询
-          { path: '/invoiceManage/inquiry', name: 'inquiry', meta: { title: '发票查询' }, component: () => import('../views/NavMenu/Invoicemanage/inquiry.vue') },
-        ]
-      },
-      //二级路由 Steps步骤条_Progress进度条
-      { path: '/Steps_Progress', name: 'Steps_Progress', meta: { title: 'Steps步骤条_Progress进度条' },component: () => import('../views/NavMenu/Steps步骤条_Progress进度条/index.vue'), },
-        //二级路由 Table表格
-      {path: '/table', component: () => import('../views/NavMenu/Table表格/index.vue'),
-        //三级路由 
-        children: [
-          //三级路由  普通表格
-          { path: '/table/ordinaryTable', name: '普通表格', meta: { title: '普通表格' }, meta: { title: '普通表格' }, component: () => import('../views/NavMenu/Table表格/ordinaryTable.vue') },
-          //三级路由  增查删改表格
-          { path: '/table/add_delete_modify_check_Table', name: '增查删改表格', meta: { title: '增查删改表格' }, component: () => import('../views/NavMenu/Table表格/add_delete_modify_check_Table.vue') },
-        ]
-      },
-
-
-      //二级路由 （Cascader 级联选择器）
-      { path: '/cascader',name:"cascader", meta: { title: 'Cascader 级联选择器' },component: () => import('../views/NavMenu/Cascader级联选择器/index.vue'), },
+      //二级路由
+      { path: '/home', name: '/home',meta: { title: '首页' },component: () => import('../views/NavMenu/home/index.vue') },
+       //二级路由
+       { path: '/Breadcrumb', name: 'Breadcrum面包屑导航条',meta: { title: 'Breadcrum面包屑导航条' } ,component: () => import('../views/NavMenu/Breadcrumb面包屑导航条/index.vue') },
+    //二级路由
+    { path: '/Carousel', name: 'Carousel走马灯',meta: { title: 'Carousel走马灯' } , component: () => import('../views/NavMenu/Carousel走马灯/index.vue') },
+   //二级路由
+    { path: '/StepsProgress', name: 'Steps步骤条_Progress进度条', meta: { title: 'Steps步骤条_Progress进度条' } ,component: () => import('../views/NavMenu/Steps步骤条_Progress进度条/index.vue') },
+     //二级路由
+     { path: '/Table', name: 'Table表单',meta: { title: 'Table表单' } , component: () => import('../views/NavMenu/Table表单/index.vue'),
+    //三级路由
+    children: [
+      //三级路由
+     { path: '/Table/ordinaryTable', name: '普通表单',meta: { title: '普通表单' } , component: () => import('../views/NavMenu/Table表单/普通表单/index.vue') },
+       //三级路由
+       { path: '/Table/add_delete_modify_Table', name: '增删改表单', meta: { title: '增删改表单' } ,component: () => import('../views/NavMenu/Table表单/增删改表单/index.vue') },
     ]
-
-  },
-
-
-  //一级路由 （登录页、注册页）
-  { path: '/login', component: () => import('../views/LogIn/index.vue'), },
+    
+    
+    
+    },
+   
+   
+   
+      ] 
+ },
+ //一级路由 （登录页、注册页）
+  // {path: '/login', component: () => import('../views/LogIn/index.vue'),},
 ]
 
 
