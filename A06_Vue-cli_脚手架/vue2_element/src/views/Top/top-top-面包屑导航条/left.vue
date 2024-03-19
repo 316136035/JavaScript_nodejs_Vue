@@ -64,5 +64,8 @@ export default {
 </script>
 
 <style>
+.el-breadcrumb__inner{
+  font-size: 25px;
+}
 
 </style>

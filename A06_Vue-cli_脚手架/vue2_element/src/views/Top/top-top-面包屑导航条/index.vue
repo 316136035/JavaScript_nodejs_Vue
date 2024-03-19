@@ -14,8 +14,8 @@
 
 <script>
 // 引入组件
-import Left from "./left.vue";
-import Right from "./right.vue";
+import Left from "../Top-top/left.vue";
+import Right from "../Top-top/right.vue";
 export default {
   // 注册组件
   components: {

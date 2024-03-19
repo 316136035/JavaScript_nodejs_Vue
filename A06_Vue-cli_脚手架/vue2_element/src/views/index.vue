@@ -2,8 +2,8 @@
   <el-container>
     <!-- 上下布局 -->
     <el-header><TopIndex></TopIndex></el-header>
-    <el-main>Carousel走马灯</el-main>
-    <el-footer>Steps步骤条_Progress进度条</el-footer>
+    <el-main><Carousel></Carousel></el-main>
+    <el-footer><StepsProgress></StepsProgress></el-footer>
     <!-- 左右布局 -->
     <el-container>
       <el-aside>
@@ -11,19 +11,22 @@
       </el-aside>
       <el-main class="container">
         <!-- 二级路由视图区域 -->
-          <router-view></router-view>
+        <router-view></router-view>
       </el-main>
-     
     </el-container>
     <el-footer>Footer</el-footer>
   </el-container>
 </template>
 <script>
-import TopIndex from "./Top/index.vue";
+import TopIndex from "./Top/top-top/index.vue"
+import Carousel from "./Top/top-middle/carousel.vue";
+import StepsProgress  from"./Top/Steps步骤条Progress进度条/index.vue"
 import  ContaineIndex from "./NavMenu/index.vue";
 export default {
   components: {
     TopIndex:TopIndex,
+  Carousel: Carousel,
+    StepsProgress:StepsProgress,
     ContaineIndex:ContaineIndex,
 
   },
@@ -34,11 +37,12 @@ export default {
 /* 布局头部的顶部 */
 .el-header {
   background-color: #b3c0d1;
-  padding:0px 0px !important;
+  padding: 0px 0px !important;
 }
 /* 布局头部的中部 */
 .el-main {
   background-color: #b504cc;
+  padding: 0px 0px !important;
 }
 /* 布局头部的底部 */
 .el-footer {
