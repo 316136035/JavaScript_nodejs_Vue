@@ -1,196 +1,99 @@
 <template>
-<div class="block">
-  <span class="demonstration">hover 触发子菜单</span>
+  <!-- 使用Element UI的Cascader组件 -->
   <el-cascader
-    v-model="value"
-    :options="options"
-    :props="{ expandTrigger: 'hover' }"
-    @change="handleChange"></el-cascader>
-</div>
+    ref="cascader"
+    :options="areaOptions"
+    :props="{ value: 'id', label: 'name', children: 'sub_areas' }"
+    lazy
+    :lazy-load="loadSubAreas"
+    placeholder="请选择地区"
+    v-model="selectedAreas"
+    @change="onAreaChange"
+  ></el-cascader>
 </template>
 
-
-
-
-
 <script>
-import axios from "axios";
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      value: [],
-      options:[
-    {
-        "label": 14,
-        "value": "安徽"
-    },
-    {
-        "id": 1,
-        "name": "北京"
-    },
-    {
-        "id": 4,
-        "name": "重庆"
-    },
-    {
-        "id": 16,
-        "name": "福建"
-    },
-    {
-        "id": 24,
-        "name": "贵州"
-    },
-    {
-        "id": 19,
-        "name": "广东"
-    },
-    {
-        "id": 20,
-        "name": "广西"
-    },
-    {
-        "id": 28,
-        "name": "甘肃"
-    },
-    {
-        "id": 52993,
-        "name": "港澳"
-    },
-    {
-        "id": 5,
-        "name": "河北"
-    },
-    {
-        "id": 7,
-        "name": "河南"
-    },
-    {
-        "id": 17,
-        "name": "湖北"
-    },
-    {
-        "id": 18,
-        "name": "湖南"
-    },
-    {
-        "id": 23,
-        "name": "海南"
-    },
-    {
-        "id": 10,
-        "name": "黑龙江"
-    },
-    {
-        "id": 12,
-        "name": "江苏"
-    },
-    {
-        "id": 21,
-        "name": "江西"
-    },
-    {
-        "id": 9,
-        "name": "吉林"
-    },
-    {
-        "id": 8,
-        "name": "辽宁"
-    },
-    {
-        "areaCode": "1",
-        "id": 53283,
-        "name": "海外"
-    },
-    {
-        "id": 11,
-        "name": "内蒙古"
-    },
-    {
-        "id": 30,
-        "name": "宁夏"
-    },
-    {
-        "id": 29,
-        "name": "青海"
-    },
-    {
-        "id": 13,
-        "name": "山东"
-    },
-    {
-        "id": 6,
-        "name": "山西"
-    },
-    {
-        "id": 2,
-        "name": "上海"
-    },
-    {
-        "id": 27,
-        "name": "陕西"
-    },
-    {
-        "id": 22,
-        "name": "四川"
-    },
-    {
-        "id": 3,
-        "name": "天津"
-    },
-    {
-        "areaCode": "886",
-        "id": 32,
-        "name": "台湾"
-    },
-    {
-        "id": 26,
-        "name": "西藏"
-    },
-    {
-        "id": 31,
-        "name": "新疆"
-    },
-    {
-        "id": 25,
-        "name": "云南"
-    },
-    {
-        "id": 15,
-        "name": "浙江"
-    }
-]
+      areaOptions: [], // 存储地区数据
+      selectedAreas: [], // 保存用户选择的地区ID数组
+      fetching: false, // 是否正在加载数据标志
+      fetchedIds: new Set(), // 记录已加载过的地区ID集合
     };
   },
-  methods: {
-    getAddress() {
-      axios.create.withCredentials = true; //设置跨域请求时是否发送cookie
-      //发送ajax请求
-      axios
-        .request({
-          //基础URL
-          url: "/getAddress/area/get?fid=4744",
-          //请求方式
-          method: "get",
-        })
-        //失败回调函数
-        .catch((error) => {
-          console.log(error);
-
-          //失败回调函数
-        })
-        //成功回调函数
-        .then((data) => {
-          console.log(data.data);
-          this.options=data.data;
-        });
-    },
-    handleChange(value) {
-        console.log(value);
-      }
+  
+  async created() {
+    // 初始化时获取顶级地区
+    await this.fetchTopLevelAreas();
   },
 
-  mounted() {
-    this.getAddress();
+  methods: {
+    /**
+     * 获取顶级地区数据
+     */
+    async fetchTopLevelAreas() {
+      try {
+        this.fetching = true;
+        const response = await axios.get('/getAddress/area/get?fid=4744'); // 获取根节点地区数据
+     
+        this.areaOptions = response.data.map(area => ({
+          id: area.id,
+          name: area.name,
+         
+        }));
+        this.fetching = false;
+      } catch (error) {
+        console.error('获取顶级地区数据失败：', error);
+        this.fetching = false;
+      }
+    },
+
+    /**
+     * 动态加载下级地区
+     * @param {Object} treeNode - 当前节点对象
+     * @param {Function} resolve - 加载成功后的回调函数
+     */
+    async loadSubAreas(treeNode, resolve) {
+      const fid = treeNode.node.fid; // 获取当前节点的父ID
+      if (!fid || this.fetchedIds.has(fid)) return; // 如果没有父ID或已加载过，则不重复请求
+
+      try {
+        this.fetching = true;
+        const response = await axios.get(`https://fts.jd.com/area/get?fid=${fid}`); // 根据父ID获取下级地区
+        const subAreas = response.data.sub_areas.map(area => ({
+          id: area.id,
+          name: area.name,
+          sub_areas: [] // 保持递归结构
+        }));
+        this.fetchedIds.add(fid); // 记录已加载过的地区ID
+
+        // 将下级地区数据追加到当前节点的子节点中
+        const parentNode = this.areaOptions.find(option => option.id === fid);
+        if (parentNode) {
+          parentNode.sub_areas = subAreas;
+        }
+
+        // 告诉Cascader组件数据已加载完成
+        resolve(subAreas);
+        this.fetching = false;
+      } catch (error) {
+        console.error('加载下级地区数据失败：', error);
+        this.fetching = false;
+      }
+    },
+
+    /**
+     * 地区选择变化的处理函数
+     * @param {Array} values - 用户选择的地区ID数组
+     */
+    onAreaChange(values) {
+      console.log('地区选择已变更：', values);
+      // 在这里可以执行其他操作，如保存选择结果、进一步请求详细数据等
+    
+    },
   },
 };
 </script>
