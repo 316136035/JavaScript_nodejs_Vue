@@ -20,6 +20,8 @@ export default {
     return {
       selectedArea: [], // 当前选中的省市区数组
       provinces: [], // 存储顶级（省级）数据
+    
+      areas: [], // 存储区级数据
       cacheData:[] // 存储已经加载过的数据，避免重复加载
     };
   },
@@ -30,8 +32,8 @@ export default {
      * @param {function} resolve 回调函数，用来传递子级区域数据
      */
     async lazyLoad(node, resolve) {
-       if (!node.value|| this.cacheData.includes(node.value)) { 
-        
+       if (!node.value) { 
+       
         return}
      
       const parentId = node.value; // 获取当前父级ID
