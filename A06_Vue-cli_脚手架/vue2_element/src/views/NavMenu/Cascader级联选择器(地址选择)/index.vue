@@ -8,6 +8,7 @@
       placeholder="请选择省市区"
     ></el-cascader>
     <el-button type="primary" @click="getAllAddress">获取选中省市区</el-button>
+     <span>{{ selectedArea }}</span>
   </div>
 </template>
 
