@@ -35,7 +35,7 @@ export default {
     },
     //判断是否是首页 （防止出现首页》首页）
     ishome(matched) {
-      console.log(this.$route.path);
+      // console.log(this.$route.path);
       if (matched.length && matched[1].path === "/home") {
         this.paths = [matched[0]];
       }
@@ -54,7 +54,7 @@ export default {
   //挂载
   mounted() {
     //matched数组(记录了路由的数据)
-     console.log("matched:",this.$route.matched);
+    //  console.log("matched:",this.$route.matched);
     //赋值
     this.paths = this.$route.matched;
     //判断是否是首页 （防止出现首页》首页）

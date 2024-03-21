@@ -1,54 +1,56 @@
-<!-- 父组件模板部分 -->
 <template>
-  <div>
-    <!-- 使用 el-cascader 组件，并通过 props 特性传递配置 -->
-    <el-cascader :options="options" :props="props"></el-cascader>
-  </div>
+  <el-cascader :options="areaData" :props="{ lazy: true, lazyLoad: loadCascaderOptions }"></el-cascader>
 </template>
 
 <script>
-// 导出父组件
+import axios from '@/api/axios.js';
 export default {
-  // 初始化数据状态，这里只包含一个计数器 id
   data() {
     return {
-      options: [],
-      props:{ lazy: true,loadNodes:this.loadNodes}
+      areaData: [], // 初始化顶级地区数据
+      selectedAddress: [], // 选中的地址ID数组
     };
   },
-
-  // 定义一个方法 loadNodes，用于动态加载级联菜单的数据
+  
   methods: {
-    loadNodes(node, resolve) {
-      // 获取当前节点的层级信息
-      const { level } = node;
+    /**
 
-      // 模拟异步加载数据，延迟 1 秒后执行回调
-      setTimeout(() => {
-        // 根据层级生成虚拟子节点数据
-        const nodes = Array.from({ length: level + 1 })
-          .map(item => ({
-            // 每个节点的值递增 id
-            value: ++this.id,
-            // 节点的标签内容为 "选项" 加上对应的 id
-            label: `选项${this.id}`,
-            // 当层级大于等于2时设置为叶子节点（无子节点）
-            leaf: level >= 2
-          }));
-       
-          console.log(this);
-        // 通过 resolve 函数将加载好的子节点数据返回给 el-cascader 组件
-        resolve(nodes);
-        
-      }, 1000);
-    }
+     * 加载下级地区的异步方法
+     * @param {Object} treeNode - 当前节点信息
+     * @param {Function} callback - 加载完成后的回调函数
+     */
+    async loadCascaderOptions (treeNode, callback) {
+   console.log(treeNode);
+   console.log(callback);
+      const response = await axios.get(`getAddress/area/get?fid=${treeNode.fid}`);
+      console.log(response.data);
+      // 处理API响应数据
+     
+
+      // 通知Cascader组件数据加载完成
+      // callback(subAreas);
+    },
+
+    /**
+     * 初始化顶级地区数据
+     */
+    async initTopLevelAreas() {
+      try {
+        const topLevelResponse = await axios.get(`getAddress/area/get?fid=4744`);
+        this.areaData = topLevelResponse.data.map(area => ({
+          value: area.id,
+          label: area.name,
+          sub_areas: []
+        }));
+        console.log(this.areaData );
+      } catch (error) {
+        console.error('初始化顶级地区数据时出错:', error);
+      }
+    },
   },
-
-  // 定义一个计算属性 cascaderProps，它将用于配置 el-cascader 组件
-  computed: {
-    cascaderProps() {
-    
-    }
-  }
+  
+  async created() {
+    await this.initTopLevelAreas(); // 组件创建时初始化顶级地区数据
+  },
 };
 </script>

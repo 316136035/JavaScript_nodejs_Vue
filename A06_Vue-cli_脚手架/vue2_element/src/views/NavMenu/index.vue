@@ -34,21 +34,8 @@ export default {
           title: "首页",
           iconUrl: "el-icon-s-home",
         },
-        {
-          index: "/Breadcrumb",
-          title: "面包屑导航条",
-          iconUrl: "el-icon-s-home",
-        },
-        {
-          index: "/Carousel",
-          title: "Carousel走马灯",
-          iconUrl: "el-icon-tableware",
-        },
-        {
-          index: "/StepsProgress",
-          title: "Steps步骤条_Progress进度条",
-          iconUrl: "el-icon-user",
-        },
+        
+       
         {
           index: "/Table表单",
           title: "Table表单",
