@@ -20,6 +20,7 @@ export default {
     return {
       selectedArea: [], // 当前选中的省市区数组
       provinces: [], // 存储顶级（省级）数据
+      cacheData:[] // 存储已经加载过的数据，避免重复加载
     };
   },
   methods: {
@@ -29,8 +30,10 @@ export default {
      * @param {function} resolve 回调函数，用来传递子级区域数据
      */
     async lazyLoad(node, resolve) {
-       if (!node.value) { return}
-       console.log(JSON.stringify(this.selectedArea))
+       if (!node.value|| this.cacheData.includes(node.value)) { 
+        
+        return}
+     
       const parentId = node.value; // 获取当前父级ID
       const response = await axios.get(`/getAddress/area/get?fid=${parentId}`);
       if (!response.data) { return}
@@ -47,7 +50,9 @@ export default {
       }
       if (parentNode && parentNode.children) {
         parentNode.children.push(...children);
+    
       }
+      this.cacheData.push(parentId)
 
       resolve(children); // 将子级数据传递给Cascader组件
     },
@@ -60,26 +65,26 @@ export default {
       this.provinces = response.data.map(item => ({
         value: item.id,
         label: item.name,
-        children: [] // 初始化顶级区域的children为空数组
+        children: [], // 初始化顶级区域的children为空数组
+       
       }));
+      this.cacheData.push(477)
 
-      // 由于懒加载机制，需在数据加载完成后手动触发一次更新，使顶级数据生效
-      this.$nextTick(() => {
-        this.$refs.cascader.resetFields();
-      }); 
+      
     },
+    getAllAddress(){
+    console.log(this.selectedArea)
+    console.log(this.provinces)
+    console.log(this.cacheData)
+  },
   },
   created() {
     this.fetchProvinces(); // 页面加载时触发获取省级数据
   },
-  getAllAddress(){
-    console.log(this.selectedArea)
-  },
+
   mounted() {
-    this.$nextTick(() => {
-      this.$refs.cascader.resetFields();
-    });
+    
   },
-  ref: 'cascader'
+
 };
 </script>
