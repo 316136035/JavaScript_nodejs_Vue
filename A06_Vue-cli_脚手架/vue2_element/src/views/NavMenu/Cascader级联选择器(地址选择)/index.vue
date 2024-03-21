@@ -1,73 +1,54 @@
+<!-- 父组件模板部分 -->
 <template>
-  <el-cascader
-    ref="cascader"
-    :options="areaOptions"
-    :props="{ value: 'id', label: 'name', children: 'children',lazyLoad:'loadAreas'}"
-    lazy
-    lazyLoad="loadAreas"
-    placeholder="请选择地区"
-    v-model="selectedAreas"
-    @change="onAreaChange"
-  ></el-cascader>
+  <div>
+    <!-- 使用 el-cascader 组件，并通过 props 特性传递配置 -->
+    <el-cascader :options="options" :props="props"></el-cascader>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
-
+// 导出父组件
 export default {
+  // 初始化数据状态，这里只包含一个计数器 id
   data() {
     return {
-      areaOptions: [], // 初始地区数据
-      selectedAreas: [], // 当前选中的地区ID
+      options: [],
+      props:{ lazy: true,loadNodes:this.loadNodes}
     };
   },
-  
+
+  // 定义一个方法 loadNodes，用于动态加载级联菜单的数据
   methods: {
-    
-    /**
-     * 加载下级地区的异步方法，与Cascader组件的lazy-load属性配合使用
-     * @param {Object} treeNode - 当前节点信息
-     * @param {Function} callback - 加载完成后的回调函数
-     */
-    async lazyLoad(treeNode, callback) {
-      console.log('加载下级地区：', treeNode);
-      const fid = treeNode.node.fid; // 获取父节点的ID
-      const response = await axios.get(`/getAddress/area/get?fid=${fid}`);
+    loadNodes(node, resolve) {
+      // 获取当前节点的层级信息
+      const { level } = node;
 
-      // 将响应数据转换为Cascader组件所需的格式
-      const subAreas = response.data.children.map(area => ({
-        value: area.id,
-        name: area.name,
-        children: [] // 注意：这里依然需要一个空数组，因为Cascader组件需要知道这是一个有子项的节点
-      }));
-
-      // 调用回调函数，传入子地区数据
-      callback(subAreas);
-    },
-
-    /**
-     * 选择地区发生改变时的处理方法
-     * @param {Array} values - 用户选择的地区ID数组
-     */
-    onAreaChange(values) {
-      console.log('地区选择已变更：', values);
-      // 在这里可以执行其他操作，比如保存选择、进一步请求详细数据等
-    },
-    
-    // 初始化时获取顶级地区数据
-    async fetchTopLevelAreas() {
-      const topLevelResponse = await axios.get('/getAddress/area/get?fid=4744');
-    console.log(topLevelResponse);
-      this.areaOptions = topLevelResponse.data.map(area => ({
-        value: area.id,
-        name: area.name,
-        children :[]
-      }));
-    },
+      // 模拟异步加载数据，延迟 1 秒后执行回调
+      setTimeout(() => {
+        // 根据层级生成虚拟子节点数据
+        const nodes = Array.from({ length: level + 1 })
+          .map(item => ({
+            // 每个节点的值递增 id
+            value: ++this.id,
+            // 节点的标签内容为 "选项" 加上对应的 id
+            label: `选项${this.id}`,
+            // 当层级大于等于2时设置为叶子节点（无子节点）
+            leaf: level >= 2
+          }));
+       
+          console.log(this);
+        // 通过 resolve 函数将加载好的子节点数据返回给 el-cascader 组件
+        resolve(nodes);
+        
+      }, 1000);
+    }
   },
-  
-  async created() {
-    await this.fetchTopLevelAreas();
-  },
+
+  // 定义一个计算属性 cascaderProps，它将用于配置 el-cascader 组件
+  computed: {
+    cascaderProps() {
+    
+    }
+  }
 };
 </script>
